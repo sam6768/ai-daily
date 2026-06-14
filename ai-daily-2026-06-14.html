@@ -117,28 +117,26 @@
       </div>
     </div>
 
-    <!-- Calendar Modal -->
-    <div class="calendar-overlay" id="calOverlay" onclick="closeCalendar(event)">
-      <div class="calendar-modal" onclick="event.stopPropagation()">
-        <div class="calendar-header">
-          <span class="calendar-title">📅 选择日期</span>
-          <button class="calendar-close" onclick="closeCalendar()">&times;</button>
-        </div>
-        <div class="calendar-nav">
-          <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
-          <span class="calendar-nav-month" id="calMonth">2026年6月</span>
-          <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
-        </div>
-        <div class="calendar-grid">
-          <div class="calendar-weekday">日</div><div class="calendar-weekday">一</div><div class="calendar-weekday">二</div>
-          <div class="calendar-weekday">三</div><div class="calendar-weekday">四</div><div class="calendar-weekday">五</div><div class="calendar-weekday">六</div>
-        </div>
-        <div class="calendar-grid" id="calDays"></div>
-        <div class="calendar-info"><span><i class="calendar-dot"></i> 蓝色日期表示有简报</span></div>
+  <!-- Calendar Modal (placed outside container for proper full-screen centering) -->
+  <div class="calendar-overlay" id="calOverlay" onclick="closeCalendar(event)">
+    <div class="calendar-modal" onclick="event.stopPropagation()">
+      <div class="calendar-header">
+        <span class="calendar-title">📅 选择日期</span>
+        <button class="calendar-close" onclick="closeCalendar()">&times;</button>
       </div>
+      <div class="calendar-nav">
+        <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
+        <span class="calendar-nav-month" id="calMonth">2026年6月</span>
+        <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
+      </div>
+      <div class="calendar-grid">
+        <div class="calendar-weekday">日</div><div class="calendar-weekday">一</div><div class="calendar-weekday">二</div>
+        <div class="calendar-weekday">三</div><div class="calendar-weekday">四</div><div class="calendar-weekday">五</div><div class="calendar-weekday">六</div>
+      </div>
+      <div class="calendar-grid" id="calDays"></div>
+      <div class="calendar-info"><span><i class="calendar-dot"></i> 蓝色日期表示有简报</span></div>
     </div>
-
-    <!-- Intro -->
+  </div>
     <div class="intro">
       <p class="intro-text">
         本周AI行业迎来<strong>超级密集周</strong>——智源大会、华为HDC、COMPUTEX 三大盛会同期举行。全球正式从大模型时代迈入<strong>智能体（Agent）时代</strong>，OpenAI秘密递交IPO申请，Apple Siri全面升级为AI Agent，人形机器人价格暴跌至万元以内，物理AI成为全新热点。今天我们聚焦这些关键变化。
