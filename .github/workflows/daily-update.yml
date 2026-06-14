@@ -27,7 +27,7 @@ jobs:
     
     - name: 安装依赖
       run: |
-        pip install feedparser requests
+        pip install requests
     
     - name: 生成每日简报
       env:
