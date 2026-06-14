@@ -1,0 +1,47 @@
+# 三木AI 每日一刻钟 - 每日自动更新
+
+name: 每日AI简报自动生成
+
+on:
+  schedule:
+    # 每天早上 8:00 北京时间（UTC 0:00）
+    - cron: '0 0 * * *'
+  workflow_dispatch:  # 支持手动触发
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+    - name: 检出代码
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    - name: 设置 Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    
+    - name: 安装依赖
+      run: |
+        pip install feedparser requests
+    
+    - name: 生成每日简报
+      env:
+        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        python scripts/generate_daily.py
+    
+    - name: 提交并推送
+      run: |
+        git config user.name "三木AI 自动更新"
+        git config user.email "908863436@qq.com"
+        git add ai-daily-*.html index.html manifest.json || true
+        git commit -m "自动更新：$(date +'%Y-%m-%d') 每日简报" || echo "没有变更需要提交"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
