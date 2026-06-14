@@ -14,6 +14,19 @@
     .header-title {font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:1px;}
     .header-sub {font-size:13px;color:var(--text-muted);margin-top:4px;}
     .header-date {display:inline-block;margin-top:12px;padding:4px 16px;background:var(--accent-blue-light);color:var(--accent-blue);border-radius:20px;font-size:13px;font-weight:500;}
+    /* Nav Bar */
+    .nav-bar {background:var(--card-bg);border-radius:var(--radius);padding:10px 20px;margin-bottom:24px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);}
+    .nav-brand {display:flex;align-items:center;gap:8px;}
+    .nav-logo {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .nav-sub {font-size:11px;color:var(--text-muted);}
+    .nav-center {display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);}
+    .nav-btn {cursor:pointer;background:none;border:none;padding:4px 8px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+    .nav-btn:hover{color:var(--accent-blue);background:var(--accent-blue-light);}
+    .nav-date-text{font-weight:500;color:var(--text-primary);}
+    .nav-right {display:flex;align-items:center;gap:8px;}
+    .nav-calendar-btn {cursor:pointer;display:flex;align-items:center;gap:4px;padding:5px 12px;border-radius:8px;font-size:13px;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;font-weight:500;transition:.2s;}
+    .nav-calendar-btn:hover{opacity:.9;}
+
     .intro {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow);border:1px solid var(--border);}
     .intro-text {font-size:14px;color:var(--text-secondary);line-height:1.8;}
     .quick-tips {background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;color:white;box-shadow:var(--shadow);}
@@ -43,27 +56,288 @@
     .icon-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .icon-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
     .editor-pick {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);border:1px solid var(--border);border-left:3px solid var(--accent-orange);}
-    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;}
+    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
     .editor-pick-content {font-size:13px;color:var(--text-secondary);line-height:1.8;}
     .editor-pick-content p {margin-bottom:8px;}
     .editor-pick-content strong {color:var(--text-primary);font-weight:600;}
     .footer {text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
     .footer-text {font-size:12px;color:var(--text-muted);}
     .footer-brand {font-weight:600;color:var(--text-secondary);}
+    @media(max-width:480px){.container{padding:16px 12px 32px;}.header-title{font-size:19px;}.card{padding:14px 16px;}}
   </style>
 </head>
 <body>
   <div class="container">
+
+    <!-- Header -->
     <div class="header">
       <h1 class="header-title">三木AI 每日一刻钟</h1>
       <p class="header-sub">每天15分钟，读懂AI世界</p>
       <span class="header-date">2026年06月14日 星期日</span>
     </div>
-    
-    <div class="intro">
-      <p class="intro-text">今日简报内容正在整理中，请稍后再试。</p>
+
+    <!-- Nav -->
+    <div class="nav-bar">
+      <div class="nav-brand">
+        <span class="nav-logo">🤖 三木AI</span>
+        <span class="nav-sub">每日一刻钟</span>
+      </div>
+      <div class="nav-center">
+        <button class="nav-btn" onclick="window.location.href='ai-daily-2026-06-13.html'">‹</button>
+        <span class="nav-date-text">2026-06-14</span>
+        <button class="nav-btn" disabled style="opacity:.3" href="#">›</button>
+      </div>
+      <div class="nav-right">
+        <button class="nav-calendar-btn" onclick="alert('历史归档功能开发中')">📅 日历</button>
+      </div>
     </div>
-    
+
+    <!-- Intro -->
+    <div class="intro">
+      <p class="intro-text">
+        本周AI行业迎来<strong>超级密集周</strong>——智源大会、华为HDC、COMPUTEX 三大盛会同期举行。全球正式从大模型时代迈入<strong>智能体（Agent）时代</strong>，OpenAI秘密递交IPO申请，Apple Siri全面升级为AI Agent，人形机器人价格暴跌至万元以内，物理AI成为全新热点。今天我们聚焦这些关键变化。
+      </p>
+    </div>
+
+    <!-- Quick Tips -->
+    <div class="quick-tips">
+      <div class="quick-tips-title">🔥 今日要点速览</div>
+      <ul class="quick-tips-list">
+        <li><strong>OpenAI秘密提交IPO申请</strong>，与Anthropic展开上市竞速，最快今年秋季上市</li>
+        <li>第8届智源大会北京开幕，200+顶尖学者齐聚，<strong>世界模型与具身智能成核心议题</strong></li>
+        <li>华为HDC发布昇腾950DT芯片算力翻倍 + 鸿蒙AI能力全面升级</li>
+        <li>WWDC 2026发布新Siri AI，从语音助手升级为<strong>全生态AI Agent</strong></li>
+        <li>国内人形机器人价格暴跌至万元以内，优必选U1 10天预售近4000台</li>
+      </ul>
+    </div>
+
+    <!-- Section 1: 技术前沿 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-blue">⚡</div>
+        <span class="section-title">技术前沿动态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">模型/硬件</span>
+          <h3 class="card-title">华为HDC 2026：昇腾950DT算力翻倍 + 鸿蒙AI全面升级</h3>
+        </div>
+        <p class="card-summary">华为开发者大会于东莞松山湖举行，发布鸿蒙操作系统全新版本及鸿蒙AI核心能力。昇腾950DT加速卡算力较上一代翻倍，预计8月上线。鸿蒙AI面向Agent智能体时代全面升级，支持端侧推理与跨设备协同。</p>
+        <div class="card-footer">
+          <span class="card-tag">#华为</span>
+          <span class="card-tag">#昇腾</span>
+          <span class="card-tag">#鸿蒙AI</span>
+          <a class="card-link" href="https://aiproducthub.cn/newsflash/huawei-hdc-2026-releases-harmonyos-ai-ascend-950dt-chip/">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">端侧AI</span>
+          <h3 class="card-title">面壁智能：端侧大模型提前达GPT-4级水平</h3>
+        </div>
+        <p class="card-summary">在智源大会上，面壁智能CEO李大海透露端侧大模型智能水平已提前半年达到GPT-4级别。团队展示全栈技术体系与多场景落地成果，并发起智能体与硬件创新孵化计划。</p>
+        <div class="card-footer">
+          <span class="card-tag">#面壁智能</span>
+          <span class="card-tag">#端侧模型</span>
+          <span class="card-tag">#GPT-4</span>
+          <a class="card-link" href="https://aiproducthub.cn/newsflash/bianque-ai-edge-model-reaches-gpt4-level-ahead-of-schedule/">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">世界模型</span>
+          <h3 class="card-title">物理AI成全球热点：英伟达Cosmos 3 + 中科院PAI-WM夺冠</h3>
+        </div>
+        <p class="card-summary">ICRA 2026聚焦具身智能从语义理解到物理执行的跨越。英伟达推出Cosmos 3世界模型，中科院团队PAI-WM在AGIBOT挑战赛"场景一致性"指标中夺冠。"物理AI"正成为行业新方向。</p>
+        <div class="card-footer">
+          <span class="card-tag">#英伟达</span>
+          <span class="card-tag">#世界模型</span>
+          <span class="card-tag">#具身智能</span>
+          <a class="card-link" href="https://aiproducthub.cn/newsflash/physical-ai-becomes-new-global-hotspot-world-model-technology-accelerates/">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: 国内外AI动态 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-purple">🌍</div>
+        <span class="section-title">国内外AI动态</span>
+        <span class="section-count">4条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">行业大会</span>
+          <h3 class="card-title">第8届智源大会开幕：200+顶尖专家聚首北京中关村</h3>
+        </div>
+        <p class="card-summary">6月12-13日，第八届北京智源大会在中关村国际创新中心举行。汇聚图灵奖得主Whitfield Diffie、Andrew Barto等200余位顶尖学者，Meta、英伟达、阿里、腾讯等40余家AI企业CEO参会。25场专题论坛覆盖Agent、世界模型、具身智能、AI安全。</p>
+        <div class="card-footer">
+          <span class="card-tag">#智源大会</span>
+          <span class="card-tag">#Agent</span>
+          <span class="card-tag">#AI安全</span>
+          <a class="card-link" href="https://news.qq.com/rain/a/20260612A07W2L00">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">企业动态</span>
+          <h3 class="card-title">阿里巴巴紧急辟谣：首席科学家周靖人离职系谣言</h3>
+        </div>
+        <p class="card-summary">针对网络流传的"阿里巴巴首席科学家周靖人离职"消息，阿里紧急回应称纯属谣言并呼吁停止传播不实信息。周靖人是阿里AI技术核心人物，其职业稳定性备受市场关注。</p>
+        <div class="card-footer">
+          <span class="card-tag">#阿里巴巴</span>
+          <span class="card-tag">#辟谣</span>
+          <a class="card-link" href="https://aiproducthub.cn/newsflash/alibaba-denies-rumor-chief-scientist-zhou-jingren-resignation/">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">内部管理</span>
+          <h3 class="card-title">Meta强制抽调员工组建AI团队，内部矛盾激化</h3>
+        </div>
+        <p class="card-summary">据《连线》报道，Meta因强制抽调员工组建AI团队引发内部强烈不满。一场线上直播中，有员工情绪失控当众斥责AI部门高管，暴露科技巨头AI军备竞赛中的人才管理困境。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Meta</span>
+          <span class="card-tag">#人才管理</span>
+          <a class="card-link" href="https://aiproducthub.cn/newsflash/meta-forces-employee-transfer-to-ai-team-internal-conflicts-intensify/">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">机器人</span>
+          <h3 class="card-title">优必选U1人形机器人10天预售近4000台，伴侣概念引爆市场</h3>
+        </div>
+        <p class="card-summary">优必选首款全尺寸超仿生人形机器人U1系列开启预售后，10天内订单接近4000台。搭载"养成系"情感大模型，主打机器人伴侣概念，仅限成人购买，预计6月30日正式上市。</p>
+        <div class="card-footer">
+          <span class="card-tag">#优必选</span>
+          <span class="card-tag">#人形机器人</span>
+          <span class="card-tag">#消费电子</span>
+          <a class="card-link" href="https://aiproducthub.cn/newsflash/ubtech-u1-humanoid-robot-presale-nearly-4000-units-in-10-days/">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: 投资与商业 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-green">💰</div>
+        <span class="section-title">投资与商业</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">IPO</span>
+          <h3 class="card-title">OpenAI秘密递交IPO申请，与Anthropic展开上市竞速</h3>
+        </div>
+        <p class="card-summary">OpenAI已向SEC秘密递交IPO文件，与高盛和摩根士丹利合作，计划最快今年秋季上市。GPT-5.5持续扩大企业市场份额，Jony Ive AI硬件团队并入，OpenAI正从模型公司向"AI平台+硬件生态"升级。Anthropic也在紧锣密鼓筹备IPO。</p>
+        <div class="card-footer">
+          <span class="card-tag">#OpenAI</span>
+          <span class="card-tag">#IPO</span>
+          <span class="card-tag">#Anthropic</span>
+          <a class="card-link" href="https://news.qq.com/rain/a/20260609A01GVD00">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">融资</span>
+          <h3 class="card-title">"具身之家"获蓝思科技天使轮投资，深耕具身智能服务</h3>
+        </div>
+        <p class="card-summary">国内首个聚焦全产业链的具身机器人聚合信息平台"具身之家"完成天使轮融资，投资方为制造业龙头蓝思科技家办。融资将用于完善具身智能全域服务生态体系。</p>
+        <div class="card-footer">
+          <span class="card-tag">#融资</span>
+          <span class="card-tag">#具身智能</span>
+          <span class="card-tag">#蓝思科技</span>
+          <a class="card-link" href="https://aiproducthub.cn/newsflash/first-domestic-embodied-robot-platform-gets-angel-investment/">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">消费市场</span>
+          <h3 class="card-title">人形机器人价格暴跌至万元以内，消费级市场爆发</h3>
+        </div>
+        <p class="card-summary">国内人形机器人价格迎来暴跌潮，部分型号叠加补贴后到手价约9400元，从数十万降至万元以内。产业链成熟与规模化量产是根本驱动力，消费级人形机器人市场正式爆发。</p>
+        <div class="card-footer">
+          <span class="card-tag">#降价</span>
+          <span class="card-tag">#消费级</span>
+          <span class="card-tag">#量产</span>
+          <a class="card-link" href="https://aiproducthub.cn/newsflash/humanoid-robot-price-crashes-below-ten-thousand-yuan/">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4: 政策与行业生态 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-orange">🏛️</div>
+        <span class="section-title">政策与行业生态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">政策</span>
+          <h3 class="card-title">工信部国资委启动人形机器人专项行动：万台级落地目标</h3>
+        </div>
+        <p class="card-summary">两部委正式启动2026年度人形机器人与具身智能实景实训专项行动，提出年底前实现万台级人形机器人在工厂场景落地的目标。同步发布《人工智能+信息通信创新发展实施意见》。</p>
+        <div class="card-footer">
+          <span class="card-tag">#工信部</span>
+          <span class="card-tag">#人形机器人</span>
+          <span class="card-tag">#政策</span>
+          <a class="card-link" href="https://aiproducthub.cn/newsflash/miit-sasac-launch-2026-humanoid-robot-embodied-intelligence-training-action/">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">产品</span>
+          <h3 class="card-title">Apple WWDC 2026：Siri AI 全面升级为AI Agent</h3>
+        </div>
+        <p class="card-summary">苹果发布全新Siri AI，正式进入Agent时代。可理解屏幕内容、跨应用执行任务、调用个人数据、基于上下文完成复杂操作。核心变化：语音助手→AI Agent，深度整合25亿设备生态。直接挑战ChatGPT免费版使用场景。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Apple</span>
+          <span class="card-tag">#Siri AI</span>
+          <span class="card-tag">#Agent</span>
+          <a class="card-link" href="https://www.sohu.com/a/1035494223_584838">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">算力基建</span>
+          <h3 class="card-title">全国一体化算力网加速铺展，词元日均调用增超1400倍</h3>
+        </div>
+        <p class="card-summary">全国一体化算力网建设加快推进，词元日均调用量两年间增长超1400倍。"东数西算"八大枢纽节点中西部占5席，清洁能源带来更低成本。算力正逐步成为如水、电一般的普惠资源。</p>
+        <div class="card-footer">
+          <span class="card-tag">#算力网</span>
+          <span class="card-tag">#东数西算</span>
+          <span class="card-tag">#基础设施</span>
+          <a class="card-link" href="https://aiproducthub.cn/newsflash/national-integrated-computing-network-expands-token-usage-grows-1400-times/">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Editor Pick -->
+    <div class="editor-pick">
+      <div class="editor-pick-title">✍️ 编辑精选 · 深度观点</div>
+      <div class="editor-pick-content">
+        <p>本周是AI行业的<strong>"超级密集周"</strong>——智源大会、华为HDC、COMPUTEX三大盛会同期，释放出同一个强烈信号：<strong>全球AI已从大模型竞赛全面转向Agent智能体时代</strong>。</p>
+        <p>OpenAI和Anthropic的IPO竞速说明资本市场对AI赛道的信心仍在升温，但Meta的内部冲突也提醒我们：人才和组织管理正在成为巨头们的新战场。值得关注的是人形机器人价格的断崖式下跌——从几十万到一万以下，这意味着消费级机器人市场可能比预期更快到来。</p>
+        <p><strong>一句话总结：</strong>技术层面Agent化加速，商业层面IPO潮涌动，产品层面机器人进入家庭——2026年下半年的AI叙事已经清晰。</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
     <div class="footer">
       <p class="footer-text"><span class="footer-brand">三木AI 每日一刻钟</span> · 每天15分钟，读懂AI世界</p>
       <p class="footer-text">2026年06月14日 星期日</p>
