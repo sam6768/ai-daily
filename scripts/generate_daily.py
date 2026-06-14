@@ -30,7 +30,7 @@ def call_gemini(prompt):
         log('❌ 未设置 GEMINI_API_KEY')
         return None
     
-    url = f'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={GEMINI_API_KEY}'
+    url = f'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={GEMINI_API_KEY}'
     headers = {'Content-Type': 'application/json'}
     data = {
         'contents': [{'parts': [{'text': prompt}]}],
