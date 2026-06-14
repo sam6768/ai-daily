@@ -35,7 +35,7 @@ def call_openrouter(prompt):
         'Authorization': f'Bearer {OPENROUTER_API_KEY}',
         'Content-Type': 'application/json',
         'HTTP-Referer': 'https://ai.18kr.cn/',
-        'X-Title': '三木AI 每日一刻钟'
+        'X-Title': 'Sanmu AI Daily'
     }
     data = {
         'model': 'google/gemini-2.5-flash',
