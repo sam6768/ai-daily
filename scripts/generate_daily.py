@@ -11,7 +11,7 @@ from datetime import datetime
 import base64
 
 # ============ 配置 ============
-GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY', '')
+OPENROUTER_API_KEY = os.environ.get('OPENROUTER_API_KEY', '')
 GITHUB_TOKEN = os.environ.get('GITHUB_TOKEN', '')
 REPO_NAME = 'sam6768/ai-daily'
 TODAY = datetime.now()
@@ -24,38 +24,45 @@ def log(msg):
     with open('generate.log', 'a', encoding='utf-8') as f:
         f.write(f'{datetime.now().isoformat()} {msg}\n')
 
-def call_gemini(prompt):
-    """调用 Gemini API"""
-    if not GEMINI_API_KEY:
-        log('❌ 未设置 GEMINI_API_KEY')
+def call_openrouter(prompt):
+    """调用 OpenRouter API"""
+    if not OPENROUTER_API_KEY:
+        log('❌ 未设置 OPENROUTER_API_KEY')
         return None
     
-    url = f'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={GEMINI_API_KEY}'
-    headers = {'Content-Type': 'application/json'}
+    url = 'https://openrouter.ai/api/v1/chat/completions'
+    headers = {
+        'Authorization': f'Bearer {OPENROUTER_API_KEY}',
+        'Content-Type': 'application/json',
+        'HTTP-Referer': 'https://ai.18kr.cn/',
+        'X-Title': '三木AI 每日一刻钟'
+    }
     data = {
-        'contents': [{'parts': [{'text': prompt}]}],
-        'generationConfig': {'temperature': 0.3, 'maxOutputTokens': 8192}
+        'model': 'google/gemini-2.5-flash',
+        'messages': [{'role': 'user', 'content': prompt}],
+        'temperature': 0.3,
+        'max_tokens': 8192
     }
     
     try:
-        log(f'调用 Gemini API...')
-        resp = requests.post(url, headers=headers, json=data, timeout=60)
-        log(f'Gemini API 状态: {resp.status_code}')
+        log(f'调用 OpenRouter API...')
+        resp = requests.post(url, headers=headers, json=data, timeout=120)
+        log(f'OpenRouter API 状态: {resp.status_code}')
         
         if resp.status_code == 200:
             result = resp.json()
-            if 'candidates' in result and result['candidates']:
-                text = result['candidates'][0]['content']['parts'][0]['text']
-                log(f'✅ Gemini 返回成功，长度: {len(text)}')
+            if 'choices' in result and result['choices']:
+                text = result['choices'][0]['message']['content']
+                log(f'✅ OpenRouter 返回成功，长度: {len(text)}')
                 return text
             else:
-                log(f'⚠️ Gemini 返回空结果: {json.dumps(result)[:500]}')
+                log(f'⚠️ OpenRouter 返回空结果: {json.dumps(result)[:500]}')
                 return None
         else:
-            log(f'❌ Gemini API 错误: {resp.status_code} {resp.text[:500]}')
+            log(f'❌ OpenRouter API 错误: {resp.status_code} {resp.text[:500]}')
             return None
     except Exception as e:
-        log(f'❌ 调用 Gemini 异常: {e}')
+        log(f'❌ 调用 OpenRouter 异常: {e}')
         return None
 
 def generate_html_with_ai(today_str, today_display):
@@ -155,7 +162,7 @@ def generate_html_with_ai(today_str, today_display):
 只输出完整的 HTML 代码。不要添加 markdown 代码块标记（如 ```html），直接输出纯 HTML 文本。
 """
     
-    html = call_gemini(prompt)
+    html = call_openrouter(prompt)
     
     # 清理可能的 markdown 代码块
     if html:
@@ -363,14 +370,14 @@ def update_github_files(html_content, today_str):
 def main():
     log(f'=== 三木AI 每日一刻钟 自动生成 ===')
     log(f'日期: {TODAY_DISPLAY}')
-    log(f'API Key: {"已设置" if GEMINI_API_KEY else "未设置"}')
+    log(f'API Key: {"已设置" if OPENROUTER_API_KEY else "未设置"}')
     log(f'GitHub Token: {"已设置" if GITHUB_TOKEN else "未设置"}')
     
     # 尝试使用 AI 生成
     html_content = None
     
-    if GEMINI_API_KEY:
-        log('尝试调用 Gemini API 生成简报...')
+    if OPENROUTER_API_KEY:
+        log('尝试调用 OpenRouter API 生成简报...')
         html_content = generate_html_with_ai(TODAY_STR, TODAY_DISPLAY)
     else:
         log('未设置 API Key，跳过 AI 生成')
