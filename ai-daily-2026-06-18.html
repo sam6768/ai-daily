@@ -14,19 +14,6 @@
     .header-title {font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:1px;}
     .header-sub {font-size:13px;color:var(--text-muted);margin-top:4px;}
     .header-date {display:inline-block;margin-top:12px;padding:4px 16px;background:var(--accent-blue-light);color:var(--accent-blue);border-radius:20px;font-size:13px;font-weight:500;}
-    /* Nav Bar */
-    .nav-bar {background:var(--card-bg);border-radius:var(--radius);padding:10px 20px;margin-bottom:24px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);}
-    .nav-brand {display:flex;align-items:center;gap:8px;}
-    .nav-logo {font-size:15px;font-weight:600;color:var(--text-primary);}
-    .nav-sub {font-size:11px;color:var(--text-muted);}
-    .nav-center {display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);}
-    .nav-btn {cursor:pointer;background:none;border:none;padding:4px 8px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
-    .nav-btn:hover{color:var(--accent-blue);background:var(--accent-blue-light);}
-    .nav-date-text{font-weight:500;color:var(--text-primary);}
-    .nav-right {display:flex;align-items:center;gap:8px;}
-    .nav-calendar-btn {cursor:pointer;display:flex;align-items:center;gap:4px;padding:5px 12px;border-radius:8px;font-size:13px;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;font-weight:500;transition:.2s;}
-    .nav-calendar-btn:hover{opacity:.9;}
-
     .intro {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow);border:1px solid var(--border);}
     .intro-text {font-size:14px;color:var(--text-secondary);line-height:1.8;}
     .quick-tips {background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;color:white;box-shadow:var(--shadow);}
@@ -51,406 +38,36 @@
     .badge-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .badge-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .badge-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
-    .badge-green {background:var(--accent-green-light);color:var(--accent-green);}
     .icon-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
     .icon-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .icon-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .icon-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
-    .icon-green {background:var(--accent-green-light);color:var(--accent-green);}
     .editor-pick {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);border:1px solid var(--border);border-left:3px solid var(--accent-orange);}
-    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;}
     .editor-pick-content {font-size:13px;color:var(--text-secondary);line-height:1.8;}
     .editor-pick-content p {margin-bottom:8px;}
     .editor-pick-content strong {color:var(--text-primary);font-weight:600;}
     .footer {text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
     .footer-text {font-size:12px;color:var(--text-muted);}
     .footer-brand {font-weight:600;color:var(--text-secondary);}
-    /* Calendar Modal */
-    .calendar-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:999;display:none;align-items:flex-start;justify-content:flex-end;padding-top:110px;padding-right:16px;}
-    .calendar-overlay.active {display:flex;}
-    .calendar-modal {background:var(--card-bg);border-radius:var(--radius);width:92%;max-width:360px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);animation:calIn .25s ease-out;}
-    @keyframes calIn {from{opacity:0;transform:translateY(20px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);}}
-    .calendar-header {display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
-    .calendar-title {font-size:15px;font-weight:600;color:var(--text-primary);}
-    .calendar-close {cursor:pointer;background:none;border:none;padding:4px;border-radius:6px;font-size:18px;color:var(--text-muted);transition:.2s;line-height:1;}
-    .calendar-close:hover {background:var(--border-light);color:var(--text-primary);}
-    .calendar-nav {display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px;}
-    .calendar-nav-btn {cursor:pointer;background:none;border:none;padding:4px 10px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
-    .calendar-nav-btn:hover{background:var(--accent-blue-light);color:var(--accent-blue);}
-    .calendar-nav-month {font-size:14px;font-weight:600;color:var(--text-primary);min-width:100px;text-align:center;}
-    .calendar-grid {display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;}
-    .calendar-weekday {text-align:center;font-size:11px;color:var(--text-muted);padding:6px 0;font-weight:500;}
-    .calendar-day {aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:13px;cursor:pointer;transition:.15s;border:none;background:none;color:var(--text-primary);position:relative;}
-    .calendar-day:hover:not(:disabled) {background:var(--accent-blue-light);color:var(--accent-blue);}
-    .calendar-day.other-month {color:var(--text-muted);opacity:.5;}
-    .calendar-day.available {font-weight:600;color:var(--accent-blue);background:var(--accent-blue-light);}
-    .calendar-day.available:hover {background:var(--accent-blue);color:#fff;}
-    .calendar-day.today {box-shadow:inset 0 0 0 1.5px var(--accent-blue);}
-    .calendar-day:disabled {cursor:default;color:var(--border);}
-    .calendar-info {text-align:center;font-size:12px;color:var(--text-muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light);}
-    .calendar-info span {display:inline-flex;align-items:center;gap:4px;}
-    .calendar-dot {width:6px;height:6px;border-radius:50%;background:var(--accent-blue);display:inline-block;}
-    @media(max-width:480px){.container{padding:16px 12px 32px;}.header-title{font-size:19px;}.card{padding:14px 16px;}.calendar-overlay{padding-top:100px;justify-content:center;padding-right:0;}.calendar-modal{padding:16px;}}
   </style>
 </head>
 <body>
   <div class="container">
-
-    <!-- Header -->
     <div class="header">
       <h1 class="header-title">三木AI 每日一刻钟</h1>
       <p class="header-sub">每天15分钟，读懂AI世界</p>
       <span class="header-date">2026年06月18日 星期四</span>
     </div>
-
-    <!-- Nav -->
-    <div class="nav-bar">
-      <div class="nav-brand">
-        <span class="nav-logo">🤖 三木AI</span>
-        <span class="nav-sub">每日一刻钟</span>
-      </div>
-      <div class="nav-center">
-        <button class="nav-btn" onclick="window.location.href='ai-daily-2026-06-17.html'">‹</button>
-        <span class="nav-date-text">2026-06-18</span>
-        <button class="nav-btn" disabled style="opacity:.3" href="#">›</button>
-      </div>
-      <div class="nav-right">
-        <button class="nav-calendar-btn" onclick="openCalendar()">📅 日历</button>
-      </div>
-    </div>
-
-    <!-- Calendar Modal -->
-    <div class="calendar-overlay" id="calOverlay" onclick="closeCalendar(event)">
-      <div class="calendar-modal" onclick="event.stopPropagation()">
-        <div class="calendar-header">
-          <span class="calendar-title">📅 选择日期</span>
-          <button class="calendar-close" onclick="closeCalendar()">&times;</button>
-        </div>
-        <div class="calendar-nav">
-          <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
-          <span class="calendar-nav-month" id="calMonth">2026年6月</span>
-          <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
-        </div>
-        <div class="calendar-grid">
-          <div class="calendar-weekday">日</div><div class="calendar-weekday">一</div><div class="calendar-weekday">二</div>
-          <div class="calendar-weekday">三</div><div class="calendar-weekday">四</div><div class="calendar-weekday">五</div><div class="calendar-weekday">六</div>
-        </div>
-        <div class="calendar-grid" id="calDays"></div>
-        <div class="calendar-info"><span><i class="calendar-dot"></i> 蓝色日期表示有简报</span></div>
-      </div>
-    </div>
-
-    <!-- Intro -->
+    
     <div class="intro">
-      <p class="intro-text">
-        今天的AI世界同时上演三场大戏：<strong>SpaceX 600亿美元吞并Cursor</strong>创下AI工具并购纪录；<strong>ChatGPT市场份额首次跌破50%</strong>，AI助手告别一家独大；<strong>G7峰会AI三巨头首度同台</strong>、联合国日内瓦AI安全大会今日开幕，全球AI治理加速进入"国家间协商"时代。与此同时，<strong>Anthropic最强模型遭美国出口管制强制下架</strong>——AI正式被当作国家安全资产管理。
-      </p>
+      <p class="intro-text">今日简报内容正在整理中，请稍后再试。</p>
     </div>
-
-    <!-- Quick Tips -->
-    <div class="quick-tips">
-      <div class="quick-tips-title">🔥 今日要点速览</div>
-      <ul class="quick-tips-list">
-        <li>SpaceX 600亿美元全股票收购Cursor，AI编程赛道迎来史上最大并购</li>
-        <li>ChatGPT全球市场份额首次跌破50%至46.4%，Gemini 27.7%/Claude 10.3%加速追赶</li>
-        <li>G7峰会AI三巨头首次同台，OpenAI/Google/Anthropic CEO齐聚法国呼吁AI治理</li>
-        <li>陆家嘴论坛：科创板第五套标准扩大至AI大模型企业，支持AI公司上市</li>
-        <li>联合国日内瓦AI安全与伦理大会今日开幕，全球AI治理进入关键期</li>
-      </ul>
-    </div>
-
-    <!-- Section 1: 技术前沿 -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-blue">⚡</div>
-        <span class="section-title">技术前沿动态</span>
-        <span class="section-count">3条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-blue">市场格局</span>
-          <h3 class="card-title">Sensor Tower报告：ChatGPT全球市场份额首次跌破50%，Gemini/Claude加速追赶</h3>
-        </div>
-        <p class="card-summary">据Sensor Tower最新《2026年AI现状报告》，ChatGPT全球MAU份额已从1月的超50%降至5月底的46.4%，史上首次跌破50%。Google Gemini升至27.7%（6.62亿月活），Anthropic Claude达10.3%（2.45亿月活）。三者合计占据AI助手使用时长的89%。2026上半年AI应用下载量预计近30亿，用户支出42亿美元同比增长130%。</p>
-        <div class="card-footer">
-          <span class="card-tag">#ChatGPT</span>
-          <span class="card-tag">#市场份额</span>
-          <span class="card-tag">#Gemini</span>
-          <a class="card-link" href="https://readhub.cn/topic/8u0qcCVNjFY">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-blue">AI并购</span>
-          <h3 class="card-title">SpaceX 600亿美元全股票收购Cursor，AI编程赛道史上最大并购</h3>
-        </div>
-        <p class="card-summary">6月16日，SpaceX宣布以全股票交易方式收购AI编程工具Cursor开发商Anysphere，隐含估值600亿美元。这是AI工具领域史上最大并购交易。此前SpaceX刚完成纳斯达克IPO，估值突破2万亿美元。据悉SpaceX AI已与Cursor联合训练新模型，将在Cursor和Grok Build中发布。交易预计2026年Q3完成，仍需监管批准。</p>
-        <div class="card-footer">
-          <span class="card-tag">#SpaceX</span>
-          <span class="card-tag">#Cursor</span>
-          <span class="card-tag">#AI编程</span>
-          <a class="card-link" href="https://finance.sina.com.cn/stock/usstock/c/2026-06-16/doc-inicrcpk9421731.shtml">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-blue">模型管制</span>
-          <h3 class="card-title">Anthropic最强模型Fable 5/Mythos 5上线仅四天遭美国出口管制强制下架</h3>
-        </div>
-        <p class="card-summary">6月12日，美国商务部长卢特尼克致函Anthropic CEO，将Fable 5和Mythos 5列入出口管制范围，限制对象涵盖美国境外所有机构和个人、境内所有外籍人士，甚至包括Anthropic的外籍雇员。Anthropic被迫紧急暂停两款模型全球访问权限。这是AI模型首次被美国政府以国家安全为由实施全面出口管制，标志着AI正式从商业产品升级为国家安全资产。</p>
-        <div class="card-footer">
-          <span class="card-tag">#Anthropic</span>
-          <span class="card-tag">#出口管制</span>
-          <span class="card-tag">#Fable5</span>
-          <a class="card-link" href="https://www.sohu.com/a/1036072209_130887">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Section 2: 国内外AI动态 -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-purple">🌍</div>
-        <span class="section-title">国内外AI动态</span>
-        <span class="section-count">3条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">全球治理</span>
-          <h3 class="card-title">G7峰会AI三巨头首次同台，OpenAI/Google/Anthropic CEO齐聚法国</h3>
-        </div>
-        <p class="card-summary">6月15-17日，法国埃维昂G7峰会首次同时迎来OpenAI、Google DeepMind、Anthropic三大AI公司CEO同台出席。Anthropic CEO Dario Amodei和Google DeepMind CEO Demis Hassabis在闭门午餐会上呼吁建立美国主导的AI规则与标准联盟。三方此前联名致信美国国会呼吁加强AI生物安全威胁监管，罕见展现政策立场一致性。AI监管从"行业自律"正式进入"国家间协商"新阶段。</p>
-        <div class="card-footer">
-          <span class="card-tag">#G7</span>
-          <span class="card-tag">#AI治理</span>
-          <span class="card-tag">#三巨头</span>
-          <a class="card-link" href="https://blog.csdn.net/xyghehehehe/article/details/162013979">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">数字主权</span>
-          <h3 class="card-title">法国将为公职人员配备"主权可控"AI工具，避免依赖外国技术</h3>
-        </div>
-        <p class="card-summary">法国总理勒科尔尼6月16日宣布，法国将为公职人员配备一个"主权可控"的对话式AI助手，避免依赖外国技术工具，确保国家数据得到保护。该项目由法国政府跨部门数字事务管理局主导实施。这是欧洲AI数字主权战略的最新落子，在美国对AI模型实施出口管制的背景下更具战略意义。</p>
-        <div class="card-footer">
-          <span class="card-tag">#法国</span>
-          <span class="card-tag">#数字主权</span>
-          <span class="card-tag">#AI工具</span>
-          <a class="card-link" href="https://www.news.cn/20260617/9566868b0fc742698396b3271edc0a0f/c.html">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">收入逆袭</span>
-          <h3 class="card-title">Anthropic企业收入反超OpenAI：年化收入突破300亿，Claude Code十个月25亿</h3>
-        </div>
-        <p class="card-summary">截至2026年4月，Anthropic年化收入（ARR）突破300亿美元，首次超越OpenAI同期约240-250亿美元。Claude Code单一产品线从零到25亿美元年化收入仅用10个月，目前占据AI编程市场核心份额。Anthropic企业客户年消费超百万美元的从2月500家增至超1000家。从被OpenAI联合创始人带出来的"实验室小弟"，到四年完成收入逆袭，AI行业权力格局正在重写。</p>
-        <div class="card-footer">
-          <span class="card-tag">#Anthropic</span>
-          <span class="card-tag">#收入反超</span>
-          <span class="card-tag">#Claude Code</span>
-          <a class="card-link" href="https://www.tmtpost.com/agent/ai-article?id=18250">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Section 3: 投资与商业 -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-green">💰</div>
-        <span class="section-title">投资与商业</span>
-        <span class="section-count">3条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-green">资本市场</span>
-          <h3 class="card-title">陆家嘴论坛重磅：科创板第五套标准扩大至AI大模型企业</h3>
-        </div>
-        <p class="card-summary">6月17日陆家嘴论坛上，证监会主席吴清宣布科创板即将推出两项改革：一是扩大第五套标准适用范围到人工智能大模型企业，积极支持AI企业上市；二是支持量子科技、生物制造等更多"硬科技"企业来科创板上市。同时将适时发布规范资本市场人工智能的指导意见，加快培育壮大耐心资本，引导养老金等加大股权投资。A股科技板块市值占比持续提升。</p>
-        <div class="card-footer">
-          <span class="card-tag">#科创板</span>
-          <span class="card-tag">#AI企业上市</span>
-          <span class="card-tag">#陆家嘴论坛</span>
-          <a class="card-link" href="https://news.qq.com/rain/a/20260617A057X000">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-green">IPO</span>
-          <h3 class="card-title">宇树科技科创板IPO过会，73天创预先审阅机制最快纪录，估值约420亿</h3>
-        </div>
-        <p class="card-summary">6月1日，宇树科技科创板IPO正式过会，从3月20日申请获受理到过会仅用时73天，创下科创板"预先审阅"机制落地以来最快审核纪录。公司拟募资42.02亿元，估值约420亿元。宇树科技是全球领先的高性能通用人形/四足机器人公司，2025年全球人形机器人出货量居行业前列。这是人形机器人赛道首个过会的A股IPO。</p>
-        <div class="card-footer">
-          <span class="card-tag">#宇树科技</span>
-          <span class="card-tag">#科创板</span>
-          <span class="card-tag">#人形机器人</span>
-          <a class="card-link" href="https://baijiahao.baidu.com/s?id=1866808862963442271&wfr=spider&for=pc">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-green">全球融资</span>
-          <h3 class="card-title">德国Neura Robotics 14亿美元C轮融资，英伟达亚马逊Tether联手注投</h3>
-        </div>
-        <p class="card-summary">6月10日，德国人形机器人公司Neura Robotics宣布完成C轮融资，总额最高14亿美元，投后估值70亿美元，创全球全栈机器人企业单笔融资纪录。领投方为稳定币发行商Tether，跟投方包括英伟达、亚马逊、高通、博世、舍弗勒等横跨AI芯片、云计算、制造业的全球巨头。资金将加速Neuraverse平台和NEURA Gyms全球部署，目标2030年前实现数百万台机器人生产。</p>
-        <div class="card-footer">
-          <span class="card-tag">#Neura Robotics</span>
-          <span class="card-tag">#14亿美元</span>
-          <span class="card-tag">#英伟达</span>
-          <a class="card-link" href="https://www.sohu.com/a/1037149029_122316445">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Section 4: 政策与行业生态 -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-orange">🏛️</div>
-        <span class="section-title">政策与行业生态</span>
-        <span class="section-count">3条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-orange">全球大会</span>
-          <h3 class="card-title">联合国日内瓦AI安全与伦理大会今日开幕，全球AI治理进入关键期</h3>
-        </div>
-        <p class="card-summary">6月18-19日，2026全球人工智能、安全与伦理大会在联合国日内瓦万国宫举行，汇聚各国外交官、政策制定者、学术界和产业界代表，聚焦AI对国际和平与安全的影响。大会围绕"安全筑基、伦理护航、协同共治、普惠共赢"主题，推动AI从开发阶段进入部署阶段的治理框架建设。与G7峰会AI议题形成呼应，全球AI治理正加速从理念走向制度。</p>
-        <div class="card-footer">
-          <span class="card-tag">#联合国</span>
-          <span class="card-tag">#AI安全</span>
-          <span class="card-tag">#日内瓦</span>
-          <a class="card-link" href="https://indico.un.org/event/1023183/overview">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-orange">出口管制</span>
-          <h3 class="card-title">AI模型=国安资产：美国商务部对Anthropic最强模型实施出口管制</h3>
-        </div>
-        <p class="card-summary">美国商务部对Anthropic Fable 5和Mythos 5实施出口管制，覆盖范围史无前例：不仅针对境外用户，还包括美国境内所有外籍人士，甚至Anthropic的外籍员工也不许使用。这意味着AI模型不再只是软件产品，正被当作国家安全资产管理。此举引发行业震动——如果最先进的AI模型随时可能被管制下架，全球AI产业的部署和商业化将面临全新不确定性。</p>
-        <div class="card-footer">
-          <span class="card-tag">#出口管制</span>
-          <span class="card-tag">#国安资产</span>
-          <span class="card-tag">#AI监管</span>
-          <a class="card-link" href="https://news.qq.com/rain/a/20260613A027PT00">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-orange">跨国协调</span>
-          <h3 class="card-title">G7声明草案呼吁加强AI跨国监管协调，AI与金融安全成重点议题</h3>
-        </div>
-        <p class="card-summary">G7峰会声明草案对AI领域着墨颇多，呼吁各国加强跨国监管协调合作，尤其关注AI对金融体系带来的新机遇与潜在风险。同时，美国政府近期一系列针对AI行业的强硬举措——包括动用特殊权力迫使AI开发商处理安全漏洞、对模型实施出口管制——显示AI已从技术议题升级为地缘政治核心变量。Anthropic和Google DeepMind CEO在闭门会上共同呼吁建立美国主导的AI联盟，全球AI监管框架正加速成型。</p>
-        <div class="card-footer">
-          <span class="card-tag">#G7声明</span>
-          <span class="card-tag">#跨国监管</span>
-          <span class="card-tag">#金融安全</span>
-          <a class="card-link" href="https://blog.csdn.net/xlb8888888/article/details/162039775">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Editor Pick -->
-    <div class="editor-pick">
-      <div class="editor-pick-title">✍️ 编辑精选 · 深度观点</div>
-      <div class="editor-pick-content">
-        <p>今天的AI世界同时上演三场大戏：<strong>资本、管制、治理</strong>。</p>
-        <p>SpaceX以600亿美元收购Cursor，标志着AI编程赛道进入"巨头吞并"阶段——当航天巨头都要靠收购AI工具来构建企业AI版图时，竞争维度已从"模型参数"升级到"产业生态位"。ChatGPT份额首次跌破50%，从90%高点到如今46.4%，OpenAI护城河正被Gemini和Claude蚕食，AI助手正式告别一家独大。</p>
-        <p>管制层面，美国对Anthropic最强模型实施出口管制，连自家外籍员工都不许用——<strong>AI模型不再是商业产品，而是国家安全资产</strong>。G7三巨头CEO同台呼吁AI治理，联合国日内瓦AI安全大会今日开幕，全球AI监管从"行业自律"加速走向"国家间协商"。</p>
-        <p><strong>一句话总结：</strong>当AI模型被当作武器管制、当AI公司被当作金融资产定价、当AI治理被当作地缘博弈筹码——AI已不再是技术议题，而是这个时代最核心的地缘经济变量。</p>
-      </div>
-    </div>
-
-    <!-- Footer -->
+    
     <div class="footer">
       <p class="footer-text"><span class="footer-brand">三木AI 每日一刻钟</span> · 每天15分钟，读懂AI世界</p>
-      <p class="footer-text">2026年06月18日 星期四 · 共收录资讯 12 条</p>
+      <p class="footer-text">2026年06月18日 星期四</p>
     </div>
   </div>
-  <script>
-  (function() {
-    var availableDates = [];
-    var calYear = 2026, calMonth = 5;
-
-    fetch('manifest.json?t=' + Date.now())
-      .then(function(r){return r.json();})
-      .then(function(data){
-        availableDates = data.dates || [];
-        renderCalendar();
-      })
-      .catch(function(){
-        availableDates = ['2026-06-18','2026-06-17','2026-06-16','2026-06-15','2026-06-14'];
-        renderCalendar();
-      });
-
-    window.openCalendar = function() {
-      document.getElementById('calOverlay').classList.add('active');
-      renderCalendar();
-    };
-    window.closeCalendar = function(e) {
-      if (!e || e.target.id === 'calOverlay') {
-        document.getElementById('calOverlay').classList.remove('active');
-      }
-    };
-    window.changeMonth = function(delta) {
-      calMonth += delta;
-      if (calMonth > 11) { calMonth = 0; calYear++; }
-      if (calMonth < 0) { calMonth = 11; calYear--; }
-      renderCalendar();
-    };
-    window.goToDate = function(dateStr) {
-      if (dateStr === '2026-06-18') {
-        window.location.href = 'index.html';
-      } else {
-        window.location.href = 'ai-daily-' + dateStr + '.html';
-      }
-    };
-
-    function renderCalendar() {
-      var monthNames = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
-      document.getElementById('calMonth').textContent = calYear + '年' + monthNames[calMonth];
-      var firstDay = new Date(calYear, calMonth, 1).getDay();
-      var daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
-      var prevDays = new Date(calYear, calMonth, 0).getDate();
-      var html = '';
-      for (var i = firstDay - 1; i >= 0; i--) {
-        html += '<button class="calendar-day other-month" disabled>' + (prevDays - i) + '</button>';
-      }
-      for (var d = 1; d <= daysInMonth; d++) {
-        var ds = calYear + '-' + String(calMonth + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
-        var cls = 'calendar-day';
-        var isAvail = availableDates.indexOf(ds) !== -1;
-        var isToday = ds === '2026-06-18';
-        if (isAvail) cls += ' available';
-        if (isToday) cls += ' today';
-        if (isAvail) {
-          html += '<button class="' + cls + '" onclick="goToDate(\'' + ds + '\')">' + d + '</button>';
-        } else {
-          html += '<button class="' + cls + '" disabled>' + d + '</button>';
-        }
-      }
-      var totalCells = firstDay + daysInMonth;
-      var nextPadding = (7 - (totalCells % 7)) % 7;
-      for (var j = 1; j <= nextPadding; j++) {
-        html += '<button class="calendar-day other-month" disabled>' + j + '</button>';
-      }
-      document.getElementById('calDays').innerHTML = html;
-    }
-  })();
-  </script>
-
 </body>
 </html>
