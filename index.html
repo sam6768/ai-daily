@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>三木AI 每日一刻钟 | 2026-06-18</title>
+  <title>三木AI 每日一刻钟 | 2026-06-19</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {--bg:#f5f7fa;--card-bg:#ffffff;--text-primary:#1a1a2e;--text-secondary:#5a5a7a;--text-muted:#8a8aa0;--accent-blue:#2563eb;--accent-blue-light:#dbeafe;--accent-purple:#7c3aed;--accent-purple-light:#ede9fe;--accent-teal:#0d9488;--accent-teal-light:#ccfbf1;--accent-orange:#ea580c;--accent-orange-light:#ffedd5;--accent-green:#16a34a;--accent-green-light:#dcfce7;--border:#e2e8f0;--border-light:#f1f5f9;--radius:12px;--radius-sm:8px;--shadow:0 1px 3px rgba(0,0,0,0.04),0 4px 12px rgba(0,0,0,0.03);}
@@ -14,6 +14,19 @@
     .header-title {font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:1px;}
     .header-sub {font-size:13px;color:var(--text-muted);margin-top:4px;}
     .header-date {display:inline-block;margin-top:12px;padding:4px 16px;background:var(--accent-blue-light);color:var(--accent-blue);border-radius:20px;font-size:13px;font-weight:500;}
+    /* Nav Bar */
+    .nav-bar {background:var(--card-bg);border-radius:var(--radius);padding:10px 20px;margin-bottom:24px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);}
+    .nav-brand {display:flex;align-items:center;gap:8px;}
+    .nav-logo {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .nav-sub {font-size:11px;color:var(--text-muted);}
+    .nav-center {display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);}
+    .nav-btn {cursor:pointer;background:none;border:none;padding:4px 8px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+    .nav-btn:hover{color:var(--accent-blue);background:var(--accent-blue-light);}
+    .nav-date-text{font-weight:500;color:var(--text-primary);}
+    .nav-right {display:flex;align-items:center;gap:8px;}
+    .nav-calendar-btn {cursor:pointer;display:flex;align-items:center;gap:4px;padding:5px 12px;border-radius:8px;font-size:13px;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;font-weight:500;transition:.2s;}
+    .nav-calendar-btn:hover{opacity:.9;}
+
     .intro {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow);border:1px solid var(--border);}
     .intro-text {font-size:14px;color:var(--text-secondary);line-height:1.8;}
     .quick-tips {background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;color:white;box-shadow:var(--shadow);}
@@ -38,36 +51,419 @@
     .badge-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .badge-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .badge-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+    .badge-green {background:var(--accent-green-light);color:var(--accent-green);}
     .icon-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
     .icon-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .icon-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .icon-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+    .icon-green {background:var(--accent-green-light);color:var(--accent-green);}
     .editor-pick {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);border:1px solid var(--border);border-left:3px solid var(--accent-orange);}
-    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;}
+    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
     .editor-pick-content {font-size:13px;color:var(--text-secondary);line-height:1.8;}
     .editor-pick-content p {margin-bottom:8px;}
     .editor-pick-content strong {color:var(--text-primary);font-weight:600;}
     .footer {text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
     .footer-text {font-size:12px;color:var(--text-muted);}
     .footer-brand {font-weight:600;color:var(--text-secondary);}
+    /* Calendar Modal */
+    .calendar-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:999;display:none;align-items:flex-start;justify-content:flex-end;padding-top:110px;padding-right:16px;}
+    .calendar-overlay.active {display:flex;}
+    .calendar-modal {background:var(--card-bg);border-radius:var(--radius);width:92%;max-width:360px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);animation:calIn .25s ease-out;}
+    @keyframes calIn {from{opacity:0;transform:translateY(20px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);}}
+    .calendar-header {display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+    .calendar-title {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .calendar-close {cursor:pointer;background:none;border:none;padding:4px;border-radius:6px;font-size:18px;color:var(--text-muted);transition:.2s;line-height:1;}
+    .calendar-close:hover {background:var(--border-light);color:var(--text-primary);}
+    .calendar-nav {display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px;}
+    .calendar-nav-btn {cursor:pointer;background:none;border:none;padding:4px 10px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+    .calendar-nav-btn:hover{background:var(--accent-blue-light);color:var(--accent-blue);}
+    .calendar-nav-month {font-size:14px;font-weight:600;color:var(--text-primary);min-width:100px;text-align:center;}
+    .calendar-grid {display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;}
+    .calendar-weekday {text-align:center;font-size:11px;color:var(--text-muted);padding:6px 0;font-weight:500;}
+    .calendar-day {aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:13px;cursor:pointer;transition:.15s;border:none;background:none;color:var(--text-primary);position:relative;}
+    .calendar-day:hover:not(:disabled) {background:var(--accent-blue-light);color:var(--accent-blue);}
+    .calendar-day.other-month {color:var(--text-muted);opacity:.5;}
+    .calendar-day.available {font-weight:600;color:var(--accent-blue);background:var(--accent-blue-light);}
+    .calendar-day.available:hover {background:var(--accent-blue);color:#fff;}
+    .calendar-day.today {box-shadow:inset 0 0 0 1.5px var(--accent-blue);}
+    .calendar-day:disabled {cursor:default;color:var(--border);}
+    .calendar-info {text-align:center;font-size:12px;color:var(--text-muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light);}
+    .calendar-info span {display:inline-flex;align-items:center;gap:4px;}
+    .calendar-dot {width:6px;height:6px;border-radius:50%;background:var(--accent-blue);display:inline-block;}
+    @media(max-width:480px){.container{padding:16px 12px 32px;}.header-title{font-size:19px;}.card{padding:14px 16px;}.calendar-overlay{padding-top:100px;justify-content:center;padding-right:0;}.calendar-modal{padding:16px;}}
   </style>
 </head>
 <body>
   <div class="container">
+
+    <!-- Header -->
     <div class="header">
       <h1 class="header-title">三木AI 每日一刻钟</h1>
       <p class="header-sub">每天15分钟，读懂AI世界</p>
-      <span class="header-date">2026年06月18日 星期四</span>
+      <span class="header-date">2026年06月19日 星期五</span>
     </div>
-    
+
+    <!-- Nav -->
+    <div class="nav-bar">
+      <div class="nav-brand">
+        <span class="nav-logo">🤖 三木AI</span>
+        <span class="nav-sub">每日一刻钟</span>
+      </div>
+      <div class="nav-center">
+        <button class="nav-btn" onclick="window.location.href='ai-daily-2026-06-18.html'">‹</button>
+        <span class="nav-date-text">2026-06-19</span>
+        <button class="nav-btn" disabled style="opacity:.3">›</button>
+      </div>
+      <div class="nav-right">
+        <button class="nav-calendar-btn" onclick="openCalendar()">📅 日历</button>
+      </div>
+    </div>
+
+    <!-- Calendar Modal -->
+    <div class="calendar-overlay" id="calOverlay" onclick="closeCalendar(event)">
+      <div class="calendar-modal" onclick="event.stopPropagation()">
+        <div class="calendar-header">
+          <span class="calendar-title">📅 选择日期</span>
+          <button class="calendar-close" onclick="closeCalendar()">&times;</button>
+        </div>
+        <div class="calendar-nav">
+          <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
+          <span class="calendar-nav-month" id="calMonth">2026年6月</span>
+          <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
+        </div>
+        <div class="calendar-grid">
+          <div class="calendar-weekday">日</div><div class="calendar-weekday">一</div><div class="calendar-weekday">二</div>
+          <div class="calendar-weekday">三</div><div class="calendar-weekday">四</div><div class="calendar-weekday">五</div><div class="calendar-weekday">六</div>
+        </div>
+        <div class="calendar-grid" id="calDays"></div>
+        <div class="calendar-info"><span><i class="calendar-dot"></i> 蓝色日期表示有简报</span></div>
+      </div>
+    </div>
+
+    <!-- Intro -->
     <div class="intro">
-      <p class="intro-text">今日简报内容正在整理中，请稍后再试。</p>
+      <p class="intro-text">
+        今日AI世界<strong>"扩容"与"博弈"</strong>双线并行。算力扩容：Meta一天签下1.6吉瓦数据中心、亚马逊Trainium芯片正式外售叫板英伟达。格局博弈：OpenAI悄然为IPO储备Transformer发明人等关键人才，Meta则在内部承受大裁员后员工士气历史最低的代价。与此同时，<strong>2026世界人工智能大会定档7月上海</strong>、<strong>桑德斯提出7万亿美元AI财富基金</strong>、<strong>我国首部L3/L4自动驾驶国标公示</strong>——制度与商业框架正在跑步跟上技术迭代。
+      </p>
     </div>
-    
+
+    <!-- Quick Tips -->
+    <div class="quick-tips">
+      <div class="quick-tips-title">🔥 今日要点速览</div>
+      <ul class="quick-tips-list">
+        <li>2026世界人工智能大会7月上海举办，超300款AI产品全球首发</li>
+        <li>OpenAI IPO提速：密集招募Transformer共同发明人Noam Shazeer等关键人才</li>
+        <li>亚马逊Trainium芯片正式外售，正面叫板英伟达AI芯片霸权</li>
+        <li>Meta AI部门陷内部危机，大裁员后员工士气创历史新低</li>
+        <li>美国参议员桑德斯提案7万亿美元AI财富基金，欲重新分配AI经济利益</li>
+      </ul>
+    </div>
+
+    <!-- Section 1: 技术前沿 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-blue">⚡</div>
+        <span class="section-title">技术前沿动态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">开源模型</span>
+          <h3 class="card-title">GLM-5.2登顶开放权重模型榜首：Artificial Analysis智力指数得分51</h3>
+        </div>
+        <p class="card-summary">智谱AI推出的GLM-5.2在Artificial Analysis智力指数评测中得分51分，成为全球领先的开放权重模型，仅次于闭源旗舰Fable 5（60分）、Opus 4.8（56分）和GPT-5.5（55分）。GLM-5.2在智力与单次调用成本的帕累托前沿占据重要位置，标志着国产大模型在开源路线上冲击全球第一梯队。</p>
+        <div class="card-footer">
+          <span class="card-tag">#智谱AI</span>
+          <span class="card-tag">#GLM-5.2</span>
+          <span class="card-tag">#开源模型</span>
+          <a class="card-link" href="https://www.toolify.ai/zh/daily-ai-news">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">AI芯片</span>
+          <h3 class="card-title">亚马逊Trainium芯片正式外售，正面挑战英伟达AI芯片主导地位</h3>
+        </div>
+        <p class="card-summary">亚马逊正洽谈向第三方数据中心出售其自研Trainium AI训练芯片，标志着AWS从自用走向对外销售。这是继Google TPU之后，又一家云巨头试图打破英伟达在AI芯片市场的垄断地位。业内人士指出，AI服务器需求持续暴涨已导致MLCC等关键元器件供应紧张，芯片市场的多元化竞争将利好AI产业长期健康发展。</p>
+        <div class="card-footer">
+          <span class="card-tag">#亚马逊</span>
+          <span class="card-tag">#Trainium</span>
+          <span class="card-tag">#AI芯片</span>
+          <a class="card-link" href="https://tags.news.sina.com.cn/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">医疗AI</span>
+          <h3 class="card-title">OpenAI升级ChatGPT至GPT-5.5 Instant，强化医疗健康问答能力</h3>
+        </div>
+        <p class="card-summary">OpenAI将ChatGPT底层模型更新至GPT-5.5 Instant版本，针对健康与保健类问题显著提升推理能力和上下文理解，并引入经执业医师评估的安全信息保障。此举被视为OpenAI在垂直行业渗透战略的关键一步——医疗健康是AI商业化变现最快、用户粘性最高的场景之一。</p>
+        <div class="card-footer">
+          <span class="card-tag">#OpenAI</span>
+          <span class="card-tag">#GPT-5.5</span>
+          <span class="card-tag">#医疗AI</span>
+          <a class="card-link" href="https://www.toolify.ai/zh/daily-ai-news">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: 国内外AI动态 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-purple">🌍</div>
+        <span class="section-title">国内外AI动态</span>
+        <span class="section-count">4条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">大会</span>
+          <h3 class="card-title">2026世界人工智能大会7月上海举办，超300款AI产品全球首发</h3>
+        </div>
+        <p class="card-summary">6月17日国新办新闻发布会宣布，今年7月中国将在上海举办"2026世界人工智能大会暨人工智能全球治理高级别会议"，预计超300款AI产品将实现全球首发。这是继2025年WAIC后，中国再度以东道主身份推动全球AI治理合作。大会将设置"安全筑基、伦理护航、协同共治、普惠共赢"四大议题，中美欧AI治理框架有望在此碰撞融合。</p>
+        <div class="card-footer">
+          <span class="card-tag">#WAIC 2026</span>
+          <span class="card-tag">#上海</span>
+          <span class="card-tag">#AI治理</span>
+          <a class="card-link" href="https://www.ithome.com/0/965/775.htm">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">IPO</span>
+          <h3 class="card-title">OpenAI为IPO厉兵秣马：招募Transformer共同发明人Noam Shazeer加盟</h3>
+        </div>
+        <p class="card-summary">OpenAI近期密集进行战略性人才引进，已从Google DeepMind招募Transformer架构共同发明人Noam Shazeer，同时引入前AI政策官员Dean Ball以强化监管合规能力。这一系列动作被视为OpenAI为即将到来的IPO进行的人才与制度布局。继Anthropic估值逼近千亿美元之后，OpenAI的上市将成为AI行业又一标志性资本事件。</p>
+        <div class="card-footer">
+          <span class="card-tag">#OpenAI</span>
+          <span class="card-tag">#Noam Shazeer</span>
+          <span class="card-tag">#IPO</span>
+          <a class="card-link" href="https://www.toolify.ai/zh/daily-ai-news">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">巨头动荡</span>
+          <h3 class="card-title">Meta AI部门内部危机：裁员10%后CTO承认员工士气"历史最低"</h3>
+        </div>
+        <p class="card-summary">Meta首席技术官安德鲁·博斯沃思公开承认，在公司裁员10%并强制另外10%员工调配至AI训练团队后，AI部门员工士气已跌至"历史最低水平"。《连线》杂志深度报道揭示该部门存在严重的内部运作失调。这折射出科技巨头们在AI军备竞赛下面临的人力管理挑战——豪掷千亿买GPU的同时，却未能稳住最关键的人才根基。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Meta</span>
+          <span class="card-tag">#裁员</span>
+          <span class="card-tag">#人才危机</span>
+          <a class="card-link" href="https://www.toolify.ai/zh/daily-ai-news">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">自动驾驶</span>
+          <h3 class="card-title">我国首部L3/L4自动驾驶强制性国家标准进入公示阶段</h3>
+        </div>
+        <p class="card-summary">我国首部面向L3/L4级别的自动驾驶强制性国家标准正式进入公示阶段。该标准将为高级别自动驾驶技术的商业化落地提供法规依据，覆盖功能安全、网络安全和数据安全等核心领域。这意味着中国在自动驾驶立法进程上迈出实质性一步，有望为华为、小鹏、百度Apollo等企业的L3/L4量产车型扫清政策障碍。</p>
+        <div class="card-footer">
+          <span class="card-tag">#自动驾驶</span>
+          <span class="card-tag">#L3/L4</span>
+          <span class="card-tag">#国标</span>
+          <a class="card-link" href="https://www.toolify.ai/zh/daily-ai-news">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: 投资与商业 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-green">💰</div>
+        <span class="section-title">投资与商业</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">算力扩张</span>
+          <h3 class="card-title">Meta与Crusoe签下1.6吉瓦AI数据中心协议，算力军备竞赛远未结束</h3>
+        </div>
+        <p class="card-summary">Meta Platforms与数据中心开发商Crusoe达成新协议，将在德克萨斯州和密苏里州的两个新数据中心获得约1.6吉瓦的AI计算容量——这一规模相当于一座中型核电站的发电量。同一日，FERC（美国联邦能源监管委员会）批准简化AI数据中心电网连接程序。AI基建的电力需求正倒逼美国能源基础设施加速升级。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Meta</span>
+          <span class="card-tag">#数据中心</span>
+          <span class="card-tag">#1.6吉瓦</span>
+          <a class="card-link" href="https://www.toolify.ai/zh/daily-ai-news">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">融资</span>
+          <h3 class="card-title">AI创企General Intuition拟以20亿美元估值融资3亿美元</h3>
+        </div>
+        <p class="card-summary">AI创业公司General Intuition正进行新一轮融资谈判，拟以约20亿美元估值融资3亿美元。尽管近期MiniMax暴跌等事件让市场对AI概念股估值产生分歧，但一级市场对优质AI项目的追捧依然热烈。与此同时，国内月之暗面（Kimi）也正在寻求约300亿美元估值的新一轮融资，全球AI独角兽估值竞赛仍在加速。</p>
+        <div class="card-footer">
+          <span class="card-tag">#General Intuition</span>
+          <span class="card-tag">#融资</span>
+          <span class="card-tag">#20亿美元估值</span>
+          <a class="card-link" href="https://www.toolify.ai/zh/daily-ai-news">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">芯片制造</span>
+          <h3 class="card-title">英特尔任命前SK海力士CEO李锡熙主管AI芯片先进封装，代工战略提速</h3>
+        </div>
+        <p class="card-summary">英特尔任命前SK海力士首席执行官李锡熙为代工业务执行副总裁，直接向CEO陈立武汇报。李锡熙将依托其在DRAM和高带宽内存（HBM）领域的深厚经验，加速EMIB-T、HBI等关键先进封装技术规模化量产。这一人事布局显示英特尔正全力押注AI芯片封装赛道，以差异化优势在台积电主导的代工市场中寻求突破。</p>
+        <div class="card-footer">
+          <span class="card-tag">#英特尔</span>
+          <span class="card-tag">#先进封装</span>
+          <span class="card-tag">#AI芯片</span>
+          <a class="card-link" href="https://www.toolify.ai/zh/daily-ai-news">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4: 政策与行业生态 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-orange">🏛️</div>
+        <span class="section-title">政策与行业生态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">财富分配</span>
+          <h3 class="card-title">美国参议员桑德斯提议设立7万亿美元AI财富基金，让公众持股AI产业</h3>
+        </div>
+        <p class="card-summary">美国参议员伯尼·桑德斯公布一项大胆提案：设立7万亿美元的联邦基金，让美国公众持有AI行业的股份，旨在将AI开发的经济利益从少数科技巨头重新分配给全体国民。该提案呼应了此前OpenAI CEO Sam Altman等人关于"全民基本收入"的讨论，但将焦点从"发钱"转向"持股"，引发关于AI经济治理模式的深度辩论。</p>
+        <div class="card-footer">
+          <span class="card-tag">#桑德斯</span>
+          <span class="card-tag">#AI财富基金</span>
+          <span class="card-tag">#经济治理</span>
+          <a class="card-link" href="https://www.toolify.ai/zh/daily-ai-news">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">AI安全</span>
+          <h3 class="card-title">白宫与Anthropic联手制定AI安全漏洞严重性评估标准化框架</h3>
+        </div>
+        <p class="card-summary">白宫与Anthropic宣布合作开发一套标准化框架，用于评估AI安全漏洞的严重程度。这是美国政府推进AI安全协议标准化的重要举措，旨在为AI风险与安全事件建立统一的评估指标。值得关注的是，就在一周前，正是特朗普政府以国家安全为由强制Anthropic下架Fable 5和Mythos 5模型——监管方与被监管方的关系正在变得前所未有的复杂。</p>
+        <div class="card-footer">
+          <span class="card-tag">#白宫</span>
+          <span class="card-tag">#Anthropic</span>
+          <span class="card-tag">#AI安全</span>
+          <a class="card-link" href="https://www.toolify.ai/zh/daily-ai-news">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">安全召回</span>
+          <h3 class="card-title">Waymo因软件安全风险召回3800辆自动驾驶出租车</h3>
+        </div>
+        <p class="card-summary">Alphabet旗下自动驾驶公司Waymo宣布召回3800辆自动驾驶出租车，原因是软件存在安全缺陷可能导致车辆驶入封闭高速公路等危险场景。这是Waymo迄今规模最大的召回行动，虽然尚无事故报告，但事件再次凸显了自动驾驶从"技术可用"到"绝对可靠"之间存在的鸿沟，也为正在加速推进的L3/L4立法敲响警钟。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Waymo</span>
+          <span class="card-tag">#召回</span>
+          <span class="card-tag">#自动驾驶安全</span>
+          <a class="card-link" href="https://www.toolify.ai/zh/daily-ai-news">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Editor Pick -->
+    <div class="editor-pick">
+      <div class="editor-pick-title">✍️ 编辑精选 · 深度观点</div>
+      <div class="editor-pick-content">
+        <p>今日AI世界的主题词是<strong>"扩容与博弈"</strong>。</p>
+        <p>算力扩容仍在全速推进：Meta一天内签下1.6吉瓦数据中心协议，亚马逊Trainium芯片正式从自用走向外售——AI基建的军备竞赛远未降温。人才扩容同样激烈：OpenAI悄然将Transformer发明人Noam Shazeer招入麾下，为IPO积蓄技术王牌。制度扩容也在加速：2026世界人工智能大会定档7月上海、我国首部L3/L4自动驾驶国标进入公示——AI治理正从"讨论"走向"立法"。</p>
+        <p>但博弈的另一面同样不容忽视。Meta CTO公开承认大规模裁员后AI部门士气跌至历史最低，折射出巨头们在千亿GPU投入与人才留存之间的尖锐矛盾。桑德斯7万亿美元AI财富基金的横空出世，更是直指AI经济最核心的分配问题。<strong>AI产业正从"拼技术参数"进入"拼资本厚度、拼制度设计、拼人才吸引力"的全面竞争时代。</strong></p>
+      </div>
+    </div>
+
+    <!-- Footer -->
     <div class="footer">
       <p class="footer-text"><span class="footer-brand">三木AI 每日一刻钟</span> · 每天15分钟，读懂AI世界</p>
-      <p class="footer-text">2026年06月18日 星期四</p>
+      <p class="footer-text">2026年06月19日 星期五 · 共收录资讯 13 条</p>
     </div>
   </div>
+  <script>
+  (function() {
+    var availableDates = [];
+    var calYear = 2026, calMonth = 5;
+
+    fetch('manifest.json?t=' + Date.now())
+      .then(function(r){return r.json();})
+      .then(function(data){
+        availableDates = data.dates || [];
+        renderCalendar();
+      })
+      .catch(function(){
+        availableDates = ['2026-06-19','2026-06-18','2026-06-17','2026-06-16','2026-06-15','2026-06-14'];
+        renderCalendar();
+      });
+
+    window.openCalendar = function() {
+      document.getElementById('calOverlay').classList.add('active');
+      renderCalendar();
+    };
+    window.closeCalendar = function(e) {
+      if (!e || e.target.id === 'calOverlay') {
+        document.getElementById('calOverlay').classList.remove('active');
+      }
+    };
+    window.changeMonth = function(delta) {
+      calMonth += delta;
+      if (calMonth > 11) { calMonth = 0; calYear++; }
+      if (calMonth < 0) { calMonth = 11; calYear--; }
+      renderCalendar();
+    };
+    window.goToDate = function(dateStr) {
+      if (dateStr === '2026-06-19') {
+        window.location.href = 'index.html';
+      } else {
+        window.location.href = 'ai-daily-' + dateStr + '.html';
+      }
+    };
+
+    function renderCalendar() {
+      var monthNames = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+      document.getElementById('calMonth').textContent = calYear + '年' + monthNames[calMonth];
+      var firstDay = new Date(calYear, calMonth, 1).getDay();
+      var daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+      var prevDays = new Date(calYear, calMonth, 0).getDate();
+      var html = '';
+      for (var i = firstDay - 1; i >= 0; i--) {
+        html += '<button class="calendar-day other-month" disabled>' + (prevDays - i) + '</button>';
+      }
+      for (var d = 1; d <= daysInMonth; d++) {
+        var ds = calYear + '-' + String(calMonth + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+        var cls = 'calendar-day';
+        var isAvail = availableDates.indexOf(ds) !== -1;
+        var isToday = ds === '2026-06-19';
+        if (isAvail) cls += ' available';
+        if (isToday) cls += ' today';
+        if (isAvail) {
+          html += '<button class="' + cls + '" onclick="goToDate(\'' + ds + '\')">' + d + '</button>';
+        } else {
+          html += '<button class="' + cls + '" disabled>' + d + '</button>';
+        }
+      }
+      var totalCells = firstDay + daysInMonth;
+      var nextPadding = (7 - (totalCells % 7)) % 7;
+      for (var j = 1; j <= nextPadding; j++) {
+        html += '<button class="calendar-day other-month" disabled>' + j + '</button>';
+      }
+      document.getElementById('calDays').innerHTML = html;
+    }
+  })();
+  </script>
+
 </body>
 </html>
