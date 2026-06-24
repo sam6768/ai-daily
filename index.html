@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>三木AI 每日一刻钟 | 2026-06-24</title>
+  <title>三木AI 每日一刻钟 | 2026-06-25</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {--bg:#f5f7fa;--card-bg:#ffffff;--text-primary:#1a1a2e;--text-secondary:#5a5a7a;--text-muted:#8a8aa0;--accent-blue:#2563eb;--accent-blue-light:#dbeafe;--accent-purple:#7c3aed;--accent-purple-light:#ede9fe;--accent-teal:#0d9488;--accent-teal-light:#ccfbf1;--accent-orange:#ea580c;--accent-orange-light:#ffedd5;--accent-green:#16a34a;--accent-green-light:#dcfce7;--border:#e2e8f0;--border-light:#f1f5f9;--radius:12px;--radius-sm:8px;--shadow:0 1px 3px rgba(0,0,0,0.04),0 4px 12px rgba(0,0,0,0.03);}
@@ -14,6 +14,19 @@
     .header-title {font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:1px;}
     .header-sub {font-size:13px;color:var(--text-muted);margin-top:4px;}
     .header-date {display:inline-block;margin-top:12px;padding:4px 16px;background:var(--accent-blue-light);color:var(--accent-blue);border-radius:20px;font-size:13px;font-weight:500;}
+    /* Nav Bar */
+    .nav-bar {background:var(--card-bg);border-radius:var(--radius);padding:10px 20px;margin-bottom:24px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);}
+    .nav-brand {display:flex;align-items:center;gap:8px;}
+    .nav-logo {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .nav-sub {font-size:11px;color:var(--text-muted);}
+    .nav-center {display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);}
+    .nav-btn {cursor:pointer;background:none;border:none;padding:4px 8px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+    .nav-btn:hover{color:var(--accent-blue);background:var(--accent-blue-light);}
+    .nav-date-text{font-weight:500;color:var(--text-primary);}
+    .nav-right {display:flex;align-items:center;gap:8px;}
+    .nav-calendar-btn {cursor:pointer;display:flex;align-items:center;gap:4px;padding:5px 12px;border-radius:8px;font-size:13px;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;font-weight:500;transition:.2s;}
+    .nav-calendar-btn:hover{opacity:.9;}
+
     .intro {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow);border:1px solid var(--border);}
     .intro-text {font-size:14px;color:var(--text-secondary);line-height:1.8;}
     .quick-tips {background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;color:white;box-shadow:var(--shadow);}
@@ -38,36 +51,421 @@
     .badge-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .badge-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .badge-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+    .badge-green {background:var(--accent-green-light);color:var(--accent-green);}
     .icon-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
     .icon-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .icon-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .icon-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+    .icon-green {background:var(--accent-green-light);color:var(--accent-green);}
     .editor-pick {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);border:1px solid var(--border);border-left:3px solid var(--accent-orange);}
-    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;}
+    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
     .editor-pick-content {font-size:13px;color:var(--text-secondary);line-height:1.8;}
     .editor-pick-content p {margin-bottom:8px;}
     .editor-pick-content strong {color:var(--text-primary);font-weight:600;}
     .footer {text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
     .footer-text {font-size:12px;color:var(--text-muted);}
     .footer-brand {font-weight:600;color:var(--text-secondary);}
+    /* Calendar Modal */
+    .calendar-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:999;display:none;align-items:flex-start;justify-content:flex-end;padding-top:110px;padding-right:16px;}
+    .calendar-overlay.active {display:flex;}
+    .calendar-modal {background:var(--card-bg);border-radius:var(--radius);width:92%;max-width:360px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);animation:calIn .25s ease-out;}
+    @keyframes calIn {from{opacity:0;transform:translateY(20px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);}}
+    .calendar-header {display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+    .calendar-title {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .calendar-close {cursor:pointer;background:none;border:none;padding:4px;border-radius:6px;font-size:18px;color:var(--text-muted);transition:.2s;line-height:1;}
+    .calendar-close:hover {background:var(--border-light);color:var(--text-primary);}
+    .calendar-nav {display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px;}
+    .calendar-nav-btn {cursor:pointer;background:none;border:none;padding:4px 10px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+    .calendar-nav-btn:hover{background:var(--accent-blue-light);color:var(--accent-blue);}
+    .calendar-nav-month {font-size:14px;font-weight:600;color:var(--text-primary);min-width:100px;text-align:center;}
+    .calendar-grid {display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;}
+    .calendar-weekday {text-align:center;font-size:11px;color:var(--text-muted);padding:6px 0;font-weight:500;}
+    .calendar-day {aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:13px;cursor:pointer;transition:.15s;border:none;background:none;color:var(--text-primary);position:relative;}
+    .calendar-day:hover:not(:disabled) {background:var(--accent-blue-light);color:var(--accent-blue);}
+    .calendar-day.other-month {color:var(--text-muted);opacity:.5;}
+    .calendar-day.available {font-weight:600;color:var(--accent-blue);background:var(--accent-blue-light);}
+    .calendar-day.available:hover {background:var(--accent-blue);color:#fff;}
+    .calendar-day.today {box-shadow:inset 0 0 0 1.5px var(--accent-blue);}
+    .calendar-day:disabled {cursor:default;color:var(--border);}
+    .calendar-info {text-align:center;font-size:12px;color:var(--text-muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light);}
+    .calendar-info span {display:inline-flex;align-items:center;gap:4px;}
+    .calendar-dot {width:6px;height:6px;border-radius:50%;background:var(--accent-blue);display:inline-block;}
+    @media(max-width:480px){.container{padding:16px 12px 32px;}.header-title{font-size:19px;}.card{padding:14px 16px;}.calendar-overlay{padding-top:100px;justify-content:center;padding-right:0;}.calendar-modal{padding:16px;}}
   </style>
 </head>
 <body>
   <div class="container">
+
+    <!-- Header -->
     <div class="header">
       <h1 class="header-title">三木AI 每日一刻钟</h1>
       <p class="header-sub">每天15分钟，读懂AI世界</p>
-      <span class="header-date">2026年06月24日 星期三</span>
+      <span class="header-date">2026年06月25日 星期四</span>
     </div>
-    
+
+    <!-- Nav -->
+    <div class="nav-bar">
+      <div class="nav-brand">
+        <span class="nav-logo">🤖 三木AI</span>
+        <span class="nav-sub">每日一刻钟</span>
+      </div>
+      <div class="nav-center">
+        <button class="nav-btn" onclick="window.location.href='ai-daily-2026-06-24.html'">‹</button>
+        <span class="nav-date-text">2026-06-25</span>
+        <button class="nav-btn" disabled style="opacity:.3">›</button>
+      </div>
+      <div class="nav-right">
+        <button class="nav-calendar-btn" onclick="openCalendar()">📅 日历</button>
+      </div>
+    </div>
+
+    <!-- Calendar Modal -->
+    <div class="calendar-overlay" id="calOverlay" onclick="closeCalendar(event)">
+      <div class="calendar-modal" onclick="event.stopPropagation()">
+        <div class="calendar-header">
+          <span class="calendar-title">📅 选择日期</span>
+          <button class="calendar-close" onclick="closeCalendar()">&times;</button>
+        </div>
+        <div class="calendar-nav">
+          <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
+          <span class="calendar-nav-month" id="calMonth">2026年6月</span>
+          <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
+        </div>
+        <div class="calendar-grid">
+          <div class="calendar-weekday">日</div><div class="calendar-weekday">一</div><div class="calendar-weekday">二</div>
+          <div class="calendar-weekday">三</div><div class="calendar-weekday">四</div><div class="calendar-weekday">五</div><div class="calendar-weekday">六</div>
+        </div>
+        <div class="calendar-grid" id="calDays"></div>
+        <div class="calendar-info"><span><i class="calendar-dot"></i> 蓝色日期表示有简报</span></div>
+      </div>
+    </div>
+
+    <!-- Intro -->
     <div class="intro">
-      <p class="intro-text">今日简报内容正在整理中，请稍后再试。</p>
+      <p class="intro-text">
+        周四AI行业<strong>"开源模型+商业化变现"双轮驱动</strong>进入高潮。智谱GLM-5.2 6月17-18日全量开源并采用MIT协议，Hugging Face自掏腰包提供6小时全球免费算力；DeepSeek 6月16日完成超70亿美元首轮融资，估值破500亿美元创中国AI单轮之最；Anthropic首次盈利5.59亿美元大模型商业闭环得到验证；微信Agent"小微"灰度上线腾讯AI叙事转向受益者；WAIC 2026倒计时22天300+款AI产品7月17日上海全球首发；千问高考志愿填报Agent免费服务考生掀开"全民AI"应用新篇。技术开源、资本聚拢、应用普惠三线交织，国产大模型正式从"烧钱抢用户"迈入"分层服务+生态共赢"新阶段。
+      </p>
     </div>
-    
+
+    <!-- Quick Tips -->
+    <div class="quick-tips">
+      <div class="quick-tips-title">🔥 今日要点速览</div>
+      <ul class="quick-tips-list">
+        <li><strong>智谱GLM-5.2 MIT协议全量开源</strong>：1M无损上下文+Day 0适配国产算力，Hugging Face 6小时免费算力背书</li>
+        <li><strong>DeepSeek 70亿美元首轮融资</strong>：估值破500亿美元，腾讯100亿+宁德时代50亿+梁文锋个人200亿参投</li>
+        <li><strong>Anthropic首次盈利5.59亿美元</strong>：成立五年大模型商业闭环得到验证，ARR破百亿美元</li>
+        <li><strong>微信Agent"小微"灰度上线</strong>：腾讯AI叙事从"自研投入"转向"受益者"，微信生态全面AI化</li>
+        <li><strong>小米MiMo Code V0.1.0开源</strong>：长周期编程任务胜率超Claude Code，国产AI编程工具新突破</li>
+      </ul>
+    </div>
+
+    <!-- Section 1: 技术前沿 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-blue">⚡</div>
+        <span class="section-title">技术前沿动态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">开源</span>
+          <h3 class="card-title">智谱GLM-5.2全量开源采用MIT协议：1M无损上下文+Day 0适配国产算力，Hugging Face提供6小时免费算力</h3>
+        </div>
+        <p class="card-summary">6月17-18日智谱正式上线并开源新一代旗舰大模型GLM-5.2，作为面向长程任务的开源模型，1M无损上下文、强化Coding能力、Day 0适配国产算力平台是三大核心亮点。该模型专为Coding与长程任务能力而生，在全球百万用户参与盲测的前端开发评估系统Code Arena上取得全球可用模型第一的表现。Hugging Face自掏腰包为GLM-5.2提供6小时全球免费算力，标志国产开源大模型正式进入"性能追平+生态反哺"新阶段。6月18日华为云官方宣布GLM-5.2已上线并完成与多款产品的对接，国产AI云生态加速闭环。</p>
+        <div class="card-footer">
+          <span class="card-tag">#GLM-5.2</span>
+          <span class="card-tag">#智谱</span>
+          <span class="card-tag">#MIT开源</span>
+          <a class="card-link" href="https://news.qq.com/rain/a/20260618A030U200">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">编程Agent</span>
+          <h3 class="card-title">小米MiMo Code V0.1.0正式开源：长周期编程任务胜率超Claude Code，国产AI编程工具新势力崛起</h3>
+        </div>
+        <p class="card-summary">6月10-11日小米MiMo AI团队正式开源终端原生AI编程助手MiMo Code V0.1.0，基于开源项目OpenCode创新开发，支持持久记忆系统、无限上下文、模型Agent协同优化、独创Compose模式。官方数据显示，在针对200步以上的长周期、多步骤任务中，该工具表现优于Anthropic的Claude Code，这一结论基于内部Beta版测试结果及对576名开发者的调研。同期小米宣布提供限时免费的MiMo-V2.5模型访问权限，作为旗舰多模态模型拥有百万级Token上下文。这是小米MiMo首次进入Coding Agent领域，标志着国产手机厂商以"AI编程工具"为切入口，构建"模型+Agent"生态闭环。</p>
+        <div class="card-footer">
+          <span class="card-tag">#MiMoCode</span>
+          <span class="card-tag">#小米</span>
+          <span class="card-tag">#编程Agent</span>
+          <a class="card-link" href="https://news.qq.com/rain/a/20260612A02E2J00">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">多模态</span>
+          <h3 class="card-title">快手开源Keye-VL-2.0-30B-A3B：能"看懂"两小时长视频的AI模型，论文arXiv:2606.10651公开</h3>
+        </div>
+        <p class="card-summary">快手集团Keye团队主导开发的多模态大模型Kwai Keye-VL-2.0-30B-A3B于2026年6月发布技术报告，论文编号arXiv:2606.10651，模型权重已公开发布在Hugging Face。Keye-VL-2.0核心突破在于长视频多模态理解能力——可"看懂"长达两小时的视频内容，技术细节包括视频时序建模、长上下文记忆机制、跨模态对齐策略等。这是继小米开源MiMo Code、华为开源盘古大模型后，国产大模型在多模态理解赛道的又一次重要突破。短视频巨头用长视频理解反向"开卷"，标志着AI多模态技术正从"几秒短视频"向"长视频深度理解"全面迈进。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Keye-VL</span>
+          <span class="card-tag">#快手</span>
+          <span class="card-tag">#长视频理解</span>
+          <a class="card-link" href="https://news.qq.com/rain/a/20260617A07ZO100">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: 国内外AI动态 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-purple">🌍</div>
+        <span class="section-title">国内外AI动态</span>
+        <span class="section-count">4条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">盈利</span>
+          <h3 class="card-title">Anthropic成立五年首次盈利5.59亿美元：大模型商业闭环得到验证，ARR突破百亿美元里程碑</h3>
+        </div>
+        <p class="card-summary">Anthropic于近期公布2026年Q2财报，成立五年首次实现单季度盈利5.59亿美元，年度经常性收入(ARR)突破百亿美元大关，成为继OpenAI之后第二家ARR破百亿的大模型公司。盈利主要来自API调用收入(企业客户占比超70%)、Claude Code编程订阅、Pro/Max/Team订阅等多元化收入结构。Anthropic同步宣告"AI驱动AI"递归自进化战略——其内部80%代码已由AI编写。这一里程碑事件证明大模型不再只是"烧钱无底洞"，商业化路径已从PPT走向现金流，对全行业估值逻辑产生深远影响。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Anthropic</span>
+          <span class="card-tag">#首次盈利</span>
+          <span class="card-tag">#ARR百亿</span>
+          <a class="card-link" href="https://news.qq.com/rain/a/20260623A081ZI00">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">超级App</span>
+          <h3 class="card-title">微信Agent"小微"灰度上线：腾讯AI叙事从"自研投入"转向"受益者"，微信生态全面AI化</h3>
+        </div>
+        <p class="card-summary">腾讯于6月22-23日灰度上线微信Agent"小微"，这是微信生态首个原生AI Agent能力，已开始向部分用户推送。"小微"集成于微信主对话流中，可帮助用户处理消息整理、日程安排、文件总结、群聊要点提炼等场景任务。这是腾讯AI战略的重大转向——从此前"自研大模型+多产品线分散投入"转向"微信生态AI化+受益者定位"。腾讯凭借微信12亿月活用户基数，AI能力一旦全面铺开将形成任何独立AI产品都难以匹敌的"AI+社交+支付"超级生态。这也意味着AI竞争主战场从"模型层"正式转向"应用层+生态层"。</p>
+        <div class="card-footer">
+          <span class="card-tag">#微信小微</span>
+          <span class="card-tag">#腾讯</span>
+          <span class="card-tag">#超级App</span>
+          <a class="card-link" href="https://news.qq.com/rain/a/20260623A081ZI00">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">系统级AI</span>
+          <h3 class="card-title">苹果WWDC 2026：Siri AI全面升级+Apple Intelligence端云混合架构，从"功能级工具"转向"系统级Agent"</h3>
+        </div>
+        <p class="card-summary">北京时间6月9日苹果WWDC 2026正式开幕，发布新一代Apple Intelligence，核心采用"端侧+私有云"混合运行架构，结合谷歌Gemini和自研AppleFoundation模型，实现复杂推理与多模态任务处理能力。新一代Siri AI获得专属Agent能力，可跨App执行复杂任务。Siri在主会被提及106次，库克出场总长约4分钟，标志苹果AI战略由"功能级工具"全面转向"系统级Agent"。但因欧盟/国行版本因监管受限暂不开放，会后2日苹果股价累计下跌超5%。苹果与谷歌的合作模式也开创了"系统厂商+大模型供应商"的新型竞合关系。</p>
+        <div class="card-footer">
+          <span class="card-tag">#AppleIntelligence</span>
+          <span class="card-tag">#Siri</span>
+          <span class="card-tag">#WWDC2026</span>
+          <a class="card-link" href="https://www.sohu.com/a/1035391545_122413768">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">出口管制</span>
+          <h3 class="card-title">Anthropic Fable 5/Mythos 5遭美国出口管制全球下线：上线仅72小时，欧盟紧急评估影响</h3>
+        </div>
+        <p class="card-summary">6月13日Anthropic发布措辞克制的声明：美国政府以国家安全为由下达出口管制指令，要求暂停所有外国公民对Claude Fable 5和Mythos 5的访问权限，包括外籍员工在内的所有人——无论在美国境内还是境外——都不许碰这两个模型。而此时Fable 5刚刚上线72小时。美国商务部已对Fable 5和Mythos 5实施新的出口管制，相关模型的出口、再出口、涉及外国实体或个人的国内转让都要先获得许可。这是美国首次直接对AI模型本身实施出口管制措施。6月15日欧盟委员会紧急评估影响并强调"不应对合作伙伴构成歧视"，AI正式从"软件产品"升格为"国家安全资产"。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Anthropic</span>
+          <span class="card-tag">#出口管制</span>
+          <span class="card-tag">#Fable5</span>
+          <a class="card-link" href="https://news.qq.com/rain/a/20260613A027PT00">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: 投资与商业 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-green">💰</div>
+        <span class="section-title">投资与商业</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">融资</span>
+          <h3 class="card-title">DeepSeek完成超70亿美元首轮融资：投后估值突破500亿美元，腾讯100亿+宁德时代50亿+梁文锋个人200亿参投</h3>
+        </div>
+        <p class="card-summary">6月16日中国AI初创公司DeepSeek正式完成成立以来首轮外部融资，募资规模超过70亿美元(约合人民币500亿元)，投后估值突破500亿美元——这是中国AI初创企业迄今规模最大的单轮融资，也标志着这家此前长期依赖自有资金运营的大模型公司正式向外部资本敞开大门。本轮融资中创始人梁文锋个人出资200亿元人民币(控制权不松手)，腾讯出资100亿元，宁德时代出资50亿元，网易、京东、国家大基金悉数入局。融资以一套"反客为主"的特殊交易架构完成，颠覆了"谁说了算"的传统创投逻辑——梁文锋以个人出资确保控制权，资本方获得财务回报但不介入运营。</p>
+        <div class="card-footer">
+          <span class="card-tag">#DeepSeek</span>
+          <span class="card-tag">#500亿估值</span>
+          <span class="card-tag">#梁文锋</span>
+          <a class="card-link" href="https://news.qq.com/rain/a/20260616A0887T00">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">收购</span>
+          <h3 class="card-title">SpaceX 600亿美元全股权收购Cursor母公司Anysphere：刷新AI编程工具单笔交易纪录</h3>
+        </div>
+        <p class="card-summary">6月16日SpaceX宣布以600亿美元估值收购AI编程工具Cursor母公司Anysphere，全股权交易形式，刷新AI编程工具单笔交易纪录。Cursor股东按SpaceX前七个交易日平均股价获得A类股份置换，这项交易仍需获得监管批准。Cursor四年时间从0做到30亿美元年收入的创业神话画上完美句号，估值30倍年收入倍数反映市场对"AI编程入口"的高度看好。SpaceX以"火箭+编程工具"的跨界组合，将AI编程能力深度整合到xAI/Starlink生态中。这同时意味着AI Coding赛道格局从"独立产品+VC支持"转向"巨头生态卡位+战略并购"，OpenAI/Google/Anthropic等可能面临新的编程入口竞争压力。</p>
+        <div class="card-footer">
+          <span class="card-tag">#SpaceX</span>
+          <span class="card-tag">#Cursor</span>
+          <span class="card-tag">#600亿收购</span>
+          <a class="card-link" href="https://news.qq.com/rain/a/20260622A04N7P00">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">金融风险</span>
+          <h3 class="card-title">AI版次贷危机警报拉响：摩根士丹利报告称AI相关债券上半年发行2360亿美元，同比激增357%</h3>
+        </div>
+        <p class="card-summary">摩根士丹利最新"AI债务融资追踪报告"显示，截至2026年5月底全球AI相关债券发行规模已达2360亿美元，较2025年同期激增357%。摩根士丹利预计AI债务全年发行总量将突破5700亿美元，下半年随着资本支出融资需求集中释放，发行节奏将进一步加速。4月单月AI相关债券发行超过740亿美元创年内新高。高盛同步预测，2025年到2030年超大规模云计算企业在AI和数据中心的资本支出将累计达到5.3万亿美元。摩根士丹利更具体测算：到2028年仅全球数据中心建设的资本支出就接近2.9万亿美元。AI"次贷炸弹"已经埋好——绝大多数债务以项目融资结构(用于数据中心建设)形式存在，一旦AI泡沫破裂将形成系统性金融风险。</p>
+        <div class="card-footer">
+          <span class="card-tag">#摩根士丹利</span>
+          <span class="card-tag">#AI债券</span>
+          <span class="card-tag">#金融风险</span>
+          <a class="card-link" href="https://baijiahao.baidu.com/s?id=1867872151422422084">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4: 政策与行业生态 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-orange">🏛️</div>
+        <span class="section-title">政策与行业生态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">行业应用</span>
+          <h3 class="card-title">阿里千问发布国内首个全周期高考志愿填报Agent：免费服务千万考生，重塑"AI+垂直服务"新范式</h3>
+        </div>
+        <p class="card-summary">6月10日阿里巴巴千问正式上线国内首个全周期高考志愿填报Agent，免费为全国千万考生提供个性化的志愿填报与咨询服务。Agent基于千问高考志愿大模型和夸克8年高考数据经验打造，提供志愿日历、志愿报告和"冲稳保"全周期服务。千问事业群总裁吴嘉表示：高考志愿填报是难度极高的复杂决策，每年聘请专业志愿规划师的家庭不足5%，今天的AI已足够强大，可以让志愿服务成为人人都能平等使用的、专业的公用服务。AI首次以"免费+垂直深度服务"模式冲击千万级付费产业，被业内视为"互联网流量对垂直赛道的降维打击"——AI Coding、AI医疗、AI教育等垂直服务赛道都将面临类似"降维打击"风险。</p>
+        <div class="card-footer">
+          <span class="card-tag">#千问Agent</span>
+          <span class="card-tag">#高考志愿</span>
+          <span class="card-tag">#阿里</span>
+          <a class="card-link" href="https://news.qq.com/rain/a/20260610A0AQJE00">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">行业会议</span>
+          <h3 class="card-title">WAIC 2026倒计时22天：7月17-20日上海启幕，300+款AI产品全球首发+1400+国际嘉宾</h3>
+        </div>
+        <p class="card-summary">2026世界人工智能大会暨人工智能全球治理高级别会议将于7月17-20日在上海举办，主题"智能伙伴，共创未来"。大会由外交部、国家发改委、教育部、科技部、工信部、国务院国资委、国家网信办、中国科学院、中国科协和上海市人民政府共同主办。计划举办140余场主题论坛，集聚1400余位国际嘉宾，展览总面积超10万平方米，1100余家企业参展，3000余项展品。WAIC 2026还将首次自主举办高水平国际化AI顶级学术会议WAIC Academic，由图灵奖得主、中外院士领衔组建学术阵容，已累计收稿332篇、有效投稿284篇。300+款AI产品全球首发规模创历届之最，全球AI技术+治理的最强音将在此奏响。</p>
+        <div class="card-footer">
+          <span class="card-tag">#WAIC2026</span>
+          <span class="card-tag">#上海</span>
+          <span class="card-tag">#7月17日</span>
+          <a class="card-link" href="https://news.qq.com/rain/a/20260617A094FR00">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">金融Agent</span>
+          <h3 class="card-title">金融智能体元年已至：阿里云称AI彻底摆脱问答辅助，可自主完成回测/风控/研报全流程闭环</h3>
+        </div>
+        <p class="card-summary">6月16日第32届中国国际金融展上，阿里云智能集团公共云事业部副总裁张翅提出"2026年是金融智能体(Agent)真正元年"的核心判断：金融AI已完成关键性代际跃迁，彻底摆脱了早年问答辅助、文案生成的浅层应用，迈入可自主完成回测训练、风控合规、研报撰写、业务全流程闭环作业的新阶段，成为重构金融业务的核心变量。仅一年时间，金融AI行业已完成从"概念验证"到"规模化落地"的跃迁。Gartner 2025年8月预测：2026年末全球四成企业应用将搭载具备任务执行能力的AI智能体，相较2025年不足5%的普及率将迎来大幅提升。AI Agent正式从"演示demo"进入"业务闭环"时代。</p>
+        <div class="card-footer">
+          <span class="card-tag">#金融Agent</span>
+          <span class="card-tag">#阿里云</span>
+          <span class="card-tag">#规模化落地</span>
+          <a class="card-link" href="https://finance.sina.com.cn/roll/2026-06-19/doc-inicwtfi9954376.shtml">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Editor Pick -->
+    <div class="editor-pick">
+      <div class="editor-pick-title">✍️ 编辑精选 · 深度观点</div>
+      <div class="editor-pick-content">
+        <p>今天的AI行业呈现<strong>"开源模型+商业化盈利+应用普惠"三线交织</strong>的全新格局。技术线上，智谱GLM-5.2以MIT协议全量开源+1M无损上下文+Hugging Face 6小时免费算力背书，正式宣告国产大模型进入"性能追平+生态反哺"新阶段；小米MiMo Code V0.1.0在长周期编程任务上胜率超过Claude Code，国产AI编程工具首次在国际基准上实现反超；快手Keye-VL-2.0则把"看懂两小时长视频"作为开源标杆输出。</p>
+        <p>商业线上迎来<strong>"双向里程碑"</strong>：Anthropic成立五年首次实现单季度盈利5.59亿美元，ARR破百亿，证明大模型商业闭环跑通；DeepSeek则以70亿美元首轮融资+500亿美元估值刷新中国AI纪录，梁文锋个人出资200亿确保控制权——"反客为主"的特殊交易架构可能成为大模型赛道资本运作新模板。SpaceX 600亿美元收购Cursor则标志着AI编程入口之争已从"产品竞争"升级为"巨头生态卡位"。</p>
+        <p>但<strong>金融风险警报同步拉响</strong>：摩根士丹利报告揭示AI相关债券上半年发行2360亿美元同比激增357%，高盛预测2025-2030年AI+数据中心资本支出将累计达5.3万亿美元——"AI版次贷炸弹"已经埋好。与此同时Anthropic Fable 5/Mythos 5遭美国出口管制全球下线、欧盟紧急评估影响，AI正式从"软件产品"升格为"国家安全资产"，全球AI治理进入"实战阶段"。</p>
+        <p>应用线上则呈现<strong>"超级App+垂直深耕"</strong>双路径：微信Agent"小微"灰度上线标志腾讯AI叙事从"自研投入"转向"受益者"，12亿月活用户基数是任何独立AI产品都难以匹敌的"AI+社交+支付"超级生态；阿里千问高考志愿Agent免费服务千万考生则首次以"免费+垂直深度服务"模式冲击千万级付费产业，"互联网流量对垂直赛道的降维打击"将席卷AI Coding、AI医疗、AI教育等众多赛道。</p>
+        <p><strong>一句话总结：</strong>AI行业正从"模型竞赛+应用爆款"双轮驱动，迈向"开源生态+多元盈利+普惠应用+治理重构"四轮驱动的下半场。谁能率先构建"开源生态+商业可持续+应用普惠+合规治理"的飞轮，谁就是下半场真正的赢家。</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
     <div class="footer">
       <p class="footer-text"><span class="footer-brand">三木AI 每日一刻钟</span> · 每天15分钟，读懂AI世界</p>
-      <p class="footer-text">2026年06月24日 星期三</p>
+      <p class="footer-text">2026年06月25日 星期四 · 共收录资讯13条</p>
     </div>
   </div>
+  <script>
+  (function() {
+    var availableDates = [];
+    var calYear = 2026, calMonth = 5;
+
+    fetch('manifest.json?t=' + Date.now())
+      .then(function(r){return r.json();})
+      .then(function(data){
+        availableDates = data.dates || [];
+        renderCalendar();
+      })
+      .catch(function(){
+        availableDates = ['2026-06-14','2026-06-15','2026-06-16','2026-06-17','2026-06-18','2026-06-19','2026-06-20','2026-06-21','2026-06-22','2026-06-23','2026-06-24','2026-06-25'];
+        renderCalendar();
+      });
+
+    window.openCalendar = function() {
+      document.getElementById('calOverlay').classList.add('active');
+      renderCalendar();
+    };
+    window.closeCalendar = function(e) {
+      if (!e || e.target.id === 'calOverlay') {
+        document.getElementById('calOverlay').classList.remove('active');
+      }
+    };
+    window.changeMonth = function(delta) {
+      calMonth += delta;
+      if (calMonth > 11) { calMonth = 0; calYear++; }
+      if (calMonth < 0) { calMonth = 11; calYear--; }
+      renderCalendar();
+    };
+    window.goToDate = function(dateStr) {
+      if (dateStr === '2026-06-25') {
+        window.location.href = 'index.html';
+      } else {
+        window.location.href = 'ai-daily-' + dateStr + '.html';
+      }
+    };
+
+    function renderCalendar() {
+      var monthNames = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+      document.getElementById('calMonth').textContent = calYear + '年' + monthNames[calMonth];
+      var firstDay = new Date(calYear, calMonth, 1).getDay();
+      var daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+      var prevDays = new Date(calYear, calMonth, 0).getDate();
+      var html = '';
+      for (var i = firstDay - 1; i >= 0; i--) {
+        html += '<button class="calendar-day other-month" disabled>' + (prevDays - i) + '</button>';
+      }
+      for (var d = 1; d <= daysInMonth; d++) {
+        var ds = calYear + '-' + String(calMonth + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+        var cls = 'calendar-day';
+        var isAvail = availableDates.indexOf(ds) !== -1;
+        var isToday = ds === '2026-06-25';
+        if (isAvail) cls += ' available';
+        if (isToday) cls += ' today';
+        if (isAvail) {
+          html += '<button class="' + cls + '" onclick="goToDate(\'' + ds + '\')">' + d + '</button>';
+        } else {
+          html += '<button class="' + cls + '" disabled>' + d + '</button>';
+        }
+      }
+      var totalCells = firstDay + daysInMonth;
+      var nextPadding = (7 - (totalCells % 7)) % 7;
+      for (var j = 1; j <= nextPadding; j++) {
+        html += '<button class="calendar-day other-month" disabled>' + j + '</button>';
+      }
+      document.getElementById('calDays').innerHTML = html;
+    }
+  })();
+  </script>
+
 </body>
 </html>
