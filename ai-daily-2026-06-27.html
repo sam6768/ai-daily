@@ -14,19 +14,6 @@
     .header-title {font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:1px;}
     .header-sub {font-size:13px;color:var(--text-muted);margin-top:4px;}
     .header-date {display:inline-block;margin-top:12px;padding:4px 16px;background:var(--accent-blue-light);color:var(--accent-blue);border-radius:20px;font-size:13px;font-weight:500;}
-    /* Nav Bar */
-    .nav-bar {background:var(--card-bg);border-radius:var(--radius);padding:10px 20px;margin-bottom:24px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);}
-    .nav-brand {display:flex;align-items:center;gap:8px;}
-    .nav-logo {font-size:15px;font-weight:600;color:var(--text-primary);}
-    .nav-sub {font-size:11px;color:var(--text-muted);}
-    .nav-center {display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);}
-    .nav-btn {cursor:pointer;background:none;border:none;padding:4px 8px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
-    .nav-btn:hover{color:var(--accent-blue);background:var(--accent-blue-light);}
-    .nav-date-text{font-weight:500;color:var(--text-primary);}
-    .nav-right {display:flex;align-items:center;gap:8px;}
-    .nav-calendar-btn {cursor:pointer;display:flex;align-items:center;gap:4px;padding:5px 12px;border-radius:8px;font-size:13px;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;font-weight:500;transition:.2s;}
-    .nav-calendar-btn:hover{opacity:.9;}
-
     .intro {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow);border:1px solid var(--border);}
     .intro-text {font-size:14px;color:var(--text-secondary);line-height:1.8;}
     .quick-tips {background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;color:white;box-shadow:var(--shadow);}
@@ -40,7 +27,7 @@
     .section-title {font-size:15px;font-weight:600;color:var(--text-primary);}
     .section-count {margin-left:auto;font-size:12px;color:var(--text-muted);background:var(--border-light);padding:2px 10px;border-radius:12px;}
     .card {background:var(--card-bg);border-radius:var(--radius);padding:18px 20px;margin-bottom:12px;box-shadow:var(--shadow);border:1px solid var(--border);}
-    .card-header {display:flex;align:flex-start;gap:10px;margin-bottom:8px;}
+    .card-header {display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;}
     .card-badge {flex-shrink:0;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:500;}
     .card-title {font-size:14px;font-weight:600;color:var(--text-primary);line-height:1.5;flex:1;}
     .card-summary {font-size:13px;color:var(--text-secondary);line-height:1.7;margin-bottom:10px;}
@@ -51,381 +38,36 @@
     .badge-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .badge-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .badge-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
-    .badge-green {background:var(--accent-green-light);color:var(--accent-green);}
     .icon-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
     .icon-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .icon-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .icon-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
-    .icon-green {background:var(--accent-green-light);color:var(--accent-green);}
     .editor-pick {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);border:1px solid var(--border);border-left:3px solid var(--accent-orange);}
-    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;}
     .editor-pick-content {font-size:13px;color:var(--text-secondary);line-height:1.8;}
     .editor-pick-content p {margin-bottom:8px;}
     .editor-pick-content strong {color:var(--text-primary);font-weight:600;}
     .footer {text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
     .footer-text {font-size:12px;color:var(--text-muted);}
     .footer-brand {font-weight:600;color:var(--text-secondary);}
-    /* Calendar Modal */
-    .calendar-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:999;display:none;align-items:flex-start;justify-content:flex-end;padding-top:110px;padding-right:16px;}
-    .calendar-overlay.active {display:flex;}
-    .calendar-modal {background:var(--card-bg);border-radius:var(--radius);width:92%;max-width:360px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);animation:calIn .25s ease-out;}
-    @keyframes calIn {from{opacity:0;transform:translateY(20px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);}}
-    .calendar-header {display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
-    .calendar-title {font-size:15px;font-weight:600;color:var(--text-primary);}
-    .calendar-close {cursor:pointer;background:none;border:none;padding:4px;border-radius:6px;font-size:18px;color:var(--text-muted);transition:.2s;line-height:1;}
-    .calendar-close:hover {background:var(--border-light);color:var(--text-primary);}
-    .calendar-nav {display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px;}
-    .calendar-nav-btn {cursor:pointer;background:none;border:none;padding:4px 10px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
-    .calendar-nav-btn:hover{background:var(--accent-blue-light);color:var(--accent-blue);}
-    .calendar-nav-month {font-size:14px;font-weight:600;color:var(--text-primary);min-width:100px;text-align:center;}
-    .calendar-grid {display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;}
-    .calendar-weekday {text-align:center;font-size:11px;color:var(--text-muted);padding:6px 0;font-weight:500;}
-    .calendar-day {aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:13px;cursor:pointer;transition:.15s;border:none;background:none;color:var(--text-primary);position:relative;}
-    .calendar-day:hover:not(:disabled) {background:var(--accent-blue-light);color:var(--accent-blue);}
-    .calendar-day.other-month {color:var(--text-muted);opacity:.5;}
-    .calendar-day.available {font-weight:600;color:var(--accent-blue);background:var(--accent-blue-light);}
-    .calendar-day.available:hover {background:var(--accent-blue);color:#fff;}
-    .calendar-day.today {box-shadow:inset 0 0 0 1.5px var(--accent-blue);}
-    .calendar-day:disabled {cursor:default;color:var(--border);}
-    .calendar-info {text-align:center;font-size:12px;color:var(--text-muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light);}
-    .calendar-info span {display:inline-flex;align-items:center;gap:4px;}
-    .calendar-dot {width:6px;height:6px;border-radius:50%;background:var(--accent-blue);display:inline-block;}
-    @media(max-width:480px){.container{padding:16px 12px 32px;}.header-title{font-size:19px;}.card{padding:14px 16px;}.calendar-overlay{padding-top:100px;justify-content:center;padding-right:0;}.calendar-modal{padding:16px;}}
   </style>
 </head>
 <body>
   <div class="container">
-
-    <!-- Header -->
     <div class="header">
       <h1 class="header-title">三木AI 每日一刻钟</h1>
       <p class="header-sub">每天15分钟，读懂AI世界</p>
       <span class="header-date">2026年06月27日 星期六</span>
     </div>
-
-    <!-- Nav -->
-    <div class="nav-bar">
-      <div class="nav-brand">
-        <span class="nav-logo">🤖 三木AI</span>
-        <span class="nav-sub">每日一刻钟</span>
-      </div>
-      <div class="nav-center">
-        <button class="nav-btn" onclick="window.location.href='ai-daily-2026-06-26.html'">‹</button>
-        <span class="nav-date-text">2026-06-27</span>
-        <button class="nav-btn" disabled style="opacity:.3">›</button>
-      </div>
-      <div class="nav-right">
-        <button class="nav-calendar-btn" onclick="openCalendar()">📅 日历</button>
-      </div>
-    </div>
-
-    <!-- Calendar Modal -->
-    <div class="calendar-overlay" id="calOverlay" onclick="closeCalendar(event)">
-      <div class="calendar-modal" onclick="event.stopPropagation()">
-        <div class="calendar-header">
-          <span class="calendar-title">📅 选择日期</span>
-          <button class="calendar-close" onclick="closeCalendar()">&times;</button>
-        </div>
-        <div class="calendar-nav">
-          <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
-          <span class="calendar-nav-month" id="calMonth">2026年6月</span>
-          <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
-        </div>
-        <div class="calendar-grid">
-          <div class="calendar-weekday">日</div><div class="calendar-weekday">一</div><div class="calendar-weekday">二</div>
-          <div class="calendar-weekday">三</div><div class="calendar-weekday">四</div><div class="calendar-weekday">五</div><div class="calendar-weekday">六</div>
-        </div>
-        <div class="calendar-grid" id="calDays"></div>
-        <div class="calendar-info"><span><i class="calendar-dot"></i> 蓝色日期表示有简报</span></div>
-      </div>
-    </div>
-
-    <!-- Intro -->
+    
     <div class="intro">
-      <p class="intro-text">
-        周六AI行业<strong>"全球定调+中国共振"双线交汇</strong>。黄仁勋在英伟达股东大会强势定调——"有用的AI已到来，并且已经能够赚钱"，本轮基建周期长达数十年，物理AI（机器人、自动驾驶、智能工厂）是下一个增长浪；孙正义豪言"AI没有泡沫"，软银宣布机器人量产启动；MirendilAI完成2亿美元种子轮融资，a16z领投，打造自加速AI研发系统引爆"AI造AI"新范式。中国端，科创板第五套标准正式扩容至AI大模型，"梁文锋们"上市通道打通；七部门联合行动方案首次划定通用大模型、行业大模型、AI智能体三大赛道边界；夏季达沃斯与南京软件大会双会交汇，"中国方案"成全场高频词。全球AI从"烧钱竞赛"转向"获利兑现+治理落地"，中国AI从"政策试验"转向"制度共振+产业闭环"。
-      </p>
+      <p class="intro-text">今日简报内容正在整理中，请稍后再试。</p>
     </div>
-
-    <!-- Quick Tips -->
-    <div class="quick-tips">
-      <div class="quick-tips-title">🔥 今日要点速览</div>
-      <ul class="quick-tips-list">
-        <li><strong>黄仁勋英伟达股东大会定调</strong>：AI已正式获利，基建周期达数十年，物理AI为下一个增长浪</li>
-        <li><strong>科创板第五套标准扩容至AI大模型</strong>：证监会打通大模型企业上市通道，中国AI资本化元年开启</li>
-        <li><strong>MirendilAI完成2亿美元种子轮融资</strong>：a16z领投，自加速AI研发系统引爆"AI造AI"新范式</li>
-        <li><strong>夏季达沃斯+南京软件大会双会交汇</strong>：AI规模化落地成全球焦点，"中国方案"成高频词</li>
-        <li><strong>七部门联合行动方案划定AI三大赛道边界</strong>：通用大模型、行业大模型、AI智能体各有定位与底线</li>
-      </ul>
-    </div>
-
-    <!-- Section: 技术前沿动态 -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-blue">⚡</div>
-        <span class="section-title">技术前沿动态</span>
-        <span class="section-count">3条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-blue">36氪/澎湃新闻/新浪财经</span>
-          <h3 class="card-title">黄仁勋英伟达股东大会定调：AI已正式获利，基建周期达数十年，物理AI为下一浪</h3>
-        </div>
-        <p class="card-summary">6月24日英伟达2026年度股东大会上，黄仁勋强势回应资本市场对AI投资回报率的质疑——"有用的AI已到来，并且已经能够赚钱"。他将AI数据中心定义为"制造词元的工厂"，每个token都是利润单位。数据中心收入达1940亿美元（同比增长68%），Vera Rubin芯片量产加速智能体时代。下一浪被定为"物理AI"——机器人、自动驾驶、智能工厂成为现实世界里的智能体，Isaac GR00T人形机器人生态已落地波士顿动力、西门子、主流车企。黄仁勋还回应了芯片走私问题，称靠少量走私产品东拼西凑出数据中心是一条"死路"。</p>
-        <div class="card-footer">
-          <span class="card-tag">#黄仁勋</span><span class="card-tag">#英伟达</span><span class="card-tag">#物理AI</span>
-          <a class="card-link" href="https://www.36kr.com/p/3868382658958597">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-blue">新浪财经/网易科技</span>
-          <h3 class="card-title">MirendilAI完成2亿美元种子轮融资：前Anthropic/xAI/DeepMind员工打造自加速AI研发系统</h3>
-        </div>
-        <p class="card-summary">6月24日美国AI初创公司MirendilAI宣布完成2亿美元（约13.6亿元人民币）种子轮融资，由a16z和Kleiner Perkins领投，英伟达等机构跟投，投后估值约68亿元人民币。其20人创始团队来自Anthropic、xAI、DeepMind及OpenAI，核心使命是打造"可构建系统的系统"——一种能够自主加速AI研发的自改进AI系统。两位前Anthropic研究员押注开源AI能在自己的赛道上超越大型实验室。这是"AI造AI"递归自进化理念首次获得顶级VC的大规模资金支持，标志着AI研发模式从"人工驱动"迈向"AI自驱动"。</p>
-        <div class="card-footer">
-          <span class="card-tag">#MirendilAI</span><span class="card-tag">#自加速AI</span><span class="card-tag">#a16z</span>
-          <a class="card-link" href="https://finance.sina.com.cn/stock/usstock/summary/2026-06-25/doc-inieqfvh5837803.shtml">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-blue">新浪财经/腾讯新闻</span>
-          <h3 class="card-title">软银孙正义宣布机器人量产启动：全球首家实现"机器人制造机器人"规模化</h3>
-        </div>
-        <p class="card-summary">6月24日软银年度股东大会上，孙正义透露软银已在一家工厂启动机器人的批量生产，并将很快正式推出，"我相信所有人都会感到惊讶"。他更进一步宣称，软银很可能是全球第一家实现"机器人制造机器人"规模化的公司。孙正义同时宣布2026年计划完成收购瑞士工业巨头ABB旗下机器人业务，将通过汇聚各垂直领域顶级机器人企业，成为"压倒性世界第一的机器人公司"。软银还宣布启动机器人业务全新战略方向，目标在未来16年内实现14倍增长达1000万亿日元。</p>
-        <div class="card-footer">
-          <span class="card-tag">#软银</span><span class="card-tag">#孙正义</span><span class="card-tag">#机器人量产</span>
-          <a class="card-link" href="https://finance.sina.com.cn/wm/2026-06-25/doc-inieqnaz7839442.shtml">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Section: 国内外AI动态 -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-purple">🌍</div>
-        <span class="section-title">国内外AI动态</span>
-        <span class="section-count">3条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">中新网/MSN/凤凰网</span>
-          <h3 class="card-title">2026夏季达沃斯论坛大连闭幕：AI规模化创新成全场焦点，"中国方案"成高频词</h3>
-        </div>
-        <p class="card-summary">6月23-25日2026夏季达沃斯论坛在辽宁大连举行，汇聚90多个国家和地区1700余位各界代表。AI规模化创新与产业落地成为全场热议焦点。在多场专题对话中，全球行业领军者、顶尖学者聚焦AI技术迭代与产业未来。爱立信全球高级副总裁蓝尚立表示，中国拥有庞大市场规模和高效落地执行优势，国内各界大力布局实体AI领域，彰显出技术成熟度和行业超前发展眼光。"中国方案"成为全场高频词——以规模化创新破题，以中国实践赋能全球经济。AI从"实验探索"迈入"实干落地"的阶段，中国的规模化应用能力成为全球范本。</p>
-        <div class="card-footer">
-          <span class="card-tag">#达沃斯</span><span class="card-tag">#AI规模化</span><span class="card-tag">#中国方案</span>
-          <a class="card-link" href="https://www.chinanews.com/cj/2026/06-24/10646689.shtml">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">新华网/搜狐/MSN</span>
-          <h3 class="card-title">2026南京软件大会开幕：聚焦"AI+软件"数智化变革，万亿级产业集群新起点</h3>
-        </div>
-        <p class="card-summary">6月26-27日2026南京软件大会在南京国际博览会议中心举行，主题"AI引领软件产业数智化变革"。南京作为全国首个"中国软件名城"，2025年软件业务收入突破1万亿元。大会聚焦软件产业智能化、自主工业软件、鸿蒙、开源生态等重点领域，举办1场主题大会、7场重大专场活动。南京率先在全国系统部署推进"人工智能+软件"发展，打造全国软件产业智能化第一城。同步举办2026工业软件供需大会，南钢元冶生态智创发展大会等系列活动推动AI+钢铁制造等垂直行业深度落地。</p>
-        <div class="card-footer">
-          <span class="card-tag">#南京软件大会</span><span class="card-tag">#AI+软件</span><span class="card-tag">#万亿级</span>
-          <a class="card-link" href="http://www.js.xinhuanet.com/20260626/f6bc1e05488b402bae6659f9c4c1a0af/c.html">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">IT之家/新浪财经</span>
-          <h3 class="card-title">孙正义股东大会豪言：AI革命才刚开始，称其为泡沫是"对AI的亵渎"，16年实现14倍增长</h3>
-        </div>
-        <p class="card-summary">6月24日软银集团年度股东大会上，孙正义发表重磅演讲："AI革命才刚刚开始，称其为泡沫是对AI的亵渎"。他宣称将以净资产价值（NAV）为基准，目标在未来16年内实现14倍增长达1000万亿日元。同时宣布放弃此前60岁退休计划，"还要再努力10至15年"。孙正义同时叫板马斯克，称太空数据中心没有价值。软银对OpenAI的全力押注推升股价，但部分投资者对市场可持续性提出质疑。孙正义的"千万亿豪赌"反映了全球顶级资本对AI长期价值的坚定信念——不是泡沫，而是比互联网更深的产业革命。</p>
-        <div class="card-footer">
-          <span class="card-tag">#孙正义</span><span class="card-tag">#软银</span><span class="card-tag">#AI不是泡沫</span>
-          <a class="card-link" href="https://finance.sina.com.cn/jjxw/2026-06-24/doc-inientty6319787.shtml">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Section: 投资与商业 -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-green">💰</div>
-        <span class="section-title">投资与商业</span>
-        <span class="section-count">3条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-green">腾讯新闻/新浪财经/经济参考报</span>
-          <h3 class="card-title">科创板第五套标准扩容至AI大模型：证监会打通大模型企业上市通道，"梁文锋们"来了</h3>
-        </div>
-        <p class="card-summary">6月17日证监会主席吴清在2026陆家嘴论坛明确表示，科创板第五套标准适用范围将扩大至人工智能大模型行业，积极支持优质AI大模型企业上市。上交所当日发布《发行上市审核规则适用指引第10号——人工智能大模型企业适用科创板第五套上市标准》，为AI大模型企业量身定制上市通道。第五套标准此前仅为未盈利生物医药企业服务，如今扩容至AI意味着"梁文锋们"（DeepSeek创始人）等大模型企业可以不盈利也能上市融资。这是中国AI资本化元年的标志性事件——从"烧钱无底洞"到"资本通道打通"，AI大模型企业终于有了退出路径。</p>
-        <div class="card-footer">
-          <span class="card-tag">#科创板</span><span class="card-tag">#AI大模型</span><span class="card-tag">#上市通道</span>
-          <a class="card-link" href="https://news.qq.com/rain/a/20260617A05ID600">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-green">腾讯新闻/百度百家号/上观新闻</span>
-          <h3 class="card-title">宇树科技IPO闪电过会+英伟达联手加持：73天创科创板纪录，420亿估值"人形机器人第一股"呼之欲出</h3>
-        </div>
-        <p class="card-summary">6月1日宇树科技科创板IPO过会，6月2日"闪电"提交注册，从申请获受理到过会仅用时73天，刷新2026年科创板IPO审核最快纪录。宇树科技计划募资42.02亿元，按10%发行比例计算初始市值420亿元——9个月内估值膨胀2.3倍。英伟达CEO黄仁勋宣布已与宇树科技合作推出新一代人形机器人参考设计H2+（Isaac GR00T生态）。但市场也出现"机器人泡沫将在宇树IPO中退潮"的理性声音——前期被资本和舆论吹大的气球，正随着宇树的上市面临利好出尽的考验。</p>
-        <div class="card-footer">
-          <span class="card-tag">#宇树科技</span><span class="card-tag">#IPO</span><span class="card-tag">#英伟达</span>
-          <a class="card-link" href="https://www.jfdaily.com/news/detail?id=1121857">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-green">新浪财经/腾讯云开发者</span>
-          <h3 class="card-title">英伟达数据中心收入1940亿美元+68%：Vera Rubin量产加速，宣布50%自由现金流返还股东</h3>
-        </div>
-        <p class="card-summary">6月24日英伟达股东大会披露最新业绩：数据中心收入达1940亿美元，同比增长68%。黄仁勋宣布Vera Rubin芯片量产加速，推动智能体时代到来。同时宣布将50%自由现金流返还股东，以回应市场对AI资本支出可持续性的质疑。黄仁勋强调，英伟达客户购买的不是一堆服务器，而是在建设"制造词元的AI工厂"——每个token都是利润单位，AI的投资回报率问题"已有答案"。英伟达系统可能不是采购价格最低的，但产生的token性价比最高。</p>
-        <div class="card-footer">
-          <span class="card-tag">#英伟达</span><span class="card-tag">#1940亿</span><span class="card-tag">#VeraRubin</span>
-          <a class="card-link" href="https://cloud.tencent.com/developer/article/2698350">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Section: 政策与行业生态 -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-orange">🏛️</div>
-        <span class="section-title">政策与行业生态</span>
-        <span class="section-count">3条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-orange">工信部/中国政府网</span>
-          <h3 class="card-title">工信部印发《"人工智能+信息通信"创新发展实施意见（2026—2028年）》：17项任务夯实AI发展底座</h3>
-        </div>
-        <p class="card-summary">6月10日工信部正式公布《"人工智能+信息通信"创新发展实施意见（2026—2028年）》，坚持智能化、绿色化、融合化方向，围绕推动信息通信行业智能化升级、夯实AI发展底座、深化融合应用创新推广、增强信息通信行业治理能力四个方面部署17项具体任务。目标到2028年形成30个以上高价值典型场景，打造一批典型应用和特色智能体。这是继科创板扩容、七部门行动方案之后，第三份在两周内密集落地的AI产业政策——从资本通道到数据底座再到行业应用，顶层设计正在以罕见密度构筑系统性制度框架。</p>
-        <div class="card-footer">
-          <span class="card-tag">#工信部</span><span class="card-tag">#AI+信息通信</span><span class="card-tag">#17项任务</span>
-          <a class="card-link" href="https://www.gov.cn/zhengce/zhengceku/202606/content_7071755.htm">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-orange">百度百家号/CSDN/哔哩哔哩</span>
-          <h3 class="card-title">七部门联合印发行动方案：首次划定通用大模型、行业大模型、AI智能体三大赛道边界与底线</h3>
-        </div>
-        <p class="card-summary">6月18日工信部、中央网信办、发改委、科技部、商务部、市场监管总局、国家数据局七部门联合印发《促进平台经济大中小企业协同发展行动方案（2026—2028年）》，首次以顶层政策文件形式清晰划分通用大模型、行业大模型、AI智能体三大赛道的发展定位、合规底线与资源倾斜标准。为喧嚣两年的AI赛道划定"生死边界"——通用大模型重基础能力与合规审查，行业大模型重垂直深度与数据安全，AI智能体重场景落地与用户权益。三项AI产业政策在两周内密集落地，构成覆盖"技术研发→资本赋能→商业变现"全链条的政策闭环。</p>
-        <div class="card-footer">
-          <span class="card-tag">#七部门</span><span class="card-tag">#AI赛道边界</span><span class="card-tag">#政策闭环</span>
-          <a class="card-link" href="https://baijiahao.baidu.com/s?id=1868887014920557304">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-orange">百度百家号</span>
-          <h3 class="card-title">政策资本产业"三重奏"：2026年6月中国AI迎来历史性共振——科创板扩容+七部门方案+信息通信实施意见</h3>
-        </div>
-        <p class="card-summary">政策、资本、产业三条线索在6月中旬交汇，中国AI正在上演一场前所未有的"三重奏"。科创板制度扩容解决了"融资难"——第五套标准打通大模型企业上市通道；七部门行动方案解决了"协同难"——首次划定三大赛道边界与底线；"人工智能+信息通信"实施意见解决了"变现难"——30个以上高价值场景推动AI从实验走向商业。三者叠加，构成覆盖"技术研发→资本赋能→商业变现"全链条的政策闭环。6月26日多家媒体联合解读：中国AI正从"政策试验"转向"制度共振+产业闭环"，2026年"六张网"及相关领域投资规模预计超万亿。</p>
-        <div class="card-footer">
-          <span class="card-tag">#三重奏</span><span class="card-tag">#历史性共振</span><span class="card-tag">#政策闭环</span>
-          <a class="card-link" href="https://baijiahao.baidu.com/s?id=1868749290692848396">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Editor Pick -->
-    <div class="editor-pick">
-      <div class="editor-pick-title">✍️ 编辑精选 · 深度观点</div>
-      <div class="editor-pick-content">
-        <p>今天的AI行业呈现<strong>"全球定调+中国共振"的双线交汇格局</strong>。黄仁勋在英伟达股东大会上强势定调——"有用的AI已到来，并且已经能够赚钱"，AI基建周期将持续数十年，物理AI（机器人、自动驾驶、智能工厂）是下一个增长浪。数据中心收入1940亿美元同比增长68%，Vera Rubin量产加速智能体时代。孙正义同步豪言"AI没有泡沫"，软银宣布机器人量产启动，全球首家实现"机器人制造机器人"规模化。两大顶级资本领袖同时为AI"获利兑现"站台，信号极其强烈。</p>
-<p>中国端迎来<strong>"制度共振"</strong>：科创板第五套标准正式扩容至AI大模型，"梁文锋们"上市通道打通——从"烧钱无底洞"到"资本退出路径"的质变；七部门联合行动方案首次划定通用大模型、行业大模型、AI智能体三大赛道边界——为喧嚣两年的AI赛道划定"生死边界"；夏季达沃斯与南京软件大会双会交汇，"中国方案"成全场高频词——中国的规模化应用能力成为全球范本。MirendilAI完成2亿美元种子轮融资引爆"AI造AI"新范式，AI研发模式从"人工驱动"迈向"AI自驱动"。</p>
-<p><strong>一句话总结：</strong>AI下半场的胜负手，不是谁的模型更强，而是谁能率先跑通"算力自主+资本通道+治理合规+产业落地"的完整闭环。全球定调获利兑现，中国制度共振闭环，两条线交汇于2026年6月。</p>
-      </div>
-    </div>
-
-    <!-- Footer -->
+    
     <div class="footer">
       <p class="footer-text"><span class="footer-brand">三木AI 每日一刻钟</span> · 每天15分钟，读懂AI世界</p>
-      <p class="footer-text">2026年06月27日 星期六 · 共收录资讯12条</p>
+      <p class="footer-text">2026年06月27日 星期六</p>
     </div>
   </div>
-  <script>
-  (function() {
-    var availableDates = [];
-    var calYear = 2026, calMonth = 5;
-
-    fetch('manifest.json?t=' + Date.now())
-      .then(function(r){return r.json();})
-      .then(function(data){
-        availableDates = data.dates || [];
-        renderCalendar();
-      })
-      .catch(function(){
-        availableDates = ['2026-06-14','2026-06-15','2026-06-16','2026-06-17','2026-06-18','2026-06-19','2026-06-20','2026-06-21','2026-06-22','2026-06-23','2026-06-24','2026-06-25','2026-06-26','2026-06-27'];
-        renderCalendar();
-      });
-
-    window.openCalendar = function() {
-      document.getElementById('calOverlay').classList.add('active');
-      renderCalendar();
-    };
-    window.closeCalendar = function(e) {
-      if (!e || e.target.id === 'calOverlay') {
-        document.getElementById('calOverlay').classList.remove('active');
-      }
-    };
-    window.changeMonth = function(delta) {
-      calMonth += delta;
-      if (calMonth > 11) { calMonth = 0; calYear++; }
-      if (calMonth < 0) { calMonth = 11; calYear--; }
-      renderCalendar();
-    };
-    window.goToDate = function(dateStr) {
-      if (dateStr === '2026-06-27') {
-        window.location.href = 'index.html';
-      } else {
-        window.location.href = 'ai-daily-' + dateStr + '.html';
-      }
-    };
-
-    function renderCalendar() {
-      var monthNames = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
-      document.getElementById('calMonth').textContent = calYear + '年' + monthNames[calMonth];
-      var firstDay = new Date(calYear, calMonth, 1).getDay();
-      var daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
-      var prevDays = new Date(calYear, calMonth, 0).getDate();
-      var html = '';
-      for (var i = firstDay - 1; i >= 0; i--) {
-        html += '<button class="calendar-day other-month" disabled>' + (prevDays - i) + '</button>';
-      }
-      for (var d = 1; d <= daysInMonth; d++) {
-        var ds = calYear + '-' + String(calMonth + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
-        var cls = 'calendar-day';
-        var isAvail = availableDates.indexOf(ds) !== -1;
-        var isToday = ds === '2026-06-27';
-        if (isAvail) cls += ' available';
-        if (isToday) cls += ' today';
-        if (isAvail) {
-          html += '<button class="' + cls + '" onclick="goToDate(\'' + ds + '\')">' + d + '</button>';
-        } else {
-          html += '<button class="' + cls + '" disabled>' + d + '</button>';
-        }
-      }
-      var totalCells = firstDay + daysInMonth;
-      var nextPadding = (7 - (totalCells % 7)) % 7;
-      for (var j = 1; j <= nextPadding; j++) {
-        html += '<button class="calendar-day other-month" disabled>' + j + '</button>';
-      }
-      document.getElementById('calDays').innerHTML = html;
-    }
-  })();
-  </script>
-
 </body>
 </html>
