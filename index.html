@@ -14,19 +14,6 @@
     .header-title {font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:1px;}
     .header-sub {font-size:13px;color:var(--text-muted);margin-top:4px;}
     .header-date {display:inline-block;margin-top:12px;padding:4px 16px;background:var(--accent-blue-light);color:var(--accent-blue);border-radius:20px;font-size:13px;font-weight:500;}
-    /* Nav Bar */
-    .nav-bar {background:var(--card-bg);border-radius:var(--radius);padding:10px 20px;margin-bottom:24px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);}
-    .nav-brand {display:flex;align-items:center;gap:8px;}
-    .nav-logo {font-size:15px;font-weight:600;color:var(--text-primary);}
-    .nav-sub {font-size:11px;color:var(--text-muted);}
-    .nav-center {display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);}
-    .nav-btn {cursor:pointer;background:none;border:none;padding:4px 8px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
-    .nav-btn:hover{color:var(--accent-blue);background:var(--accent-blue-light);}
-    .nav-date-text{font-weight:500;color:var(--text-primary);}
-    .nav-right {display:flex;align-items:center;gap:8px;}
-    .nav-calendar-btn {cursor:pointer;display:flex;align-items:center;gap:4px;padding:5px 12px;border-radius:8px;font-size:13px;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;font-weight:500;transition:.2s;}
-    .nav-calendar-btn:hover{opacity:.9;}
-
     .intro {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow);border:1px solid var(--border);}
     .intro-text {font-size:14px;color:var(--text-secondary);line-height:1.8;}
     .quick-tips {background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;color:white;box-shadow:var(--shadow);}
@@ -51,405 +38,36 @@
     .badge-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .badge-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .badge-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
-    .badge-green {background:var(--accent-green-light);color:var(--accent-green);}
     .icon-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
     .icon-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .icon-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .icon-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
-    .icon-green {background:var(--accent-green-light);color:var(--accent-green);}
     .editor-pick {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);border:1px solid var(--border);border-left:3px solid var(--accent-orange);}
-    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;}
     .editor-pick-content {font-size:13px;color:var(--text-secondary);line-height:1.8;}
     .editor-pick-content p {margin-bottom:8px;}
     .editor-pick-content strong {color:var(--text-primary);font-weight:600;}
     .footer {text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
     .footer-text {font-size:12px;color:var(--text-muted);}
     .footer-brand {font-weight:600;color:var(--text-secondary);}
-    /* Calendar Modal */
-    .calendar-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:999;display:none;align-items:flex-start;justify-content:flex-end;padding-top:110px;padding-right:16px;}
-    .calendar-overlay.active {display:flex;}
-    .calendar-modal {background:var(--card-bg);border-radius:var(--radius);width:92%;max-width:360px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);animation:calIn .25s ease-out;}
-    @keyframes calIn {from{opacity:0;transform:translateY(20px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);}}
-    .calendar-header {display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
-    .calendar-title {font-size:15px;font-weight:600;color:var(--text-primary);}
-    .calendar-close {cursor:pointer;background:none;border:none;padding:4px;border-radius:6px;font-size:18px;color:var(--text-muted);transition:.2s;line-height:1;}
-    .calendar-close:hover {background:var(--border-light);color:var(--text-primary);}
-    .calendar-nav {display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px;}
-    .calendar-nav-btn {cursor:pointer;background:none;border:none;padding:4px 10px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
-    .calendar-nav-btn:hover{background:var(--accent-blue-light);color:var(--accent-blue);}
-    .calendar-nav-month {font-size:14px;font-weight:600;color:var(--text-primary);min-width:100px;text-align:center;}
-    .calendar-grid {display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;}
-    .calendar-weekday {text-align:center;font-size:11px;color:var(--text-muted);padding:6px 0;font-weight:500;}
-    .calendar-day {aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:13px;cursor:pointer;transition:.15s;border:none;background:none;color:var(--text-primary);position:relative;}
-    .calendar-day:hover:not(:disabled) {background:var(--accent-blue-light);color:var(--accent-blue);}
-    .calendar-day.other-month {color:var(--text-muted);opacity:.5;}
-    .calendar-day.available {font-weight:600;color:var(--accent-blue);background:var(--accent-blue-light);}
-    .calendar-day.available:hover {background:var(--accent-blue);color:#fff;}
-    .calendar-day.today {box-shadow:inset 0 0 0 1.5px var(--accent-blue);}
-    .calendar-day:disabled {cursor:default;color:var(--border);}
-    .calendar-info {text-align:center;font-size:12px;color:var(--text-muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light);}
-    .calendar-info span {display:inline-flex;align-items:center;gap:4px;}
-    .calendar-dot {width:6px;height:6px;border-radius:50%;background:var(--accent-blue);display:inline-block;}
-    @media(max-width:480px){.container{padding:16px 12px 32px;}.header-title{font-size:19px;}.card{padding:14px 16px;}.calendar-overlay{padding-top:100px;justify-content:center;padding-right:0;}.calendar-modal{padding:16px;}}
   </style>
 </head>
 <body>
   <div class="container">
-
-    <!-- Header -->
     <div class="header">
       <h1 class="header-title">三木AI 每日一刻钟</h1>
       <p class="header-sub">每天15分钟，读懂AI世界</p>
       <span class="header-date">2026年07月02日 星期四</span>
     </div>
-
-    <!-- Nav -->
-    <div class="nav-bar">
-      <div class="nav-brand">
-        <span class="nav-logo">🤖 三木AI</span>
-        <span class="nav-sub">每日一刻钟</span>
-      </div>
-      <div class="nav-center">
-        <button class="nav-btn" onclick="window.location.href='ai-daily-2026-07-01.html'">‹</button>
-        <span class="nav-date-text">2026-07-02</span>
-        <button class="nav-btn" disabled style="opacity:.3">›</button>
-      </div>
-      <div class="nav-right">
-        <button class="nav-calendar-btn" onclick="openCalendar()">📅 日历</button>
-      </div>
-    </div>
-
-    <!-- Calendar Modal -->
-    <div class="calendar-overlay" id="calOverlay" onclick="closeCalendar(event)">
-      <div class="calendar-modal" onclick="event.stopPropagation()">
-        <div class="calendar-header">
-          <span class="calendar-title">📅 选择日期</span>
-          <button class="calendar-close" onclick="closeCalendar()">&times;</button>
-        </div>
-        <div class="calendar-nav">
-          <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
-          <span class="calendar-nav-month" id="calMonth">2026年7月</span>
-          <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
-        </div>
-        <div class="calendar-grid">
-          <div class="calendar-weekday">日</div><div class="calendar-weekday">一</div><div class="calendar-weekday">二</div>
-          <div class="calendar-weekday">三</div><div class="calendar-weekday">四</div><div class="calendar-weekday">五</div><div class="calendar-weekday">六</div>
-        </div>
-        <div class="calendar-grid" id="calDays"></div>
-        <div class="calendar-info"><span><i class="calendar-dot"></i> 蓝色日期表示有简报</span></div>
-      </div>
-    </div>
-
-    <!-- Intro -->
+    
     <div class="intro">
-      <p class="intro-text">
-        周四AI行业在<strong>信任、解禁与地缘博弈</strong>中前行。Anthropic同日上演"双面戏"：Fable 5/Mythos 5获美国商务部解禁恢复全球访问，Claude Code却被曝暗藏检测代码标记中国用户；Venice AI以6500万美元A轮融资跻身独角兽，验证"隐私优先"AI平台的商业潜力；Meta计划进军AI云基础设施，与AWS、Azure正面竞争；2026全球数字经济大会在北京开幕，AI大模型与人形机器人首发亮相。今天我们聚焦这些关键变化。
-      </p>
+      <p class="intro-text">今日简报内容正在整理中，请稍后再试。</p>
     </div>
-
-    <!-- Quick Tips -->
-    <div class="quick-tips">
-      <div class="quick-tips-title">🔥 今日要点速览</div>
-      <ul class="quick-tips-list">
-        <li><strong>Anthropic Fable 5/Mythos 5获美国商务部解禁</strong>，7月1日起恢复全球访问</li>
-        <li><strong>Claude Code被曝暗藏代码检测中国用户</strong>，Anthropic回应称是实验性措施并将删除</li>
-        <li><strong>Venice AI完成6500万美元A轮融资</strong>，估值10亿美元成隐私优先AI独角兽</li>
-        <li><strong>Meta计划进军AI云基础设施业务</strong>，挑战AWS和Azure</li>
-        <li><strong>2026全球数字经济大会7月2日在北京开幕</strong>，AI大模型与人形机器人首发</li>
-      </ul>
-    </div>
-
-    <!-- Section 1: 技术前沿动态 -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-blue">⚡</div>
-        <span class="section-title">技术前沿动态</span>
-        <span class="section-count">3条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-blue">模型解禁</span>
-          <h3 class="card-title">Anthropic Fable 5/Mythos 5获美国商务部解禁，7月1日起恢复全球访问</h3>
-        </div>
-        <p class="card-summary">美国商务部解除对Anthropic两款最强模型Fable 5和Mythos 5的出口管制，允许其全球发布。此前6月12日美国政府以"国家安全"为由限制外国访问，Anthropic关闭访问近三周。解禁前提是Anthropic承诺主动发现并处理模型安全风险，并与美国政府保持密切合作。</p>
-        <div class="card-footer">
-          <span class="card-tag">#Anthropic</span>
-          <span class="card-tag">#Fable5</span>
-          <span class="card-tag">#出口管制</span>
-          <a class="card-link" href="https://arstechnica.com/tech-policy/2026/07/after-spooking-trump-into-safety-testing-anthropic-ai-models-get-global-release/">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-blue">AI芯片</span>
-          <h3 class="card-title">理想汽车马赫M100芯片亮相ISCA 2026，成首家登台全球顶会的中国车企</h3>
-        </div>
-        <p class="card-summary">理想汽车在国际计算机体系结构研讨会（ISCA 2026）发表《马赫M100：面向通用AI计算的编排式数据流架构》主题演讲，与Google、Meta同台交流。马赫M100是全球首款基于数据流架构的大算力端侧推理芯片，采用5nm车规级工艺，单芯片算力1280TOPS，利用率82%，已搭载于理想L9/L8量产上车。</p>
-        <div class="card-footer">
-          <span class="card-tag">#理想汽车</span>
-          <span class="card-tag">#马赫M100</span>
-          <span class="card-tag">#AI芯片</span>
-          <a class="card-link" href="https://finance.sina.com.cn/stock/t/2026-07-01/doc-inifinus2880502.shtml">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-blue">端侧AI</span>
-          <h3 class="card-title">苹果计划2027年推出M7芯片入门级MacBook Pro，重点提升本地AI能力</h3>
-        </div>
-        <p class="card-summary">据彭博社马克·古尔曼报道，苹果计划于2027年推出搭载M7芯片的入门级MacBook Pro，并同步更新iPad Pro。新芯片将重点提升本地AI处理能力、增加内存带宽，并测试均热板散热系统以优化高负载表现。这是苹果在端侧AI算力上的新一轮布局。</p>
-        <div class="card-footer">
-          <span class="card-tag">#苹果</span>
-          <span class="card-tag">#M7芯片</span>
-          <span class="card-tag">#端侧AI</span>
-          <a class="card-link" href="https://www.ithome.com/0/971/397.htm">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Section 2: 国内外AI动态 -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-purple">🌍</div>
-        <span class="section-title">国内外AI动态</span>
-        <span class="section-count">3条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">隐私争议</span>
-          <h3 class="card-title">Claude Code被曝暗藏检测代码标记中国用户，Anthropic回应将删除</h3>
-        </div>
-        <p class="card-summary">开发者逆向工程发现，Anthropic编程工具Claude Code自今年4月起内置检测机制：当用户设置ANTHROPIC_BASE_URL使用代理时，会读取系统时区并比对147个加密域名（含百度、阿里、字节、月之暗面等），将结果以Unicode隐写方式编码在系统提示词中回传服务器。Anthropic团队回应称这是防止账号转售和模型蒸馏的"实验性"措施，将在新版本更新中删除。</p>
-        <div class="card-footer">
-          <span class="card-tag">#Anthropic</span>
-          <span class="card-tag">#ClaudeCode</span>
-          <span class="card-tag">#隐私争议</span>
-          <a class="card-link" href="https://news.qq.com/rain/a/20260701A066JV00">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">企业战略</span>
-          <h3 class="card-title">Meta计划进军AI云基础设施业务，与AWS和Azure正面竞争</h3>
-        </div>
-        <p class="card-summary">据彭博社等报道，Meta正考虑布局AI云基础设施业务，提供对其AI模型和计算能力的访问，转型为AI即服务供应商，直接与亚马逊AWS、微软Azure竞争。此举若成行，将标志Meta从社交媒体巨头向AI基础设施平台延伸，重塑全球云市场格局。</p>
-        <div class="card-footer">
-          <span class="card-tag">#Meta</span>
-          <span class="card-tag">#AI云</span>
-          <span class="card-tag">#AWS</span>
-          <a class="card-link" href="https://techcrunch.com/2026/07/01/meta-reportedly-wants-to-take-on-aws-and-azure-with-its-own-ai-cloud-business/">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">硬件传闻</span>
-          <h3 class="card-title">SpaceX向投资者展示AI手机原型，马斯克否认开发手持AI设备</h3>
-        </div>
-        <p class="card-summary">多家媒体报道SpaceX向投资者展示了一款集成xAI模型的AI设备原型，比iPhone更薄，配备专有操作系统和骁龙芯片。但马斯克随后否认SpaceX正在开发用于访问xAI模型的手持设备，称报道"完全不实"。这一"展示-否认"组合再次凸显马斯克生态在AI硬件领域的战略迷雾。</p>
-        <div class="card-footer">
-          <span class="card-tag">#SpaceX</span>
-          <span class="card-tag">#xAI</span>
-          <span class="card-tag">#AI硬件</span>
-          <a class="card-link" href="https://www.wsj.com/tech/ai/spacex-showed-investors-prototype-of-elon-musks-new-ai-device-b445c57b?mod=rss_Technology">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Section 3: 投资与商业 -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-green">💰</div>
-        <span class="section-title">投资与商业</span>
-        <span class="section-count">3条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-green">独角兽</span>
-          <h3 class="card-title">Venice AI完成6500万美元A轮融资，估值10亿美元成隐私优先AI独角兽</h3>
-        </div>
-        <p class="card-summary">隐私优先AI平台Venice AI宣布完成6500万美元A轮融资，投后估值10亿美元，由加密风投Dragonfly领投，Coinbase Ventures等参投。Venice AI成立两年，提供200余种模型接入，强调用户端加密、不留存数据、未审查体验，目前月活超300万、日均API调用170万，年化营收逾7000万美元并已盈利。</p>
-        <div class="card-footer">
-          <span class="card-tag">#VeniceAI</span>
-          <span class="card-tag">#隐私AI</span>
-          <span class="card-tag">#独角兽</span>
-          <a class="card-link" href="https://techcrunch.com/2026/07/01/venice-ai-becomes-a-unicorn-with-65m-series-a-as-its-privacy-first-ai-platform-takes-off/">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-green">资本动态</span>
-          <h3 class="card-title">软银重启以OpenAI持股为抵押的100亿美元贷款谈判</h3>
-        </div>
-        <p class="card-summary">软银集团重启以所持OpenAI股份为抵押的100亿美元贷款谈判，并提供若抵押品价值不足则由公司担保还款的条款。这一动向显示软银仍在加大对OpenAI的财务杠杆支持，同时也反映其对OpenAI股权价值的信心与流动性需求之间的微妙平衡。</p>
-        <div class="card-footer">
-          <span class="card-tag">#软银</span>
-          <span class="card-tag">#OpenAI</span>
-          <span class="card-tag">#贷款</span>
-          <a class="card-link" href="https://www.techmeme.com/260701/p39#a260701p39">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-green">产品商业化</span>
-          <h3 class="card-title">ChatGPT推出金融功能，允许用户通过对话分析个人支出</h3>
-        </div>
-        <p class="card-summary">OpenAI为ChatGPT引入新的金融功能，用户可通过对话方式分析个人支出数据，将原始消费记录转化为直观的财务洞察。这一功能标志着ChatGPT从通用助手向垂直场景工具延伸，进一步切入个人财务管理市场，与Plaid等金融科技服务的整合也值得关注。</p>
-        <div class="card-footer">
-          <span class="card-tag">#ChatGPT</span>
-          <span class="card-tag">#金融科技</span>
-          <span class="card-tag">#个人理财</span>
-          <a class="card-link" href="https://www.techradar.com/ai-platforms-assistants/i-tried-chatgpts-new-finance-feature-and-it-opened-a-new-window-into-how-i-spend-my-money">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Section 4: 政策与行业生态 -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-orange">🏛️</div>
-        <span class="section-title">政策与行业生态</span>
-        <span class="section-count">3条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-orange">行业大会</span>
-          <h3 class="card-title">2026全球数字经济大会7月2日在京开幕，AI大模型与人形机器人首发</h3>
-        </div>
-        <p class="card-summary">2026全球数字经济大会于7月2日至5日在北京国家会议中心举行，主题"建设数字友好城市——智惠无界，数联全球"。大会设置50余场论坛，围绕人工智能大模型、机器人、智能制造等重点领域推出"首发首秀"平台，集中发布世界模型、人形机器人等新技术新产品，并将推出近20项行业规则标准。</p>
-        <div class="card-footer">
-          <span class="card-tag">#数字经济大会</span>
-          <span class="card-tag">#北京</span>
-          <span class="card-tag">#人形机器人</span>
-          <a class="card-link" href="https://www.beijing.gov.cn/ywdt/gzdt/202606/t20260626_4724043.html">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-orange">能源政策</span>
-          <h3 class="card-title">美国跨党派法案拟强制AI公司承担数据中心能源成本</h3>
-        </div>
-        <p class="card-summary">美国《费率支付者保护法案》提议要求AI公司为其数据中心能源需求承担财务责任，防止因AI算力扩张导致的电力成本转嫁给普通消费者、小型企业和农民。该法案反映AI基础设施建设与公共利益之间的张力，可能重塑数据中心选址与能源采购策略。</p>
-        <div class="card-footer">
-          <span class="card-tag">#美国</span>
-          <span class="card-tag">#数据中心</span>
-          <span class="card-tag">#能源成本</span>
-          <a class="card-link" href="https://www.techradar.com/pro/families-farmers-and-small-businesses-should-not-be-forced-to-cover-the-costs-of-new-power-generation-forget-trumps-voluntary-commitment-this-new-bipartisan-act-wants-to-force-ai-companies-to-pay-for-the-energy-they-use">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-orange">内容生态</span>
-          <h3 class="card-title">Cloudflare要求AI公司区分搜索爬虫与AI训练爬虫，9月15日前完成</h3>
-        </div>
-        <p class="card-summary">Cloudflare发布新政策，要求AI公司在2026年9月15日前明确区分搜索爬虫与AI训练爬虫，否则出版商将默认屏蔽AI训练爬虫。该政策旨在解决AI公司未经授权抓取内容用于模型训练的问题，为内容出版商与AI公司之间的利益分配提供新的技术治理框架。</p>
-        <div class="card-footer">
-          <span class="card-tag">#Cloudflare</span>
-          <span class="card-tag">#AI爬虫</span>
-          <span class="card-tag">#版权</span>
-          <a class="card-link" href="https://techcrunch.com/2026/07/01/cloudflares-new-policy-pushes-ai-companies-to-pay-for-publishers-content/">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Editor Pick -->
-    <div class="editor-pick">
-      <div class="editor-pick-title">✍️ 编辑精选 · 深度观点</div>
-      <div class="editor-pick-content">
-        <p>今天的AI新闻主线不是某一家公司的技术突破，而是<strong>"信任"与"边界"的双重拷问</strong>。Anthropic同日上演"双面戏"：Fable 5/Mythos 5获美国商务部解禁恢复全球访问，另一边Claude Code却被曝用隐写术标记中国用户——技术可以解禁，但信任一旦受损很难修复。</p>
-        <p>Venice AI以6500万美元A轮、10亿美元估值跻身独角兽，其"隐私优先、未审查、不留存数据"的定位恰恰踩中了当前用户的焦虑。Meta进军AI云基础设施、理想汽车马赫M100登上ISCA顶会、苹果布局M7端侧AI芯片，则说明巨头们正在从"模型层"向"基础设施层"和"端侧能力"纵深推进。</p>
-        <p><strong>一句话总结：</strong>2026年下半年，AI竞争的焦点正在从"谁能做出更大模型"转向"谁能赢得用户信任、掌控基础设施、落地真实场景"。</p>
-      </div>
-    </div>
-
-    <!-- Footer -->
+    
     <div class="footer">
       <p class="footer-text"><span class="footer-brand">三木AI 每日一刻钟</span> · 每天15分钟，读懂AI世界</p>
-      <p class="footer-text">2026年07月02日 星期四 · 共收录资讯12条</p>
+      <p class="footer-text">2026年07月02日 星期四</p>
     </div>
   </div>
-  <script>
-  (function() {
-    var availableDates = [];
-    var calYear = 2026, calMonth = 6;
-
-    fetch('manifest.json?t=' + Date.now())
-      .then(function(r){return r.json();})
-      .then(function(data){
-        availableDates = data.dates || [];
-        renderCalendar();
-      })
-      .catch(function(){
-        availableDates = ['2026-06-14','2026-06-15','2026-06-16','2026-06-17','2026-06-18','2026-06-19','2026-06-20','2026-06-21','2026-06-22','2026-06-23','2026-06-24','2026-06-25','2026-06-26','2026-06-27','2026-06-28','2026-06-29','2026-06-30','2026-07-01','2026-07-02'];
-        renderCalendar();
-      });
-
-    window.openCalendar = function() {
-      document.getElementById('calOverlay').classList.add('active');
-      renderCalendar();
-    };
-    window.closeCalendar = function(e) {
-      if (!e || e.target.id === 'calOverlay') {
-        document.getElementById('calOverlay').classList.remove('active');
-      }
-    };
-    window.changeMonth = function(delta) {
-      calMonth += delta;
-      if (calMonth > 11) { calMonth = 0; calYear++; }
-      if (calMonth < 0) { calMonth = 11; calYear--; }
-      renderCalendar();
-    };
-    window.goToDate = function(dateStr) {
-      if (dateStr === '2026-07-02') {
-        window.location.href = 'index.html';
-      } else {
-        window.location.href = 'ai-daily-' + dateStr + '.html';
-      }
-    };
-
-    function renderCalendar() {
-      var monthNames = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
-      document.getElementById('calMonth').textContent = calYear + '年' + monthNames[calMonth];
-      var firstDay = new Date(calYear, calMonth, 1).getDay();
-      var daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
-      var prevDays = new Date(calYear, calMonth, 0).getDate();
-      var html = '';
-      for (var i = firstDay - 1; i >= 0; i--) {
-        html += '<button class="calendar-day other-month" disabled>' + (prevDays - i) + '</button>';
-      }
-      for (var d = 1; d <= daysInMonth; d++) {
-        var ds = calYear + '-' + String(calMonth + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
-        var cls = 'calendar-day';
-        var isAvail = availableDates.indexOf(ds) !== -1;
-        var isToday = ds === '2026-07-02';
-        if (isAvail) cls += ' available';
-        if (isToday) cls += ' today';
-        if (isAvail) {
-          html += '<button class="' + cls + '" onclick="goToDate(\'' + ds + '\')">' + d + '</button>';
-        } else {
-          html += '<button class="' + cls + '" disabled>' + d + '</button>';
-        }
-      }
-      var totalCells = firstDay + daysInMonth;
-      var nextPadding = (7 - (totalCells % 7)) % 7;
-      for (var j = 1; j <= nextPadding; j++) {
-        html += '<button class="calendar-day other-month" disabled>' + j + '</button>';
-      }
-      document.getElementById('calDays').innerHTML = html;
-    }
-  })();
-  </script>
-
 </body>
 </html>
