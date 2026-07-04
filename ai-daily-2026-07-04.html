@@ -14,6 +14,19 @@
     .header-title {font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:1px;}
     .header-sub {font-size:13px;color:var(--text-muted);margin-top:4px;}
     .header-date {display:inline-block;margin-top:12px;padding:4px 16px;background:var(--accent-blue-light);color:var(--accent-blue);border-radius:20px;font-size:13px;font-weight:500;}
+    /* Nav Bar */
+    .nav-bar {background:var(--card-bg);border-radius:var(--radius);padding:10px 20px;margin-bottom:24px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);}
+    .nav-brand {display:flex;align-items:center;gap:8px;}
+    .nav-logo {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .nav-sub {font-size:11px;color:var(--text-muted);}
+    .nav-center {display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);}
+    .nav-btn {cursor:pointer;background:none;border:none;padding:4px 8px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+    .nav-btn:hover{color:var(--accent-blue);background:var(--accent-blue-light);}
+    .nav-date-text{font-weight:500;color:var(--text-primary);}
+    .nav-right {display:flex;align-items:center;gap:8px;}
+    .nav-calendar-btn {cursor:pointer;display:flex;align-items:center;gap:4px;padding:5px 12px;border-radius:8px;font-size:13px;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;font-weight:500;transition:.2s;}
+    .nav-calendar-btn:hover{opacity:.9;}
+
     .intro {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow);border:1px solid var(--border);}
     .intro-text {font-size:14px;color:var(--text-secondary);line-height:1.8;}
     .quick-tips {background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;color:white;box-shadow:var(--shadow);}
@@ -38,36 +51,406 @@
     .badge-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .badge-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .badge-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+    .badge-green {background:var(--accent-green-light);color:var(--accent-green);}
     .icon-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
     .icon-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .icon-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .icon-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+    .icon-green {background:var(--accent-green-light);color:var(--accent-green);}
     .editor-pick {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);border:1px solid var(--border);border-left:3px solid var(--accent-orange);}
-    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;}
+    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
     .editor-pick-content {font-size:13px;color:var(--text-secondary);line-height:1.8;}
     .editor-pick-content p {margin-bottom:8px;}
     .editor-pick-content strong {color:var(--text-primary);font-weight:600;}
     .footer {text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
     .footer-text {font-size:12px;color:var(--text-muted);}
     .footer-brand {font-weight:600;color:var(--text-secondary);}
+    /* Calendar Modal */
+    .calendar-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:999;display:none;align-items:flex-start;justify-content:flex-end;padding-top:110px;padding-right:16px;}
+    .calendar-overlay.active {display:flex;}
+    .calendar-modal {background:var(--card-bg);border-radius:var(--radius);width:92%;max-width:360px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);animation:calIn .25s ease-out;}
+    @keyframes calIn {from{opacity:0;transform:translateY(20px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);}}
+    .calendar-header {display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+    .calendar-title {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .calendar-close {cursor:pointer;background:none;border:none;padding:4px;border-radius:6px;font-size:18px;color:var(--text-muted);transition:.2s;line-height:1;}
+    .calendar-close:hover {background:var(--border-light);color:var(--text-primary);}
+    .calendar-nav {display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px;}
+    .calendar-nav-btn {cursor:pointer;background:none;border:none;padding:4px 10px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+    .calendar-nav-btn:hover{background:var(--accent-blue-light);color:var(--accent-blue);}
+    .calendar-nav-month {font-size:14px;font-weight:600;color:var(--text-primary);min-width:100px;text-align:center;}
+    .calendar-grid {display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;}
+    .calendar-weekday {text-align:center;font-size:11px;color:var(--text-muted);padding:6px 0;font-weight:500;}
+    .calendar-day {aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:13px;cursor:pointer;transition:.15s;border:none;background:none;color:var(--text-primary);position:relative;}
+    .calendar-day:hover:not(:disabled) {background:var(--accent-blue-light);color:var(--accent-blue);}
+    .calendar-day.other-month {color:var(--text-muted);opacity:.5;}
+    .calendar-day.available {font-weight:600;color:var(--accent-blue);background:var(--accent-blue-light);}
+    .calendar-day.available:hover {background:var(--accent-blue);color:#fff;}
+    .calendar-day.today {box-shadow:inset 0 0 0 1.5px var(--accent-blue);}
+    .calendar-day:disabled {cursor:default;color:var(--border);}
+    .calendar-info {text-align:center;font-size:12px;color:var(--text-muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light);}
+    .calendar-info span {display:inline-flex;align-items:center;gap:4px;}
+    .calendar-dot {width:6px;height:6px;border-radius:50%;background:var(--accent-blue);display:inline-block;}
+    @media(max-width:480px){.container{padding:16px 12px 32px;}.header-title{font-size:19px;}.card{padding:14px 16px;}.calendar-overlay{padding-top:100px;justify-content:center;padding-right:0;}.calendar-modal{padding:16px;}}
   </style>
 </head>
 <body>
   <div class="container">
+
+    <!-- Header -->
     <div class="header">
       <h1 class="header-title">三木AI 每日一刻钟</h1>
       <p class="header-sub">每天15分钟，读懂AI世界</p>
       <span class="header-date">2026年07月04日 星期六</span>
     </div>
-    
-    <div class="intro">
-      <p class="intro-text">今日简报内容正在整理中，请稍后再试。</p>
+
+    <!-- Nav -->
+    <div class="nav-bar">
+      <div class="nav-brand">
+        <span class="nav-logo">🤖 三木AI</span>
+        <span class="nav-sub">每日一刻钟</span>
+      </div>
+      <div class="nav-center">
+        <button class="nav-btn" onclick="window.location.href='ai-daily-2026-07-03.html'">‹</button>
+        <span class="nav-date-text">2026-07-04</span>
+        <button class="nav-btn" onclick="window.location.href='ai-daily-2026-07-05.html'">›</button>
+      </div>
+      <div class="nav-right">
+        <button class="nav-calendar-btn" onclick="openCalendar()">📅 日历</button>
+      </div>
     </div>
-    
+
+    <!-- Calendar Modal -->
+    <div class="calendar-overlay" id="calOverlay" onclick="closeCalendar(event)">
+      <div class="calendar-modal" onclick="event.stopPropagation()">
+        <div class="calendar-header">
+          <span class="calendar-title">📅 选择日期</span>
+          <button class="calendar-close" onclick="closeCalendar()">&times;</button>
+        </div>
+        <div class="calendar-nav">
+          <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
+          <span class="calendar-nav-month" id="calMonth">2026年7月</span>
+          <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
+        </div>
+        <div class="calendar-grid">
+          <div class="calendar-weekday">日</div><div class="calendar-weekday">一</div><div class="calendar-weekday">二</div>
+          <div class="calendar-weekday">三</div><div class="calendar-weekday">四</div><div class="calendar-weekday">五</div><div class="calendar-weekday">六</div>
+        </div>
+        <div class="calendar-grid" id="calDays"></div>
+        <div class="calendar-info"><span><i class="calendar-dot"></i> 蓝色日期表示有简报</span></div>
+      </div>
+    </div>
+
+    <!-- Intro -->
+    <div class="intro">
+      <p class="intro-text">
+        周六AI圈延续高温——<strong>阿里达摩院AI智能体发现4种全新超导材料</strong>，国产AI for Science再下一城；<strong>宇树科技科创板IPO注册获批</strong>，A股人形机器人第一股临门一脚；<strong>阿里全面禁用Claude全系模型</strong>，中外AI地缘竞争从口水战升级为业务断链；<strong>微软Project Aion</strong>曝光，操作系统从"桌面图标"全面转向"Copilot对话"。今天我们聚焦这些关键变化。
+      </p>
+    </div>
+
+    <!-- Quick Tips -->
+    <div class="quick-tips">
+      <div class="quick-tips-title">🔥 今日要点速览</div>
+      <ul class="quick-tips-list">
+        <li><strong>阿里达摩院ElementsClaw智能体发现4种全新超导材料</strong>，28个GPU时从240万晶体中预测6.8万个候选，已获实验验证</li>
+        <li><strong>宇树科技科创板IPO注册获批</strong>，73天闪电过审，拟募资42亿元，A股人形机器人第一股即将诞生</li>
+        <li><strong>阿里全面禁用Claude全系模型</strong>，Anthropic指控阿里模型蒸馏并开启对华封号，AI地缘竞争白热化</li>
+        <li><strong>微软Project Aion系统曝光</strong>：放弃传统桌面与开始菜单，以Copilot为唯一核心交互载体</li>
+        <li><strong>首届上海国际具身智能产业博览会开幕</strong>，近200家企业、超1.5万专业观众共论"具身启元 智创未来"</li>
+      </ul>
+    </div>
+
+    <!-- Section 1: 技术前沿动态 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-blue">⚡</div>
+        <span class="section-title">技术前沿动态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">AI for Science</span>
+          <h3 class="card-title">阿里达摩院ElementsClaw智能体发现4种全新超导材料，28个GPU时完成240万晶体筛选</h3>
+        </div>
+        <p class="card-summary">7月3日，阿里达摩院联合中国人民大学、中国科学院大学发布业内首个超导材料发现AI智能体ElementsClaw。该系统仅用28个GPU小时，即从240万种稳定晶体结构中预测出6.8万个可能的超导材料，预测命中率高达40%，并已成功合成4种全新超导体，最高临界温度达6.5K。相关数据已全面开放，为能源、材料等基础科研提供新工具。</p>
+        <div class="card-footer">
+          <span class="card-tag">#阿里达摩院</span>
+          <span class="card-tag">#ElementsClaw</span>
+          <span class="card-tag">#超导材料</span>
+          <a class="card-link" href="https://finance.sina.com.cn/jjxw/2026-07-03/doc-inifnxny5610643.shtml">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">模型发布</span>
+          <h3 class="card-title">Claude Sonnet 5正式发布：Anthropic最强中端智能体模型</h3>
+        </div>
+        <p class="card-summary">7月1日Anthropic推出Claude Sonnet 5，定位为Sonnet系列中智能体AI表现最强的模型。具备自主制定计划、使用浏览器和终端等工具并自主运行的能力，部分性能逼近旗舰Opus 4.8，但成本仅为一小部分。Sonnet 5已接入Claude Code和Claude Platform，拥有1M token上下文窗口和改进的安全特性。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Anthropic</span>
+          <span class="card-tag">#ClaudeSonnet5</span>
+          <span class="card-tag">#智能体</span>
+          <a class="card-link" href="https://finance.sina.com.cn/tech/digi/2026-07-01/doc-iniffyta1132506.shtml">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">芯片算力</span>
+          <h3 class="card-title">三星HBM4E良率突破70%，高通骁龙8 Elite Gen6定档9月22日首发</h3>
+        </div>
+        <p class="card-summary">7月1日半导体产业链连传重磅消息：三星新一代高端AI内存HBM4E生产良率正式突破70%，进入客户批量稳定测试阶段，带宽提升超25%，功耗优于竞品；高通2nm旗舰处理器骁龙8 Elite Gen6锁定9月22日全球首发，CPU峰值性能提升20%，NPU算力翻倍，原生支持百亿参数本地大模型离线运行，下半年安卓旗舰将统一搭载。</p>
+        <div class="card-footer">
+          <span class="card-tag">#三星</span>
+          <span class="card-tag">#HBM4E</span>
+          <span class="card-tag">#高通</span>
+          <a class="card-link" href="https://baijiahao.baidu.com/s?id=1869523122090102720&wfr=spider&for=pc">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: 国内外AI动态 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-purple">🌍</div>
+        <span class="section-title">国内外AI动态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">地缘竞争</span>
+          <h3 class="card-title">阿里全面禁用Claude全系模型，中外AI地缘竞争升级为业务断链</h3>
+        </div>
+        <p class="card-summary">7月3日阿里巴巴发布内部通知，宣布全面禁用Anthropic旗下Claude全系模型及Claude Code工具，新规将于7月10日正式落地，要求全体员工限期卸载、彻底停用。Anthropic此前指控阿里借助2.5万个虚假账号完成2800万次模型交互，通过高频访问开展模型蒸馏；随后Anthropic开启针对中国用户的大规模封号行动。业内认为这标志着中外AI产业地缘竞争从口水战进入实际业务断链阶段，国产自主可控AI生态加速替代。</p>
+        <div class="card-footer">
+          <span class="card-tag">#阿里巴巴</span>
+          <span class="card-tag">#Claude</span>
+          <span class="card-tag">#地缘竞争</span>
+          <a class="card-link" href="https://www.aitop100.cn/infomation/details/34175.html">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">系统生态</span>
+          <h3 class="card-title">微软Project Aion曝光：以Copilot为唯一核心，传统桌面或被取代</h3>
+        </div>
+        <p class="card-summary">微软内部全新操作系统项目Project Aion近日曝光，彻底颠覆数十年传统电脑操作逻辑。该系统完全舍弃传统桌面、系统图标与开始菜单，以Copilot智能助手为唯一核心交互载体，基于Edge浏览器和Web技术搭建，并引入"Spaces"任务分组机制，可根据办公、创作、编程等场景自动归类整合任务。这标志着操作系统从"工具承载平台"向"AI引导型智能环境"跃迁。</p>
+        <div class="card-footer">
+          <span class="card-tag">#微软</span>
+          <span class="card-tag">#ProjectAion</span>
+          <span class="card-tag">#Copilot</span>
+          <a class="card-link" href="https://www.aitop100.cn/infomation/details/34175.html">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">大厂硬件</span>
+          <h3 class="card-title">字节豆包AI手机项目调整：核心硬件负责人离职，进入战略蛰伏期</h3>
+        </div>
+        <p class="card-summary">字节跳动Ocean硬件团队传出核心人事变动，豆包AI手机硬件负责人林夕正式离职，这是该项目2024年启动以来首位核心硬件负责人出走。内部人士辟谣项目关停，称只是全面调整运作模式，进入战略蛰伏与精细化打磨阶段。项目推进中持续遭遇备案审核、供应链调整、硬件制造门槛与合规监管等多重压力，折射出AI硬件落地难度远超纯软件业务。</p>
+        <div class="card-footer">
+          <span class="card-tag">#字节跳动</span>
+          <span class="card-tag">#豆包AI手机</span>
+          <span class="card-tag">#AI硬件</span>
+          <a class="card-link" href="https://www.aitop100.cn/infomation/details/34175.html">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: 投资与商业 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-green">💰</div>
+        <span class="section-title">投资与商业</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">IPO</span>
+          <h3 class="card-title">宇树科技科创板IPO注册获批：73天闪电过审，A股人形机器人第一股诞生在即</h3>
+        </div>
+        <p class="card-summary">7月3日证监会正式批复宇树科技科创板IPO注册，审核仅耗时73天，创下国内人形机器人企业最快过审纪录。公司拟募资42.02亿元，估值达420亿元。作为全球具身智能头部企业，宇树科技2025年人形机器人出货量突破5500台居全球首位，非经常性净利润达60亿元，核心业务营收占比近五成。本次获批意味着A股人形机器人第一股即将启动发行。</p>
+        <div class="card-footer">
+          <span class="card-tag">#宇树科技</span>
+          <span class="card-tag">#科创板</span>
+          <span class="card-tag">#IPO</span>
+          <a class="card-link" href="https://baijiahao.baidu.com/s?id=1869663037493428932&wfr=spider&for=pc">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">巨额融资</span>
+          <h3 class="card-title">快手可灵AI完成近30亿美元融资：腾讯阿里百度等34家机构入局</h3>
+        </div>
+        <p class="card-summary">7月3日快手宣布旗下视频生成大模型可灵AI完成独立融资及业务重组，引入腾讯、阿里云、百度等34家投资机构，融资规模最高30亿美元，投后估值180亿美元。快手仍保持68.33%控股地位。可灵AI深度绑定快手短视频生态，打通内容生产、投放、流量变现闭环，计划12个月内推动独立赴港上市。</p>
+        <div class="card-footer">
+          <span class="card-tag">#可灵AI</span>
+          <span class="card-tag">#30亿美元</span>
+          <span class="card-tag">#港股</span>
+          <a class="card-link" href="https://www.zhihu.com/pin/2056316781803976333">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">追加投资</span>
+          <h3 class="card-title">软银完成对OpenAI追加投资100亿美元，总承诺出资额达650亿美元</h3>
+        </div>
+        <p class="card-summary">7月1日软银集团官方宣布，通过旗下愿景基金二号完成对OpenAI 100亿美元追加投资。这是2026年2月敲定的300亿美元三期追加计划中的第二笔资金落地，使软银对OpenAI的总承诺出资额正式达到650亿美元。巨额资本持续加注，显示OpenAI在一级市场仍具强吸力，也为其IPO与算力扩张储备弹药。</p>
+        <div class="card-footer">
+          <span class="card-tag">#软银</span>
+          <span class="card-tag">#OpenAI</span>
+          <span class="card-tag">#愿景基金</span>
+          <a class="card-link" href="http://k.sina.com.cn/article_7879922977_1d5ae152106801ggqa.html">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4: 政策与行业生态 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-orange">🏛️</div>
+        <span class="section-title">政策与行业生态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">行业盛会</span>
+          <h3 class="card-title">首届上海国际具身智能产业博览会举办：近200家企业、1.5万专业观众</h3>
+        </div>
+        <p class="card-summary">7月2日至4日，首届上海国际具身智能产业博览会（CIEI2026）在国家会展中心（上海）举办。展会以"具身启元 智创未来"为主题，吸引宇树、乐聚、中科新松等近200家领军企业参与，到场专业观众超过15000名。开幕式上发布的《2026中国具身智能产业发展报告》指出，具身智能是连接数字智能与物理世界的关键桥梁，中国凭借完整产业链与场景资源在全球竞争中占据突出地位。</p>
+        <div class="card-footer">
+          <span class="card-tag">#具身智能</span>
+          <span class="card-tag">#上海</span>
+          <span class="card-tag">#CIEI2026</span>
+          <a class="card-link" href="https://www.chinanews.com/cj/2026/07-02/10651420.shtml">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">数字经济</span>
+          <h3 class="card-title">2026数字经济产业博览会北京启幕：首发首秀、AI+应用成亮点</h3>
+        </div>
+        <p class="card-summary">7月2日至4日，2026数字经济产业博览会作为2026全球数字经济大会同期活动在北京国家会议中心E馆举行。博览会设置全球OPC共创节、国际展区、城市发展、首发首秀、AI+应用、数字文娱消费六大特色展区，集中展示AI大模型、人形机器人、智能制造等前沿技术与多元应用场景，全景呈现数字技术赋能实体经济的新成果。</p>
+        <div class="card-footer">
+          <span class="card-tag">#数字经济</span>
+          <span class="card-tag">#北京</span>
+          <span class="card-tag">#AI+应用</span>
+          <a class="card-link" href="https://www.chinanews.com.cn/cj/2026/07-01/10650797.shtml">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">广告治理</span>
+          <h3 class="card-title">巨量引擎发布Mamoda 2.5：全形态视频广告智能治理大模型</h3>
+        </div>
+        <p class="card-summary">7月3日巨量引擎正式发布自研广告治理大模型Mamoda 2.5，完成多模态风控能力全面升级。新版本可深度解析视频画面、音频、字幕等全维度信息，实现图片、长短视频等全形态广告内容的精细化合规检测，有效拦截虚假宣传与违规营销，同时避免过度审核影响商家运营，为短视频平台广告生态治理提供成熟解决方案。</p>
+        <div class="card-footer">
+          <span class="card-tag">#巨量引擎</span>
+          <span class="card-tag">#Mamoda</span>
+          <span class="card-tag">#广告治理</span>
+          <a class="card-link" href="https://www.aitop100.cn/infomation/details/34175.html">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Editor Pick -->
+    <div class="editor-pick">
+      <div class="editor-pick-title">✍️ 编辑精选 · 深度观点</div>
+      <div class="editor-pick-content">
+        <p>今天的AI行业呈现出<strong>"硬科技突破 + 地缘裂痕 + 资本狂欢"</strong>的三重奏。阿里达摩院ElementsClaw用28个GPU时发现4种全新超导体，可能是本周最具长期价值的新闻——它证明AI for Science不再只是概念，而是能真正缩短材料、能源、医药等基础科学研发的周期。</p>
+        <p>但同一天，<strong>阿里与Anthropic的互相制裁</strong>把中外AI地缘竞争摆上桌面：模型蒸馏指控、虚假账号、Claude Code隐写术风控、大规模封号、企业级禁用——技术冷战已从监管文件进入业务实操。国内企业替换海外模型已成确定性趋势，自主可控不再只是口号，而是生存刚需。</p>
+        <p>宇树科技73天过审科创板、可灵AI 30亿美元融资、软银再加仓OpenAI，资本仍在为AI的未来买单。微软Project Aion则提醒我们：下一代操作系统可能不再是"桌面+图标"，而是"对话+智能体"。</p>
+        <p><strong>一句话总结：</strong>AI正在同时向上（科学发现）、向外（地缘博弈）、向内（操作系统重构）三个维度裂变，2026年下半年的竞争格局，比上半年更复杂也更精彩。</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
     <div class="footer">
       <p class="footer-text"><span class="footer-brand">三木AI 每日一刻钟</span> · 每天15分钟，读懂AI世界</p>
-      <p class="footer-text">2026年07月04日 星期六</p>
+      <p class="footer-text">2026年07月04日 星期六 · 共收录资讯12条</p>
     </div>
   </div>
+  <script>
+  (function() {
+    var availableDates = [];
+    var calYear = 2026, calMonth = 6;
+
+    fetch('manifest.json?t=' + Date.now())
+      .then(function(r){return r.json();})
+      .then(function(data){
+        availableDates = data.dates || [];
+        renderCalendar();
+      })
+      .catch(function(){
+        availableDates = ['2026-06-14','2026-06-15','2026-06-16','2026-06-17','2026-06-18','2026-06-19','2026-06-20','2026-06-21','2026-06-22','2026-06-23','2026-06-24','2026-06-25','2026-06-26','2026-06-27','2026-06-28','2026-06-29','2026-06-30','2026-07-01','2026-07-02','2026-07-03','2026-07-04'];
+        renderCalendar();
+      });
+
+    window.openCalendar = function() {
+      document.getElementById('calOverlay').classList.add('active');
+      renderCalendar();
+    };
+    window.closeCalendar = function(e) {
+      if (!e || e.target.id === 'calOverlay') {
+        document.getElementById('calOverlay').classList.remove('active');
+      }
+    };
+    window.changeMonth = function(delta) {
+      calMonth += delta;
+      if (calMonth > 11) { calMonth = 0; calYear++; }
+      if (calMonth < 0) { calMonth = 11; calYear--; }
+      renderCalendar();
+    };
+    window.goToDate = function(dateStr) {
+      if (dateStr === '2026-07-04') {
+        window.location.href = 'index.html';
+      } else {
+        window.location.href = 'ai-daily-' + dateStr + '.html';
+      }
+    };
+
+    function renderCalendar() {
+      var monthNames = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+      document.getElementById('calMonth').textContent = calYear + '年' + monthNames[calMonth];
+      var firstDay = new Date(calYear, calMonth, 1).getDay();
+      var daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+      var prevDays = new Date(calYear, calMonth, 0).getDate();
+      var html = '';
+      for (var i = firstDay - 1; i >= 0; i--) {
+        html += '<button class="calendar-day other-month" disabled>' + (prevDays - i) + '</button>';
+      }
+      for (var d = 1; d <= daysInMonth; d++) {
+        var ds = calYear + '-' + String(calMonth + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+        var cls = 'calendar-day';
+        var isAvail = availableDates.indexOf(ds) !== -1;
+        var isToday = ds === '2026-07-04';
+        if (isAvail) cls += ' available';
+        if (isToday) cls += ' today';
+        if (isAvail) {
+          html += '<button class="' + cls + '" onclick="goToDate(\'' + ds + '\')">' + d + '</button>';
+        } else {
+          html += '<button class="' + cls + '" disabled>' + d + '</button>';
+        }
+      }
+      var totalCells = firstDay + daysInMonth;
+      var nextPadding = (7 - (totalCells % 7)) % 7;
+      for (var j = 1; j <= nextPadding; j++) {
+        html += '<button class="calendar-day other-month" disabled>' + j + '</button>';
+      }
+      document.getElementById('calDays').innerHTML = html;
+    }
+  })();
+  </script>
+
 </body>
 </html>
