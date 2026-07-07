@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>三木AI 每日一刻钟 | 2026-07-07</title>
+  <title>三木AI 每日一刻钟 | 2026-07-08</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {--bg:#f5f7fa;--card-bg:#ffffff;--text-primary:#1a1a2e;--text-secondary:#5a5a7a;--text-muted:#8a8aa0;--accent-blue:#2563eb;--accent-blue-light:#dbeafe;--accent-purple:#7c3aed;--accent-purple-light:#ede9fe;--accent-teal:#0d9488;--accent-teal-light:#ccfbf1;--accent-orange:#ea580c;--accent-orange-light:#ffedd5;--accent-green:#16a34a;--accent-green-light:#dcfce7;--border:#e2e8f0;--border-light:#f1f5f9;--radius:12px;--radius-sm:8px;--shadow:0 1px 3px rgba(0,0,0,0.04),0 4px 12px rgba(0,0,0,0.03);}
@@ -14,6 +14,17 @@
     .header-title {font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:1px;}
     .header-sub {font-size:13px;color:var(--text-muted);margin-top:4px;}
     .header-date {display:inline-block;margin-top:12px;padding:4px 16px;background:var(--accent-blue-light);color:var(--accent-blue);border-radius:20px;font-size:13px;font-weight:500;}
+    .nav-bar {background:var(--card-bg);border-radius:var(--radius);padding:10px 20px;margin-bottom:24px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);}
+    .nav-brand {display:flex;align-items:center;gap:8px;}
+    .nav-logo {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .nav-sub {font-size:11px;color:var(--text-muted);}
+    .nav-center {display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);}
+    .nav-btn {cursor:pointer;background:none;border:none;padding:4px 8px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+    .nav-btn:hover{color:var(--accent-blue);background:var(--accent-blue-light);}
+    .nav-date-text{font-weight:500;color:var(--text-primary);}
+    .nav-right {display:flex;align-items:center;gap:8px;}
+    .nav-calendar-btn {cursor:pointer;display:flex;align-items:center;gap:4px;padding:5px 12px;border-radius:8px;font-size:13px;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;font-weight:500;transition:.2s;}
+    .nav-calendar-btn:hover{opacity:.9;}
     .intro {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow);border:1px solid var(--border);}
     .intro-text {font-size:14px;color:var(--text-secondary);line-height:1.8;}
     .quick-tips {background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;color:white;box-shadow:var(--shadow);}
@@ -38,36 +49,370 @@
     .badge-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .badge-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .badge-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+    .badge-green {background:var(--accent-green-light);color:var(--accent-green);}
     .icon-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
     .icon-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .icon-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .icon-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+    .icon-green {background:var(--accent-green-light);color:var(--accent-green);}
     .editor-pick {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);border:1px solid var(--border);border-left:3px solid var(--accent-orange);}
-    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;}
+    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
     .editor-pick-content {font-size:13px;color:var(--text-secondary);line-height:1.8;}
     .editor-pick-content p {margin-bottom:8px;}
     .editor-pick-content strong {color:var(--text-primary);font-weight:600;}
     .footer {text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
     .footer-text {font-size:12px;color:var(--text-muted);}
     .footer-brand {font-weight:600;color:var(--text-secondary);}
+    .calendar-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:999;display:none;align-items:flex-start;justify-content:flex-end;padding-top:110px;padding-right:16px;}
+    .calendar-overlay.active {display:flex;}
+    .calendar-modal {background:var(--card-bg);border-radius:var(--radius);width:92%;max-width:360px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);animation:calIn .25s ease-out;}
+    @keyframes calIn {from{opacity:0;transform:translateY(20px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);}}
+    .calendar-header {display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+    .calendar-title {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .calendar-close {cursor:pointer;background:none;border:none;padding:4px;border-radius:6px;font-size:18px;color:var(--text-muted);transition:.2s;line-height:1;}
+    .calendar-close:hover {background:var(--border-light);color:var(--text-primary);}
+    .calendar-nav {display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px;}
+    .calendar-nav-btn {cursor:pointer;background:none;border:none;padding:4px 10px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+    .calendar-nav-btn:hover{background:var(--accent-blue-light);color:var(--accent-blue);}
+    .calendar-nav-month {font-size:14px;font-weight:600;color:var(--text-primary);min-width:100px;text-align:center;}
+    .calendar-grid {display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;}
+    .calendar-weekday {text-align:center;font-size:11px;color:var(--text-muted);padding:6px 0;font-weight:500;}
+    .calendar-day {aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:13px;cursor:pointer;transition:.15s;border:none;background:none;color:var(--text-primary);position:relative;}
+    .calendar-day:hover:not(:disabled) {background:var(--accent-blue-light);color:var(--accent-blue);}
+    .calendar-day.other-month {color:var(--text-muted);opacity:.5;}
+    .calendar-day.available {font-weight:600;color:var(--accent-blue);background:var(--accent-blue-light);}
+    .calendar-day.available:hover {background:var(--accent-blue);color:#fff;}
+    .calendar-day.today {box-shadow:inset 0 0 0 1.5px var(--accent-blue);}
+    .calendar-day:disabled {cursor:default;color:var(--border);}
+    .calendar-info {text-align:center;font-size:12px;color:var(--text-muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light);}
+    .calendar-info span {display:inline-flex;align-items:center;gap:4px;}
+    .calendar-dot {width:6px;height:6px;border-radius:50%;background:var(--accent-blue);display:inline-block;}
+    @media(max-width:480px){.container{padding:16px 12px 32px;}.header-title{font-size:19px;}.card{padding:14px 16px;}.calendar-overlay{padding-top:100px;justify-content:center;padding-right:0;}.calendar-modal{padding:16px;}}
   </style>
 </head>
 <body>
   <div class="container">
+
     <div class="header">
       <h1 class="header-title">三木AI 每日一刻钟</h1>
       <p class="header-sub">每天15分钟，读懂AI世界</p>
-      <span class="header-date">2026年07月07日 星期二</span>
+      <span class="header-date">2026年07月08日 星期三</span>
     </div>
-    
+
+    <div class="nav-bar">
+      <div class="nav-brand">
+        <span class="nav-logo">🤖 三木AI</span>
+        <span class="nav-sub">每日一刻钟</span>
+      </div>
+      <div class="nav-center">
+        <button class="nav-btn" onclick="window.location.href='ai-daily-2026-07-07.html'">‹</button>
+        <span class="nav-date-text">2026-07-08</span>
+        <button class="nav-btn" disabled style="opacity:.3" href="#">›</button>
+      </div>
+      <div class="nav-right">
+        <button class="nav-calendar-btn" onclick="openCalendar()">📅 日历</button>
+      </div>
+    </div>
+
+    <div class="calendar-overlay" id="calOverlay" onclick="closeCalendar(event)">
+      <div class="calendar-modal" onclick="event.stopPropagation()">
+        <div class="calendar-header">
+          <span class="calendar-title">📅 选择日期</span>
+          <button class="calendar-close" onclick="closeCalendar()">&times;</button>
+        </div>
+        <div class="calendar-nav">
+          <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
+          <span class="calendar-nav-month" id="calMonth">2026年7月</span>
+          <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
+        </div>
+        <div class="calendar-grid">
+          <div class="calendar-weekday">日</div><div class="calendar-weekday">一</div><div class="calendar-weekday">二</div>
+          <div class="calendar-weekday">三</div><div class="calendar-weekday">四</div><div class="calendar-weekday">五</div><div class="calendar-weekday">六</div>
+        </div>
+        <div class="calendar-grid" id="calDays"></div>
+        <div class="calendar-info"><span><i class="calendar-dot"></i> 蓝色日期表示有简报</span></div>
+      </div>
+    </div>
+
     <div class="intro">
-      <p class="intro-text">今日简报内容正在整理中，请稍后再试。</p>
+      <p class="intro-text">
+        周三AI圈继续围绕<strong>三条主线</strong>展开：一是<strong>模型与算力深度绑定</strong>——GPT-5.6因网络安全能力被政府限制，Anthropic与三星洽谈自研2nm芯片；二是<strong>中国快速跟随与产能瓶颈并存</strong>——Z.ai GLM-5.2以低成本加入全球竞赛，国产芯片却在中芯N+2产线上争夺有限产能；三是<strong>商业模式从免费补贴转向精细定价</strong>——DeepSeek V4引入峰谷定价，可灵AI以180亿美元估值完成融资。今天我们聚焦这些关键变化。
+      </p>
     </div>
-    
+
+    <div class="quick-tips">
+      <div class="quick-tips-title">🔥 今日要点速览</div>
+      <ul class="quick-tips-list">
+<li>OpenAI <strong>GPT-5.6系列</strong>发布，因网络安全能力被政府限制，最强模型进入"受审放行"时代</li>
+<li>Anthropic拟与<strong>三星合作自研2nm AI芯片</strong>，大模型战争从软件竞赛打到供应链深处</li>
+<li>快手可灵AI完成<strong>30亿美元融资</strong>，投后估值180亿美元，BAT罕见同台投资</li>
+<li>DeepSeek V4正式版引入<strong>峰谷定价机制</strong>，高峰时段API价格翻倍，国产大模型价格战迎来拐点</li>
+<li>韩国宣布未来十年<strong>1.3万亿美元</strong>投资半导体与AI，全球算力军备竞赛进一步升级</li>
+      </ul>
+    </div>
+
+<div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-blue">⚡</div>
+        <span class="section-title">技术前沿动态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">模型发布</span>
+          <h3 class="card-title">OpenAI发布GPT-5.6系列：Soul/Terra/Luna三层架构，因网络安全能力被政府限制</h3>
+        </div>
+        <p class="card-summary">OpenAI于6月27日正式发布GPT-5.6系列，包含旗舰Soul、均衡Terra、轻量Luna三档模型。Soul在Terminal-Bench 2.1编程评测中标准模式达88.8%，Ultra模式借助子智能体加速达91.9%。由于该模型在发掘软件漏洞方面能力过强，美国政府要求先审计再放行，标志着最强AI模型进入"受审放行"时代。</p>
+        <div class="card-footer">
+          <span class="card-tag">#OpenAI</span> <span class="card-tag">#GPT-5.6</span> <span class="card-tag">#Soul</span> <span class="card-tag">#网络安全</span>
+          <a class="card-link" href="https://www.weste.net/2026/06-27/GPT-5.6.html">阅读原文 →</a>
+        </div>
+      </div>
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">自研芯片</span>
+          <h3 class="card-title">Anthropic与三星洽谈自研2nm AI芯片，大模型战争打到供应链深处</h3>
+        </div>
+        <p class="card-summary">据外媒报道，Anthropic正在推进自研AI芯片计划，并已与三星电子展开初步洽谈，寻求2nm制造工艺及先进封装合作。Anthropic还从OpenAI挖来了其自研芯片团队早期核心成员Clive Chan。三星此前已参与Anthropic 5月完成的650亿美元融资。若合作落地，将帮助Anthropic降低对第三方算力依赖，同时提振三星先进制程代工业务。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Anthropic</span> <span class="card-tag">#三星</span> <span class="card-tag">#自研芯片</span> <span class="card-tag">#2nm</span>
+          <a class="card-link" href="https://news.qq.com/rain/a/20260706A02SSD00">阅读原文 →</a>
+        </div>
+      </div>
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">端侧AI</span>
+          <h3 class="card-title">苹果推送iOS 27 Beta 3，Siri AI语速与表现力独立调节功能正式激活</h3>
+        </div>
+        <p class="card-summary">7月7日，苹果推送iOS/iPadOS 27 Beta 3更新（版本号24A5380h）。本次更新激活了Siri AI的语速与表现力独立调节滑块，每项提供5个调节等级，用户调整时Siri会实时播放连续音频示例。该设置还将同步应用到Apple Maps与Safari，同时系统引入了全新的Siri AI动画。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Apple</span> <span class="card-tag">#iOS 27</span> <span class="card-tag">#Siri AI</span> <span class="card-tag">#端侧AI</span>
+          <a class="card-link" href="https://finance.sina.com.cn/tech/roll/2026-07-07/doc-inifykny8368716.shtml">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+<div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-purple">🌍</div>
+        <span class="section-title">国内外AI动态</span>
+        <span class="section-count">4条</span>
+      </div>
+
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">国产模型</span>
+          <h3 class="card-title">Z.ai发布GLM-5.2模型，以低成本加入与Anthropic、OpenAI的全球竞赛</h3>
+        </div>
+        <p class="card-summary">7月3日，Z.ai公司发布GLM-5.2模型，以较低成本达到与Anthropic、OpenAI前沿模型相近的性能水平。报道称这标志着中国"快速跟随"策略正将知识产权优势转化为可实际运行的全球竞品，在多场景支持能力上实现企业端高效推理与消费者端广覆盖。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Z.ai</span> <span class="card-tag">#GLM-5.2</span> <span class="card-tag">#国产模型</span> <span class="card-tag">#中美竞争</span>
+          <a class="card-link" href="https://www.yingzheng.com/article/china-zai-glm-5-2-ai-race-anthropic-openai">阅读原文 →</a>
+        </div>
+      </div>
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">机器人大会</span>
+          <h3 class="card-title">2026世界机器人大会将于8月19-23日在北京举办，人形机器人加速上工业产线</h3>
+        </div>
+        <p class="card-summary">7月6日，2026世界机器人大会新闻发布会在北京召开。本届大会主题为"人机共生，产需共融"，参展企业超300家，展品超2000件，首发新品超150件。大会首次设置"发布日""采购日""开发者日""公众开放日"主题日，并首次打造机器人消费街。人形机器人应用场景正从娱乐表演加速向3C质检、物流分拣、汽车制造等工业场景拓展。</p>
+        <div class="card-footer">
+          <span class="card-tag">#世界机器人大会</span> <span class="card-tag">#人形机器人</span> <span class="card-tag">#具身智能</span> <span class="card-tag">#北京</span>
+          <a class="card-link" href="https://news.qq.com/rain/a/20260707A078RM00">阅读原文 →</a>
+        </div>
+      </div>
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">产能瓶颈</span>
+          <h3 class="card-title">国产AI芯片产能争夺战：华为独占中芯43%先进产能，寒武纪11%，160万颗缺口悬顶</h3>
+        </div>
+        <p class="card-summary">2026年国产AI芯片总需求约420万颗，但中芯N+2等效7nm产线全年极限供给仅约260万颗，缺口高达160万颗。华为凭借工艺研发贡献拿下43%份额并锁死5年长约，寒武纪占约11%，其余十几家厂商争夺剩余产能。这场"产能饥饿游戏"正成为国产AI芯片替代英伟达过程中最隐形的瓶颈。</p>
+        <div class="card-footer">
+          <span class="card-tag">#国产芯片</span> <span class="card-tag">#中芯</span> <span class="card-tag">#华为</span> <span class="card-tag">#寒武纪</span> <span class="card-tag">#产能</span>
+          <a class="card-link" href="https://news.qq.com/rain/a/20260705A032KJ00">阅读原文 →</a>
+        </div>
+      </div>
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">视频模型</span>
+          <h3 class="card-title">字节豆包视频模型Seedance 2.5预计7月正式上线，单段原生30秒视频生成</h3>
+        </div>
+        <p class="card-summary">火山引擎在6月下旬FORCE原动力大会上公布豆包视频生成模型Seedance 2.5，预计7月初正式上线体验中心并开放API。该模型支持单段原生30秒视频生成，并具备多模态参考能力。随着可灵AI完成巨额融资，字节、阿里、可灵正形成国内视频大模型"三强"格局。</p>
+        <div class="card-footer">
+          <span class="card-tag">#字节跳动</span> <span class="card-tag">#Seedance 2.5</span> <span class="card-tag">#视频生成</span> <span class="card-tag">#豆包</span>
+          <a class="card-link" href="https://www.huxiu.com/ainews/13686.html">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+<div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-green">💰</div>
+        <span class="section-title">投资与商业</span>
+        <span class="section-count">3条</span>
+      </div>
+
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">融资</span>
+          <h3 class="card-title">快手可灵AI完成30亿美元融资，投后估值180亿美元，BAT罕见同台投资</h3>
+        </div>
+        <p class="card-summary">快手公告称，可灵AI以150亿美元投前估值完成上限30亿美元首轮外部融资，投后估值约180亿美元。投资方包括腾讯、阿里云、百度（BAT同台）、CPE源峰、国方创投、BlueFive Capital、中信证券及多地国资与产业基金。2025年可灵营收约11亿元，但亏损扩大至19亿元；2026年3月ARR已跃升至5亿美元。若2031年10月30日前未完成IPO，投资方有权要求年化8%回购。</p>
+        <div class="card-footer">
+          <span class="card-tag">#可灵AI</span> <span class="card-tag">#快手</span> <span class="card-tag">#融资</span> <span class="card-tag">#180亿美元</span> <span class="card-tag">#BAT</span>
+          <a class="card-link" href="https://finance.sina.cn/2026-07-07/detail-inifyvat1643283.d.html">阅读原文 →</a>
+        </div>
+      </div>
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">定价机制</span>
+          <h3 class="card-title">DeepSeek V4正式版将引入峰谷定价，高峰时段API价格翻倍，价格战迎来拐点</h3>
+        </div>
+        <p class="card-summary">DeepSeek宣布V4正式版将于7月中旬在腾讯云TokenHub等平台上线，并同步引入峰谷定价机制。高峰时段（9:00-12:00、14:00-18:00）API调用价格翻倍，V4-Pro缓存命中输入从0.025元涨至0.05元/百万tokens，输出从6元涨至12元。这是国内大模型行业首次引入峰谷定价，被视为大模型从"亏本补贴"向"价值定价"转折的信号。</p>
+        <div class="card-footer">
+          <span class="card-tag">#DeepSeek</span> <span class="card-tag">#V4</span> <span class="card-tag">#峰谷定价</span> <span class="card-tag">#API</span>
+          <a class="card-link" href="https://finance.sina.com.cn/tech/digi/2026-07-03/doc-inifpyys3519262.shtml">阅读原文 →</a>
+        </div>
+      </div>
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">IPO</span>
+          <h3 class="card-title">昆仑芯赴港IPO目标估值500亿美元，超母公司百度市值，IPO成&quot;锁客&quot;策略</h3>
+        </div>
+        <p class="card-summary">百度旗下AI芯片子公司昆仑芯赴港IPO目标估值约500亿美元，超过母公司百度当前市值约360亿美元。公司5月已启动科创板上市辅导，A+H双线推进。据悉昆仑芯在IPO中设置隐藏条款，要求投资者承诺后续采购芯片价值达认购金额的3到7倍，远高于行业50%-100%的惯例，试图将IPO从融资工具转变为锁定客户需求的战略手段。</p>
+        <div class="card-footer">
+          <span class="card-tag">#昆仑芯</span> <span class="card-tag">#IPO</span> <span class="card-tag">#500亿美元</span> <span class="card-tag">#AI芯片</span>
+          <a class="card-link" href="https://caifuhao.eastmoney.com/news/2026070414452720207920">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+<div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-orange">🏛️</div>
+        <span class="section-title">政策与行业生态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">大会动态</span>
+          <h3 class="card-title">WAIC 2026新闻发布会举行：7月17-20日上海，三地四馆布局，超300款AI产品全球首发</h3>
+        </div>
+        <p class="card-summary">7月7日，上海市政府新闻办举行发布会介绍2026世界人工智能大会暨人工智能全球治理高级别会议筹备情况。本届大会将于7月17-20日在上海举办，主题为"智能伙伴，共创未来"，形成世博、张江、西岸"三地四馆"布局，展览面积首次突破10万平方米。上千家参展企业将带来3000余项展品，超300款AI新产品全球首发，并首次举办高水平人工智能国际学术会议"WAIC Academic"，由图灵奖得主与中外院士领衔。</p>
+        <div class="card-footer">
+          <span class="card-tag">#WAIC 2026</span> <span class="card-tag">#上海</span> <span class="card-tag">#人工智能大会</span> <span class="card-tag">#全球治理</span>
+          <a class="card-link" href="https://news.qq.com/rain/a/20260707A062EM00">阅读原文 →</a>
+        </div>
+      </div>
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">国家战略</span>
+          <h3 class="card-title">韩国宣布未来十年1.3万亿美元投资半导体与AI，启动史上最大规模产业豪赌</h3>
+        </div>
+        <p class="card-summary">6月29日，韩国总统李在明与三星电子会长李在镕、SK集团会长崔泰源共同宣布"三大超级项目"计划，未来十年韩国企业将在半导体、人工智能及相关基础设施领域推动超过2000万亿韩元（约合1.3万亿美元）的投资。该计划重点布局非首都圈地区，旨在巩固韩国在AI半导体与算力基础设施领域的全球领先地位。</p>
+        <div class="card-footer">
+          <span class="card-tag">#韩国</span> <span class="card-tag">#半导体</span> <span class="card-tag">#AI投资</span> <span class="card-tag">#1.3万亿美元</span>
+          <a class="card-link" href="https://news.cctv.com/2026/06/30/ARTI7bqlHpA991Zpd0aJxiMD260630.shtml">阅读原文 →</a>
+        </div>
+      </div>
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">标准体系</span>
+          <h3 class="card-title">工信部发布《人形机器人与具身智能标准体系（2026版）》，应用与安全伦理纳入核心框架</h3>
+        </div>
+        <p class="card-summary">2026年2月底，工信部人形机器人与具身智能标准化技术委员会发布《人形机器人与具身智能标准体系（2026版）》，将"应用"和"安全伦理"纳入核心框架。该标准体系为人形机器人从工厂走向家庭、从样机走向规模化部署提供规范基础，标志着产业正从"展示能力"转向"对接需求"与"可信服务"并重。</p>
+        <div class="card-footer">
+          <span class="card-tag">#工信部</span> <span class="card-tag">#人形机器人</span> <span class="card-tag">#标准体系</span> <span class="card-tag">#安全伦理</span>
+          <a class="card-link" href="https://www.miit.gov.cn/zwgk/zcwj/wjfb/art/2026/art_1a6880738cfc4235afeda815d6ae8ab4.html">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="editor-pick">
+      <div class="editor-pick-title">✍️ 编辑精选 · 深度观点</div>
+      <div class="editor-pick-content">
+        <p>7月8日的AI行业呈现出<strong>三个清晰的转折信号</strong>。首先，<strong>最强模型的"受审放行"</strong>成为新常态——GPT-5.6因网络安全能力被政府限制，技术能力与访问权限的脱钩正在加速，模型能力越强，越可能先被锁定在少数受审查者手中。其次，<strong>算力竞争从软件堆叠下沉到芯片制造</strong>——Anthropic与三星洽谈自研2nm芯片，韩国豪赌1.3万亿美元，国产芯片却在产能分配上被中芯N+2的物理极限卡死。第三，<strong>商业模型从补贴走向精细定价</strong>——DeepSeek V4的峰谷定价与可灵AI的180亿美元估值，说明行业不再只拼Demo，而是开始算清楚每一token和每一帧的成本。一句话总结：AI行业正从"谁模型更强"进入"谁能把模型安全、可控、可持续地商业化"的深水区。</p>
+      </div>
+    </div>
+
     <div class="footer">
       <p class="footer-text"><span class="footer-brand">三木AI 每日一刻钟</span> · 每天15分钟，读懂AI世界</p>
-      <p class="footer-text">2026年07月07日 星期二</p>
+      <p class="footer-text">2026年07月08日 星期三 · 共收录资讯13条</p>
     </div>
   </div>
+  <script>
+  (function() {
+    var availableDates = [];
+    var calYear = 2026, calMonth = 6;
+
+    fetch('manifest.json?t=' + Date.now())
+      .then(function(r){return r.json();})
+      .then(function(data){
+        availableDates = data.dates || [];
+        renderCalendar();
+      })
+      .catch(function(){
+        availableDates = ['2026-07-08'];
+        renderCalendar();
+      });
+
+    window.openCalendar = function() {
+      document.getElementById('calOverlay').classList.add('active');
+      renderCalendar();
+    };
+    window.closeCalendar = function(e) {
+      if (!e || e.target.id === 'calOverlay') {
+        document.getElementById('calOverlay').classList.remove('active');
+      }
+    };
+    window.changeMonth = function(delta) {
+      calMonth += delta;
+      if (calMonth > 11) { calMonth = 0; calYear++; }
+      if (calMonth < 0) { calMonth = 11; calYear--; }
+      renderCalendar();
+    };
+    window.goToDate = function(dateStr) {
+      if (dateStr === '2026-07-08') {
+        window.location.href = 'index.html';
+      } else {
+        window.location.href = 'ai-daily-' + dateStr + '.html';
+      }
+    };
+
+    function renderCalendar() {
+      var monthNames = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+      document.getElementById('calMonth').textContent = calYear + '年' + monthNames[calMonth];
+      var firstDay = new Date(calYear, calMonth, 1).getDay();
+      var daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+      var prevDays = new Date(calYear, calMonth, 0).getDate();
+      var html = '';
+      for (var i = firstDay - 1; i >= 0; i--) {
+        html += '<button class="calendar-day other-month" disabled>' + (prevDays - i) + '</button>';
+      }
+      for (var d = 1; d <= daysInMonth; d++) {
+        var ds = calYear + '-' + String(calMonth + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+        var cls = 'calendar-day';
+        var isAvail = availableDates.indexOf(ds) !== -1;
+        var isToday = ds === '2026-07-08';
+        if (isAvail) cls += ' available';
+        if (isToday) cls += ' today';
+        if (isAvail) {
+          html += '<button class="' + cls + '" onclick="goToDate('' + ds + '')">' + d + '</button>';
+        } else {
+          html += '<button class="' + cls + '" disabled>' + d + '</button>';
+        }
+      }
+      var totalCells = firstDay + daysInMonth;
+      var nextPadding = (7 - (totalCells % 7)) % 7;
+      for (var j = 1; j <= nextPadding; j++) {
+        html += '<button class="calendar-day other-month" disabled>' + j + '</button>';
+      }
+      document.getElementById('calDays').innerHTML = html;
+    }
+  })();
+  </script>
+
 </body>
 </html>
