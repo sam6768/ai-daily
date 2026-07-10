@@ -14,6 +14,17 @@
     .header-title {font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:1px;}
     .header-sub {font-size:13px;color:var(--text-muted);margin-top:4px;}
     .header-date {display:inline-block;margin-top:12px;padding:4px 16px;background:var(--accent-blue-light);color:var(--accent-blue);border-radius:20px;font-size:13px;font-weight:500;}
+    .nav-bar {background:var(--card-bg);border-radius:var(--radius);padding:10px 20px;margin-bottom:24px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);}
+    .nav-brand {display:flex;align-items:center;gap:8px;}
+    .nav-logo {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .nav-sub {font-size:11px;color:var(--text-muted);}
+    .nav-center {display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);}
+    .nav-btn {cursor:pointer;background:none;border:none;padding:4px 8px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+    .nav-btn:hover{color:var(--accent-blue);background:var(--accent-blue-light);}
+    .nav-date-text{font-weight:500;color:var(--text-primary);}
+    .nav-right {display:flex;align-items:center;gap:8px;}
+    .nav-calendar-btn {cursor:pointer;display:flex;align-items:center;gap:4px;padding:5px 12px;border-radius:8px;font-size:13px;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;font-weight:500;transition:.2s;}
+    .nav-calendar-btn:hover{opacity:.9;}
     .intro {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow);border:1px solid var(--border);}
     .intro-text {font-size:14px;color:var(--text-secondary);line-height:1.8;}
     .quick-tips {background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;color:white;box-shadow:var(--shadow);}
@@ -38,36 +49,370 @@
     .badge-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .badge-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .badge-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+    .badge-green {background:var(--accent-green-light);color:var(--accent-green);}
     .icon-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
     .icon-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .icon-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .icon-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+    .icon-green {background:var(--accent-green-light);color:var(--accent-green);}
     .editor-pick {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);border:1px solid var(--border);border-left:3px solid var(--accent-orange);}
-    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;}
+    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
     .editor-pick-content {font-size:13px;color:var(--text-secondary);line-height:1.8;}
     .editor-pick-content p {margin-bottom:8px;}
     .editor-pick-content strong {color:var(--text-primary);font-weight:600;}
     .footer {text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
     .footer-text {font-size:12px;color:var(--text-muted);}
     .footer-brand {font-weight:600;color:var(--text-secondary);}
+    .calendar-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:999;display:none;align-items:flex-start;justify-content:flex-end;padding-top:110px;padding-right:16px;}
+    .calendar-overlay.active {display:flex;}
+    .calendar-modal {background:var(--card-bg);border-radius:var(--radius);width:92%;max-width:360px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);animation:calIn .25s ease-out;}
+    @keyframes calIn {from{opacity:0;transform:translateY(20px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);}}
+    .calendar-header {display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+    .calendar-title {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .calendar-close {cursor:pointer;background:none;border:none;padding:4px;border-radius:6px;font-size:18px;color:var(--text-muted);transition:.2s;line-height:1;}
+    .calendar-close:hover {background:var(--border-light);color:var(--text-primary);}
+    .calendar-nav {display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px;}
+    .calendar-nav-btn {cursor:pointer;background:none;border:none;padding:4px 10px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+    .calendar-nav-btn:hover{background:var(--accent-blue-light);color:var(--accent-blue);}
+    .calendar-nav-month {font-size:14px;font-weight:600;color:var(--text-primary);min-width:100px;text-align:center;}
+    .calendar-grid {display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;}
+    .calendar-weekday {text-align:center;font-size:11px;color:var(--text-muted);padding:6px 0;font-weight:500;}
+    .calendar-day {aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:13px;cursor:pointer;transition:.15s;border:none;background:none;color:var(--text-primary);position:relative;}
+    .calendar-day:hover:not(:disabled) {background:var(--accent-blue-light);color:var(--accent-blue);}
+    .calendar-day.other-month {color:var(--text-muted);opacity:.5;}
+    .calendar-day.available {font-weight:600;color:var(--accent-blue);background:var(--accent-blue-light);}
+    .calendar-day.available:hover {background:var(--accent-blue);color:#fff;}
+    .calendar-day.today {box-shadow:inset 0 0 0 1.5px var(--accent-blue);}
+    .calendar-day:disabled {cursor:default;color:var(--border);}
+    .calendar-info {text-align:center;font-size:12px;color:var(--text-muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light);}
+    .calendar-info span {display:inline-flex;align-items:center;gap:4px;}
+    .calendar-dot {width:6px;height:6px;border-radius:50%;background:var(--accent-blue);display:inline-block;}
+    @media(max-width:480px){.container{padding:16px 12px 32px;}.header-title{font-size:19px;}.card{padding:14px 16px;}.calendar-overlay{padding-top:100px;justify-content:center;padding-right:0;}.calendar-modal{padding:16px;}}
   </style>
 </head>
 <body>
   <div class="container">
+
     <div class="header">
       <h1 class="header-title">三木AI 每日一刻钟</h1>
       <p class="header-sub">每天15分钟，读懂AI世界</p>
       <span class="header-date">2026年07月10日 星期五</span>
     </div>
-    
-    <div class="intro">
-      <p class="intro-text">今日简报内容正在整理中，请稍后再试。</p>
+
+    <div class="nav-bar">
+      <div class="nav-brand">
+        <span class="nav-logo">🤖 三木AI</span>
+        <span class="nav-sub">每日一刻钟</span>
+      </div>
+      <div class="nav-center">
+        <button class="nav-btn" onclick="window.location.href='ai-daily-2026-07-08.html'">‹</button>
+        <span class="nav-date-text">2026-07-10</span>
+        <button class="nav-btn" onclick="window.location.href='ai-daily-2026-07-11.html'">›</button>
+      </div>
+      <div class="nav-right">
+        <button class="nav-calendar-btn" onclick="openCalendar()">📅 日历</button>
+      </div>
     </div>
-    
+
+    <div class="calendar-overlay" id="calOverlay" onclick="closeCalendar(event)">
+      <div class="calendar-modal" onclick="event.stopPropagation()">
+        <div class="calendar-header">
+          <span class="calendar-title">📅 选择日期</span>
+          <button class="calendar-close" onclick="closeCalendar()">&times;</button>
+        </div>
+        <div class="calendar-nav">
+          <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
+          <span class="calendar-nav-month" id="calMonth">2026年7月</span>
+          <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
+        </div>
+        <div class="calendar-grid">
+          <div class="calendar-weekday">日</div><div class="calendar-weekday">一</div><div class="calendar-weekday">二</div>
+          <div class="calendar-weekday">三</div><div class="calendar-weekday">四</div><div class="calendar-weekday">五</div><div class="calendar-weekday">六</div>
+        </div>
+        <div class="calendar-grid" id="calDays"></div>
+        <div class="calendar-info"><span><i class="calendar-dot"></i> 蓝色日期表示有简报</span></div>
+      </div>
+    </div>
+
+    <div class="intro">
+      <p class="intro-text">
+        周五AI圈继续围绕<strong>三条主线</strong>展开：一是<strong>最强模型进入监管放行与地缘分割</strong>——OpenAI GPT-5.6获美国商务部批准全量上线，而阿里巴巴今日起全面禁用Anthropic Claude；二是<strong>智能体经济遭遇强监管与资本市场重新审视</strong>——豆包、千问智能体功能进入关停过渡期，MiniMax解禁日股价大跌18%，国产大模型从信仰交易转向基本面验证；三是<strong>具身智能与产业生态进入密集落地期</strong>——南京具身智能机器人产业展开幕、工信部预计今年人形机器人产量突破10万台。今天我们聚焦这些关键变化。
+      </p>
+    </div>
+
+    <div class="quick-tips">
+      <div class="quick-tips-title">🔥 今日要点速览</div>
+      <ul class="quick-tips-list">
+<li>OpenAI <strong>GPT-5.6系列</strong>获美国监管放行并正式全量上线，最强模型进入"先审后发"时代</li>
+<li>阿里巴巴今日起<strong>全面禁用Claude</strong>，涵盖Sonnet、Opus、Fable及Claude Code等全部产品</li>
+<li>豆包、千问智能体今日起进入关停过渡期，<strong>AI拟人化互动监管</strong>正式落地</li>
+<li>MiniMax解禁日股价<strong>大跌17.98%</strong>，国产大模型估值从信仰溢价转向基本面验证</li>
+<li>2026中国互联网大会今日闭幕，"十五五"数智合力与AI原生重构互联网成为主线</li>
+      </ul>
+    </div>
+
+<div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-blue">⚡</div>
+        <span class="section-title">技术前沿动态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">模型发布</span>
+          <h3 class="card-title">OpenAI GPT-5.6系列正式全量上线，获美国商务部监管放行</h3>
+        </div>
+        <p class="card-summary">7月8日消息，OpenAI宣布GPT-5.6 Sol、Terra、Luna将于本周四正式公开发布，并已在全球范围扩大模型预览试用权限。该系列此前因网络安全能力过强被美国政府要求先审计再放行，此次放行源于OpenAI与政府官员完成多轮补充测试与磋商，标志着最强AI模型进入"先审后发"时代。</p>
+        <div class="card-footer">
+          <span class="card-tag">#OpenAI</span> <span class="card-tag">#GPT-5.6</span> <span class="card-tag">#监管放行</span>
+          <a class="card-link" href="https://tech.ifeng.com/c/8uaqhhYInyZ">阅读原文 →</a>
+        </div>
+      </div>
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">大模型</span>
+          <h3 class="card-title">SpaceXAI发布Grok 4.5语言模型，基于1.5万亿参数V9基础模型</h3>
+        </div>
+        <p class="card-summary">7月9日，SpaceXAI（原xAI）正式发布基于全新V9基础模型（1.5万亿参数）的Grok 4.5。该模型旨在提升推理能力、代码支持及长对话自然度，被马斯克定位为"Opus-Class"级别，以应对激烈的AI大模型市场竞争。</p>
+        <div class="card-footer">
+          <span class="card-tag">#SpaceXAI</span> <span class="card-tag">#Grok 4.5</span> <span class="card-tag">#xAI</span>
+          <a class="card-link" href="https://ai6s.net/6a4f11b310ee7a33f28a9355.html">阅读原文 →</a>
+        </div>
+      </div>
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">国产模型</span>
+          <h3 class="card-title">腾讯发布混元3大模型正式版，元宝接入并上线免费Agent功能</h3>
+        </div>
+        <p class="card-summary">7月6日，腾讯正式发布基座模型混元Hy3正式版，并同步接入元宝App。混元3重点强化了Agent（智能体）能力，支持跨应用任务执行与复杂场景推理，标志着腾讯在大模型Agent化赛道加速布局。</p>
+        <div class="card-footer">
+          <span class="card-tag">#腾讯</span> <span class="card-tag">#混元3</span> <span class="card-tag">#Agent</span>
+          <a class="card-link" href="https://www.caixin.com/2026-07-06/102461425.html">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+<div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-purple">🌍</div>
+        <span class="section-title">国内外AI动态</span>
+        <span class="section-count">4条</span>
+      </div>
+
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">企业动态</span>
+          <h3 class="card-title">阿里巴巴今日起全面禁用Anthropic Claude产品</h3>
+        </div>
+        <p class="card-summary">据IT之家7月3日报道，阿里巴巴内部宣布全面禁用Anthropic旗下Claude产品，7月10日正式生效。禁用范围涵盖Sonnet、Opus、Fable等模型及Claude Code等Agent产品。此前Claude Code被曝内置检测机制，会识别中国时区及中国科技企业域名并将信息编码在系统提示词中上传，Anthropic回应称已在新版本中完全回滚。</p>
+        <div class="card-footer">
+          <span class="card-tag">#阿里巴巴</span> <span class="card-tag">#Claude</span> <span class="card-tag">#Anthropic</span> <span class="card-tag">#安全</span>
+          <a class="card-link" href="https://www.ithome.com/0/972/210.htm">阅读原文 →</a>
+        </div>
+      </div>
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">监管合规</span>
+          <h3 class="card-title">豆包、千问智能体功能今日起进入关停过渡期</h3>
+        </div>
+        <p class="card-summary">字节豆包与阿里通义千问同步公告，将在7月15日全线下线用户自建智能体功能。千问于7月10日率先停用所有拟人互动与用户自建智能体，7月15日彻底关闭；豆包统一在7月15日关闭入口并设置三个月数据缓冲期。此次调整与《人工智能拟人化互动服务管理暂行办法》施行日期重合，标志着AI拟人化互动行业进入全面规范化转型。</p>
+        <div class="card-footer">
+          <span class="card-tag">#豆包</span> <span class="card-tag">#通义千问</span> <span class="card-tag">#智能体</span> <span class="card-tag">#监管</span>
+          <a class="card-link" href="https://mbd.baidu.com/newspage/data/dtlandingsuper?nid=dt_5384691295710269307">阅读原文 →</a>
+        </div>
+      </div>
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">股市动态</span>
+          <h3 class="card-title">MiniMax解禁日股价大跌17.98%，市值较历史高点跌去约77%</h3>
+        </div>
+        <p class="card-summary">7月9日，国产大模型公司MiniMax迎来上市后首批限售股解禁，当日收盘股价297.4港元，下跌17.98%，总市值691.55亿港元，较3月创下的1330港元历史高点跌去约77%。此次约44.85%股份集中解禁，尽管超80% Pre-IPO及基石股东表态长期持有，但股价仍剧烈波动，反映市场对大模型商业化基本面的重新审视。</p>
+        <div class="card-footer">
+          <span class="card-tag">#MiniMax</span> <span class="card-tag">#解禁</span> <span class="card-tag">#港股</span> <span class="card-tag">#估值</span>
+          <a class="card-link" href="https://finance.sina.com.cn/jjxw/2026-07-10/doc-inihftws4212007.shtml">阅读原文 →</a>
+        </div>
+      </div>
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">人才竞争</span>
+          <h3 class="card-title">从资本战到人才战，大模型产业竞争白热化</h3>
+        </div>
+        <p class="card-summary">据上海证券报7月10日报道，前华为"天才少年"李博杰吐槽DeepSeek面试流程引发舆论，折射出大模型赛道人才争夺的激烈程度。腾讯引入姚顺雨、小米挖角罗福莉、郭达雅履新字节跳动，DeepSeek计划各部门规模扩大至少1倍。业内认为，基础模型算法专家、预训练专家、AI Agent架构师等顶尖人才仍是稀缺资源。</p>
+        <div class="card-footer">
+          <span class="card-tag">#人才战</span> <span class="card-tag">#DeepSeek</span> <span class="card-tag">#腾讯</span> <span class="card-tag">#小米</span> <span class="card-tag">#字节</span>
+          <a class="card-link" href="https://finance.sina.com.cn/roll/2026-07-10/doc-inihfyen7368526.shtml">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+<div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-green">💰</div>
+        <span class="section-title">投资与商业</span>
+        <span class="section-count">3条</span>
+      </div>
+
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">估值分化</span>
+          <h3 class="card-title">大模型双雄解禁剧本不同：MiniMax跌18% vs 智谱连涨</h3>
+        </div>
+        <p class="card-summary">7月8-9日，智谱与MiniMax相继迎来解禁。智谱连续两日上涨，7月9日收盘股价2032港元、总市值4497亿港元；MiniMax则大跌17.98%。分析认为，智谱解禁比例仅约5.76%且基石投资者多为国资背景，而MiniMax解禁比例约44.85%、Pre-IPO股东以财务型PE/VC为主，成本极低、退出意愿强。大模型赛道正从"信仰交易"转向基本面验证。</p>
+        <div class="card-footer">
+          <span class="card-tag">#MiniMax</span> <span class="card-tag">#智谱</span> <span class="card-tag">#解禁</span> <span class="card-tag">#估值</span>
+          <a class="card-link" href="https://finance.sina.com.cn/jjxw/2026-07-10/doc-inihftws4212007.shtml">阅读原文 →</a>
+        </div>
+      </div>
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">IPO</span>
+          <h3 class="card-title">晶合集成7月10日港交所挂牌上市，募资最高约69.82亿港元</h3>
+        </div>
+        <p class="card-summary">合肥晶合集成（02249.HK）于7月10日在港交所主板挂牌上市，全球发售约2.16亿股H股，招股价30.00-32.30港元，募资总额最高约69.82亿港元。作为12英寸纯晶圆代工企业，晶合集成的A+H布局被视为AI算力芯片供应链国产化的重要一步。</p>
+        <div class="card-footer">
+          <span class="card-tag">#晶合集成</span> <span class="card-tag">#IPO</span> <span class="card-tag">#港股</span> <span class="card-tag">#半导体</span>
+          <a class="card-link" href="https://www.guandian.cn/article/20260709/572476.html">阅读原文 →</a>
+        </div>
+      </div>
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">IPO</span>
+          <h3 class="card-title">立讯精密7月9日登陆港交所，募资约242亿港元成年内最大IPO</h3>
+        </div>
+        <p class="card-summary">精密制造龙头立讯精密（02475.HK）于7月9日在港交所主板挂牌上市，全球发售约3.83亿股H股，发行价63.28港元，合计募资约242.66亿港元，成为2026年以来港股规模最大的IPO。公司强调AI算力与智能制造打开全新成长空间，但上市首日股价破发，市场对其"果链"依赖仍有担忧。</p>
+        <div class="card-footer">
+          <span class="card-tag">#立讯精密</span> <span class="card-tag">#IPO</span> <span class="card-tag">#港股</span> <span class="card-tag">#AI算力</span>
+          <a class="card-link" href="https://finance.eastmoney.com/a/202607083798352884.html">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+<div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-orange">🏛️</div>
+        <span class="section-title">政策与行业生态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">行业大会</span>
+          <h3 class="card-title">2026中国互联网大会今日闭幕，AI原生重构互联网成焦点</h3>
+        </div>
+        <p class="card-summary">2026（第二十五届）中国互联网大会于7月8日在北京国家会议中心开幕，7月10日闭幕。本届大会以"智启新程·融创未来——以数智合力谱写“十五五”发展新篇章"为主题，围绕人工智能赋能新质生产力、AI赋能数字消费、Data For AI等方向展开。中国工程院院士邬贺铨作"AI原生重构互联网"主旨报告。</p>
+        <div class="card-footer">
+          <span class="card-tag">#中国互联网大会</span> <span class="card-tag">#十五五</span> <span class="card-tag">#AI原生</span>
+          <a class="card-link" href="https://finance.sina.com.cn/roll/2026-07-09/doc-inihefve8275657.shtml">阅读原文 →</a>
+        </div>
+      </div>
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">产业展会</span>
+          <h3 class="card-title">2026中国（南京）具身智能机器人产业展今日开幕</h3>
+        </div>
+        <p class="card-summary">7月10日-12日，2026中国（南京）具身智能机器人产业展在南京国际博览中心举行。展会预计吸引450+海内外参展企业、35000+专业观众，覆盖核心零部件、整机系统到行业解决方案，构建"技术-产品-应用"完整生态链。</p>
+        <div class="card-footer">
+          <span class="card-tag">#南京</span> <span class="card-tag">#具身智能</span> <span class="card-tag">#机器人</span> <span class="card-tag">#展会</span>
+          <a class="card-link" href="https://news.qq.com/rain/a/20260705A08FOG00">阅读原文 →</a>
+        </div>
+      </div>
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">产业政策</span>
+          <h3 class="card-title">工信部：今年我国人形机器人整机产量有望突破10万台</h3>
+        </div>
+        <p class="card-summary">7月7日，工业和信息化部科技司副司长甘小斌在WAIC 2026新闻发布会上表示，我国大模型、智能体等加速迭代，今年人形机器人全年整机产量有望突破10万台。目前规上工业企业人工智能应用普及率已超30%，工信部正深入实施"模数共振""人形机器人与具身智能实景实训"等专项行动。</p>
+        <div class="card-footer">
+          <span class="card-tag">#工信部</span> <span class="card-tag">#人形机器人</span> <span class="card-tag">#10万台</span>
+          <a class="card-link" href="https://news.youth.cn/gn/202607/t20260707_16751449.htm">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="editor-pick">
+      <div class="editor-pick-title">✍️ 编辑精选 · 深度观点</div>
+      <div class="editor-pick-content">
+        <p>7月10日的AI行业呈现出<strong>强监管、估值分化与产业落地加速</strong>并存的鲜明图景。OpenAI GPT-5.6终于获得美国政府放行，说明<strong>模型能力越强，越需要先过安全审查这一关</strong>；而阿里今日全面禁用Claude、豆包千问下线智能体，则标志着国内AI拟人化互动进入合规整顿期，自由生长阶段告一段落。资本市场同样在用脚投票：MiniMax解禁日暴跌18%，与智谱的稳健形成对比，大模型估值正从"信仰溢价"切换到"合同金额、毛利率和客户续约率"。与此同时，具身智能展会密集、人形机器人产量目标突破10万台，说明物理AI正在从Demo走向产线。一句话总结：<strong>AI行业正在同时经历监管定型、估值出清与场景落地三重转折</strong>。</p>
+      </div>
+    </div>
+
     <div class="footer">
       <p class="footer-text"><span class="footer-brand">三木AI 每日一刻钟</span> · 每天15分钟，读懂AI世界</p>
-      <p class="footer-text">2026年07月10日 星期五</p>
+      <p class="footer-text">2026年07月10日 星期五 · 共收录资讯13条</p>
     </div>
   </div>
+  <script>
+  (function() {
+    var availableDates = [];
+    var calYear = 2026, calMonth = 6;
+
+    fetch('manifest.json?t=' + Date.now())
+      .then(function(r){return r.json();})
+      .then(function(data){
+        availableDates = data.dates || [];
+        renderCalendar();
+      })
+      .catch(function(){
+        availableDates = ['2026-07-10'];
+        renderCalendar();
+      });
+
+    window.openCalendar = function() {
+      document.getElementById('calOverlay').classList.add('active');
+      renderCalendar();
+    };
+    window.closeCalendar = function(e) {
+      if (!e || e.target.id === 'calOverlay') {
+        document.getElementById('calOverlay').classList.remove('active');
+      }
+    };
+    window.changeMonth = function(delta) {
+      calMonth += delta;
+      if (calMonth > 11) { calMonth = 0; calYear++; }
+      if (calMonth < 0) { calMonth = 11; calYear--; }
+      renderCalendar();
+    };
+    window.goToDate = function(dateStr) {
+      if (dateStr === '2026-07-10') {
+        window.location.href = 'index.html';
+      } else {
+        window.location.href = 'ai-daily-' + dateStr + '.html';
+      }
+    };
+
+    function renderCalendar() {
+      var monthNames = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+      document.getElementById('calMonth').textContent = calYear + '年' + monthNames[calMonth];
+      var firstDay = new Date(calYear, calMonth, 1).getDay();
+      var daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+      var prevDays = new Date(calYear, calMonth, 0).getDate();
+      var html = '';
+      for (var i = firstDay - 1; i >= 0; i--) {
+        html += '<button class="calendar-day other-month" disabled>' + (prevDays - i) + '</button>';
+      }
+      for (var d = 1; d <= daysInMonth; d++) {
+        var ds = calYear + '-' + String(calMonth + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+        var cls = 'calendar-day';
+        var isAvail = availableDates.indexOf(ds) !== -1;
+        var isToday = ds === '2026-07-10';
+        if (isAvail) cls += ' available';
+        if (isToday) cls += ' today';
+        if (isAvail) {
+          html += '<button class="' + cls + '" onclick="goToDate('' + ds + '')">' + d + '</button>';
+        } else {
+          html += '<button class="' + cls + '" disabled>' + d + '</button>';
+        }
+      }
+      var totalCells = firstDay + daysInMonth;
+      var nextPadding = (7 - (totalCells % 7)) % 7;
+      for (var j = 1; j <= nextPadding; j++) {
+        html += '<button class="calendar-day other-month" disabled>' + j + '</button>';
+      }
+      document.getElementById('calDays').innerHTML = html;
+    }
+  })();
+  </script>
+
 </body>
 </html>
