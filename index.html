@@ -14,17 +14,6 @@
     .header-title {font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:1px;}
     .header-sub {font-size:13px;color:var(--text-muted);margin-top:4px;}
     .header-date {display:inline-block;margin-top:12px;padding:4px 16px;background:var(--accent-blue-light);color:var(--accent-blue);border-radius:20px;font-size:13px;font-weight:500;}
-    .nav-bar {background:var(--card-bg);border-radius:var(--radius);padding:10px 20px;margin-bottom:24px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);}
-    .nav-brand {display:flex;align-items:center;gap:8px;}
-    .nav-logo {font-size:15px;font-weight:600;color:var(--text-primary);}
-    .nav-sub {font-size:11px;color:var(--text-muted);}
-    .nav-center {display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);}
-    .nav-btn {cursor:pointer;background:none;border:none;padding:4px 8px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
-    .nav-btn:hover{color:var(--accent-blue);background:var(--accent-blue-light);}
-    .nav-date-text{font-weight:500;color:var(--text-primary);}
-    .nav-right {display:flex;align-items:center;gap:8px;}
-    .nav-calendar-btn {cursor:pointer;display:flex;align-items:center;gap:4px;padding:5px 12px;border-radius:8px;font-size:13px;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;font-weight:500;transition:.2s;}
-    .nav-calendar-btn:hover{opacity:.9;}
     .intro {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow);border:1px solid var(--border);}
     .intro-text {font-size:14px;color:var(--text-secondary);line-height:1.8;}
     .quick-tips {background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;color:white;box-shadow:var(--shadow);}
@@ -49,370 +38,36 @@
     .badge-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .badge-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .badge-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
-    .badge-green {background:var(--accent-green-light);color:var(--accent-green);}
     .icon-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
     .icon-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .icon-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .icon-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
-    .icon-green {background:var(--accent-green-light);color:var(--accent-green);}
     .editor-pick {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);border:1px solid var(--border);border-left:3px solid var(--accent-orange);}
-    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;}
     .editor-pick-content {font-size:13px;color:var(--text-secondary);line-height:1.8;}
     .editor-pick-content p {margin-bottom:8px;}
     .editor-pick-content strong {color:var(--text-primary);font-weight:600;}
     .footer {text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
     .footer-text {font-size:12px;color:var(--text-muted);}
     .footer-brand {font-weight:600;color:var(--text-secondary);}
-    .calendar-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:999;display:none;align-items:flex-start;justify-content:flex-end;padding-top:110px;padding-right:16px;}
-    .calendar-overlay.active {display:flex;}
-    .calendar-modal {background:var(--card-bg);border-radius:var(--radius);width:92%;max-width:360px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);animation:calIn .25s ease-out;}
-    @keyframes calIn {from{opacity:0;transform:translateY(20px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);}}
-    .calendar-header {display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
-    .calendar-title {font-size:15px;font-weight:600;color:var(--text-primary);}
-    .calendar-close {cursor:pointer;background:none;border:none;padding:4px;border-radius:6px;font-size:18px;color:var(--text-muted);transition:.2s;line-height:1;}
-    .calendar-close:hover {background:var(--border-light);color:var(--text-primary);}
-    .calendar-nav {display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px;}
-    .calendar-nav-btn {cursor:pointer;background:none;border:none;padding:4px 10px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
-    .calendar-nav-btn:hover{background:var(--accent-blue-light);color:var(--accent-blue);}
-    .calendar-nav-month {font-size:14px;font-weight:600;color:var(--text-primary);min-width:100px;text-align:center;}
-    .calendar-grid {display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;}
-    .calendar-weekday {text-align:center;font-size:11px;color:var(--text-muted);padding:6px 0;font-weight:500;}
-    .calendar-day {aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:13px;cursor:pointer;transition:.15s;border:none;background:none;color:var(--text-primary);position:relative;}
-    .calendar-day:hover:not(:disabled) {background:var(--accent-blue-light);color:var(--accent-blue);}
-    .calendar-day.other-month {color:var(--text-muted);opacity:.5;}
-    .calendar-day.available {font-weight:600;color:var(--accent-blue);background:var(--accent-blue-light);}
-    .calendar-day.available:hover {background:var(--accent-blue);color:#fff;}
-    .calendar-day.today {box-shadow:inset 0 0 0 1.5px var(--accent-blue);}
-    .calendar-day:disabled {cursor:default;color:var(--border);}
-    .calendar-info {text-align:center;font-size:12px;color:var(--text-muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light);}
-    .calendar-info span {display:inline-flex;align-items:center;gap:4px;}
-    .calendar-dot {width:6px;height:6px;border-radius:50%;background:var(--accent-blue);display:inline-block;}
-    @media(max-width:480px){.container{padding:16px 12px 32px;}.header-title{font-size:19px;}.card{padding:14px 16px;}.calendar-overlay{padding-top:100px;justify-content:center;padding-right:0;}.calendar-modal{padding:16px;}}
   </style>
 </head>
 <body>
   <div class="container">
-
     <div class="header">
       <h1 class="header-title">三木AI 每日一刻钟</h1>
       <p class="header-sub">每天15分钟，读懂AI世界</p>
       <span class="header-date">2026年07月11日 星期六</span>
     </div>
-
-    <div class="nav-bar">
-      <div class="nav-brand">
-        <span class="nav-logo">🤖 三木AI</span>
-        <span class="nav-sub">每日一刻钟</span>
-      </div>
-      <div class="nav-center">
-        <button class="nav-btn" onclick="window.location.href='ai-daily-2026-07-10.html'">‹</button>
-        <span class="nav-date-text">2026-07-11</span>
-        <button class="nav-btn" disabled style="opacity:.3" href="#">›</button>
-      </div>
-      <div class="nav-right">
-        <button class="nav-calendar-btn" onclick="openCalendar()">📅 日历</button>
-      </div>
-    </div>
-
-    <div class="calendar-overlay" id="calOverlay" onclick="closeCalendar(event)">
-      <div class="calendar-modal" onclick="event.stopPropagation()">
-        <div class="calendar-header">
-          <span class="calendar-title">📅 选择日期</span>
-          <button class="calendar-close" onclick="closeCalendar()">&times;</button>
-        </div>
-        <div class="calendar-nav">
-          <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
-          <span class="calendar-nav-month" id="calMonth">2026年7月</span>
-          <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
-        </div>
-        <div class="calendar-grid">
-          <div class="calendar-weekday">日</div><div class="calendar-weekday">一</div><div class="calendar-weekday">二</div>
-          <div class="calendar-weekday">三</div><div class="calendar-weekday">四</div><div class="calendar-weekday">五</div><div class="calendar-weekday">六</div>
-        </div>
-        <div class="calendar-grid" id="calDays"></div>
-        <div class="calendar-info"><span><i class="calendar-dot"></i> 蓝色日期表示有简报</span></div>
-      </div>
-    </div>
-
+    
     <div class="intro">
-      <p class="intro-text">
-        周六AI圈围绕<strong>三条主线</strong>密集展开：一是<strong>OpenAI GPT-5.6系列全量发布</strong>，Sol/Terra/Luna三档模型+GPT-Live语音+ChatGPT Work智能体三连击，重塑AI应用生态格局；二是<strong>苹果正式起诉OpenAI窃取商业机密</strong>，库克与Altman从合作伙伴走向法庭对决，AI硬件竞赛升级为法律战；三是<strong>国产大模型融资潮白热化</strong>——智谱配售314亿港元创纪录、MiniMax解禁后拟融资160亿港元，双雄一周配股近500亿港元。今天我们聚焦这些关键变化。
-      </p>
+      <p class="intro-text">今日简报内容正在整理中，请稍后再试。</p>
     </div>
-
-    <div class="quick-tips">
-      <div class="quick-tips-title">🔥 今日要点速览</div>
-      <ul class="quick-tips-list">
-<li>OpenAI发布<strong>GPT-5.6全系列+GPT-Live语音+ChatGPT Work智能体</strong>，三连击重构AI应用生态，微软全系Copilot已接入</li>
-<li>苹果正式<strong>起诉OpenAI窃取商业机密</strong>，库克与Altman彻底决裂，硅谷AI硬件竞赛从合作走向法庭</li>
-<li>智谱<strong>配售314亿港元</strong>创港股科技企业单笔融资纪录，MiniMax解禁后拟融资160亿港元，双雄一周配股近500亿</li>
-<li>中国AI大模型周调用量<strong>23.45万亿词元</strong>，连续六周全球第一，高盛50页报告看多中国开源模型路线</li>
-<li>曙光8000<strong>十万卡国产超集群落成</strong>，全国首部AI智能体评估标准公开征集意见，基础设施与监管同步提速</li>
-      </ul>
-    </div>
-
-<div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-blue">⚡</div>
-        <span class="section-title">技术前沿动态</span>
-        <span class="section-count">3条</span>
-      </div>
-
-<div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-blue">模型发布</span>
-          <h3 class="card-title">OpenAI GPT-5.6全量发布：Sol/Terra/Luna三档+GPT-Live语音+ChatGPT Work三连击</h3>
-        </div>
-        <p class="card-summary">7月10日，OpenAI正式向全球全量开放GPT-5.6系列三款模型：旗舰版Sol（5美元/百万token输入，支持max/ultra推理增强模式）、均衡版Terra、轻量版Luna。同步推出GPT-Live原生实时语音模型，支持自然打断、实时翻译和听写；ChatGPT Work智能体可跨应用执行多步骤任务，持续数小时跟进复杂项目。新版ChatGPT桌面应用整合聊天、Work和Codex三大功能，微软确认全系Copilot已完成GPT-5.6适配。Sol在编程智能体指数中得分80分，超越Claude Fable 5的77.2分，成本仅为三分之一。</p>
-        <div class="card-footer">
-          <span class="card-tag">#OpenAI</span> <span class="card-tag">#GPT-5.6</span> <span class="card-tag">#GPT-Live</span> <span class="card-tag">#ChatGPT Work</span>
-          <a class="card-link" href="https://view.inews.qq.com/a/20260710A033CW00">阅读原文 →</a>
-        </div>
-      </div>
-<div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-blue">AI编程</span>
-          <h3 class="card-title">Claude Code内置浏览器+11天生成百万行Rust代码，AI编程迈向全自动化</h3>
-        </div>
-        <p class="card-summary">7月11日凌晨，Claude Code发布重大更新，内置浏览器功能可自动上网搜索文档、修改Bug，全程无需切屏操作，标志着AI编程助手向全自动化工作流迈出关键一步。同期消息显示，Claude在11天内生成超过100万行Rust代码，64个Claude实例并行工作，用于重写Bun项目，展示了AI编程能力的规模化应用潜力。</p>
-        <div class="card-footer">
-          <span class="card-tag">#Claude Code</span> <span class="card-tag">#AI编程</span> <span class="card-tag">#Rust</span> <span class="card-tag">#Anthropic</span>
-          <a class="card-link" href="http://mp.weixin.qq.com/s?__biz=MzYyNDIxNTI4Mg==&mid=2247502768&idx=1&sn=a69b79a97a29190680b48ba7c3a69345">阅读原文 →</a>
-        </div>
-      </div>
-<div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-blue">全模态模型</span>
-          <h3 class="card-title">阿里通义万相推出Wan-Streamer，实时双向全模态模型延迟仅550ms</h3>
-        </div>
-        <p class="card-summary">阿里通义万相发布Wan-Streamer实时双向全模态模型，支持音频和视频同步输出，延迟仅约550毫秒。该模型标志着全模态实时交互生成从实验室走向实用，与生数科技Vidu S1等共同推动低延迟交互生成技术成为行业新趋势。此外，阿里通义千问完成实时语音识别模型Fun-ASR-Realtime全面迭代，作为全系产品统一听觉基座接入千问全系列多模态模型。</p>
-        <div class="card-footer">
-          <span class="card-tag">#阿里</span> <span class="card-tag">#通义万相</span> <span class="card-tag">#Wan-Streamer</span> <span class="card-tag">#全模态</span>
-          <a class="card-link" href="https://ainewsblitz.com/">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-
-<div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-purple">🌍</div>
-        <span class="section-title">国内外AI动态</span>
-        <span class="section-count">4条</span>
-      </div>
-
-<div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">法律战</span>
-          <h3 class="card-title">苹果正式起诉OpenAI窃取商业机密，库克与Altman彻底决裂</h3>
-        </div>
-        <p class="card-summary">7月11日，苹果公司向加利福尼亚州北区联邦法院提交诉状，指控OpenAI从技术人员到首席硬件官Tang Tan（前苹果产品设计副总裁，主导过iPhone/Apple Watch/AirPods）各层级员工协同窃取iPhone制造商知识产权，用于开发消费级AI硬件。苹果要求OpenAI立即停止相关行为，销毁所有专有材料，并重新设计即将推出的硬件产品。OpenAI长期为Apple Intelligence及Siri提供技术支持，双方两年前在WWDC上正式宣布合作，如今关系彻底破裂。</p>
-        <div class="card-footer">
-          <span class="card-tag">#苹果</span> <span class="card-tag">#OpenAI</span> <span class="card-tag">#诉讼</span> <span class="card-tag">#AI硬件</span>
-          <a class="card-link" href="https://view.inews.qq.com/a/20260711A0269P00">阅读原文 →</a>
-        </div>
-      </div>
-<div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">数据报告</span>
-          <h3 class="card-title">中国AI大模型周调用量23.45万亿词元，连续六周增长稳居全球首位</h3>
-        </div>
-        <p class="card-summary">7月10日数据显示，6月29日至7月5日中国AI大模型周调用量达23.45万亿词元，环比增长15.01%，连续六周增长。全球总调用量为46.7万亿词元，中国以超过一半的份额稳居全球首位。中国互联网协会专家指出，AI时代互联网流量结构正从"人驱动"转向"机器驱动"，对服务质量提出了全新要求。</p>
-        <div class="card-footer">
-          <span class="card-tag">#大模型调用量</span> <span class="card-tag">#全球第一</span> <span class="card-tag">#OpenRouter</span>
-          <a class="card-link" href="https://view.inews.qq.com/a/20260710A03DHH00">阅读原文 →</a>
-        </div>
-      </div>
-<div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">投行报告</span>
-          <h3 class="card-title">高盛发布50页中国AI大模型深度报告：开源模型性能逼近全球顶尖专有模型</h3>
-        </div>
-        <p class="card-summary">7月10日，高盛发布50页中国AI大模型行业深度报告，认为中国开源/开放权重大模型性能已逼近全球顶尖专有模型，数据飞轮效应将推动迭代升级。报告围绕成本效率、开源路线、变现模式、算力自主四大核心问题展开评估，指出GLM 5.2等国产开源模型在基准测试上已接近GPT-4o、Claude 3.5 Sonnet等闭源顶尖模型，而推理成本仅为其零头，正在重构AI产业的权力格局和价格体系。</p>
-        <div class="card-footer">
-          <span class="card-tag">#高盛</span> <span class="card-tag">#中国大模型</span> <span class="card-tag">#开源</span> <span class="card-tag">#GLM 5.2</span>
-          <a class="card-link" href="https://view.inews.qq.com/a/20260710A0BJYD00">阅读原文 →</a>
-        </div>
-      </div>
-<div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">AI科研</span>
-          <h3 class="card-title">AI智能体40分钟干完人类60小时活，Science期刊官宣AI已会自己做实验</h3>
-        </div>
-        <p class="card-summary">7月11日，Science期刊报道AI智能体已具备独立完成科学实验的能力——可在40分钟内完成人类需要60小时的工作量。这一里程碑标志着AI从"科研辅助工具"向"独立科研主体"的转变。此前Anthropic已推出Claude Science产品线，OpenAI也官宣进军机器人赛道，AI for Science正在从概念走向大规模的产线化部署。</p>
-        <div class="card-footer">
-          <span class="card-tag">#AI for Science</span> <span class="card-tag">#Science</span> <span class="card-tag">#自动化实验</span>
-          <a class="card-link" href="http://mp.weixin.qq.com/s?__biz=MzYzNzk3MTM4Mg==&mid=2247483822&idx=1&sn=e0b2d5801a49d2c811d2188fecfd1f7b">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-
-<div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-green">💰</div>
-        <span class="section-title">投资与商业</span>
-        <span class="section-count">3条</span>
-      </div>
-
-<div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-green">融资纪录</span>
-          <h3 class="card-title">智谱AI启动314亿港元配售，创港股科技企业单笔股权融资新纪录</h3>
-        </div>
-        <p class="card-summary">7月9日，智谱AI（02513.HK）公告启动约314亿港元配售，配售价每股1588港元（较前日收盘折价12.99%），认购最多1978万股新H股。本次融资创下2026年港股科技企业单次配售募资规模新高，也是国内大模型赛道上市后最大一笔股权融资。资金将用于基座模型研发、算力基础设施建设、商业化拓展及全球生态布局。公告当日股价大涨11.34%报收2032港元。智谱IPO募资约49亿港元截至上半年使用率已超93%。</p>
-        <div class="card-footer">
-          <span class="card-tag">#智谱AI</span> <span class="card-tag">#配售</span> <span class="card-tag">#314亿港元</span> <span class="card-tag">#融资纪录</span>
-          <a class="card-link" href="https://www.stcn.com/article/detail/4009674.html">阅读原文 →</a>
-        </div>
-      </div>
-<div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-green">融资策略</span>
-          <h3 class="card-title">MiniMax解禁后拟融资160亿港元，混合工具延缓稀释风险</h3>
-        </div>
-        <p class="card-summary">7月10日，MiniMax公告推出两项融资工具：配售3560万股A类新股募资95.41亿港元（配售价268港元折价9.89%），同时发行65亿港元2027年到期零息可转债（初始转股价335港元溢价12.64%），合计募资160.4亿港元。募集资金净额80%用于加强AI基础设施及模型研发。融资公告前一日公司48.9%限售股解禁，股价大跌17.98%，MiniMax通过可转债结构延缓股本稀释，与智谱纯股权配售策略形成鲜明对比。</p>
-        <div class="card-footer">
-          <span class="card-tag">#MiniMax</span> <span class="card-tag">#配售</span> <span class="card-tag">#可转债</span> <span class="card-tag">#160亿港元</span>
-          <a class="card-link" href="https://view.inews.qq.com/a/20260710A0AT2G00">阅读原文 →</a>
-        </div>
-      </div>
-<div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-green">股市波动</span>
-          <h3 class="card-title">港股AI大模型板块集体跳水，智谱跌8% MiniMax跌6.6%，解禁震荡延续</h3>
-        </div>
-        <p class="card-summary">7月10日，港股AI板块遭遇集体下跌：智谱报1870港元/股跌7.97%，MiniMax报277.8港元/股跌6.59%，这是两家公司解禁后的首个完整交易日。与此同时，AI芯片公司燧原科技IPO注册获批，拟募资60亿元用于五代/六代AI芯片研发。此前GPU上市公司沐曦、摩尔线程上市后分别涨近10倍和5倍，AI芯片赛道与模型企业呈现冰火两重天的估值分化格局。</p>
-        <div class="card-footer">
-          <span class="card-tag">#港股</span> <span class="card-tag">#智谱</span> <span class="card-tag">#MiniMax</span> <span class="card-tag">#解禁</span> <span class="card-tag">#燧原科技</span>
-          <a class="card-link" href="https://view.inews.qq.com/a/20260710A03YBT00">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-
-<div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-orange">🏛️</div>
-        <span class="section-title">政策与行业生态</span>
-        <span class="section-count">3条</span>
-      </div>
-
-<div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-orange">基础设施</span>
-          <h3 class="card-title">中国首个全国产十万卡AI超集群曙光8000落成，接入国家超算互联网</h3>
-        </div>
-        <p class="card-summary">7月10日，中国首个全国产十万卡AI超集群——曙光8000正式落成并接入国家超算互联网，标志着中国AI基础设施建设进入十万卡级规模化部署新阶段。这一里程碑与美团开源万亿参数模型LongCat-2.0（业界首个在五万卡国产算力集群完成全流程训练的万亿模型）相呼应，中国AI算力从"能用"向"好用"的历史性跨越正在加速。</p>
-        <div class="card-footer">
-          <span class="card-tag">#曙光8000</span> <span class="card-tag">#十万卡</span> <span class="card-tag">#国产算力</span> <span class="card-tag">#超算互联网</span>
-          <a class="card-link" href="https://view.inews.qq.com/a/20260710A0B6YY00">阅读原文 →</a>
-        </div>
-      </div>
-<div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-orange">标准制定</span>
-          <h3 class="card-title">全国首部AI智能体评估标准公开征集意见，监管从"管内容"延伸至"管行为"</h3>
-        </div>
-        <p class="card-summary">7月10日，国家市场监管总局发布全国首部AI智能体评估标准并公开征集意见，这是继7月3日《人工智能 智能体互联》7项国家标准发布后，智能体领域的又一重要制度基础设施建设。新标准覆盖智能体能力评估、安全合规、互联互通等维度，标志着AI监管从"管内容生成"向"管智能体行为"延伸，为即将到来的AI智能体大规模部署提供标准化规范框架。</p>
-        <div class="card-footer">
-          <span class="card-tag">#智能体</span> <span class="card-tag">#评估标准</span> <span class="card-tag">#市场监管总局</span> <span class="card-tag">#AI治理</span>
-          <a class="card-link" href="https://view.inews.qq.com/a/20260710A0BU0B00">阅读原文 →</a>
-        </div>
-      </div>
-<div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-orange">行业应用</span>
-          <h3 class="card-title">四部门印发AI+人社应用发展实施意见，2030年实现全行业普遍应用</h3>
-        </div>
-        <p class="card-summary">7月8日，人社部、发改委、工信部、国家数据局联合印发《关于加快推进"人工智能+人社"应用发展的实施意见》，提出2026年建设20个基于行业大模型的应用场景，2027年探索50个高价值场景，2030年形成全国人社领域AI普遍应用格局。此外，山东发布首批100个"AI+制造"场景和大模型、广电总局AI微短剧新规7月1日起施行、7月15日AI拟人化互动新规即将生效，AI行业合规框架正全面提速。</p>
-        <div class="card-footer">
-          <span class="card-tag">#AI+人社</span> <span class="card-tag">#四部门</span> <span class="card-tag">#行业应用</span> <span class="card-tag">#2030目标</span>
-          <a class="card-link" href="https://ysxw.cctv.cn/article.html?toc_style_id=feeds_default&item_id=14840809372403792956&channelId=1119">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="editor-pick">
-      <div class="editor-pick-title">✍️ 编辑精选 · 深度观点</div>
-      <div class="editor-pick-content">
-        <p>7月11日的AI行业呈现出<strong>应用生态重构、地缘法律战升级与资本密集型融资</strong>三重叠加的鲜明图景。OpenAI以GPT-5.6全量发布+GPT-Live语音+ChatGPT Work智能体的三连击，正在从"模型军备竞赛"转向"应用生态占领"——微软全系Copilot已接入、新版桌面应用整合三大核心功能，<strong>AI正从对话工具演化为操作系统级入口</strong>。与此同时，苹果起诉OpenAI标志着硅谷两大巨头从合作走向殊死法律战，AI硬件赛道的不确定性急剧升高，OpenAI二号人物Fidji Simo同日宣布病退更令其IPO之路蒙上阴影。资本面上，智谱314亿港元配售与MiniMax 160亿港元混合融资构成国产大模型史上最大规模单周配股，<strong>但两家公司在资本结构中选择了截然不同的路径——纯股权 vs 转债延缓稀释</strong>，这暗示着市场对AI赛道的定价体系尚未形成共识。而曙光8000十万卡集群落成与智能体评估标准出台，则分别从算力基础设施和制度基础设施两个维度为下一阶段AI大规模部署铺路。<strong>一句话总结：AI行业正在经历"模型→应用→生态→法律→资本"的全链条重构。</strong></p>
-      </div>
-    </div>
-
+    
     <div class="footer">
       <p class="footer-text"><span class="footer-brand">三木AI 每日一刻钟</span> · 每天15分钟，读懂AI世界</p>
-      <p class="footer-text">2026年07月11日 星期六 · 共收录资讯13条</p>
+      <p class="footer-text">2026年07月11日 星期六</p>
     </div>
   </div>
-  <script>
-  (function() {
-    var availableDates = [];
-    var calYear = 2026, calMonth = 6;
-
-    fetch('manifest.json?t=' + Date.now())
-      .then(function(r){return r.json();})
-      .then(function(data){
-        availableDates = data.dates || [];
-        renderCalendar();
-      })
-      .catch(function(){
-        availableDates = ['2026-07-11'];
-        renderCalendar();
-      });
-
-    window.openCalendar = function() {
-      document.getElementById('calOverlay').classList.add('active');
-      renderCalendar();
-    };
-    window.closeCalendar = function(e) {
-      if (!e || e.target.id === 'calOverlay') {
-        document.getElementById('calOverlay').classList.remove('active');
-      }
-    };
-    window.changeMonth = function(delta) {
-      calMonth += delta;
-      if (calMonth > 11) { calMonth = 0; calYear++; }
-      if (calMonth < 0) { calMonth = 11; calYear--; }
-      renderCalendar();
-    };
-    window.goToDate = function(dateStr) {
-      if (dateStr === '2026-07-11') {
-        window.location.href = 'index.html';
-      } else {
-        window.location.href = 'ai-daily-' + dateStr + '.html';
-      }
-    };
-
-    function renderCalendar() {
-      var monthNames = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
-      document.getElementById('calMonth').textContent = calYear + '年' + monthNames[calMonth];
-      var firstDay = new Date(calYear, calMonth, 1).getDay();
-      var daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
-      var prevDays = new Date(calYear, calMonth, 0).getDate();
-      var html = '';
-      for (var i = firstDay - 1; i >= 0; i--) {
-        html += '<button class="calendar-day other-month" disabled>' + (prevDays - i) + '</button>';
-      }
-      for (var d = 1; d <= daysInMonth; d++) {
-        var ds = calYear + '-' + String(calMonth + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
-        var cls = 'calendar-day';
-        var isAvail = availableDates.indexOf(ds) !== -1;
-        var isToday = ds === '2026-07-11';
-        if (isAvail) cls += ' available';
-        if (isToday) cls += ' today';
-        if (isAvail) {
-          html += '<button class="' + cls + '" onclick="goToDate(\'' + ds + '\')">' + d + '</button>';
-        } else {
-          html += '<button class="' + cls + '" disabled>' + d + '</button>';
-        }
-      }
-      var totalCells = firstDay + daysInMonth;
-      var nextPadding = (7 - (totalCells % 7)) % 7;
-      for (var j = 1; j <= nextPadding; j++) {
-        html += '<button class="calendar-day other-month" disabled>' + j + '</button>';
-      }
-      document.getElementById('calDays').innerHTML = html;
-    }
-  })();
-  </script>
-
 </body>
 </html>
