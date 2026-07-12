@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>三木AI 每日一刻钟 | 2026-07-12</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {--bg:#f5f7fa;--card-bg:#ffffff;--text-primary:#1a1a2e;--text-secondary:#5a5a7a;--text-muted:#8a8aa0;--accent-blue:#2563eb;--accent-blue-light:#dbeafe;--accent-purple:#7c3aed;--accent-purple-light:#ede9fe;--accent-teal:#0d9488;--accent-teal-light:#ccfbf1;--accent-orange:#ea580c;--accent-orange-light:#ffedd5;--accent-green:#16a34a;--accent-green-light:#dcfce7;--border:#e2e8f0;--border-light:#f1f5f9;--radius:12px;--radius-sm:8px;--shadow:0 1px 3px rgba(0,0,0,0.04),0 4px 12px rgba(0,0,0,0.03);}
+    * {margin:0;padding:0;box-sizing:border-box;}
+    body {font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text-primary);line-height:1.7;}
+    .container {max-width:720px;margin:0 auto;padding:24px 16px 48px;}
+    .header {text-align:center;margin-bottom:28px;}
+    .header-title {font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:1px;}
+    .header-sub {font-size:13px;color:var(--text-muted);margin-top:4px;}
+    .header-date {display:inline-block;margin-top:12px;padding:4px 16px;background:var(--accent-blue-light);color:var(--accent-blue);border-radius:20px;font-size:13px;font-weight:500;}
+    .nav-bar {background:var(--card-bg);border-radius:var(--radius);padding:10px 20px;margin-bottom:24px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);}
+    .nav-brand {display:flex;align-items:center;gap:8px;}
+    .nav-logo {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .nav-sub {font-size:11px;color:var(--text-muted);}
+    .nav-center {display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);}
+    .nav-btn {cursor:pointer;background:none;border:none;padding:4px 8px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+    .nav-btn:hover{color:var(--accent-blue);background:var(--accent-blue-light);}
+    .nav-date-text{font-weight:500;color:var(--text-primary);}
+    .nav-right {display:flex;align-items:center;gap:8px;}
+    .nav-calendar-btn {cursor:pointer;display:flex;align-items:center;gap:4px;padding:5px 12px;border-radius:8px;font-size:13px;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;font-weight:500;transition:.2s;}
+    .nav-calendar-btn:hover{opacity:.9;}
+    .intro {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow);border:1px solid var(--border);}
+    .intro-text {font-size:14px;color:var(--text-secondary);line-height:1.8;}
+    .quick-tips {background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;color:white;box-shadow:var(--shadow);}
+    .quick-tips-title {font-size:15px;font-weight:600;margin-bottom:12px;}
+    .quick-tips-list {list-style:none;}
+    .quick-tips-list li {font-size:13px;line-height:1.9;padding-left:16px;position:relative;opacity:0.95;}
+    .quick-tips-list li::before {content:'';position:absolute;left:0;top:10px;width:6px;height:6px;background:rgba(255,255,255,0.7);border-radius:50%;}
+    .section {margin-bottom:24px;}
+    .section-header {display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-left:4px;}
+    .section-icon {width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;}
+    .section-title {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .section-count {margin-left:auto;font-size:12px;color:var(--text-muted);background:var(--border-light);padding:2px 10px;border-radius:12px;}
+    .card {background:var(--card-bg);border-radius:var(--radius);padding:18px 20px;margin-bottom:12px;box-shadow:var(--shadow);border:1px solid var(--border);}
+    .card-header {display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;}
+    .card-badge {flex-shrink:0;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:500;}
+    .card-title {font-size:14px;font-weight:600;color:var(--text-primary);line-height:1.5;flex:1;}
+    .card-summary {font-size:13px;color:var(--text-secondary);line-height:1.7;margin-bottom:10px;}
+    .card-footer {display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+    .card-tag {font-size:11px;color:var(--text-muted);background:var(--border-light);padding:2px 8px;border-radius:4px;}
+    .card-link {font-size:12px;color:var(--accent-blue);text-decoration:none;margin-left:auto;}
+    .badge-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
+    .badge-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
+    .badge-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
+    .badge-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+    .badge-green {background:var(--accent-green-light);color:var(--accent-green);}
+    .icon-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
+    .icon-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
+    .icon-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
+    .icon-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+    .icon-green {background:var(--accent-green-light);color:var(--accent-green);}
+    .editor-pick {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);border:1px solid var(--border);border-left:3px solid var(--accent-orange);}
+    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+    .editor-pick-content {font-size:13px;color:var(--text-secondary);line-height:1.8;}
+    .editor-pick-content p {margin-bottom:8px;}
+    .editor-pick-content strong {color:var(--text-primary);font-weight:600;}
+    .footer {text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
+    .footer-text {font-size:12px;color:var(--text-muted);}
+    .footer-brand {font-weight:600;color:var(--text-secondary);}
+    .calendar-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:999;display:none;align-items:flex-start;justify-content:flex-end;padding-top:110px;padding-right:16px;}
+    .calendar-overlay.active {display:flex;}
+    .calendar-modal {background:var(--card-bg);border-radius:var(--radius);width:92%;max-width:360px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);animation:calIn .25s ease-out;}
+    @keyframes calIn {from{opacity:0;transform:translateY(20px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);}}
+    .calendar-header {display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+    .calendar-title {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .calendar-close {cursor:pointer;background:none;border:none;padding:4px;border-radius:6px;font-size:18px;color:var(--text-muted);transition:.2s;line-height:1;}
+    .calendar-close:hover {background:var(--border-light);color:var(--text-primary);}
+    .calendar-nav {display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px;}
+    .calendar-nav-btn {cursor:pointer;background:none;border:none;padding:4px 10px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+    .calendar-nav-btn:hover{background:var(--accent-blue-light);color:var(--accent-blue);}
+    .calendar-nav-month {font-size:14px;font-weight:600;color:var(--text-primary);min-width:100px;text-align:center;}
+    .calendar-grid {display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;}
+    .calendar-weekday {text-align:center;font-size:11px;color:var(--text-muted);padding:6px 0;font-weight:500;}
+    .calendar-day {aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:13px;cursor:pointer;transition:.15s;border:none;background:none;color:var(--text-primary);position:relative;}
+    .calendar-day:hover:not(:disabled) {background:var(--accent-blue-light);color:var(--accent-blue);}
+    .calendar-day.other-month {color:var(--text-muted);opacity:.5;}
+    .calendar-day.available {font-weight:600;color:var(--accent-blue);background:var(--accent-blue-light);}
+    .calendar-day.available:hover {background:var(--accent-blue);color:#fff;}
+    .calendar-day.today {box-shadow:inset 0 0 0 1.5px var(--accent-blue);}
+    .calendar-day:disabled {cursor:default;color:var(--border);}
+    .calendar-info {text-align:center;font-size:12px;color:var(--text-muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light);}
+    .calendar-info span {display:inline-flex;align-items:center;gap:4px;}
+    .calendar-dot {width:6px;height:6px;border-radius:50%;background:var(--accent-blue);display:inline-block;}
+    @media(max-width:480px){.container{padding:16px 12px 32px;}.header-title{font-size:19px;}.card{padding:14px 16px;}.calendar-overlay{padding-top:100px;justify-content:center;padding-right:0;}.calendar-modal{padding:16px;}}
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="header">
+      <h1 class="header-title">三木AI 每日一刻钟</h1>
+      <p class="header-sub">每天15分钟，读懂AI世界</p>
+      <span class="header-date">2026年07月12日 星期六</span>
+    </div>
+
+    <div class="nav-bar">
+      <div class="nav-brand">
+        <span class="nav-logo">🤖 三木AI</span>
+        <span class="nav-sub">每日一刻钟</span>
+      </div>
+      <div class="nav-center">
+        <button class="nav-btn" onclick="window.location.href='ai-daily-2026-07-11.html'">‹</button>
+        <span class="nav-date-text">2026-07-12</span>
+        <button class="nav-btn" disabled style="opacity:.3" href="#">›</button>
+      </div>
+      <div class="nav-right">
+        <button class="nav-calendar-btn" onclick="openCalendar()">📅 日历</button>
+      </div>
+    </div>
+
+    <div class="calendar-overlay" id="calOverlay" onclick="closeCalendar(event)">
+      <div class="calendar-modal" onclick="event.stopPropagation()">
+        <div class="calendar-header">
+          <span class="calendar-title">📅 选择日期</span>
+          <button class="calendar-close" onclick="closeCalendar()">&times;</button>
+        </div>
+        <div class="calendar-nav">
+          <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
+          <span class="calendar-nav-month" id="calMonth">2026年7月</span>
+          <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
+        </div>
+        <div class="calendar-grid">
+          <div class="calendar-weekday">日</div><div class="calendar-weekday">一</div><div class="calendar-weekday">二</div>
+          <div class="calendar-weekday">三</div><div class="calendar-weekday">四</div><div class="calendar-weekday">五</div><div class="calendar-weekday">六</div>
+        </div>
+        <div class="calendar-grid" id="calDays"></div>
+        <div class="calendar-info"><span><i class="calendar-dot"></i> 蓝色日期表示有简报</span></div>
+      </div>
+    </div>
+
+    <div class="intro">
+      <p class="intro-text">
+        周六AI圈围绕<strong>三条主线</strong>展开：一是<strong>苹果41页诉状起诉OpenAI窃取商业机密</strong>，超过400名前苹果员工涉案，AI硬件竞赛从合作走向法律对决；二是<strong>OpenAI瞄准730亿美元史上最大科技IPO</strong>，但Anthropic营收已反超、安全负责人离职令上市之路蒙上阴影；三是<strong>模型军备赛进入"7月大乱斗"</strong>——Meta Muse Spark 1.1以1/10价格颠覆Agent编排赛道，Gemini 3.5 Pro定档7月17日正面硬刚DeepSeek V4，微软悄悄在核心产品中替换第三方模型为自研MAI系列。今天我们聚焦这些关键变化。
+      </p>
+    </div>
+
+    <div class="quick-tips">
+      <div class="quick-tips-title">🔥 今日要点速览</div>
+      <ul class="quick-tips-list">
+<li>苹果<strong>41页诉状起诉OpenAI窃取商业机密</strong>，400+前苹果员工涉案，AI硬件竞赛从合作走向法律对决</li>
+<li>OpenAI准备<strong>730亿美元史上最大科技IPO</strong>，但Anthropic营收已反超，安全负责人离职令上市之路蒙上阴影</li>
+<li>Meta发布<strong>Muse Spark 1.1</strong>多代理协作模型，价格仅为Fable 5的1/10，Agent编排赛道格局生变</li>
+<li>Gemini 3.5 Pro<strong>定档7月17日</strong>：200万token上下文+全新预训练底座，与DeepSeek V4正面硬刚</li>
+<li>中国牵头<strong>大模型基准测试国际标准</strong>正式发布+社科院严禁10类AI科研行为，制度基建同步提速</li>
+      </ul>
+    </div>
+
+<div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-blue">⚡</div>
+        <span class="section-title">技术前沿动态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">模型发布</span>
+          <h3 class="card-title">Meta发布Muse Spark 1.1：多代理协作架构+百万token上下文+1/10价格颠覆定价体系</h3>
+        </div>
+        <p class="card-summary">7月9日，Meta超级智能实验室发布旗舰模型Muse Spark 1.1，专为Agent场景打造。核心升级：原生支持主Agent+子Agent多代理协作架构，零样本适配新工具和MCP服务器；100万token上下文窗口+自动上下文压缩；支持脚本/点击/批量操作三种Computer Use模式。API定价输入1.25美元/输出4.25美元每百万token，仅为Anthropic Fable 5的1/10。在Agent工具使用基准JobBench得分54.7%领跑全行业，但SWE-Bench Pro编程得分61.5%仍落后于Claude Opus 4.8的69.2%。小扎三年重返X平台官宣，马斯克隔空回应"Jinx"。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Meta</span> <span class="card-tag">#Muse Spark 1.1</span> <span class="card-tag">#Agent</span> <span class="card-tag">#多代理协作</span>
+          <a class="card-link" href="https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/">阅读原文 →</a>
+        </div>
+      </div>
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">旗舰模型</span>
+          <h3 class="card-title">Gemini 3.5 Pro定档7月17日：200万token上下文+全新预训练底座，不再"挤牙膏"</h3>
+        </div>
+        <p class="card-summary">据泄露信息，谷歌Gemini 3.5 Pro将于7月17日正式发布。该模型放弃了原有2.5 Pro基座微调方案，转而进行全新预训练，发布时间因此从6月推迟。最大亮点：200万token上下文窗口（市场两倍），新增"深度思考"推理模式锁定250美元/月Ultra计划，API定价约1.25美元/百万输入token。在前端与视觉代码生成能力上据称压制Claude Fable 5，但硬核推理仍落后。7月17日恰好与WAIC 2026开幕和DeepSeek V4正式版发布窗口重叠，成为今年AI圈最密集的一周。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Google</span> <span class="card-tag">#Gemini 3.5 Pro</span> <span class="card-tag">#200万token</span> <span class="card-tag">#全新预训练</span>
+          <a class="card-link" href="https://m.sohu.com/a/1046652369_130887">阅读原文 →</a>
+        </div>
+      </div>
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">AI可解释性</span>
+          <h3 class="card-title">Anthropic揭示大模型内部推理机制：Jacobian Lens首次观察Claude内部J-space隐藏区域</h3>
+        </div>
+        <p class="card-summary">7月11日，Anthropic开发出新工具Jacobian Lens，首次观察到Claude模型内部的J-space隐藏区域——在生成答案前，模型内部会浮现相关概念词语的推理过程。这一发现揭示了AI"黑箱"中推理链的形成机制：模型在输出前经历了内部概念浮现→推理路径选择→答案生成的三阶段。这标志着大模型可解释性研究迈出关键一步，对AI安全治理和模型改进具有深远意义。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Anthropic</span> <span class="card-tag">#可解释性</span> <span class="card-tag">#Jacobian Lens</span> <span class="card-tag">#AI安全</span>
+          <a class="card-link" href="https://view.inews.qq.com/a/20260711A0ADSK00">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+<div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-purple">🌍</div>
+        <span class="section-title">国内外AI动态</span>
+        <span class="section-count">4条</span>
+      </div>
+
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">法律战</span>
+          <h3 class="card-title">苹果41页诉状起诉OpenAI窃取商业机密：400+前苹果员工涉案，硬件竞赛升级为法律对决</h3>
+        </div>
+        <p class="card-summary">7月11日，苹果向美国北加州联邦法院提交41页诉状，指控OpenAI从技术人员到首席硬件官Tang Tan（前苹果产品设计副总裁，主导iPhone/Apple Watch/AirPods）各层级系统性窃取苹果硬件核心机密。诉状称超过400名前苹果员工现任职OpenAI，核心人员利用未关闭的系统权限下载上千页硬件电路板和生产制造涉密文档，OpenAI私下联系苹果供应商擅自使用自研金属表面处理技术。苹果要求立即停止侵权、销毁全部涉密资料并重新研发硬件。双方两年前在WWDC上宣布合作，如今关系彻底破裂。</p>
+        <div class="card-footer">
+          <span class="card-tag">#苹果</span> <span class="card-tag">#OpenAI</span> <span class="card-tag">#诉讼</span> <span class="card-tag">#商业机密</span>
+          <a class="card-link" href="https://www.163.com/dy/article/L1JMA7VV05561FZV.html">阅读原文 →</a>
+        </div>
+      </div>
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">人才流失</span>
+          <h3 class="card-title">OpenAI安全负责人离职+安全团队大重组，IPO之路蒙上阴影</h3>
+        </div>
+        <p class="card-summary">7月11日消息，OpenAI安全系统负责人Johannes Heidecke本周告知同事将离开公司，成为OpenAI近期一系列核心高管离职潮的最新一例。其背后是公司为应对日益加快的模型迭代节奏而进行的安全团队重组。加上苹果诉讼的外部压力和二号人物Fidji Simo此前宣布病退，OpenAI在冲刺730亿美元史上最大科技IPO的关键时期，正面临内部人事动荡与外部法律风险的双重考验。</p>
+        <div class="card-footer">
+          <span class="card-tag">#OpenAI</span> <span class="card-tag">#高管离职</span> <span class="card-tag">#安全团队</span> <span class="card-tag">#IPO风险</span>
+          <a class="card-link" href="https://new.qq.com/rain/a/20260712A02DM400">阅读原文 →</a>
+        </div>
+      </div>
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">开源崛起</span>
+          <h3 class="card-title">GLM-5.2获硅谷巨头采用：比肩Opus 4.8，中国模型流量占比超30%</h3>
+        </div>
+        <p class="card-summary">7月11日消息，开源模型GLM-5.2在国际舞台上取得重大突破。Databricks内部测试显示其与Anthropic Opus 4.8表现相当，Coinbase切换至GLM-5.2+Kimi 2.7组合后AI成本降低约50%。在FrontierSWE编程基准中得分74.4仅落后Opus 4.8约1个百分点并超过GPT-5.5，在CodeArena基准位列全球可用模型第一。OpenRouter平台数据显示中国模型每周流量占比已从2025年11月的11%上升至超过30%，定价比西方同类模型低六到九成。Z.ai同步推出ZCode免费AI编程Agent，API定价仅为Claude Opus 4.8的零头。</p>
+        <div class="card-footer">
+          <span class="card-tag">#GLM-5.2</span> <span class="card-tag">#开源模型</span> <span class="card-tag">#Databricks</span> <span class="card-tag">#中国AI</span>
+          <a class="card-link" href="https://weibo.com/7905315703/5319415370350912">阅读原文 →</a>
+        </div>
+      </div>
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">企业战略</span>
+          <h3 class="card-title">智谱创始人唐杰内部信：开启"Touch High"计划，反直觉路线聚焦AGI而非短期变现</h3>
+        </div>
+        <p class="card-summary">7月11日，智谱创始人唐杰发布内部信，阐述智谱对AGI竞争的理解。唐杰表示将延续"反直觉"路线，开启"Touch High（摸高）计划"——继续聚焦AGI研究而非短期商业变现。通往AGI终点的道路上列出了四座必须翻越的高峰：长程任务、自治智能体系统、完全自我训练、极致安全治理。与此同时，京东首个RoboBase项目在广州黄埔开工，先进制造与机器人赛道核心布局加速落地。</p>
+        <div class="card-footer">
+          <span class="card-tag">#智谱AI</span> <span class="card-tag">#唐杰</span> <span class="card-tag">#AGI</span> <span class="card-tag">#Touch High</span>
+          <a class="card-link" href="https://new.qq.com/rain/a/20260712A02DM400">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+<div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-green">💰</div>
+        <span class="section-title">投资与商业</span>
+        <span class="section-count">3条</span>
+      </div>
+
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">IPO</span>
+          <h3 class="card-title">OpenAI准备730亿美元史上最大科技IPO：目标9月上市，Anthropic营收已反超</h3>
+        </div>
+        <p class="card-summary">OpenAI正准备向SEC递交IPO招股书，由高盛和摩根士丹利牵头，目标9月上市，私人市场估值约730亿美元，上市后有望突破1万亿市值。但尴尬的现实是：Anthropic年化营收约47亿美元已反超OpenAI的25-33亿美元。Claude Code年收入从1亿美元到2.5亿美元仅用了约两个月。CFO Sarah Friar公开表示不认为公司2026年已准备好上市，2026年预计亏损140亿美元，盈利时间表延至2029年。加上苹果诉讼和二号人物病退，这将是史上最受审视的IPO。</p>
+        <div class="card-footer">
+          <span class="card-tag">#OpenAI</span> <span class="card-tag">#IPO</span> <span class="card-tag">#730亿美元</span> <span class="card-tag">#Anthropic</span>
+          <a class="card-link" href="https://simplenews.ai/news/openai-prepares-dollar730b-ipo-filing-eyes-september-2026-debut-r80g">阅读原文 →</a>
+        </div>
+      </div>
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">战略转折</span>
+          <h3 class="card-title">微软悄悄在Excel/Outlook中替换第三方AI为自研MAI模型：战略独立拐点</h3>
+        </div>
+        <p class="card-summary">7月8日彭博社报道，微软已在Excel和Outlook等核心Office产品中悄悄替换OpenAI和Anthropic的模型为自研MAI系列，每周处理数万个AI提示词。Mustafa Suleyman的AI团队正构建完全模型独立能力，MAI系列专为处理Copilot大规模token消耗而设计，成本仅为第三方模型的零头。虽然当前OpenAI合作伙伴关系仍提供折扣访问，但条款正在收窄。这一替换标志着微软从"依赖OpenAI"到"自建模型能力"的战略拐点。</p>
+        <div class="card-footer">
+          <span class="card-tag">#微软</span> <span class="card-tag">#MAI模型</span> <span class="card-tag">#Copilot</span> <span class="card-tag">#战略独立</span>
+          <a class="card-link" href="https://dev.to/hiroki-ii-ai/ai-daily-digest-july-12-2026-gpt-56-goes-public-muse-spark-11-arrives-open-robotics-pipeline-5di2">阅读原文 →</a>
+        </div>
+      </div>
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">融资</span>
+          <h3 class="card-title">开源AI工具Ollama完成6500万美元B轮融资：月活890万开发者，团队仅14人</h3>
+        </div>
+        <p class="card-summary">7月11日消息，流行的开源AI模型运行工具Ollama完成6500万美元B轮融资，由Theory Ventures领投，累计融资达8800万美元。Ollama于2023年推出，帮助开发者在个人电脑上运行开源权重AI模型，目前月活开发者超890万，覆盖85%财富500强企业。令人惊叹的是其团队仅14人，以极致效率创造了超高人均产出。融资将用于扩展模型支持和企业级功能开发。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Ollama</span> <span class="card-tag">#融资</span> <span class="card-tag">#开源AI</span> <span class="card-tag">#890万开发者</span>
+          <a class="card-link" href="https://new.qq.com/rain/a/20260712A02C5S00">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+<div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-orange">🏛️</div>
+        <span class="section-title">政策与行业生态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">国际标准</span>
+          <h3 class="card-title">中国牵头制定大模型基准测试国际标准正式发布：AI国际标准制定重大突破</h3>
+        </div>
+        <p class="card-summary">7月11日，中国牵头制定的全球首份大模型基准测试国际标准正式发布，标志着中国在AI国际标准制定领域取得重大突破。该标准将为全球大模型性能评估提供统一规范框架，解决当前大模型评测体系碎片化、评测结果难以横向对比的核心痛点。结合此前7月3日发布的《人工智能 智能体互联》7项国家标准和7月10日的智能体评估标准征求意见，中国正在从"追赶者"转向"标准制定者"，AI制度基建全面提速。</p>
+        <div class="card-footer">
+          <span class="card-tag">#国际标准</span> <span class="card-tag">#大模型基准</span> <span class="card-tag">#中国牵头</span> <span class="card-tag">#制度基建</span>
+          <a class="card-link" href="https://new.qq.com/rain/a/20260712A02E4S00">阅读原文 →</a>
+        </div>
+      </div>
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">学术规范</span>
+          <h3 class="card-title">中国社科院严禁10类AI辅助科研行为：严禁AI伪造数据、完全替代科研、批量炮制低质成果</h3>
+        </div>
+        <p class="card-summary">7月9日，中国社会科学院印发《人工智能辅助科研基本规范》，明确10条禁用红线，包括严禁利用AI伪造数据、完全替代科研思考、批量炮制低质成果、隐瞒AI参与程度等。这是中国学术机构首次系统性地划定AI科研使用的红线边界，在全球AI学术治理领域具有先导意义。规范同时鼓励AI作为辅助工具提升科研效率，核心原则是"AI辅助而非替代"。</p>
+        <div class="card-footer">
+          <span class="card-tag">#社科院</span> <span class="card-tag">#AI科研规范</span> <span class="card-tag">#10条禁令</span> <span class="card-tag">#学术治理</span>
+          <a class="card-link" href="https://view.inews.qq.com/a/20260712A02B2U00">阅读原文 →</a>
+        </div>
+      </div>
+<div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">经济影响</span>
+          <h3 class="card-title">AI推高美国通胀：高盛测算核心PCE提升0.2个百分点，年底将升至0.5个百分点</h3>
+        </div>
+        <p class="card-summary">7月12日消息，高盛经济学家Megan Peters在最新报告中测算，AI驱动的内存价格飙升、软件涨价与电价上涨三重效应，目前已令美国核心PCE同比通胀率提升逾0.2个百分点，预计至年底该贡献将升至0.5个百分点。这是首次有系统性的量化测算将AI基础设施投资与宏观通胀直接关联，意味着AI对经济的影响已从"生产力故事"延伸至"价格压力故事"。与此同时，部分银行高层开始"坐不住"——日均Token消耗量100亿的银行日均付费突破10万元，投入产出比面临审视。</p>
+        <div class="card-footer">
+          <span class="card-tag">#AI通胀</span> <span class="card-tag">#高盛</span> <span class="card-tag">#PCE</span> <span class="card-tag">#宏观经济</span>
+          <a class="card-link" href="https://new.qq.com/rain/a/20260712A02DM400">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="editor-pick">
+      <div class="editor-pick-title">✍️ 编辑精选 · 深度观点</div>
+      <div class="editor-pick-content">
+        <p>7月12日的AI行业呈现出<strong>"法律战+IPO竞速+模型大乱斗"</strong>三重叠加的激烈格局。</p>
+        <p>苹果起诉OpenAI是本周最具象征意义的事件——400+前苹果员工涉案意味着这不是普通的人才流动，而是系统性知识迁移。不论案件最终如何判决，<strong>AI硬件赛道从此进入"合规先行"时代</strong>，所有AI公司在招募硬件人才时都必须重新审视知识产权边界。这起诉讼恰好发生在OpenAI冲刺史上最大科技IPO的关键窗口，时间节点的敏感性不言而喻。</p>
+        <p>模型层面，7月正成为AI史上最密集的发布月：GPT-5.6全量发布、Muse Spark 1.1 Agent编排、Gemini 3.5 Pro定档7月17日、DeepSeek V4正式版锁定中旬——<strong>四大旗舰同台竞技，定价策略成为真正的战场</strong>。Meta以1/10价格打出Agent编排牌，谷歌以2倍上下文窗口吸引开发者，OpenAI用Terra半价夺回API客户，中国模型以六到九成折扣撬开美国市场——价格战已从"免费时代"演进为"精准分层定价时代"。而微软悄悄替换OpenAI为自研MAI的决定，则暗示了一个更深层的趋势：<strong>AI产业的"平台依赖"正在瓦解，"模型自建"成为大厂新标配</strong>。</p>
+        <p><strong>一句话总结：AI行业正在经历"法律—资本—技术—制度"四维同步重构，7月是这场重构的密集交汇点。</strong></p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p class="footer-text"><span class="footer-brand">三木AI 每日一刻钟</span> · 每天15分钟，读懂AI世界</p>
+      <p class="footer-text">2026年07月12日 星期六 · 共收录资讯13条</p>
+    </div>
+  </div>
+  <script>
+  (function() {
+    var availableDates = [];
+    var calYear = 2026, calMonth = 6;
+
+    fetch('manifest.json?t=' + Date.now())
+      .then(function(r){return r.json();})
+      .then(function(data){
+        availableDates = data.dates || [];
+        renderCalendar();
+      })
+      .catch(function(){
+        availableDates = ['2026-07-12'];
+        renderCalendar();
+      });
+
+    window.openCalendar = function() {
+      document.getElementById('calOverlay').classList.add('active');
+      renderCalendar();
+    };
+    window.closeCalendar = function(e) {
+      if (!e || e.target.id === 'calOverlay') {
+        document.getElementById('calOverlay').classList.remove('active');
+      }
+    };
+    window.changeMonth = function(delta) {
+      calMonth += delta;
+      if (calMonth > 11) { calMonth = 0; calYear++; }
+      if (calMonth < 0) { calMonth = 11; calYear--; }
+      renderCalendar();
+    };
+    window.goToDate = function(dateStr) {
+      if (dateStr === '2026-07-12') {
+        window.location.href = 'index.html';
+      } else {
+        window.location.href = 'ai-daily-' + dateStr + '.html';
+      }
+    };
+
+    function renderCalendar() {
+      var monthNames = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+      document.getElementById('calMonth').textContent = calYear + '年' + monthNames[calMonth];
+      var firstDay = new Date(calYear, calMonth, 1).getDay();
+      var daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+      var prevDays = new Date(calYear, calMonth, 0).getDate();
+      var html = '';
+      for (var i = firstDay - 1; i >= 0; i--) {
+        html += '<button class="calendar-day other-month" disabled>' + (prevDays - i) + '</button>';
+      }
+      for (var d = 1; d <= daysInMonth; d++) {
+        var ds = calYear + '-' + String(calMonth + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+        var cls = 'calendar-day';
+        var isAvail = availableDates.indexOf(ds) !== -1;
+        var isToday = ds === '2026-07-12';
+        if (isAvail) cls += ' available';
+        if (isToday) cls += ' today';
+        if (isAvail) {
+          html += '<button class="' + cls + '" onclick="goToDate(\'' + ds + '\')">' + d + '</button>';
+        } else {
+          html += '<button class="' + cls + '" disabled>' + d + '</button>';
+        }
+      }
+      var totalCells = firstDay + daysInMonth;
+      var nextPadding = (7 - (totalCells % 7)) % 7;
+      for (var j = 1; j <= nextPadding; j++) {
+        html += '<button class="calendar-day other-month" disabled>' + j + '</button>';
+      }
+      document.getElementById('calDays').innerHTML = html;
+    }
+  })();
+  </script>
+
+</body>
+</html>
