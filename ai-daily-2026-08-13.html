@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>三木AI 每日一刻钟 | 2026-08-13</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {--bg:#f5f7fa;--card-bg:#ffffff;--text-primary:#1a1a2e;--text-secondary:#5a5a7a;--text-muted:#8a8aa0;--accent-blue:#2563eb;--accent-blue-light:#dbeafe;--accent-purple:#7c3aed;--accent-purple-light:#ede9fe;--accent-teal:#0d9488;--accent-teal-light:#ccfbf1;--accent-orange:#ea580c;--accent-orange-light:#ffedd5;--accent-green:#16a34a;--accent-green-light:#dcfce7;--border:#e2e8f0;--border-light:#f1f5f9;--radius:12px;--radius-sm:8px;--shadow:0 1px 3px rgba(0,0,0,0.04),0 4px 12px rgba(0,0,0,0.03);}
+    * {margin:0;padding:0;box-sizing:border-box;}
+    body {font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text-primary);line-height:1.7;}
+    .container {max-width:720px;margin:0 auto;padding:24px 16px 48px;}
+    .header {text-align:center;margin-bottom:28px;}
+    .header-title {font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:1px;}
+    .header-sub {font-size:13px;color:var(--text-muted);margin-top:4px;}
+    .header-date {display:inline-block;margin-top:12px;padding:4px 16px;background:var(--accent-blue-light);color:var(--accent-blue);border-radius:20px;font-size:13px;font-weight:500;}
+    .nav-bar {background:var(--card-bg);border-radius:var(--radius);padding:10px 20px;margin-bottom:24px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);}
+    .nav-brand {display:flex;align-items:center;gap:8px;}
+    .nav-logo {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .nav-sub {font-size:11px;color:var(--text-muted);}
+    .nav-center {display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);}
+    .nav-btn {cursor:pointer;background:none;border:none;padding:4px 8px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;text-decoration:none;}
+    .nav-btn:hover{color:var(--accent-blue);background:var(--accent-blue-light);}
+    .nav-date-text{font-weight:500;color:var(--text-primary);}
+    .nav-right {display:flex;align-items:center;gap:8px;}
+    .nav-calendar-btn {cursor:pointer;display:flex;align-items:center;gap:4px;padding:5px 12px;border-radius:8px;font-size:13px;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;font-weight:500;transition:.2s;}
+    .nav-calendar-btn:hover{opacity:.9;}
+    .intro {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow);border:1px solid var(--border);}
+    .intro-text {font-size:14px;color:var(--text-secondary);line-height:1.8;}
+    .quick-tips {background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;color:white;box-shadow:var(--shadow);}
+    .quick-tips-title {font-size:15px;font-weight:600;margin-bottom:12px;}
+    .quick-tips-list {list-style:none;}
+    .quick-tips-list li {font-size:13px;line-height:1.9;padding-left:16px;position:relative;opacity:0.95;}
+    .quick-tips-list li::before {content:'';position:absolute;left:0;top:10px;width:6px;height:6px;background:rgba(255,255,255,0.7);border-radius:50%;}
+    .section {margin-bottom:24px;}
+    .section-header {display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-left:4px;}
+    .section-icon {width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;}
+    .section-title {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .section-count {margin-left:auto;font-size:12px;color:var(--text-muted);background:var(--border-light);padding:2px 10px;border-radius:12px;}
+    .card {background:var(--card-bg);border-radius:var(--radius);padding:18px 20px;margin-bottom:12px;box-shadow:var(--shadow);border:1px solid var(--border);}
+    .card-header {display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;}
+    .card-badge {flex-shrink:0;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:500;}
+    .card-title {font-size:14px;font-weight:600;color:var(--text-primary);line-height:1.5;flex:1;}
+    .card-summary {font-size:13px;color:var(--text-secondary);line-height:1.7;margin-bottom:10px;}
+    .card-footer {display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+    .card-tag {font-size:11px;color:var(--text-muted);background:var(--border-light);padding:2px 8px;border-radius:4px;}
+    .card-link {font-size:12px;color:var(--accent-blue);text-decoration:none;margin-left:auto;}
+    .badge-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
+    .badge-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
+    .badge-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
+    .badge-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+    .badge-green {background:var(--accent-green-light);color:var(--accent-green);}
+    .icon-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
+    .icon-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
+    .icon-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
+    .icon-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+    .icon-green {background:var(--accent-green-light);color:var(--accent-green);}
+    .editor-pick {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);border:1px solid var(--border);border-left:3px solid var(--accent-orange);}
+    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+    .editor-pick-content {font-size:13px;color:var(--text-secondary);line-height:1.8;}
+    .editor-pick-content p {margin-bottom:8px;}
+    .editor-pick-content strong {color:var(--text-primary);font-weight:600;}
+    .footer {text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
+    .footer-text {font-size:12px;color:var(--text-muted);}
+    .footer-brand {font-weight:600;color:var(--text-secondary);}
+    .calendar-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:999;display:none;align-items:flex-start;justify-content:flex-end;padding-top:110px;padding-right:16px;}
+    .calendar-overlay.active {display:flex;}
+    .calendar-modal {background:var(--card-bg);border-radius:var(--radius);width:92%;max-width:360px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);animation:calIn .25s ease-out;}
+    @keyframes calIn {from{opacity:0;transform:translateY(20px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);}}
+    .calendar-header {display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+    .calendar-title {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .calendar-close {cursor:pointer;background:none;border:none;padding:4px;border-radius:6px;font-size:18px;color:var(--text-muted);transition:.2s;line-height:1;}
+    .calendar-close:hover {background:var(--border-light);color:var(--text-primary);}
+    .calendar-nav {display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px;}
+    .calendar-nav-btn {cursor:pointer;background:none;border:none;padding:4px 10px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+    .calendar-nav-btn:hover{background:var(--accent-blue-light);color:var(--accent-blue);}
+    .calendar-nav-month {font-size:14px;font-weight:600;color:var(--text-primary);min-width:100px;text-align:center;}
+    .calendar-grid {display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;}
+    .calendar-weekday {text-align:center;font-size:11px;color:var(--text-muted);padding:6px 0;font-weight:500;}
+    .calendar-day {aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:13px;cursor:pointer;transition:.15s;border:none;background:none;color:var(--text-primary);position:relative;}
+    .calendar-day:hover:not(:disabled) {background:var(--accent-blue-light);color:var(--accent-blue);}
+    .calendar-day.other-month {color:var(--text-muted);opacity:.5;}
+    .calendar-day.available {font-weight:600;color:var(--accent-blue);background:var(--accent-blue-light);}
+    .calendar-day.available:hover {background:var(--accent-blue);color:#fff;}
+    .calendar-day.today {box-shadow:inset 0 0 0 1.5px var(--accent-blue);}
+    .calendar-day:disabled {cursor:default;color:var(--border);}
+    .calendar-info {text-align:center;font-size:12px;color:var(--text-muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light);}
+    .calendar-info span {display:inline-flex;align-items:center;gap:4px;}
+    .calendar-dot {width:6px;height:6px;border-radius:50%;background:var(--accent-blue);display:inline-block;}
+    @media(max-width:480px){.container{padding:16px 12px 32px;}.header-title{font-size:19px;}.card{padding:14px 16px;}.calendar-overlay{padding-top:100px;justify-content:center;padding-right:0;}.calendar-modal{padding:16px;}}
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <h1 class="header-title">三木AI 每日一刻钟</h1>
+      <p class="header-sub">每天15分钟，读懂AI世界</p>
+      <span class="header-date">2026年08月13日 星期四</span>
+    </div>
+
+    <!-- Nav -->
+    <div class="nav-bar">
+      <div class="nav-brand">
+        <span class="nav-logo">🤖 三木AI</span>
+        <span class="nav-sub">每日一刻钟</span>
+      </div>
+      <div class="nav-center">
+        <a class="nav-btn" href="ai-daily-2026-08-12.html">‹</a>
+        <span class="nav-date-text">2026-08-13</span>
+        <button class="nav-btn" disabled style="opacity:.3">›</button>
+      </div>
+      <div class="nav-right">
+        <button class="nav-calendar-btn" onclick="openCalendar()">📅 日历</button>
+      </div>
+    </div>
+
+    <!-- Calendar Modal -->
+    <div class="calendar-overlay" id="calOverlay" onclick="closeCalendar(event)">
+      <div class="calendar-modal" onclick="event.stopPropagation()">
+        <div class="calendar-header">
+          <span class="calendar-title">📅 选择日期</span>
+          <button class="calendar-close" onclick="closeCalendar()">&times;</button>
+        </div>
+        <div class="calendar-nav">
+          <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
+          <span class="calendar-nav-month" id="calMonth">2026年8月</span>
+          <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
+        </div>
+        <div class="calendar-grid">
+          <div class="calendar-weekday">日</div><div class="calendar-weekday">一</div><div class="calendar-weekday">二</div>
+          <div class="calendar-weekday">三</div><div class="calendar-weekday">四</div><div class="calendar-weekday">五</div><div class="calendar-weekday">六</div>
+        </div>
+        <div class="calendar-grid" id="calDays"></div>
+        <div class="calendar-info"><span><i class="calendar-dot"></i> 蓝色日期表示有简报</span></div>
+      </div>
+    </div>
+
+    <!-- Intro -->
+    <div class="intro">
+      <p class="intro-text">
+        今日AI行业迎来<strong>"三线并发"格局</strong>——模型层DeepSeek V4-Pro、Grok 4.6、小米MiMo三家同日发力，性能差距缩小到2-3分但价格相差数倍，大模型正式进入<strong>"性价比时代"</strong>；腾讯Q2财报披露资本开支暴增176%、AI净投入超百亿，算力→模型→应用的商业闭环初步成型；与此同时，千问前技术负责人林俊旸创办语用科技天使轮估值20亿美元，资本加速向"跨数字物理智能体"新赛道集中。
+      </p>
+    </div>
+
+    <!-- Quick Tips -->
+    <div class="quick-tips">
+      <div class="quick-tips-title">🔥 今日要点速览</div>
+      <ul class="quick-tips-list">
+        <li><strong>DeepSeek-V4-Pro正式版深夜上线</strong>，多项Agent测试超越Claude Fable 5，DeepSWE得分从12.8飙至62.7</li>
+        <li>xAI发布<strong>Grok 4.6</strong>，性能追平GPT-5.6 Sol，定价仅为竞品三分之一，价格战波及第一梯队</li>
+        <li>腾讯Q2财报：营收2048亿增11%，<strong>资本开支暴增176%</strong>，AI净投入超百亿，WorkBuddy突破性增长</li>
+        <li>小米MiMo-V2.5 API永久降价最高99%，周调用量<strong>10.5万亿Token登顶OpenRouter</strong></li>
+        <li>千问前技术负责人林俊旸创办语用科技，<strong>天使轮估值20亿美元</strong></li>
+      </ul>
+    </div>
+
+    <!-- Section 1: 技术前沿 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-blue">⚡</div>
+        <span class="section-title">技术前沿动态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">模型发布</span>
+          <h3 class="card-title">DeepSeek-V4-Pro正式版深夜上线：多项Agent测试超越Claude Fable 5</h3>
+        </div>
+        <p class="card-summary">DeepSeek官网API文档悄然更新，V4-Pro-0813正式版支持1M上下文和最高384K输出。1.6万亿参数MoE架构、490亿激活参数。在Cybergym、AutomationBench中超越Fable 5，DeepSWE得分从预览版12.8暴涨至62.7。输入$0.435/M、输出$0.87/M，成本较竞品低约57倍。DeepSeek同时预告将整体上调API定价。</p>
+        <div class="card-footer">
+          <span class="card-tag">#DeepSeek</span>
+          <span class="card-tag">#Agent</span>
+          <span class="card-tag">#1.6万亿参数</span>
+          <a class="card-link" href="https://news.qq.com/rain/a/20260813A01PPN00?adChannelId=fx">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">前沿模型</span>
+          <h3 class="card-title">xAI发布Grok 4.6：性能追平GPT-5.6 Sol，定价仅为竞品三分之一</h3>
+        </div>
+        <p class="card-summary">Grok 4.6在AA Intelligence Index取得61分追平GPT-5.6 Sol，GDPVal-AA v2以1753 Elo超过GPT-5.6和Fable 5。完成同样复杂任务仅需53步（Claude Opus5需103步），规划效率近乎翻倍。API定价$2/$6每百万Token，比GPT-5.6 Sol便宜超60%。已在Cursor、Grok Build、OpenRouter等平台上线。但未提供详细模型卡引发透明度争议。</p>
+        <div class="card-footer">
+          <span class="card-tag">#xAI</span>
+          <span class="card-tag">#Grok</span>
+          <span class="card-tag">#价格战</span>
+          <a class="card-link" href="https://k.sina.com.cn/article_5953740931_162dee08306703uoc2.html">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">API降价</span>
+          <h3 class="card-title">小米MiMo-V2.5 API永久降价最高99%，周调用量10.5万亿Token登顶OpenRouter</h3>
+        </div>
+        <p class="card-summary">小米MiMo-V2.5系列宣布API永久降价，最高降幅99%，不再区分上下文窗口长度。MiMo-V2.5 Pro输入缓存命中价仅0.025元/百万Token。单周调用量冲至10.5万亿Token登顶OpenRouter周榜月榜双第一。雷军称未来三年AI投入超600亿元，MiMo-V3已预告将稀疏比推至11:1极限。</p>
+        <div class="card-footer">
+          <span class="card-tag">#小米</span>
+          <span class="card-tag">#MiMo</span>
+          <span class="card-tag">#降价99%</span>
+          <a class="card-link" href="https://www.aastocks.com/sc/cnhk/news/china-hot-topic-content.aspx?id=now.1526207&source=aafn">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: 国内外AI动态 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-purple">🌍</div>
+        <span class="section-title">国内外AI动态</span>
+        <span class="section-count">4条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">财报业绩</span>
+          <h3 class="card-title">腾讯Q2财报：营收2048亿增11%，资本开支暴增176%押注AI</h3>
+        </div>
+        <p class="card-summary">腾讯Q2营收2047.9亿元同比增长11%，Non-IFRS经营利润756.4亿元。资本开支527.8亿元同比暴增176%，AI净投入超105亿元。Hy3正式版上线一周调用量较上代增长68倍，Hy4即将发布。WorkBuddy 6月PC端访问量突破2000万次，CodeBuddy持续领跑国内AI编程赛道。刘炽平透露正打造参数更大的混元4。</p>
+        <div class="card-footer">
+          <span class="card-tag">#腾讯</span>
+          <span class="card-tag">#Q2财报</span>
+          <span class="card-tag">#WorkBuddy</span>
+          <a class="card-link" href="https://www.cnstock.com/commonDetail/758861?commTag=true">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">消费电子</span>
+          <h3 class="card-title">谷歌发布Pixel 11系列：全系涨价100美元，RAM短缺迫使旗舰"减配"</h3>
+        </div>
+        <p class="card-summary">谷歌Pixel 11系列发布，起售价899美元起，全系较上代涨价100美元。受"供应商驱动型RAM短缺"影响，Pixel 11 Pro基础版RAM从16GB降至12GB。新品升级Gemini AI能力，可跨应用执行订餐、叫车、购票等任务，同步推出Pixel Watch 5和Pixel Tag。存储短缺正从芯片向消费电子终端持续传导。</p>
+        <div class="card-footer">
+          <span class="card-tag">#谷歌</span>
+          <span class="card-tag">#Pixel11</span>
+          <span class="card-tag">#RAM短缺</span>
+          <a class="card-link" href="https://www.nbd.com.cn/articles/2026-08-13/4540360.html">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">企业重组</span>
+          <h3 class="card-title">字节AI三年集权：张一鸣重组豆包团队，整合飞书与豆包</h3>
+        </div>
+        <p class="card-summary">字节跳动将飞书与豆包产品团队整合，成立新豆包产品团队，部分暂停"赛马"机制，集中资源把豆包打造成下一个超级入口。这一调整标志着字节AI战略从多线赛马走向集中统一，张一鸣亲自督战AI产品整合，对标腾讯WorkBuddy和阿里千问办公。</p>
+        <div class="card-footer">
+          <span class="card-tag">#字节跳动</span>
+          <span class="card-tag">#豆包</span>
+          <span class="card-tag">#飞书</span>
+          <a class="card-link" href="https://new.qq.com/rain/a/20260813A03G8L00?refer=cp_1009">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">具身AI</span>
+          <h3 class="card-title">荣耀发布Robot Phone：具身AI手机9999元起，AI手机长出"身体"</h3>
+        </div>
+        <p class="card-summary">荣耀正式发布Robot Phone，配备四自由度云台、具身AI能力与双2亿像素镜头，售价9999元起。这是首款将具身智能概念引入手机形态的产品，摄像头可自主旋转追踪、进行物理世界交互。标志着AI手机从"软件智能"向"具身智能"跨越。</p>
+        <div class="card-footer">
+          <span class="card-tag">#荣耀</span>
+          <span class="card-tag">#RobotPhone</span>
+          <span class="card-tag">#具身AI</span>
+          <a class="card-link" href="https://new.qq.com/rain/a/20260813A03G8L00?refer=cp_1009">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: 投资与商业 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-green">💰</div>
+        <span class="section-title">投资与商业</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">天使轮</span>
+          <h3 class="card-title">千问前技术负责人林俊旸创办语用科技，天使轮估值20亿美元</h3>
+        </div>
+        <p class="card-summary">千问前技术负责人林俊旸在上海创办语用科技，研究方向为横跨数字世界和物理世界的下一代智能体。天使轮由高榕创投和红杉中国（HSG）共同领投，腾讯和上海未来产业基金提供支持，投后估值20亿美元。公司尚无产品与收入，估值更多反映市场对其个人品牌和赛道的溢价。</p>
+        <div class="card-footer">
+          <span class="card-tag">#语用科技</span>
+          <span class="card-tag">#林俊旸</span>
+          <span class="card-tag">#20亿美元</span>
+          <a class="card-link" href="https://so.html5.qq.com/page/real/search_news?docid=70000021_6666a7cfcef84252">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">融资</span>
+          <h3 class="card-title">西湖机器人完成A轮融资：半年四轮累计5亿元，加码人形机器人通用大脑</h3>
+        </div>
+        <p class="card-summary">具身智能通用大脑企业西湖机器人宣布完成A轮融资，由海愿基金领投。本次融资距上一轮不足一月，半年内已完成四轮融资累计5亿元。资金将加码人形机器人全身统一大模型技术攻关，迭代自研通用大脑和GAE身外化身系统。在硬件本体竞争激烈的背景下，聚焦认知决策层的"大脑"企业正成为资本新宠。</p>
+        <div class="card-footer">
+          <span class="card-tag">#西湖机器人</span>
+          <span class="card-tag">#通用大脑</span>
+          <span class="card-tag">#具身智能</span>
+          <a class="card-link" href="https://www.mrjjxw.com/articles/2026-08-12/4539912.html">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">美股</span>
+          <h3 class="card-title">纳指收涨0.5% AI概念股飙升：Nebius涨超34%、CoreWeave涨超19%</h3>
+        </div>
+        <p class="card-summary">8月12日美股收盘涨跌不一，纳指涨0.54%，AI概念股集体走强。Nebius涨超34%、CoreWeave涨超19%，存储与光通信板块同步上扬。温和CPI数据提振降息预期，AI基建需求获财报验证。全球AI叙事正从"齐涨"转向主题分化，算力期货与前沿模型安全成为新焦点。</p>
+        <div class="card-footer">
+          <span class="card-tag">#美股</span>
+          <span class="card-tag">#AI概念股</span>
+          <span class="card-tag">#纳指</span>
+          <a class="card-link" href="https://new.qq.com/rain/a/20260813A0368Y00?refer=cp_1009">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4: 政策与行业生态 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-orange">🏛️</div>
+        <span class="section-title">政策与行业生态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">算力基建</span>
+          <h3 class="card-title">地方国资密集入局Token运营：嘉兴温州广州建设统一算力调度平台</h3>
+        </div>
+        <p class="card-summary">嘉兴、温州、广州等地国资牵头建设Token运营中心，将分散算力与多模型统一封装，企业经一次API接入即可按任务类型与实时负载自动匹配最优最低成本模型。温州已上架35项技能工具与30余个智能体，凭区域总量议价获取更优价格。与此同时，一款聚合16家厂商免费额度的OpenAI兼容接口每月可省约17亿Token。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Token运营</span>
+          <span class="card-tag">#地方国资</span>
+          <span class="card-tag">#算力调度</span>
+          <a class="card-link" href="https://new.qq.com/rain/a/20260813A031L500?refer=cp_1009">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">AI安全</span>
+          <h3 class="card-title">116页论文揭露前沿模型思维链可被提取：OpenAI/Anthropic/Google均受影响</h3>
+        </div>
+        <p class="card-summary">一篇安全论文指出，OpenAI、Anthropic、Google的加密推理块可在同家族弱模型间重放解密，暴露蒸馏、隐私泄露与提示注入风险。论文19小时吸引220万人围观，呼吁从API架构层修复。这意味着前沿模型的"思维链"并非真正加密，攻击者可低成本提取模型的内部推理过程。</p>
+        <div class="card-footer">
+          <span class="card-tag">#AI安全</span>
+          <span class="card-tag">#思维链</span>
+          <span class="card-tag">#隐私泄露</span>
+          <a class="card-link" href="https://new.qq.com/rain/a/20260813A0368Y00?refer=cp_1009">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">全球治理</span>
+          <h3 class="card-title">中国全方位推动AI全球治理：未来5年提供5000个研修培训名额</h3>
+        </div>
+        <p class="card-summary">人民日报头版刊文，中国宣布未来5年面向发展中国家提供5000个人工智能专题研修培训名额，面向东盟、阿盟、非盟等建设国际AI应用合作中心，推动气象智能预警方案"妈祖"在30个国家落地。中国开源AI模型约占OpenRouter使用量一半，阿里模型在非洲处理多语言优于Meta和谷歌。</p>
+        <div class="card-footer">
+          <span class="card-tag">#全球治理</span>
+          <span class="card-tag">#开源出海</span>
+          <span class="card-tag">#人民日报</span>
+          <a class="card-link" href="https://so.html5.qq.com/page/real/search_news?docid=70000021_2666a7cf38a56952">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Editor Pick -->
+    <div class="editor-pick">
+      <div class="editor-pick-title">✍️ 编辑精选 · 深度观点</div>
+      <div class="editor-pick-content">
+        <p>今天AI行业呈现出三条清晰主线：<strong>第一，模型竞赛进入"性能趋同、价格分化"新阶段</strong>——DeepSeek V4-Pro、Grok 4.6、小米MiMo三家同日发力，性能差距缩小到2-3分，但价格相差数倍甚至数十倍。大模型正从"跑分时代"进入"性价比时代"，Token成本趋近于零只是时间问题。</p>
+        <p><strong>第二，腾讯Q2财报显示AI投入正从"烧钱"转向"变现"</strong>——资本开支暴增176%但WorkBuddy/CodeBuddy已实现突破性增长，算力→模型→应用的商业闭环初步成型。这是互联网巨头中首个在财报中明确展示AI投入正反馈的案例。</p>
+        <p><strong>第三，资本加速向新赛道集中</strong>——从林俊旸20亿美元天使轮到西湖机器人半年四轮融资，"通用大脑"和"跨数字物理智能体"正成为继大模型之后的新资本焦点。大模型价格战的白热化，本质上是AI基础设施普惠化的前奏——当Token成本趋近于零，真正的竞争将转移到应用层和生态层。</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p class="footer-text"><span class="footer-brand">三木AI 每日一刻钟</span> · 每天15分钟，读懂AI世界</p>
+      <p class="footer-text">2026年08月13日 星期四</p>
+    </div>
+  </div>
+  <script>
+  (function() {
+    var availableDates = [];
+    var calYear = 2026, calMonth = 7;
+
+    fetch('manifest.json?t=' + Date.now())
+      .then(function(r){return r.json();})
+      .then(function(data){
+        availableDates = data.dates || [];
+        renderCalendar();
+      })
+      .catch(function(){
+        availableDates = ['2026-08-13'];
+        renderCalendar();
+      });
+
+    window.openCalendar = function() {
+      document.getElementById('calOverlay').classList.add('active');
+      renderCalendar();
+    };
+    window.closeCalendar = function(e) {
+      if (!e || e.target.id === 'calOverlay') {
+        document.getElementById('calOverlay').classList.remove('active');
+      }
+    };
+    window.changeMonth = function(delta) {
+      calMonth += delta;
+      if (calMonth > 11) { calMonth = 0; calYear++; }
+      if (calMonth < 0) { calMonth = 11; calYear--; }
+      renderCalendar();
+    };
+    window.goToDate = function(dateStr) {
+      if (dateStr === '2026-08-13') {
+        window.location.href = 'index.html';
+      } else {
+        window.location.href = 'ai-daily-' + dateStr + '.html';
+      }
+    };
+
+    function renderCalendar() {
+      var monthNames = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+      document.getElementById('calMonth').textContent = calYear + '年' + monthNames[calMonth];
+      var firstDay = new Date(calYear, calMonth, 1).getDay();
+      var daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+      var prevDays = new Date(calYear, calMonth, 0).getDate();
+      var html = '';
+      for (var i = firstDay - 1; i >= 0; i--) {
+        html += '<button class="calendar-day other-month" disabled>' + (prevDays - i) + '</button>';
+      }
+      for (var d = 1; d <= daysInMonth; d++) {
+        var ds = calYear + '-' + String(calMonth + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+        var cls = 'calendar-day';
+        var isAvail = availableDates.indexOf(ds) !== -1;
+        var isToday = ds === '2026-08-13';
+        if (isAvail) cls += ' available';
+        if (isToday) cls += ' today';
+        if (isAvail) {
+          html += '<button class="' + cls + '" onclick="goToDate(\'' + ds + '\')">' + d + '</button>';
+        } else {
+          html += '<button class="' + cls + '" disabled>' + d + '</button>';
+        }
+      }
+      var totalCells = firstDay + daysInMonth;
+      var nextPadding = (7 - (totalCells % 7)) % 7;
+      for (var j = 1; j <= nextPadding; j++) {
+        html += '<button class="calendar-day other-month" disabled>' + j + '</button>';
+      }
+      document.getElementById('calDays').innerHTML = html;
+    }
+  })();
+  </script>
+
+</body>
+</html>
