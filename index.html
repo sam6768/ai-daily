@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>三木AI 每日一刻钟 | 2026-08-14</title>
+  <title>三木AI 每日一刻钟 | 2026-08-15</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {--bg:#f5f7fa;--card-bg:#ffffff;--text-primary:#1a1a2e;--text-secondary:#5a5a7a;--text-muted:#8a8aa0;--accent-blue:#2563eb;--accent-blue-light:#dbeafe;--accent-purple:#7c3aed;--accent-purple-light:#ede9fe;--accent-teal:#0d9488;--accent-teal-light:#ccfbf1;--accent-orange:#ea580c;--accent-orange-light:#ffedd5;--accent-green:#16a34a;--accent-green-light:#dcfce7;--border:#e2e8f0;--border-light:#f1f5f9;--radius:12px;--radius-sm:8px;--shadow:0 1px 3px rgba(0,0,0,0.04),0 4px 12px rgba(0,0,0,0.03);}
@@ -14,6 +14,18 @@
     .header-title {font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:1px;}
     .header-sub {font-size:13px;color:var(--text-muted);margin-top:4px;}
     .header-date {display:inline-block;margin-top:12px;padding:4px 16px;background:var(--accent-blue-light);color:var(--accent-blue);border-radius:20px;font-size:13px;font-weight:500;}
+    .nav-bar {background:var(--card-bg);border-radius:var(--radius);padding:10px 20px;margin-bottom:24px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);}
+    .nav-brand {display:flex;align-items:center;gap:8px;}
+    .nav-logo {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .nav-sub {font-size:11px;color:var(--text-muted);}
+    .nav-center {display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);}
+    .nav-btn {cursor:pointer;background:none;border:none;padding:4px 8px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+    .nav-btn:hover{color:var(--accent-blue);background:var(--accent-blue-light);}
+    .nav-date-text{font-weight:500;color:var(--text-primary);}
+    .nav-right {display:flex;align-items:center;gap:8px;}
+    .nav-calendar-btn {cursor:pointer;display:flex;align-items:center;gap:4px;padding:5px 12px;border-radius:8px;font-size:13px;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;font-weight:500;transition:.2s;}
+    .nav-calendar-btn:hover{opacity:.9;}
+
     .intro {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow);border:1px solid var(--border);}
     .intro-text {font-size:14px;color:var(--text-secondary);line-height:1.8;}
     .quick-tips {background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;color:white;box-shadow:var(--shadow);}
@@ -38,36 +50,418 @@
     .badge-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .badge-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .badge-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+    .badge-green {background:var(--accent-green-light);color:var(--accent-green);}
     .icon-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
     .icon-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .icon-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .icon-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+    .icon-green {background:var(--accent-green-light);color:var(--accent-green);}
     .editor-pick {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);border:1px solid var(--border);border-left:3px solid var(--accent-orange);}
-    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;}
+    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
     .editor-pick-content {font-size:13px;color:var(--text-secondary);line-height:1.8;}
     .editor-pick-content p {margin-bottom:8px;}
     .editor-pick-content strong {color:var(--text-primary);font-weight:600;}
     .footer {text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
     .footer-text {font-size:12px;color:var(--text-muted);}
     .footer-brand {font-weight:600;color:var(--text-secondary);}
+    .calendar-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:999;display:none;align-items:flex-start;justify-content:flex-end;padding-top:110px;padding-right:16px;}
+    .calendar-overlay.active {display:flex;}
+    .calendar-modal {background:var(--card-bg);border-radius:var(--radius);width:92%;max-width:360px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);animation:calIn .25s ease-out;}
+    @keyframes calIn {from{opacity:0;transform:translateY(20px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);}}
+    .calendar-header {display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+    .calendar-title {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .calendar-close {cursor:pointer;background:none;border:none;padding:4px;border-radius:6px;font-size:18px;color:var(--text-muted);transition:.2s;line-height:1;}
+    .calendar-close:hover {background:var(--border-light);color:var(--text-primary);}
+    .calendar-nav {display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px;}
+    .calendar-nav-btn {cursor:pointer;background:none;border:none;padding:4px 10px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+    .calendar-nav-btn:hover{background:var(--accent-blue-light);color:var(--accent-blue);}
+    .calendar-nav-month {font-size:14px;font-weight:600;color:var(--text-primary);min-width:100px;text-align:center;}
+    .calendar-grid {display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;}
+    .calendar-weekday {text-align:center;font-size:11px;color:var(--text-muted);padding:6px 0;font-weight:500;}
+    .calendar-day {aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:13px;cursor:pointer;transition:.15s;border:none;background:none;color:var(--text-primary);position:relative;}
+    .calendar-day:hover:not(:disabled) {background:var(--accent-blue-light);color:var(--accent-blue);}
+    .calendar-day.other-month {color:var(--text-muted);opacity:.5;}
+    .calendar-day.available {font-weight:600;color:var(--accent-blue);background:var(--accent-blue-light);}
+    .calendar-day.available:hover {background:var(--accent-blue);color:#fff;}
+    .calendar-day.today {box-shadow:inset 0 0 0 1.5px var(--accent-blue);}
+    .calendar-day:disabled {cursor:default;color:var(--border);}
+    .calendar-info {text-align:center;font-size:12px;color:var(--text-muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light);}
+    .calendar-info span {display:inline-flex;align-items:center;gap:4px;}
+    .calendar-dot {width:6px;height:6px;border-radius:50%;background:var(--accent-blue);display:inline-block;}
+    @media(max-width:480px){.container{padding:16px 12px 32px;}.header-title{font-size:19px;}.card{padding:14px 16px;}.calendar-overlay{padding-top:100px;justify-content:center;padding-right:0;}.calendar-modal{padding:16px;}}
   </style>
 </head>
 <body>
   <div class="container">
+
+    <!-- Header -->
     <div class="header">
       <h1 class="header-title">三木AI 每日一刻钟</h1>
       <p class="header-sub">每天15分钟，读懂AI世界</p>
-      <span class="header-date">2026年08月14日 星期五</span>
+      <span class="header-date">2026年08月15日 星期六</span>
     </div>
-    
+
+    <!-- Nav -->
+    <div class="nav-bar">
+      <div class="nav-brand">
+        <span class="nav-logo">🤖 三木AI</span>
+        <span class="nav-sub">每日一刻钟</span>
+      </div>
+      <div class="nav-center">
+        <button class="nav-btn" onclick="window.location.href='ai-daily-2026-08-14.html'">‹</button>
+        <span class="nav-date-text">2026-08-15</span>
+        <button class="nav-btn" disabled style="opacity:.3" href="#">›</button>
+      </div>
+      <div class="nav-right">
+        <button class="nav-calendar-btn" onclick="openCalendar()">📅 日历</button>
+      </div>
+    </div>
+
+    <!-- Calendar Modal -->
+    <div class="calendar-overlay" id="calOverlay" onclick="closeCalendar(event)">
+      <div class="calendar-modal" onclick="event.stopPropagation()">
+        <div class="calendar-header">
+          <span class="calendar-title">📅 选择日期</span>
+          <button class="calendar-close" onclick="closeCalendar()">&times;</button>
+        </div>
+        <div class="calendar-nav">
+          <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
+          <span class="calendar-nav-month" id="calMonth">2026年8月</span>
+          <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
+        </div>
+        <div class="calendar-grid">
+          <div class="calendar-weekday">日</div><div class="calendar-weekday">一</div><div class="calendar-weekday">二</div>
+          <div class="calendar-weekday">三</div><div class="calendar-weekday">四</div><div class="calendar-weekday">五</div><div class="calendar-weekday">六</div>
+        </div>
+        <div class="calendar-grid" id="calDays"></div>
+        <div class="calendar-info"><span><i class="calendar-dot"></i> 蓝色日期表示有简报</span></div>
+      </div>
+    </div>
+
+    <!-- Intro -->
     <div class="intro">
-      <p class="intro-text">今日简报内容正在整理中，请稍后再试。</p>
+      <p class="intro-text">
+        8月14-15日，AI行业迎来<strong>"资本+开源+监管"</strong>的三重共振。阿里Qwen3.8、智谱GLM-5.3密集开源，SpaceX 600亿美元吞下Cursor，OpenAI年化营收破400亿美元，越南高风险AI清单正式生效。全球AI正从模型竞赛转向生态、资本与合规的系统较量。
+      </p>
     </div>
-    
+
+    <!-- Quick Tips -->
+    <div class="quick-tips">
+      <div class="quick-tips-title">🔥 今日要点速览</div>
+      <ul class="quick-tips-list">
+        <li>阿里千问开源<strong>Qwen3.8-27B</strong>原生多模态模型，270亿参数量化后消费级显卡可本地部署</li>
+        <li>SpaceX <strong>600亿美元</strong>完成对Cursor收购，马斯克正式杀入Vibe Coding赛道</li>
+        <li>OpenAI年化营收突破<strong>400亿美元</strong>，但IPO前夕遭遇多名核心高管离职</li>
+        <li>越南<strong>46项高风险AI系统</strong>监管清单今日生效，东南亚AI治理进入新阶段</li>
+        <li>国产端侧算力再突破：芯擎科技<strong>"天工100"</strong>车规级7nm AI芯片量产供货</li>
+      </ul>
+    </div>
+
+    <!-- Section 1: 技术前沿 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-blue">⚡</div>
+        <span class="section-title">技术前沿动态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">模型开源</span>
+          <h3 class="card-title">阿里千问开源Qwen3.8-27B：消费级显卡可跑的原生多模态模型</h3>
+        </div>
+        <p class="card-summary">8月14日，阿里千问开源Qwen3.8-27B，270亿参数Dense架构，支持图像/视频输入与262K原生上下文（可扩展至1M）。官方称编程与办公场景表现超越Qwen3.7-Plus，量化后可在消费级显卡运行，采用Apache 2.0协议。Qwen模型全球下载量已超30亿次。</p>
+        <div class="card-footer">
+          <span class="card-tag">#阿里</span>
+          <span class="card-tag">#Qwen</span>
+          <span class="card-tag">#开源模型</span>
+          <a class="card-link" href="https://www.163.com/dy/article/L4BTS3SA05566SCS.html">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">编程模型</span>
+          <h3 class="card-title">智谱发布GLM-5.3：编程与Agent能力逼近Claude Fable 5</h3>
+        </div>
+        <p class="card-summary">智谱8月14日发布GLM-5.3，总参数7430亿，复用GLM-5.2基础模型，性能提升主要来自大规模后训练。官方称其为开源最强编码模型，GDPval-AA v2评测得分1769，反超Claude Fable 5与GPT-5.6 Sol，完整权重约两周后开放。</p>
+        <div class="card-footer">
+          <span class="card-tag">#智谱</span>
+          <span class="card-tag">#GLM-5.3</span>
+          <span class="card-tag">#编程智能体</span>
+          <a class="card-link" href="https://www.163.com/dy/article/L4BUEVVL05568W0A.html">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">模型更新</span>
+          <h3 class="card-title">Google发布Gemini 3.7 Flash：编码与Agent能力升级，API价格腰斩</h3>
+        </div>
+        <p class="card-summary">谷歌在Gemini 3.6 Flash发布仅三周后推出3.7 Flash，支持文本/图像/音频/视频输入，上下文窗口100万Token，输出速度达每秒340 Token。2026年底前推广价输入$0.75/百万Token、输出$3.75/百万Token，较前代直接腰斩。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Google</span>
+          <span class="card-tag">#Gemini</span>
+          <span class="card-tag">#API降价</span>
+          <a class="card-link" href="https://new.qq.com/rain/a/20260815A02KIK00">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: 国内外AI动态 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-purple">🌍</div>
+        <span class="section-title">国内外AI动态</span>
+        <span class="section-count">4条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">重大并购</span>
+          <h3 class="card-title">SpaceX 600亿美元收购Cursor正式生效，马斯克杀入Vibe Coding</h3>
+        </div>
+        <p class="card-summary">8月14日，SpaceX宣布对AI编程工具Cursor的600亿美元收购正式生效，创下AI领域最大并购纪录。马斯克称到9月SpaceX的AI收入将超过其他业务总和，Cursor团队将获得全球最大GPU集群之一的支持。</p>
+        <div class="card-footer">
+          <span class="card-tag">#SpaceX</span>
+          <span class="card-tag">#Cursor</span>
+          <span class="card-tag">#VibeCoding</span>
+          <a class="card-link" href="https://so.html5.qq.com/page/real/search_news?docid=70000021_2686a7f787f35452">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">企业合作</span>
+          <h3 class="card-title">苹果被曝与阿里合作训练中国专属大模型</h3>
+        </div>
+        <p class="card-summary">据路透社报道，苹果专门面向中国市场训练了专属大语言模型，由苹果与阿里巴巴合作研发，并已在中国监管部门完成生成式AI服务备案。这标志着苹果在华AI策略从依赖第三方转向"双轨"自研布局。</p>
+        <div class="card-footer">
+          <span class="card-tag">#苹果</span>
+          <span class="card-tag">#阿里巴巴</span>
+          <span class="card-tag">#AppleIntelligence</span>
+          <a class="card-link" href="https://new.qq.com/rain/a/20260815A02KIK00">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">财报动态</span>
+          <h3 class="card-title">腾讯Q2资本开支同比暴增176%，微信AI智能体"小微"启动灰度测试</h3>
+        </div>
+        <p class="card-summary">腾讯2026年Q2资本开支达527.8亿元，同比增176%，AI新业务拖累经营利润约105亿元。同时，微信生态内AI智能体"小微"已启动小范围灰度测试，底层依托微信自研WeLM模型，被视为腾讯第二次增长机遇。</p>
+        <div class="card-footer">
+          <span class="card-tag">#腾讯</span>
+          <span class="card-tag">#微信</span>
+          <span class="card-tag">#资本开支</span>
+          <a class="card-link" href="https://new.qq.com/rain/a/20260815A02KIK00">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">AI办公</span>
+          <h3 class="card-title">百度"库库AI"独立端发布，AI办公月活超2500万居行业第一</h3>
+        </div>
+        <p class="card-summary">8月14日百度AI Day上，文库网盘通用智能体GenFlow官宣中文名"库库AI"，并上线独立PC端、网页端、小程序及企业版。百度文库网盘全面进军AI办公赛道，首期面向金融场景专项优化。</p>
+        <div class="card-footer">
+          <span class="card-tag">#百度</span>
+          <span class="card-tag">#库库AI</span>
+          <span class="card-tag">#AI办公</span>
+          <a class="card-link" href="https://new.qq.com/rain/a/20260815A02KIK00">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: 投资与商业 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-green">💰</div>
+        <span class="section-title">投资与商业</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">IPO</span>
+          <h3 class="card-title">OpenAI年化营收突破400亿美元，IPO前夕多名核心高管离职</h3>
+        </div>
+        <p class="card-summary">彭博社援引知情人士称，OpenAI年化营收已超400亿美元，较2025年底近乎翻倍。但与此同时，首席营收官Denise Dresser、前COO Brad Lightcap等核心高管相继离职，公司正寻求支撑约8520亿美元估值，治理稳定性引发市场担忧。</p>
+        <div class="card-footer">
+          <span class="card-tag">#OpenAI</span>
+          <span class="card-tag">#IPO</span>
+          <span class="card-tag">#高管离职</span>
+          <a class="card-link" href="https://new.qq.com/rain/a/20260815A0372400">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">并购/IPO</span>
+          <h3 class="card-title">Anthropic拟60亿美元收购Decart，冲刺史上最大AI IPO</h3>
+        </div>
+        <p class="card-summary">据彭博社报道，Anthropic正谈判以约60亿美元收购AI芯片优化公司Decart，这将是以色列科技领域最大规模退出之一。Anthropic已秘密提交S-1文件，市场预期其IPO估值至少2万亿美元，最快9-10月完成上市。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Anthropic</span>
+          <span class="card-tag">#Decart</span>
+          <span class="card-tag">#IPO</span>
+          <a class="card-link" href="https://www.163.com/dy/article/L4BUEVVL05568W0A.html">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">市场风险</span>
+          <h3 class="card-title">Jane Street因AI基金爆仓单月巨亏150亿美元，博通融资风险重挫6%</h3>
+        </div>
+        <p class="card-summary">华尔街自营交易巨头Jane Street 7月因AI对冲基金Situational Awareness爆仓及科技股震荡，遭遇约150亿美元损失，为十年来首次单月亏损。同日，博通因AI XPV融资平台潜在的3700亿美元担保敞口遭市场抛售，收跌逾5.9%。</p>
+        <div class="card-footer">
+          <span class="card-tag">#JaneStreet</span>
+          <span class="card-tag">#博通</span>
+          <span class="card-tag">#AI融资风险</span>
+          <a class="card-link" href="https://www.163.com/dy/article/L4BMQH6J05198NMR.html">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4: 政策与行业生态 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-orange">🏛️</div>
+        <span class="section-title">政策与行业生态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">AI监管</span>
+          <h3 class="card-title">越南46项高风险AI系统清单今日生效，覆盖教育医疗交通等六领域</h3>
+        </div>
+        <p class="card-summary">8月15日，越南总理签发的第33号决定正式生效，将教育、民族宗教、医疗、银行、诉讼、交通六大领域共46项AI系统列为高风险，要求强制人工监督与分级合规。这是东南亚首个 standalone AI法律框架落地的关键一步。</p>
+        <div class="card-footer">
+          <span class="card-tag">#越南</span>
+          <span class="card-tag">#AI监管</span>
+          <span class="card-tag">#高风险AI</span>
+          <a class="card-link" href="https://english.mst.gov.vn/print/promulgating-the-list-of-high-risk-artificial-intelligence-systems-197260713224338043.htm">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">全球治理</span>
+          <h3 class="card-title">世界银行报告：AI或成发展中国家"追赶加速器"</h3>
+        </div>
+        <p class="card-summary">世界银行2026年世界发展报告指出，AI普及速度远超蒸汽机、电力与互联网，有望帮助发展中国家在10年内取得原本需上百年的跨越。但专家同时警告，电力、网络、算力与人才鸿沟可能催生新的"智能鸿沟"。</p>
+        <div class="card-footer">
+          <span class="card-tag">#世行报告</span>
+          <span class="card-tag">#发展中国家</span>
+          <span class="card-tag">#智能鸿沟</span>
+          <a class="card-link" href="https://new.qq.com/rain/a/20260815A038P900">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">端侧算力</span>
+          <h3 class="card-title">芯擎科技"天工100"车规级7nm AI芯片量产，端侧算力普惠化加速</h3>
+        </div>
+        <p class="card-summary">芯擎科技宣布自研车规级7nm AI加速芯片"天工100"全面量产，通过PCIe插卡式形态为汽车提供96TOPS独立算力，无需更换主控芯片即可运行3B-7B参数大模型。成本控制在千元级别，已通过AEC-Q100和ISO 26262 ASIL-B双重车规认证。</p>
+        <div class="card-footer">
+          <span class="card-tag">#芯擎科技</span>
+          <span class="card-tag">#车规芯片</span>
+          <span class="card-tag">#端侧AI</span>
+          <a class="card-link" href="https://cj.sina.com.cn/article/norm_detail?url=https%3A%2F%2Ffinance.sina.com.cn%2Froll%2F2026-08-15%2Fdoc-ininiyyw2062961.shtml">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Editor Pick -->
+    <div class="editor-pick">
+      <div class="editor-pick-title">✍️ 编辑精选 · 深度观点</div>
+      <div class="editor-pick-content">
+        <p>8月14-15日，AI行业呈现出<strong>"开源密集+资本躁动+监管落地"</strong>的三重张力。阿里Qwen3.8、智谱GLM-5.3等国产开源模型密集发布，标志着中国正从大模型追随者向开源生态主导者转变。</p>
+        <p>与此同时，OpenAI、Anthropic冲刺万亿级IPO，SpaceX 600亿美元吞下Cursor，Jane Street却因AI基金单月巨亏150亿美元——AI资本链条从未如此繁荣，也从未如此脆弱。越南高风险AI清单的生效则是一个更深层信号：当技术狂奔遇到监管框架，<strong>"先部署再治理"的时代正在终结</strong>。</p>
+        <p><strong>一句话总结：</strong>对企业而言，比追逐模型参数更重要的，是理解这场竞赛正从"技术单点突破"转向"生态+合规+商业化"的系统较量。</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
     <div class="footer">
       <p class="footer-text"><span class="footer-brand">三木AI 每日一刻钟</span> · 每天15分钟，读懂AI世界</p>
-      <p class="footer-text">2026年08月14日 星期五</p>
+      <p class="footer-text">2026年08月15日 星期六</p>
     </div>
   </div>
+  <script>
+  (function() {
+    var availableDates = [];
+    var calYear = 2026, calMonth = 7;
+
+    fetch('manifest.json?t=' + Date.now())
+      .then(function(r){return r.json();})
+      .then(function(data){
+        availableDates = data.dates || [];
+        renderCalendar();
+      })
+      .catch(function(){
+        availableDates = ['2026-08-15'];
+        renderCalendar();
+      });
+
+    window.openCalendar = function() {
+      document.getElementById('calOverlay').classList.add('active');
+      renderCalendar();
+    };
+    window.closeCalendar = function(e) {
+      if (!e || e.target.id === 'calOverlay') {
+        document.getElementById('calOverlay').classList.remove('active');
+      }
+    };
+    window.changeMonth = function(delta) {
+      calMonth += delta;
+      if (calMonth > 11) { calMonth = 0; calYear++; }
+      if (calMonth < 0) { calMonth = 11; calYear--; }
+      renderCalendar();
+    };
+    window.goToDate = function(dateStr) {
+      if (dateStr === '2026-08-15') {
+        window.location.href = 'index.html';
+      } else {
+        window.location.href = 'ai-daily-' + dateStr + '.html';
+      }
+    };
+
+    function renderCalendar() {
+      var monthNames = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+      document.getElementById('calMonth').textContent = calYear + '年' + monthNames[calMonth];
+      var firstDay = new Date(calYear, calMonth, 1).getDay();
+      var daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+      var prevDays = new Date(calYear, calMonth, 0).getDate();
+      var html = '';
+      for (var i = firstDay - 1; i >= 0; i--) {
+        html += '<button class="calendar-day other-month" disabled>' + (prevDays - i) + '</button>';
+      }
+      for (var d = 1; d <= daysInMonth; d++) {
+        var ds = calYear + '-' + String(calMonth + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+        var cls = 'calendar-day';
+        var isAvail = availableDates.indexOf(ds) !== -1;
+        var isToday = ds === '2026-08-15';
+        if (isAvail) cls += ' available';
+        if (isToday) cls += ' today';
+        if (isAvail) {
+          html += '<button class="' + cls + '" onclick="goToDate(\'' + ds + '\')">' + d + '</button>';
+        } else {
+          html += '<button class="' + cls + '" disabled>' + d + '</button>';
+        }
+      }
+      var totalCells = firstDay + daysInMonth;
+      var nextPadding = (7 - (totalCells % 7)) % 7;
+      for (var j = 1; j <= nextPadding; j++) {
+        html += '<button class="calendar-day other-month" disabled>' + j + '</button>';
+      }
+      document.getElementById('calDays').innerHTML = html;
+    }
+  })();
+  </script>
+
 </body>
 </html>
