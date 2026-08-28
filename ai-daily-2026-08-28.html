@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>三木AI 每日一刻钟 | 2026-08-28</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {--bg:#f5f7fa;--card-bg:#ffffff;--text-primary:#1a1a2e;--text-secondary:#5a5a7a;--text-muted:#8a8aa0;--accent-blue:#2563eb;--accent-blue-light:#dbeafe;--accent-purple:#7c3aed;--accent-purple-light:#ede9fe;--accent-teal:#0d9488;--accent-teal-light:#ccfbf1;--accent-orange:#ea580c;--accent-orange-light:#ffedd5;--accent-green:#16a34a;--accent-green-light:#dcfce7;--border:#e2e8f0;--border-light:#f1f5f9;--radius:12px;--radius-sm:8px;--shadow:0 1px 3px rgba(0,0,0,0.04),0 4px 12px rgba(0,0,0,0.03);}
+    * {margin:0;padding:0;box-sizing:border-box;}
+    body {font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text-primary);line-height:1.7;}
+    .container {max-width:720px;margin:0 auto;padding:24px 16px 48px;}
+    .header {text-align:center;margin-bottom:28px;}
+    .header-title {font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:1px;}
+    .header-sub {font-size:13px;color:var(--text-muted);margin-top:4px;}
+    .header-date {display:inline-block;margin-top:12px;padding:4px 16px;background:var(--accent-blue-light);color:var(--accent-blue);border-radius:20px;font-size:13px;font-weight:500;}
+    .nav-bar {background:var(--card-bg);border-radius:var(--radius);padding:10px 20px;margin-bottom:24px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);}
+    .nav-brand {display:flex;align-items:center;gap:8px;}
+    .nav-logo {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .nav-sub {font-size:11px;color:var(--text-muted);}
+    .nav-center {display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);}
+    .nav-btn {cursor:pointer;background:none;border:none;padding:4px 8px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+    .nav-btn:hover{color:var(--accent-blue);background:var(--accent-blue-light);}
+    .nav-date-text{font-weight:500;color:var(--text-primary);}
+    .nav-right {display:flex;align-items:center;gap:8px;}
+    .nav-calendar-btn {cursor:pointer;display:flex;align-items:center;gap:4px;padding:5px 12px;border-radius:8px;font-size:13px;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;font-weight:500;transition:.2s;}
+    .nav-calendar-btn:hover{opacity:.9;}
+    .intro {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow);border:1px solid var(--border);}
+    .intro-text {font-size:14px;color:var(--text-secondary);line-height:1.8;}
+    .quick-tips {background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;color:white;box-shadow:var(--shadow);}
+    .quick-tips-title {font-size:15px;font-weight:600;margin-bottom:12px;}
+    .quick-tips-list {list-style:none;}
+    .quick-tips-list li {font-size:13px;line-height:1.9;padding-left:16px;position:relative;opacity:0.95;}
+    .quick-tips-list li::before {content:'';position:absolute;left:0;top:10px;width:6px;height:6px;background:rgba(255,255,255,0.7);border-radius:50%;}
+    .section {margin-bottom:24px;}
+    .section-header {display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-left:4px;}
+    .section-icon {width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;}
+    .section-title {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .section-count {margin-left:auto;font-size:12px;color:var(--text-muted);background:var(--border-light);padding:2px 10px;border-radius:12px;}
+    .card {background:var(--card-bg);border-radius:var(--radius);padding:18px 20px;margin-bottom:12px;box-shadow:var(--shadow);border:1px solid var(--border);}
+    .card-header {display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;}
+    .card-badge {flex-shrink:0;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:500;}
+    .card-title {font-size:14px;font-weight:600;color:var(--text-primary);line-height:1.5;flex:1;}
+    .card-summary {font-size:13px;color:var(--text-secondary);line-height:1.7;margin-bottom:10px;}
+    .card-footer {display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+    .card-tag {font-size:11px;color:var(--text-muted);background:var(--border-light);padding:2px 8px;border-radius:4px;}
+    .card-link {font-size:12px;color:var(--accent-blue);text-decoration:none;margin-left:auto;}
+    .badge-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
+    .badge-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
+    .badge-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
+    .badge-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+    .badge-green {background:var(--accent-green-light);color:var(--accent-green);}
+    .icon-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
+    .icon-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
+    .icon-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
+    .icon-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+    .icon-green {background:var(--accent-green-light);color:var(--accent-green);}
+    .editor-pick {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);border:1px solid var(--border);border-left:3px solid var(--accent-orange);}
+    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+    .editor-pick-content {font-size:13px;color:var(--text-secondary);line-height:1.8;}
+    .editor-pick-content p {margin-bottom:8px;}
+    .editor-pick-content strong {color:var(--text-primary);font-weight:600;}
+    .footer {text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
+    .footer-text {font-size:12px;color:var(--text-muted);}
+    .footer-brand {font-weight:600;color:var(--text-secondary);}
+    .calendar-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:999;display:none;align-items:flex-start;justify-content:flex-end;padding-top:110px;padding-right:16px;}
+    .calendar-overlay.active {display:flex;}
+    .calendar-modal {background:var(--card-bg);border-radius:var(--radius);width:92%;max-width:360px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);animation:calIn .25s ease-out;}
+    @keyframes calIn {from{opacity:0;transform:translateY(20px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);}}
+    .calendar-header {display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+    .calendar-title {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .calendar-close {cursor:pointer;background:none;border:none;padding:4px;border-radius:6px;font-size:18px;color:var(--text-muted);transition:.2s;line-height:1;}
+    .calendar-close:hover {background:var(--border-light);color:var(--text-primary);}
+    .calendar-nav {display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px;}
+    .calendar-nav-btn {cursor:pointer;background:none;border:none;padding:4px 10px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+    .calendar-nav-btn:hover{background:var(--accent-blue-light);color:var(--accent-blue);}
+    .calendar-nav-month {font-size:14px;font-weight:600;color:var(--text-primary);min-width:100px;text-align:center;}
+    .calendar-grid {display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;}
+    .calendar-weekday {text-align:center;font-size:11px;color:var(--text-muted);padding:6px 0;font-weight:500;}
+    .calendar-day {aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:13px;cursor:pointer;transition:.15s;border:none;background:none;color:var(--text-primary);position:relative;}
+    .calendar-day:hover:not(:disabled) {background:var(--accent-blue-light);color:var(--accent-blue);}
+    .calendar-day.other-month {color:var(--text-muted);opacity:.5;}
+    .calendar-day.available {font-weight:600;color:var(--accent-blue);background:var(--accent-blue-light);}
+    .calendar-day.available:hover {background:var(--accent-blue);color:#fff;}
+    .calendar-day.today {box-shadow:inset 0 0 0 1.5px var(--accent-blue);}
+    .calendar-day:disabled {cursor:default;color:var(--border);}
+    .calendar-info {text-align:center;font-size:12px;color:var(--text-muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light);}
+    .calendar-info span {display:inline-flex;align-items:center;gap:4px;}
+    .calendar-dot {width:6px;height:6px;border-radius:50%;background:var(--accent-blue);display:inline-block;}
+    @media(max-width:480px){.container{padding:16px 12px 32px;}.header-title{font-size:19px;}.card{padding:14px 16px;}.calendar-overlay{padding-top:100px;justify-content:center;padding-right:0;}.calendar-modal{padding:16px;}}
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <h1 class="header-title">三木AI 每日一刻钟</h1>
+      <p class="header-sub">每天15分钟，读懂AI世界</p>
+      <span class="header-date">2026年08月28日 星期五</span>
+    </div>
+
+    <!-- Nav -->
+    <div class="nav-bar">
+      <div class="nav-brand">
+        <span class="nav-logo">🤖 三木AI</span>
+        <span class="nav-sub">每日一刻钟</span>
+      </div>
+      <div class="nav-center">
+        <button class="nav-btn" onclick="window.location.href='ai-daily-2026-08-27.html'">‹</button>
+        <span class="nav-date-text">2026-08-28</span>
+        <button class="nav-btn" disabled style="opacity:.3" href="#">›</button>
+      </div>
+      <div class="nav-right">
+        <button class="nav-calendar-btn" onclick="openCalendar()">📅 日历</button>
+      </div>
+    </div>
+
+    <!-- Calendar Modal -->
+    <div class="calendar-overlay" id="calOverlay" onclick="closeCalendar(event)">
+      <div class="calendar-modal" onclick="event.stopPropagation()">
+        <div class="calendar-header">
+          <span class="calendar-title">📅 选择日期</span>
+          <button class="calendar-close" onclick="closeCalendar()">&times;</button>
+        </div>
+        <div class="calendar-nav">
+          <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
+          <span class="calendar-nav-month" id="calMonth">2026年8月</span>
+          <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
+        </div>
+        <div class="calendar-grid">
+          <div class="calendar-weekday">日</div><div class="calendar-weekday">一</div><div class="calendar-weekday">二</div>
+          <div class="calendar-weekday">三</div><div class="calendar-weekday">四</div><div class="calendar-weekday">五</div><div class="calendar-weekday">六</div>
+        </div>
+        <div class="calendar-grid" id="calDays"></div>
+        <div class="calendar-info"><span><i class="calendar-dot"></i> 蓝色日期表示有简报</span></div>
+      </div>
+    </div>
+
+    <!-- Intro -->
+    <div class="intro">
+      <p class="intro-text">
+        今日AI行业上演<strong>"算力霸主扩张 + 具身智能爆发 + 反思浪潮"</strong>三重奏：<strong>英伟达拟129亿美元收购Hugging Face</strong>，约其年化收入80倍估值，全面打响AI"中间层"争夺战；<strong>同时披露Q2财报总营收962.2亿美元同比+106%</strong>，数据中心892亿同比+117%创历史新高，下季指引1080亿超预期；<strong>Anthropic IPO传关键进展</strong>，拟允许老股东套现并研究延长锁定期，最快9月底上市、10月前完成概率升至86%；<strong>软银60亿美元控股人形机器人公司1X</strong>，孙正义将"物理AI"定为软银下一个战略前沿；当算力巨头用真金白银抢购开放生态与机器人形态，<strong>万亿AI基础设施的终局已开始倒计时</strong>。
+      </p>
+    </div>
+
+    <!-- Quick Tips -->
+    <div class="quick-tips">
+      <div class="quick-tips-title">🔥 今日要点速览</div>
+      <ul class="quick-tips-list">
+        <li><strong>英伟达拟129亿美元收购Hugging Face</strong>：AI"中间层"争夺战全面打响，约为其年化收入80倍估值，对冲闭源巨头自研芯片威胁</li>
+        <li><strong>英伟达Q2财报超预期</strong>：总营收962.2亿美元同比+106%，数据中心892亿同比+117%，下季指引1080亿，与AWS签200万GPU大单</li>
+        <li><strong>Anthropic IPO传关键进展</strong>：最快9月底上市、10月前完成概率升至86%，拟允许老股东套现+研究超180天锁定期</li>
+        <li><strong>软银60亿美元控股人形机器人公司1X</strong>：孙正义将"物理AI"定为下一个战略前沿，押注万亿新赛道</li>
+        <li><strong>2026数博会8月28日贵阳开幕</strong>：以"词元"为主题，372家中外企业参展，中国日均词元调用量突破500万亿</li>
+      </ul>
+    </div>
+
+    <!-- Section 1: 技术前沿 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-blue">⚡</div>
+        <span class="section-title">技术前沿动态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">3D生成</span>
+          <h3 class="card-title">群核科技发布Lux3D 3D生成模型：最快20秒出模型，单个成本最低约0.07元</h3>
+        </div>
+        <p class="card-summary">8月27日群核科技正式发布自研3D生成模型Lux3D，提供标准版与极速版双模式，支持文本或图片输入一键生成Mesh网格、PBR材质与3D高斯等格式3D资产。极速版单个模型最快20秒内生成，单个成本最低约0.07元，适合批量铺量。模型重点突破材质还原瓶颈，在PSNR（像素还原精度）、CMMD（材质质感）等指标上处于行业前列，并同步内测世界模型走"显式3D"的空间派路线，瞄准具身智能训练与数字孪生场景。</p>
+        <div class="card-footer">
+          <span class="card-tag">#群核科技</span>
+          <span class="card-tag">#Lux3D</span>
+          <span class="card-tag">#3D生成</span>
+          <a class="card-link" href="https://www.sohu.com/a/1068548964_455313">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">世界模型</span>
+          <h3 class="card-title">自变量机器人发布WALL-SS自回归世界模型：连续虚拟推演60秒，动作跟随得分0.29</h3>
+        </div>
+        <p class="card-summary">8月27日自变量机器人正式发布下一尺度自回归世界模型WALL-SS。该模型突破传统扩散模型单片段生成方式，采用"由粗到细"架构先勾勒粗尺度轮廓再逐层细化画面与物理细节。测试显示，WALL-SS"动作跟随"得分0.29为对比模型中唯一不为零的，可连续虚拟推演60秒画面不崩溃，虚拟与真实世界任务成功率吻合度达93%，为机器人构建"虚拟训练场"提前验证动作策略。</p>
+        <div class="card-footer">
+          <span class="card-tag">#自变量机器人</span>
+          <span class="card-tag">#WALL-SS</span>
+          <span class="card-tag">#世界模型</span>
+          <a class="card-link" href="https://www.sohu.com/a/1068548964_455313">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">医疗AI</span>
+          <h3 class="card-title">全球首例AI实时辅助脑外科手术在伦敦完成：48岁患者视力持续恢复</h3>
+        </div>
+        <p class="card-summary">英国伦敦国家神经病学和神经外科医院近日成功实施全球首例AI实时辅助脑外科手术，为48岁患者Rhys Hibbert切除11毫米脑垂体良性肿瘤。术中AI系统基于NVIDIA Clara IGX平台实时分析内窥镜画面、跟踪器械位置、标记血管与神经分布并高亮肿瘤切除安全部位。该系统由UCL团队自主研发、经数百台手术视频训练。术后八周患者视力持续改善，未来目标是开发专用类ChatGPT系统辅助神经外科决策。</p>
+        <div class="card-footer">
+          <span class="card-tag">#医疗AI</span>
+          <span class="card-tag">#神经外科</span>
+          <span class="card-tag">#ClaraIGX</span>
+          <a class="card-link" href="https://new.qq.com/rain/a/20260828A02HZB00">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: 国内外AI动态 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-purple">🌍</div>
+        <span class="section-title">国内外AI动态</span>
+        <span class="section-count">4条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">行业反思</span>
+          <h3 class="card-title">比尔·盖茨发长文警示AI就业冲击：呼吁设立"人类保留岗位"+对Token征税</h3>
+        </div>
+        <p class="card-summary">8月26日比尔·盖茨在个人网站发表约6000字长文《动荡的AI时代已经到来》，警告AI将带来"人类历史上最动荡的时期之一"。他列举三大风险：大量岗位将永久消失且初级与中级岗位首当其冲、AI降低网络攻击与生物恐怖主义门槛、AI可能阻碍儿童发展并取代人际关系。盖茨提出两大建议：设立"人类保留岗位"在医疗教育等领域刻意保留给人类（建议比例40%），对AI Token和机器人征税以降低企业机器替代人的激励，并参考航空规则与臭氧层保护协议建立国际AI治理机构。</p>
+        <div class="card-footer">
+          <span class="card-tag">#比尔·盖茨</span>
+          <span class="card-tag">#AI治理</span>
+          <span class="card-tag">#Token税</span>
+          <a class="card-link" href="https://www.163.com/dy/article/L5DBPC9Q05198NMR.html">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">企业合作</span>
+          <h3 class="card-title">Salesforce扩大与Anthropic合作推出Claudeforce，Meta年付高达100亿成最大客户</h3>
+        </div>
+        <p class="card-summary">赛富时（Salesforce）宣布扩大与Anthropic的合作并推出Claudeforce，将Claude AI能力与企业数据、业务应用及工作流结合。知情人士透露，旗下拥有Facebook与Instagram的Meta已成为Anthropic人工智能产品重度使用者，今年某一阶段内部预估每年在Anthropic模型上支出最高可达100亿美元，构成Anthropic年度收入大头。该初创企业7月预估今年收入将突破650亿美元，最新一轮估值9650亿美元。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Salesforce</span>
+          <span class="card-tag">#Anthropic</span>
+          <span class="card-tag">#Meta</span>
+          <a class="card-link" href="https://www.sohu.com/a/1068615455_99992453">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">算力大单</span>
+          <h3 class="card-title">Anthropic签署六年450亿美元算力大单：Nscale + 英伟达Vera Rubin芯片</h3>
+        </div>
+        <p class="card-summary">8月26日Anthropic与英国AI基础设施公司Nscale签署为期六年、总额约450亿美元的算力租赁协议。Anthropic将租用Nscale西弗吉尼亚州Monarch数据中心约460兆瓦算力，采用英伟达Vera Rubin芯片，预计2027年底上线。该园区原由微软意向租用、微软今夏退出后由Anthropic接手。此举创下AI公司单一算力大单纪录，远超此前200亿、300亿级别的常规协议，凸显Anthropic为IPO前夜储备算力"弹药"的决心。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Anthropic</span>
+          <span class="card-tag">#Nscale</span>
+          <span class="card-tag">#VeraRubin</span>
+          <a class="card-link" href="https://new.qq.com/rain/a/20260828A02HZB00">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">机器人</span>
+          <h3 class="card-title">Hugging Face发布"中国造"机器人Microduck：售价399美元，强化学习可教技能</h3>
+        </div>
+        <p class="card-summary">Hugging Face推出来自中国厂商的"微型鸭"（Microduck）开源机器人，高约25厘米、重不到800克，没有传统双臂，通过可活动的"鸭嘴"完成抓取，能行走、轮滑。Hugging Face CEO称这是首款可通过强化学习教授新技能的平价AI机器人，每4秒售出一台，目标是销售超2万台、首批圣诞前发货。该机器人为开源社区与硬件结合的代表作，与英伟达NemoClaw软件栈形成软硬协同，标志开源机器人正从实验室走向"开发者群体共创"。</p>
+        <div class="card-footer">
+          <span class="card-tag">#HuggingFace</span>
+          <span class="card-tag">#Microduck</span>
+          <span class="card-tag">#开源机器人</span>
+          <a class="card-link" href="https://new.qq.com/rain/a/20260828A02HZB00">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: 投资与商业 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-green">💰</div>
+        <span class="section-title">投资与商业</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">巨头收购</span>
+          <h3 class="card-title">英伟达拟129亿美元收购Hugging Face：AI"中间层"争夺战全面打响</h3>
+        </div>
+        <p class="card-summary">据The Information报道，英伟达已同意以129亿美元收购AI大模型开源平台Hugging Face，价格约合其1.5亿美元年化收入的80余倍，预计2027年上半年完成。这是英伟达史上最大收购之一，尚需通过全球主要司法辖区反垄断审查。英伟达看中的是开放模型生态，此前已扩张Nemotron家族、组建Nemotron联盟并拿下Poolside技术授权，以制衡大客户自研芯片。交易若完成将引发中立性质疑——Hugging Face曾拒绝英伟达5亿美元投资，顾虑正是单一投资者过于强势影响平台独立性。</p>
+        <div class="card-footer">
+          <span class="card-tag">#英伟达</span>
+          <span class="card-tag">#HuggingFace</span>
+          <span class="card-tag">#129亿美元</span>
+          <a class="card-link" href="https://www.sohu.com/a/1068615455_99992453">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">具身投资</span>
+          <h3 class="card-title">软银60亿美元控股人形机器人公司1X：孙正义押注"物理AI"下一个万亿赛道</h3>
+        </div>
+        <p class="card-summary">软银正与OpenAI支持的人形机器人公司1X Technologies洽谈收购多数股权，估值约60亿美元。1X去年曾寻求以100亿美元估值融资10亿美元但募资不足目标一半；OpenAI此前也曾与其讨论收购最终未果。软银CEO孙正义将"物理AI"定为软银下一个战略前沿，本次收购若完成将成为继持有Arm之后软银AI版图的关键落子，从对话式AI（投资OpenAI）扩展到物理形态AI，押注下一代人机交互界面。</p>
+        <div class="card-footer">
+          <span class="card-tag">#软银</span>
+          <span class="card-tag">#1X</span>
+          <span class="card-tag">#物理AI</span>
+          <a class="card-link" href="https://www.sohu.com/a/1068615455_99992453">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">IPO/财报</span>
+          <h3 class="card-title">Anthropic IPO传关键进展：最快9月底上市，Alphabet三个月蒸发6920亿美元</h3>
+        </div>
+        <p class="card-summary">Anthropic正在考虑允许现有股东在IPO中出售部分股份，并研究设置超过180天的锁定期以满足早期投资者和员工部分变现需求，计划9月7日美国劳动节后公开披露招股书、9月中旬举行投资者日。预测市场显示其10月前完成IPO的概率升至86%。与此同时谷歌母公司Alphabet股价自5月高点回落15%、市值蒸发6920亿美元，核心压力来自AI人才持续流失、Gemini 3.5 Pro研发延误与资本开支飙升。华尔街"大多头"Ed Yardeni警告"AI疲劳"，建议弃炒科技个股。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Anthropic</span>
+          <span class="card-tag">#Alphabet</span>
+          <span class="card-tag">#IPO</span>
+          <a class="card-link" href="https://www.163.com/dy/article/L5DBPC9Q05198NMR.html">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4: 政策与行业生态 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-orange">🏛️</div>
+        <span class="section-title">政策与行业生态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">产业大会</span>
+          <h3 class="card-title">2026中国国际大数据产业博览会8月28日贵阳开幕：以"词元"为主题，372家企业参展</h3>
+        </div>
+        <p class="card-summary">8月28日至30日2026数博会将在贵阳举行，今年以"词元——数据要素价值释放新路径"为主题，由国家数据局主办、贵州省人民政府承办，广东省担任主宾省。372家中外企业参展，设置算力基座、数据供给、模型驱动、安全护航、智能体验五大主题展馆。华为Atlas 950 SuperPoD超节点系统、软通动力Token工厂、中科曙光曙光8000等新产品集中亮相。贵州全省算力规模已突破176EFLOPS、智算占比超98%，2025年算力运营服务收入达824亿元、市场化率超90%。</p>
+        <div class="card-footer">
+          <span class="card-tag">#数博会</span>
+          <span class="card-tag">#词元</span>
+          <span class="card-tag">#贵州</span>
+          <a class="card-link" href="http://scitech.ce.cn/sy/zx/202608/t20260827_3173866.shtml">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">监管</span>
+          <h3 class="card-title">中国支付清算协会发布《智能体支付应用自律公约》：AI支付划定四条安全红线</h3>
+        </div>
+        <p class="card-summary">8月24日中国支付清算协会正式发布《智能体支付应用自律公约》，为AI智能体介入支付环节划定安全红线。公约从主体管理、交易授权、风险防控、消费者权益保护四大维度确立准则，要求建立"了解你的智能体（KYA）"机制，对智能体身份进行识别验证与分级分类管理；同时明确"谁应用人工智能技术谁负责"的风控原则，将算法模型风险纳入全面风险管理体系、杜绝模型黑箱操作，以保障用户资金安全。这是国内首部针对AI智能体支付的自律性文件。</p>
+        <div class="card-footer">
+          <span class="card-tag">#智能体支付</span>
+          <span class="card-tag">#自律公约</span>
+          <span class="card-tag">#KYA</span>
+          <a class="card-link" href="https://new.qq.com/rain/a/20260828A02HZB00">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">产业政策</span>
+          <h3 class="card-title">济南印发"人工智能+制造"行动方案：2028年打造40个以上工业大模型</h3>
+        </div>
+        <p class="card-summary">济南市13部门近日联合印发《济南市实施"人工智能+制造"行动方案（2026—2028年）》，明确到2028年力争打造40个以上特色化、高水平工业大模型与智能体，推广30个以上典型应用场景，建设3家以上人工智能能力中心。方案部署夯实算力底座、模型创新、开展"模数共振"等任务，推动工业互联网平台与AI协同发展；同时加快"泉试成"中试公共服务平台建设，在高端软件、电子信息制造等五大重点行业开展先锋应用建设。当前我国上半年日均词元调用量已突破500万亿。</p>
+        <div class="card-footer">
+          <span class="card-tag">#济南</span>
+          <span class="card-tag">#人工智能+制造</span>
+          <span class="card-tag">#工业大模型</span>
+          <a class="card-link" href="https://new.qq.com/rain/a/20260828A02HZB00">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Editor Pick -->
+    <div class="editor-pick">
+      <div class="editor-pick-title">✍️ 编辑精选 · 深度观点</div>
+      <div class="editor-pick-content">
+        <p>今天的AI头条看似分散，实则围绕<strong>"算力巨头打地基"</strong>这一主轴展开。<strong>英伟达Q2总营收962.2亿美元同比+106%</strong>，创上市以来最高单季增速，下季指引1080亿超预期；同时宣布以<strong>129亿美元收购Hugging Face</strong>——这是英伟达从"卖铲子"到"包揽矿场"的标志性时刻。从今以后，全球绝大部分开源模型都将跑在英伟达的硬件+生态闭环里，<strong>"AI中间层争夺战"已悄然分出胜负</strong>。</p>
+        <p>另一面则是<strong>"具身智能的爆发前夜"</strong>。软银60亿美元控股1X、智元在世界人形机器人运动会登顶双榜第一、Hugging Face Microduck 399美元开卖——三件事指向同一信号：物理形态AI正在走完从炫技到商业化的最后一公里。孙正义、马斯克、黄仁勋三个"老人"再次同步押注同一个赛道，<strong>不是巧合，是叙事顶点</strong>。</p>
+        <p>当然，<strong>硬币的另一面永远是反思</strong>。盖茨的6000字长文罕见呼吁"AI慢一点"——设立人类保留岗位比例40%、对Token征税、提议国际AI治理机构；与此同时华尔街"大多头"Ed Yardeni首次警告"AI疲劳"，Alphabet三个月市值蒸发6920亿美元。<strong>当最乐观的人开始谨慎、当最大的公司开始降速，行业的转折点或许就藏在所有人都不愿承认的角落里</strong>。</p>
+        <p><strong>一句话总结：</strong>算力巨头用真金白银把万亿AI的地基夯实，机器人形态从舞台走入仓库，思想领袖则开始为狂奔的列车画刹车线——<strong>2026年8月最后一周，我们正在见证AI产业从"狂热"走向"成熟"的分水岭</strong>。</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p class="footer-text"><span class="footer-brand">三木AI 每日一刻钟</span> · 每天15分钟，读懂AI世界</p>
+      <p class="footer-text">2026年08月28日 星期五</p>
+    </div>
+  </div>
+  <script>
+  (function() {
+    var availableDates = [];
+    var calYear = 2026, calMonth = 7;
+
+    fetch('manifest.json?t=' + Date.now())
+      .then(function(r){return r.json();})
+      .then(function(data){
+        availableDates = data.dates || [];
+        renderCalendar();
+      })
+      .catch(function(){
+        availableDates = ['2026-08-28'];
+        renderCalendar();
+      });
+
+    window.openCalendar = function() {
+      document.getElementById('calOverlay').classList.add('active');
+      renderCalendar();
+    };
+    window.closeCalendar = function(e) {
+      if (!e || e.target.id === 'calOverlay') {
+        document.getElementById('calOverlay').classList.remove('active');
+      }
+    };
+    window.changeMonth = function(delta) {
+      calMonth += delta;
+      if (calMonth > 11) { calMonth = 0; calYear++; }
+      if (calMonth < 0) { calMonth = 11; calYear--; }
+      renderCalendar();
+    };
+    window.goToDate = function(dateStr) {
+      if (dateStr === '2026-08-28') {
+        window.location.href = 'index.html';
+      } else {
+        window.location.href = 'ai-daily-' + dateStr + '.html';
+      }
+    };
+
+    function renderCalendar() {
+      var monthNames = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+      document.getElementById('calMonth').textContent = calYear + '年' + monthNames[calMonth];
+      var firstDay = new Date(calYear, calMonth, 1).getDay();
+      var daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+      var prevDays = new Date(calYear, calMonth, 0).getDate();
+      var html = '';
+      for (var i = firstDay - 1; i >= 0; i--) {
+        html += '<button class="calendar-day other-month" disabled>' + (prevDays - i) + '</button>';
+      }
+      for (var d = 1; d <= daysInMonth; d++) {
+        var ds = calYear + '-' + String(calMonth + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+        var cls = 'calendar-day';
+        var isAvail = availableDates.indexOf(ds) !== -1;
+        var isToday = ds === '2026-08-28';
+        if (isAvail) cls += ' available';
+        if (isToday) cls += ' today';
+        if (isAvail) {
+          html += '<button class="' + cls + '" onclick="goToDate(\'' + ds + '\')">' + d + '</button>';
+        } else {
+          html += '<button class="' + cls + '" disabled>' + d + '</button>';
+        }
+      }
+      var totalCells = firstDay + daysInMonth;
+      var nextPadding = (7 - (totalCells % 7)) % 7;
+      for (var j = 1; j <= nextPadding; j++) {
+        html += '<button class="calendar-day other-month" disabled>' + j + '</button>';
+      }
+      document.getElementById('calDays').innerHTML = html;
+    }
+  })();
+  </script>
+
+</body>
+</html>
