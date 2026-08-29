@@ -14,17 +14,6 @@
     .header-title {font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:1px;}
     .header-sub {font-size:13px;color:var(--text-muted);margin-top:4px;}
     .header-date {display:inline-block;margin-top:12px;padding:4px 16px;background:var(--accent-blue-light);color:var(--accent-blue);border-radius:20px;font-size:13px;font-weight:500;}
-    .nav-bar {background:var(--card-bg);border-radius:var(--radius);padding:10px 20px;margin-bottom:24px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);}
-    .nav-brand {display:flex;align-items:center;gap:8px;}
-    .nav-logo {font-size:15px;font-weight:600;color:var(--text-primary);}
-    .nav-sub {font-size:11px;color:var(--text-muted);}
-    .nav-center {display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);}
-    .nav-btn {cursor:pointer;background:none;border:none;padding:4px 8px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
-    .nav-btn:hover{color:var(--accent-blue);background:var(--accent-blue-light);}
-    .nav-date-text{font-weight:500;color:var(--text-primary);}
-    .nav-right {display:flex;align-items:center;gap:8px;}
-    .nav-calendar-btn {cursor:pointer;display:flex;align-items:center;gap:4px;padding:5px 12px;border-radius:8px;font-size:13px;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;font-weight:500;transition:.2s;}
-    .nav-calendar-btn:hover{opacity:.9;}
     .intro {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow);border:1px solid var(--border);}
     .intro-text {font-size:14px;color:var(--text-secondary);line-height:1.8;}
     .quick-tips {background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;color:white;box-shadow:var(--shadow);}
@@ -49,411 +38,36 @@
     .badge-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .badge-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .badge-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
-    .badge-green {background:var(--accent-green-light);color:var(--accent-green);}
     .icon-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
     .icon-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .icon-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .icon-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
-    .icon-green {background:var(--accent-green-light);color:var(--accent-green);}
     .editor-pick {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);border:1px solid var(--border);border-left:3px solid var(--accent-orange);}
-    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;}
     .editor-pick-content {font-size:13px;color:var(--text-secondary);line-height:1.8;}
     .editor-pick-content p {margin-bottom:8px;}
     .editor-pick-content strong {color:var(--text-primary);font-weight:600;}
     .footer {text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
     .footer-text {font-size:12px;color:var(--text-muted);}
     .footer-brand {font-weight:600;color:var(--text-secondary);}
-    .calendar-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:999;display:none;align-items:flex-start;justify-content:flex-end;padding-top:110px;padding-right:16px;}
-    .calendar-overlay.active {display:flex;}
-    .calendar-modal {background:var(--card-bg);border-radius:var(--radius);width:92%;max-width:360px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);animation:calIn .25s ease-out;}
-    @keyframes calIn {from{opacity:0;transform:translateY(20px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);}}
-    .calendar-header {display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
-    .calendar-title {font-size:15px;font-weight:600;color:var(--text-primary);}
-    .calendar-close {cursor:pointer;background:none;border:none;padding:4px;border-radius:6px;font-size:18px;color:var(--text-muted);transition:.2s;line-height:1;}
-    .calendar-close:hover {background:var(--border-light);color:var(--text-primary);}
-    .calendar-nav {display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px;}
-    .calendar-nav-btn {cursor:pointer;background:none;border:none;padding:4px 10px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
-    .calendar-nav-btn:hover{background:var(--accent-blue-light);color:var(--accent-blue);}
-    .calendar-nav-month {font-size:14px;font-weight:600;color:var(--text-primary);min-width:100px;text-align:center;}
-    .calendar-grid {display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;}
-    .calendar-weekday {text-align:center;font-size:11px;color:var(--text-muted);padding:6px 0;font-weight:500;}
-    .calendar-day {aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:13px;cursor:pointer;transition:.15s;border:none;background:none;color:var(--text-primary);position:relative;}
-    .calendar-day:hover:not(:disabled) {background:var(--accent-blue-light);color:var(--accent-blue);}
-    .calendar-day.other-month {color:var(--text-muted);opacity:.5;}
-    .calendar-day.available {font-weight:600;color:var(--accent-blue);background:var(--accent-blue-light);}
-    .calendar-day.available:hover {background:var(--accent-blue);color:#fff;}
-    .calendar-day.today {box-shadow:inset 0 0 0 1.5px var(--accent-blue);}
-    .calendar-day:disabled {cursor:default;color:var(--border);}
-    .calendar-info {text-align:center;font-size:12px;color:var(--text-muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light);}
-    .calendar-info span {display:inline-flex;align-items:center;gap:4px;}
-    .calendar-dot {width:6px;height:6px;border-radius:50%;background:var(--accent-blue);display:inline-block;}
-    @media(max-width:480px){.container{padding:16px 12px 32px;}.header-title{font-size:19px;}.card{padding:14px 16px;}.calendar-overlay{padding-top:100px;justify-content:center;padding-right:0;}.calendar-modal{padding:16px;}}
   </style>
 </head>
 <body>
   <div class="container">
-
     <div class="header">
       <h1 class="header-title">三木AI 每日一刻钟</h1>
       <p class="header-sub">每天15分钟，读懂AI世界</p>
       <span class="header-date">2026年08月29日 星期六</span>
     </div>
-
-    <div class="nav-bar">
-      <div class="nav-brand">
-        <span class="nav-logo">🤖 三木AI</span>
-        <span class="nav-sub">每日一刻钟</span>
-      </div>
-      <div class="nav-center">
-        <button class="nav-btn" onclick="window.location.href='ai-daily-2026-08-28.html'">‹</button>
-        <span class="nav-date-text">2026-08-29</span>
-        <button class="nav-btn" disabled style="opacity:.3" href="#">›</button>
-      </div>
-      <div class="nav-right">
-        <button class="nav-calendar-btn" onclick="openCalendar()">📅 日历</button>
-      </div>
-    </div>
-
-    <div class="calendar-overlay" id="calOverlay" onclick="closeCalendar(event)">
-      <div class="calendar-modal" onclick="event.stopPropagation()">
-        <div class="calendar-header">
-          <span class="calendar-title">📅 选择日期</span>
-          <button class="calendar-close" onclick="closeCalendar()">&times;</button>
-        </div>
-        <div class="calendar-nav">
-          <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
-          <span class="calendar-nav-month" id="calMonth">2026年8月</span>
-          <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
-        </div>
-        <div class="calendar-grid">
-          <div class="calendar-weekday">日</div><div class="calendar-weekday">一</div><div class="calendar-weekday">二</div>
-          <div class="calendar-weekday">三</div><div class="calendar-weekday">四</div><div class="calendar-weekday">五</div><div class="calendar-weekday">六</div>
-        </div>
-        <div class="calendar-grid" id="calDays"></div>
-        <div class="calendar-info"><span><i class="calendar-dot"></i> 蓝色日期表示有简报</span></div>
-      </div>
-    </div>
-
+    
     <div class="intro">
-      <p class="intro-text">
-        8月最后一个周末，AI行业信息密度依然惊人——<strong>腾讯混元Hy4与智谱GLM-5.3-Flash双箭齐发</strong>，国产开源旗舰密集对标；Anthropic发布MHS硬件标准首次进军物理AI，美国法官撤销国防部对其封杀令；116家科技巨头联名预警AI网络攻击，大模型调价暗战持续升温。今天我们聚焦这些关键变化。
-      </p>
+      <p class="intro-text">今日简报内容正在整理中，请稍后再试。</p>
     </div>
-
-    <div class="quick-tips">
-      <div class="quick-tips-title">🔥 今日要点速览</div>
-      <ul class="quick-tips-list">
-        <li><strong>腾讯混元开源770B旗舰Hy4 preview</strong>，盲测超GLM-5.3与Kimi K3，首创"递归自我改进"能力</li>
-        <li><strong>Anthropic发布MHS模型硬件标准</strong>，AI首次直接操控显微镜、机械臂等物理设备，集成时间从数周缩至数小时</li>
-        <li><strong>美国法官裁定国防部封杀Anthropic"违宪"</strong>，撤销供应链风险标签，AI安全博弈升级</li>
-        <li><strong>Anthropic拟劳动节后公布IPO招股书</strong>，募资至少1300亿美元，将超SpaceX 860亿纪录</li>
-        <li><strong>2026数博会贵阳开幕</strong>，372家中外企业参展，中国日均词元调用量突破140万亿</li>
-      </ul>
-    </div>
-
-    <!-- Section 1: 技术前沿动态 -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-blue">⚡</div>
-        <span class="section-title">技术前沿动态</span>
-        <span class="section-count">3条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-blue">开源旗舰</span>
-          <h3 class="card-title">腾讯混元开源Hy4 preview：770B参数MoE，盲测登顶开源第一梯队</h3>
-        </div>
-        <p class="card-summary">腾讯混元发布并开源新一代大语言模型Hy4 preview，总参数770B、激活参数49B，上下文长度达1M Token，定位"为生产力而生"。在163名专家对203项工程任务的内部盲测中，以2.99/4分超越GLM-5.3（2.92）和Kimi K3（2.94）。模型首次实现"递归自我改进"——自主优化训练方法与数据策略，已接入WorkBuddy、CodeBuddy、元宝等产品。</p>
-        <div class="card-footer">
-          <span class="card-tag">#腾讯</span>
-          <span class="card-tag">#Hy4</span>
-          <span class="card-tag">#开源模型</span>
-          <a class="card-link" href="https://new.qq.com/rain/a/20260829A03T8100?refer=cp_1009">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-blue">视频生成</span>
-          <h3 class="card-title">fal发布H3 Max：5秒视频3秒生成，MiniMax同步开源H3模型</h3>
-        </div>
-        <p class="card-summary">fal联合MiniMax推出生产级视频生成模型H3 Max，5秒视频片段生成仅需不到3秒，吞吐量约为官方H3的35倍，在人类偏好测试中综合质量、提示词遵循和美学三项均排名第一。同期MiniMax正式开源H3模型：单GPU上15秒768p视频约13秒生成，速度约为前代14倍，标志着视频生成进入"超实时"时代。</p>
-        <div class="card-footer">
-          <span class="card-tag">#fal</span>
-          <span class="card-tag">#MiniMax</span>
-          <span class="card-tag">#视频生成</span>
-          <a class="card-link" href="https://agihunt.info/en/daily/2026-08-29?f=dr">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-blue">AI基础设施</span>
-          <h3 class="card-title">AMD发布ROCm 10.0：从7.14直跳大版本，全面面向Agent时代</h3>
-        </div>
-        <p class="card-summary">AMD正式发布ROCm 10.0.0版本，版本号从7.14直接跳至10.0，面向Instinct、Radeon、Ryzen AI三大平台。新版本首次支持8GB/4GB显存的Radeon RX 9050显卡，大幅降低AI开发门槛，引入全新编译器优化和推理加速库。同期a16z推出11亿美元"机器时代基金"投向AI基础设施与硬件物理层，AMD生态布局与资本同步加速。</p>
-        <div class="card-footer">
-          <span class="card-tag">#AMD</span>
-          <span class="card-tag">#ROCm</span>
-          <span class="card-tag">#AI推理</span>
-          <a class="card-link" href="https://agihunt.info/en/daily/2026-08-29?f=dr">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Section 2: 国内外AI动态 -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-purple">🌍</div>
-        <span class="section-title">国内外AI动态</span>
-        <span class="section-count">4条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">物理AI</span>
-          <h3 class="card-title">Anthropic发布MHS模型硬件标准，AI Agent首次直接操控物理设备</h3>
-        </div>
-        <p class="card-summary">Anthropic以研究预览形式发布"模型硬件标准"（MHS），让AI智能体通过统一接口安全操控显微镜、移液器、机械臂等实验室与工业设备，将硬件集成时间从数周缩短至数小时。标准模型无关、支持MCP协议，已通过NASA JPL等机构压力测试，正与AWS、丹纳赫、优傲机器人等共同测试，计划后续开源。巴克莱预测2035年AI驱动机器人市场将达万亿美元。</p>
-        <div class="card-footer">
-          <span class="card-tag">#Anthropic</span>
-          <span class="card-tag">#MHS</span>
-          <span class="card-tag">#物理AI</span>
-          <a class="card-link" href="https://www.163.com/dy/article/L5F7T2QM05561FZP.html">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">司法裁定</span>
-          <h3 class="card-title">美国法官裁定国防部封杀Anthropic"违宪"，撤销供应链风险标签</h3>
-        </div>
-        <p class="card-summary">美国联邦法官Rita Lin在59页裁定书中判定，国防部将Anthropic列为"国家安全供应链风险"的决定"非法且无据"，属于对政府批评者的违宪报复，予以撤销。法官指出"空洞的国家安全借口不是报复政府批评者的空白支票"。该裁定影响国防部对AI供应商的审查方式，为前沿AI公司在军事应用红线上的话语权提供司法背书。</p>
-        <div class="card-footer">
-          <span class="card-tag">#美国</span>
-          <span class="card-tag">#Anthropic</span>
-          <span class="card-tag">#AI监管</span>
-          <a class="card-link" href="https://agihunt.info/en/daily/2026-08-29?f=dr">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">多智能体</span>
-          <h3 class="card-title">OpenAI筹备Astra多智能体协作模型系列，Altman已向政策制定者展示</h3>
-        </div>
-        <p class="card-summary">据知情人士透露，OpenAI正在筹备全新模型系列"Astra"，核心能力是支持多个智能体进行长期协作以解决高难度问题，可应用于大型项目推进或复杂数学求解。Altman已在美国华盛顿向政策制定者展示该模型。Astra将加入现有Sol、Terra、Luna系列，已进入测试阶段，并计划先符合特朗普政府的新AI监管框架。</p>
-        <div class="card-footer">
-          <span class="card-tag">#OpenAI</span>
-          <span class="card-tag">#Astra</span>
-          <span class="card-tag">#多智能体</span>
-          <a class="card-link" href="https://weibo.com/7905315703/5337147651654495">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">AI安全</span>
-          <h3 class="card-title">116家科技巨头联名预警AI网络攻击升级，呼吁重构防御体系</h3>
-        </div>
-        <p class="card-summary">OpenAI、Anthropic、谷歌、微软、AWS及CrowdStrike、Okta、Fortinet等116家科技公司联合发布公开信，警告AI驱动的网络攻击将在未来数月内显著升级，AI智能体已具备自主识别漏洞、发起攻击的能力。公开信呼吁全球重构网络防御体系，建立新的AI安全标准与协作框架，医院、水厂与互联网基础设施均面临风险。</p>
-        <div class="card-footer">
-          <span class="card-tag">#AI安全</span>
-          <span class="card-tag">#网络攻击</span>
-          <span class="card-tag">#科技联盟</span>
-          <a class="card-link" href="https://www.163.com/dy/article/L5F7T2QM05561FZP.html">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Section 3: 投资与商业 -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-green">💰</div>
-        <span class="section-title">投资与商业</span>
-        <span class="section-count">3条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-green">IPO</span>
-          <h3 class="card-title">Anthropic拟劳动节后公布IPO招股书，募资至少1300亿美元</h3>
-        </div>
-        <p class="card-summary">据知情人士透露，Anthropic计划在美国劳动节（9月7日）后公布IPO招股说明书，预计9月下旬或10月初上市。公司拟允许现有股东在IPO中出售股份，部分股东禁售期可能超180天。Anthropic希望筹集至少1300亿美元用于扩张算力，将超过SpaceX 6月上市时860亿美元的募资额，有望成为全球最大IPO。</p>
-        <div class="card-footer">
-          <span class="card-tag">#Anthropic</span>
-          <span class="card-tag">#IPO</span>
-          <span class="card-tag">#1300亿</span>
-          <a class="card-link" href="https://weibo.com/7905315703/5337147651654495">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-green">半导体</span>
-          <h3 class="card-title">Marvell财报超预期遭抛售重挫10.28%，费半指数跌3.5%</h3>
-        </div>
-        <p class="card-summary">隔夜美股半导体板块集体回调，费城半导体指数SOX重挫3.47%，英伟达-4.57%、AMD-2.33%、Marvell-10.28%、博通-0.74%。Marvell当季业绩与下季指引均略超预期，但市场担忧AI估值泡沫叠加年内已涨逾180%的兑现压力，资金选择离场。大型科技股逆势普涨，亚马逊+3.97%、微软+1.68%，反映资金从"卖铲人"向平台型公司切换。</p>
-        <div class="card-footer">
-          <span class="card-tag">#Marvell</span>
-          <span class="card-tag">#半导体</span>
-          <span class="card-tag">#美股</span>
-          <a class="card-link" href="https://www.163.com/dy/article/L5F7T2QM05561FZP.html">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-green">融资</span>
-          <h3 class="card-title">a16z推出11亿美元"机器时代基金"，押注AI基础设施与硬件物理层</h3>
-        </div>
-        <p class="card-summary">知名风投a16z（Andreessen Horowitz）推出总额11亿美元的"机器时代基金"（Machine Age Fund），瞄准AI基础设施与硬件物理层，而非Token计价的应用层。同期SK海力士在美国印第安纳州奠基HBM封装厂，投资超40亿美元，2029年量产新一代HBM，产品直接供应英伟达、微软、谷歌等美国客户，采用"韩国晶圆+美国封测"协同模式。</p>
-        <div class="card-footer">
-          <span class="card-tag">#a16z</span>
-          <span class="card-tag">#AI基建</span>
-          <span class="card-tag">#SK海力士</span>
-          <a class="card-link" href="https://agihunt.info/en/daily/2026-08-29?f=dr">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Section 4: 政策与行业生态 -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-orange">🏛️</div>
-        <span class="section-title">政策与行业生态</span>
-        <span class="section-count">3条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-orange">数据要素</span>
-          <h3 class="card-title">2026数博会在贵阳开幕：372家中外企业参展，日均词元调用量突破140万亿</h3>
-        </div>
-        <p class="card-summary">2026中国国际大数据产业博览会在贵阳开幕，主题为"词元——数据要素价值释放新路径"，吸引372家中外企业参展。国家数据局局长刘烈宏透露，截至8月全国累计建成高质量数据集超12.6万个，数据总体量超1815PB，较3月增长超89%。贵州全省总算力规模达176.57EFLOPS，智算占比达98.35%。学者称词元调用量正成为AI的新度量衡。</p>
-        <div class="card-footer">
-          <span class="card-tag">#数博会</span>
-          <span class="card-tag">#词元</span>
-          <span class="card-tag">#数据要素</span>
-          <a class="card-link" href="https://new.qq.com/rain/a/20260829A03RUF00?refer=cp_1009">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-orange">全球治理</span>
-          <h3 class="card-title">美国拟要求35国在中美AI体系间"二选一"，评论呼吁拒绝"选边站队"</h3>
-        </div>
-        <p class="card-summary">媒体评论指出，美国近期拟致函35个签署《人工智能机遇伙伴关系联合声明》的国家，要求其在中美两套AI体系间"二选一"，否则排除在美方"硅和平"倡议之外。文章强调AI应属全球共享通用技术，反对被少数国家垄断并工具化为排他性地缘政治阵营。同期上观新闻回顾WAIC成立世界人工智能合作组织，29国成为创始成员国，体现中国多边主义主张。</p>
-        <div class="card-footer">
-          <span class="card-tag">#AI治理</span>
-          <span class="card-tag">#中美</span>
-          <span class="card-tag">#硅和平</span>
-          <a class="card-link" href="https://new.qq.com/rain/a/20260829A03T8100?refer=cp_1009">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-orange">伦理规范</span>
-          <h3 class="card-title">我国首部AI医学影像伦理指引发布，明确AI仅作辅助参考</h3>
-        </div>
-        <p class="card-summary">国家科技伦理委员会医学伦理分委员会近日发布《人工智能医学影像研究伦理指引》，明确六大核心伦理原则，要求AI仅作辅助参考、医生保留最终临床决策权，覆盖研发到应用全生命周期。同期上海金山研究院发布《中小学人工智能教育课程开发标准》、AI通识数字教材及教师智能体平台；广西出台AI+行动方案赋能微短剧破圈出海，力争2028年打造15个标杆场景。</p>
-        <div class="card-footer">
-          <span class="card-tag">#AI伦理</span>
-          <span class="card-tag">#医学影像</span>
-          <span class="card-tag">#政策法规</span>
-          <a class="card-link" href="https://new.qq.com/rain/a/20260829A03RUF00?refer=cp_1009">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Editor Pick -->
-    <div class="editor-pick">
-      <div class="editor-pick-title">✍️ 编辑精选 · 深度观点</div>
-      <div class="editor-pick-content">
-        <p>8月最后一个周末，AI行业呈现一条鲜明主线——从"模型更聪明"全面转向<strong>"更可落地、更能操控物理世界"</strong>。腾讯混元Hy4以770B参数盲测登顶开源第一梯队、智谱GLM-5.3-Flash匿名上线即霸榜OpenRouter创历史纪录，国产开源旗舰进入密集对标期；Anthropic MHS标准让AI直接操控机械臂与显微镜，首次将智能体从软件延伸至物理设备，同时美国法官撤销对其供应链封杀——前沿AI公司在安全边界上的话语权获司法背书。</p>
-        <p>另一方面，116家科技巨头联名预警AI网络攻击、大模型调价暗战持续升温、Anthropic拟募资1300亿美元冲刺史上最大IPO，说明安全监管、商业变现与资本博弈正在同步重构。<strong>一句话总结：</strong>当模型落地、硬件标准化、IPO纪录与全球治理博弈同时发生，AI正从"能力竞赛"全面进入"生态与边界之争"。</p>
-      </div>
-    </div>
-
+    
     <div class="footer">
       <p class="footer-text"><span class="footer-brand">三木AI 每日一刻钟</span> · 每天15分钟，读懂AI世界</p>
       <p class="footer-text">2026年08月29日 星期六</p>
     </div>
   </div>
-  <script>
-  (function() {
-    var availableDates = [];
-    var calYear = 2026, calMonth = 7;
-
-    fetch('manifest.json?t=' + Date.now())
-      .then(function(r){return r.json();})
-      .then(function(data){
-        availableDates = data.dates || [];
-        renderCalendar();
-      })
-      .catch(function(){
-        availableDates = ['2026-08-29'];
-        renderCalendar();
-      });
-
-    window.openCalendar = function() {
-      document.getElementById('calOverlay').classList.add('active');
-      renderCalendar();
-    };
-    window.closeCalendar = function(e) {
-      if (!e || e.target.id === 'calOverlay') {
-        document.getElementById('calOverlay').classList.remove('active');
-      }
-    };
-    window.changeMonth = function(delta) {
-      calMonth += delta;
-      if (calMonth > 11) { calMonth = 0; calYear++; }
-      if (calMonth < 0) { calMonth = 11; calYear--; }
-      renderCalendar();
-    };
-    window.goToDate = function(dateStr) {
-      if (dateStr === '2026-08-29') {
-        window.location.href = 'index.html';
-      } else {
-        window.location.href = 'ai-daily-' + dateStr + '.html';
-      }
-    };
-
-    function renderCalendar() {
-      var monthNames = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
-      document.getElementById('calMonth').textContent = calYear + '年' + monthNames[calMonth];
-      var firstDay = new Date(calYear, calMonth, 1).getDay();
-      var daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
-      var prevDays = new Date(calYear, calMonth, 0).getDate();
-      var html = '';
-      for (var i = firstDay - 1; i >= 0; i--) {
-        html += '<button class="calendar-day other-month" disabled>' + (prevDays - i) + '</button>';
-      }
-      for (var d = 1; d <= daysInMonth; d++) {
-        var ds = calYear + '-' + String(calMonth + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
-        var cls = 'calendar-day';
-        var isAvail = availableDates.indexOf(ds) !== -1;
-        var isToday = ds === '2026-08-29';
-        if (isAvail) cls += ' available';
-        if (isToday) cls += ' today';
-        if (isAvail) {
-          html += '<button class="' + cls + '" onclick="goToDate(\'' + ds + '\')">' + d + '</button>';
-        } else {
-          html += '<button class="' + cls + '" disabled>' + d + '</button>';
-        }
-      }
-      var totalCells = firstDay + daysInMonth;
-      var nextPadding = (7 - (totalCells % 7)) % 7;
-      for (var j = 1; j <= nextPadding; j++) {
-        html += '<button class="calendar-day other-month" disabled>' + j + '</button>';
-      }
-      document.getElementById('calDays').innerHTML = html;
-    }
-  })();
-  </script>
-
 </body>
 </html>
