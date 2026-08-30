@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>三木AI 每日一刻钟 | 2026-08-30</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {--bg:#f5f7fa;--card-bg:#ffffff;--text-primary:#1a1a2e;--text-secondary:#5a5a7a;--text-muted:#8a8aa0;--accent-blue:#2563eb;--accent-blue-light:#dbeafe;--accent-purple:#7c3aed;--accent-purple-light:#ede9fe;--accent-teal:#0d9488;--accent-teal-light:#ccfbf1;--accent-orange:#ea580c;--accent-orange-light:#ffedd5;--accent-green:#16a34a;--accent-green-light:#dcfce7;--border:#e2e8f0;--border-light:#f1f5f9;--radius:12px;--radius-sm:8px;--shadow:0 1px 3px rgba(0,0,0,0.04),0 4px 12px rgba(0,0,0,0.03);}
+    * {margin:0;padding:0;box-sizing:border-box;}
+    body {font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text-primary);line-height:1.7;}
+    .container {max-width:720px;margin:0 auto;padding:24px 16px 48px;}
+    .header {text-align:center;margin-bottom:28px;}
+    .header-title {font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:1px;}
+    .header-sub {font-size:13px;color:var(--text-muted);margin-top:4px;}
+    .header-date {display:inline-block;margin-top:12px;padding:4px 16px;background:var(--accent-blue-light);color:var(--accent-blue);border-radius:20px;font-size:13px;font-weight:500;}
+    .nav-bar {background:var(--card-bg);border-radius:var(--radius);padding:10px 20px;margin-bottom:24px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);}
+    .nav-brand {display:flex;align-items:center;gap:8px;}
+    .nav-logo {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .nav-sub {font-size:11px;color:var(--text-muted);}
+    .nav-center {display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);}
+    .nav-btn {cursor:pointer;background:none;border:none;padding:4px 8px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+    .nav-btn:hover{color:var(--accent-blue);background:var(--accent-blue-light);}
+    .nav-date-text{font-weight:500;color:var(--text-primary);}
+    .nav-right {display:flex;align-items:center;gap:8px;}
+    .nav-calendar-btn {cursor:pointer;display:flex;align-items:center;gap:4px;padding:5px 12px;border-radius:8px;font-size:13px;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;font-weight:500;transition:.2s;}
+    .nav-calendar-btn:hover{opacity:.9;}
+    .intro {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow);border:1px solid var(--border);}
+    .intro-text {font-size:14px;color:var(--text-secondary);line-height:1.8;}
+    .quick-tips {background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;color:white;box-shadow:var(--shadow);}
+    .quick-tips-title {font-size:15px;font-weight:600;margin-bottom:12px;}
+    .quick-tips-list {list-style:none;}
+    .quick-tips-list li {font-size:13px;line-height:1.9;padding-left:16px;position:relative;opacity:0.95;}
+    .quick-tips-list li::before {content:'';position:absolute;left:0;top:10px;width:6px;height:6px;background:rgba(255,255,255,0.7);border-radius:50%;}
+    .section {margin-bottom:24px;}
+    .section-header {display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-left:4px;}
+    .section-icon {width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;}
+    .section-title {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .section-count {margin-left:auto;font-size:12px;color:var(--text-muted);background:var(--border-light);padding:2px 10px;border-radius:12px;}
+    .card {background:var(--card-bg);border-radius:var(--radius);padding:18px 20px;margin-bottom:12px;box-shadow:var(--shadow);border:1px solid var(--border);}
+    .card-header {display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;}
+    .card-badge {flex-shrink:0;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:500;}
+    .card-title {font-size:14px;font-weight:600;color:var(--text-primary);line-height:1.5;flex:1;}
+    .card-summary {font-size:13px;color:var(--text-secondary);line-height:1.7;margin-bottom:10px;}
+    .card-footer {display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+    .card-tag {font-size:11px;color:var(--text-muted);background:var(--border-light);padding:2px 8px;border-radius:4px;}
+    .card-link {font-size:12px;color:var(--accent-blue);text-decoration:none;margin-left:auto;}
+    .badge-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
+    .badge-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
+    .badge-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
+    .badge-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+    .badge-green {background:var(--accent-green-light);color:var(--accent-green);}
+    .icon-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
+    .icon-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
+    .icon-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
+    .icon-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+    .icon-green {background:var(--accent-green-light);color:var(--accent-green);}
+    .editor-pick {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);border:1px solid var(--border);border-left:3px solid var(--accent-orange);}
+    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+    .editor-pick-content {font-size:13px;color:var(--text-secondary);line-height:1.8;}
+    .editor-pick-content p {margin-bottom:8px;}
+    .editor-pick-content strong {color:var(--text-primary);font-weight:600;}
+    .footer {text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
+    .footer-text {font-size:12px;color:var(--text-muted);}
+    .footer-brand {font-weight:600;color:var(--text-secondary);}
+    .calendar-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:999;display:none;align-items:flex-start;justify-content:flex-end;padding-top:110px;padding-right:16px;}
+    .calendar-overlay.active {display:flex;}
+    .calendar-modal {background:var(--card-bg);border-radius:var(--radius);width:92%;max-width:360px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);animation:calIn .25s ease-out;}
+    @keyframes calIn {from{opacity:0;transform:translateY(20px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);}}
+    .calendar-header {display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+    .calendar-title {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .calendar-close {cursor:pointer;background:none;border:none;padding:4px;border-radius:6px;font-size:18px;color:var(--text-muted);transition:.2s;line-height:1;}
+    .calendar-close:hover {background:var(--border-light);color:var(--text-primary);}
+    .calendar-nav {display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px;}
+    .calendar-nav-btn {cursor:pointer;background:none;border:none;padding:4px 10px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+    .calendar-nav-btn:hover{background:var(--accent-blue-light);color:var(--accent-blue);}
+    .calendar-nav-month {font-size:14px;font-weight:600;color:var(--text-primary);min-width:100px;text-align:center;}
+    .calendar-grid {display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;}
+    .calendar-weekday {text-align:center;font-size:11px;color:var(--text-muted);padding:6px 0;font-weight:500;}
+    .calendar-day {aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:13px;cursor:pointer;transition:.15s;border:none;background:none;color:var(--text-primary);position:relative;}
+    .calendar-day:hover:not(:disabled) {background:var(--accent-blue-light);color:var(--accent-blue);}
+    .calendar-day.other-month {color:var(--text-muted);opacity:.5;}
+    .calendar-day.available {font-weight:600;color:var(--accent-blue);background:var(--accent-blue-light);}
+    .calendar-day.available:hover {background:var(--accent-blue);color:#fff;}
+    .calendar-day.today {box-shadow:inset 0 0 0 1.5px var(--accent-blue);}
+    .calendar-day:disabled {cursor:default;color:var(--border);}
+    .calendar-info {text-align:center;font-size:12px;color:var(--text-muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light);}
+    .calendar-info span {display:inline-flex;align-items:center;gap:4px;}
+    .calendar-dot {width:6px;height:6px;border-radius:50%;background:var(--accent-blue);display:inline-block;}
+    @media(max-width:480px){.container{padding:16px 12px 32px;}.header-title{font-size:19px;}.card{padding:14px 16px;}.calendar-overlay{padding-top:100px;justify-content:center;padding-right:0;}.calendar-modal{padding:16px;}}
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="header">
+      <h1 class="header-title">三木AI 每日一刻钟</h1>
+      <p class="header-sub">每天15分钟，读懂AI世界</p>
+      <span class="header-date">2026年08月30日 星期日</span>
+    </div>
+
+    <div class="nav-bar">
+      <div class="nav-brand">
+        <span class="nav-logo">🤖 三木AI</span>
+        <span class="nav-sub">每日一刻钟</span>
+      </div>
+      <div class="nav-center">
+        <button class="nav-btn" onclick="window.location.href='ai-daily-2026-08-29.html'">‹</button>
+        <span class="nav-date-text">2026-08-30</span>
+        <button class="nav-btn" disabled style="opacity:.3" href="#">›</button>
+      </div>
+      <div class="nav-right">
+        <button class="nav-calendar-btn" onclick="openCalendar()">📅 日历</button>
+      </div>
+    </div>
+
+    <div class="calendar-overlay" id="calOverlay" onclick="closeCalendar(event)">
+      <div class="calendar-modal" onclick="event.stopPropagation()">
+        <div class="calendar-header">
+          <span class="calendar-title">📅 选择日期</span>
+          <button class="calendar-close" onclick="closeCalendar()">&times;</button>
+        </div>
+        <div class="calendar-nav">
+          <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
+          <span class="calendar-nav-month" id="calMonth">2026年8月</span>
+          <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
+        </div>
+        <div class="calendar-grid">
+          <div class="calendar-weekday">日</div><div class="calendar-weekday">一</div><div class="calendar-weekday">二</div>
+          <div class="calendar-weekday">三</div><div class="calendar-weekday">四</div><div class="calendar-weekday">五</div><div class="calendar-weekday">六</div>
+        </div>
+        <div class="calendar-grid" id="calDays"></div>
+        <div class="calendar-info"><span><i class="calendar-dot"></i> 蓝色日期表示有简报</span></div>
+      </div>
+    </div>
+
+    <div class="intro">
+      <p class="intro-text">
+        8月最后一天，AI行业再度集中刷屏——<strong>DeepSeek以740亿美元估值推进新一轮74亿美元融资</strong>，拟2027年赴港IPO；<strong>谷歌DeepMind Gemini驱动的Co-Scientist首次接入真实CVD设备并成功生长二维半导体</strong>，AI从"提出假设"进化为"动手做实验"；<strong>我国首部《人工智能训练数据合规使用指引》正式发布</strong>，五部门明确标注、授权、溯源三大底线。今天的每一条都在为下半场定调。
+      </p>
+    </div>
+
+    <div class="quick-tips">
+      <div class="quick-tips-title">🔥 今日要点速览</div>
+      <ul class="quick-tips-list">
+        <li><strong>DeepSeek推进74亿美元新一轮融资</strong>，投前估值达740亿美元，拟2027年IPO，前七月营收已破4.75亿元</li>
+        <li><strong>谷歌DeepMind Co-Scientist接入真实CVD设备</strong>，首次尝试即成功生长MoS₂等二维半导体，AI迈入"执行型研究伙伴"</li>
+        <li><strong>中国首部《人工智能训练数据合规使用指引》正式发布</strong>，国家网信办等五部门明确标注、授权、溯源三大底线</li>
+        <li><strong>美团训练大型AI模型完全使用国产芯片</strong>，标志中美AI算力生态走向二元分叉新阶段</li>
+        <li><strong>长鑫存储LPDDR6内存正式量产</strong>，小米玄戒O3首发支持，中国高端存储标准从0到1突破</li>
+      </ul>
+    </div>
+
+    <!-- Section 1: 技术前沿动态 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-blue">⚡</div>
+        <span class="section-title">技术前沿动态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">执行型科研</span>
+          <h3 class="card-title">谷歌DeepMind Co-Scientist接入真实CVD设备，首次成功生长二维半导体</h3>
+        </div>
+        <p class="card-summary">谷歌DeepMind在83页论文中展示Gemini驱动的Co-Scientist自主接入真实CVD（化学气相沉积）设备，能独立设计实验方案、生成设备控制代码并读取反馈结果，首次尝试即成功生长出MoS₂等二维半导体材料。系统将AI在科研中的角色从"假设生成器"推向"执行型研究伙伴"，标志着AI Agent已具备操控真实实验仪器完成闭环验证的能力，未来可大幅压缩新材料发现周期。</p>
+        <div class="card-footer">
+          <span class="card-tag">#谷歌</span>
+          <span class="card-tag">#Gemini</span>
+          <span class="card-tag">#物理AI</span>
+          <a class="card-link" href="https://new.qq.com/rain/a/20260830A03ZUW00?refer=cp_1009">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">存储芯片</span>
+          <h3 class="card-title">长鑫存储LPDDR6内存正式量产：小米玄戒O3首发支持，全球首次商用</h3>
+        </div>
+        <p class="card-summary">国内存储龙头长鑫存储8月29日宣布自主研发的LPDDR6内存正式量产，将与小米玄戒O3处理器搭配实现首发，并搭载于小米18 Fold折叠旗舰。这是全球LPDDR6产品首次落地商用，标志着中国存储企业首次在高端内存标准上实现代际突破，与国际厂商的代际差距被大幅缩短，为端侧大模型与Agent计算的爆发提供关键硬件支撑。</p>
+        <div class="card-footer">
+          <span class="card-tag">#长鑫存储</span>
+          <span class="card-tag">#LPDDR6</span>
+          <span class="card-tag">#国产芯片</span>
+          <a class="card-link" href="https://new.qq.com/rain/a/20260830A03RSQ00?refer=cp_1009">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">具身智能</span>
+          <h3 class="card-title">大晓机器人联合港大发布StreamPI：为VLA模型加入时间维度</h3>
+        </div>
+        <p class="card-summary">大晓机器人联合香港大学正式发布StreamPI模型，借助流式时序建模让VLA（视觉-语言-动作）模型具备"记忆过往状态、理解连续变化"的能力，显著提升机器人在真实任务中的成功率，推动具身智能从静态空间智能迈向连续物理智能。这一突破意味着机器人有望摆脱"看一步做一步"的局限，向"长时间连贯作业"演进。</p>
+        <div class="card-footer">
+          <span class="card-tag">#大晓机器人</span>
+          <span class="card-tag">#VLA</span>
+          <span class="card-tag">#世界模型</span>
+          <a class="card-link" href="https://www.geekpark.net/news/369546">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: 国内外AI动态 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-purple">🌍</div>
+        <span class="section-title">国内外AI动态</span>
+        <span class="section-count">4条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">算力垄断</span>
+          <h3 class="card-title">黄仁勋高调宣布英伟达"已实现AGI"，Vera Rubin对DeepSeek吞吐提升30倍</h3>
+        </div>
+        <p class="card-summary">英伟达CEO黄仁勋在Vera Rubin平台首测会上高调宣布"公司已实现AGI"，引起业内广泛讨论。Vera Rubin平台对DeepSeek模型实测吞吐量达到前代30倍，CFO Colette Kress称这将是"英伟达史上最快的产品爬坡"。黄仁勋特别指出AI系统正大规模调用AI，Token消耗量已是人类直接消费的5.2倍，推理算力需求结构性上行。</p>
+        <div class="card-footer">
+          <span class="card-tag">#英伟达</span>
+          <span class="card-tag">#Vera Rubin</span>
+          <span class="card-tag">#AGI</span>
+          <a class="card-link" href="https://www.thecodew.com/2026/08/openai-ai-agents-attack-huggingface-nvidia-agi-declaration.html">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">生态重塑</span>
+          <h3 class="card-title">OpenAI官宣终止向Cursor提供模型，AI编程工具迎生态变局</h3>
+        </div>
+        <p class="card-summary">OpenAI正式宣布结束向SpaceX旗下AI编程平台Cursor直接供应模型，合同终止日为2026年11月12日，旧模型仍可继续使用但未来新品不再对其开放。这是OpenAI在AI编程供应链上展现出的强势掌控力事件，Cursor将被迫切换底层或自研路线；马斯克在X平台简短回应"我根本不在乎"，但产业链上下游博弈明显加剧。</p>
+        <div class="card-footer">
+          <span class="card-tag">#OpenAI</span>
+          <span class="card-tag">#Cursor</span>
+          <span class="card-tag">#AI编程</span>
+          <a class="card-link" href="https://view.inews.qq.com/a/20260829A0BTJA00?scene=news-skill">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">自主可控</span>
+          <h3 class="card-title">美团宣布训练大型AI模型完全使用国产芯片，自主可控里程碑</h3>
+        </div>
+        <p class="card-summary">中国生活服务巨头美团8月30日发布新AI模型，声称是该量级上首个完全使用国产芯片完成训练的AI模型。此次突破证明在英伟达禁运背景下，国产AI芯片生态已具备训练大规模基础模型的能力，对中美AI基础设施"二元分叉"具有标志性意义——若实现规模化复制，将大幅降低中国对NVIDIA的依赖，加速全球AI算力竞争从"是否买得到"转向"造得更好"。</p>
+        <div class="card-footer">
+          <span class="card-tag">#美团</span>
+          <span class="card-tag">#国产芯片</span>
+          <span class="card-tag">#算力自主</span>
+          <a class="card-link" href="https://www.thecodew.com/2026/08/openai-ai-agents-attack-huggingface-nvidia-agi-declaration.html">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">临床突破</span>
+          <h3 class="card-title">全球首例AI实时辅助脑外科手术在伦敦完成，患者视力显著恢复</h3>
+        </div>
+        <p class="card-summary">伦敦大学学院（UCL）团队近日完成全球首例有AI实时辅助参与的脑外科手术：AI系统通过手术摄像头实时读取内镜画面，在切除垂体瘤过程中圈定安全切除区、标记血管神经。患者术后已康复、视力显著改善，AI正式从"术前参谋"迈向"术中帮手"角色。此事件意味着医疗AI在需要毫秒级反应的高风险场景中具备落地能力，监管路径也将随之加速完善。</p>
+        <div class="card-footer">
+          <span class="card-tag">#医疗AI</span>
+          <span class="card-tag">#脑外科</span>
+          <span class="card-tag">#UCL</span>
+          <a class="card-link" href="https://view.inews.qq.com/a/20260829A0ADL000">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: 投资与商业 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-green">💰</div>
+        <span class="section-title">投资与商业</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">巨额融资</span>
+          <h3 class="card-title">DeepSeek推进74亿美元新一轮融资：投前估值740亿美元，拟2027年IPO</h3>
+        </div>
+        <p class="card-summary">据《华尔街日报》报道，国内头部AI大模型企业DeepSeek正推进新一轮74亿美元融资，投前估值达740亿美元，目标2027年赴港IPO。前七月公司营收已达4.75亿元，长鑫科技关联机构入局加持。DeepSeek V4-Pro-0813已登顶Artificial Analysis智能指数开源权重第三、DeepSWE从12.8%飙升至62.7%，估值与流动性双轮驱动下，国产大模型头部格局加速成形。</p>
+        <div class="card-footer">
+          <span class="card-tag">#DeepSeek</span>
+          <span class="card-tag">#融资</span>
+          <span class="card-tag">#IPO</span>
+          <a class="card-link" href="https://www.thecodew.com/2026/08/openai-ai-agents-attack-huggingface-nvidia-agi-declaration.html">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">港股IPO</span>
+          <h3 class="card-title">月之暗面Kimi冲刺港股IPO：估值冲击500亿美元，开源旗舰首次反超闭源</h3>
+        </div>
+        <p class="card-summary">据证券时报报道，月之暗面正在筹备赴港上市，预计完成最新一轮融资后估值将冲击500亿美元。其开源旗舰大模型Kimi K3参数规模达2.8万亿，登顶Code Arena榜单，成为开源模型首次在主流基准上超越闭源模型的标志性产品。叠加DeepSeek新轮融资，国产大模型"双龙头"集体站上IPO门槛，下半年港股AI资产估值有望被重估。</p>
+        <div class="card-footer">
+          <span class="card-tag">#月之暗面</span>
+          <span class="card-tag">#Kimi K3</span>
+          <span class="card-tag">#港股IPO</span>
+          <a class="card-link" href="https://new.qq.com/rain/a/20260830A03RSQ00?refer=cp_1009">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">国产算力</span>
+          <h3 class="card-title">沐曦股份曦云C系列GPU完成腾讯混元Hy4 preview Day 0适配</h3>
+        </div>
+        <p class="card-summary">8月28日沐曦股份曦云C系列GPU率先完成腾讯混元新一代大语言模型Hy4 preview的Day 0适配——Hy4总参数达7700亿，沐曦通过底层算子优化与软硬件协同加速，实现高吞吐、低延迟的稳定运行。这意味着国产GPU已具备第一时间适配超大参数MoE模型的能力，国产算力生态进一步逼近主流闭源体系，对国内AI基础设施自主化进程意义重大。</p>
+        <div class="card-footer">
+          <span class="card-tag">#沐曦</span>
+          <span class="card-tag">#腾讯混元</span>
+          <span class="card-tag">#国产GPU</span>
+          <a class="card-link" href="https://new.qq.com/rain/a/20260830A03RSQ00?refer=cp_1009">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4: 政策与行业生态 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-orange">🏛️</div>
+        <span class="section-title">政策与行业生态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">数据合规</span>
+          <h3 class="card-title">我国首部《人工智能训练数据合规使用指引》正式发布，五部门联合划定三大底线</h3>
+        </div>
+        <p class="card-summary">8月28日国家网信办联合工业和信息化部、国家广播电视总局、国家版权局等五部门，正式发布我国首部聚焦AI训练数据合规使用的指引文件，明确"标注、授权、溯源"三大底线要求，覆盖数据采集、加工、流通、应用全流程。文件填补了训练数据领域长期缺乏统一规范的空白，为大模型厂商爬梳合规流程、降低法律风险提供国家级操作指南。</p>
+        <div class="card-footer">
+          <span class="card-tag">#AI治理</span>
+          <span class="card-tag">#数据合规</span>
+          <span class="card-tag">#政策法规</span>
+          <a class="card-link" href="https://new.qq.com/rain/a/20260830A03RSQ00?refer=cp_1009">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">地方政策</span>
+          <h3 class="card-title">上海"十五五"规划构建"芯-模-云"生态，北京亦庄首发AI4Chip专项政策</h3>
+        </div>
+        <p class="card-summary">上海"十五五"战略性新兴产业发展规划明确构建"芯—模—云"产业生态，建设通用人工智能主导的科学研究基座平台和AI测评基础设施，重点发展大模型与智能体、科学智能、具身智能、智算产业体系。同期北京亦庄发布全国首个《"AI4Chip"人工智能赋能集成电路产业跨越式发展行动计划（2026—2028年）》，力争到2028年基本建成集成电路产业AI融合发展体系，从"AI+行业"向"AI强基座"纵深推进。</p>
+        <div class="card-footer">
+          <span class="card-tag">#上海规划</span>
+          <span class="card-tag">#北京亦庄</span>
+          <span class="card-tag">#AI4Chip</span>
+          <a class="card-link" href="https://news.pedaily.cn/202608/568271.shtml">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">产业落地</span>
+          <h3 class="card-title">合肥"词元世界"平台正式上线，一站式聚合200余款主流大模型</h3>
+        </div>
+        <p class="card-summary">由合肥市大数据资产运营有限公司打造的一站式AI词元服务平台"词元世界"8月29日正式上线，聚合DeepSeek、通义千问、智谱等200余款主流大模型资源，覆盖文本、图片、视频、语音等多模态应用能力。同期工信部透露"十四五"以来我国累计研制近200项AI关键标准，开源大模型全球累计下载突破100亿次，"十五五"将进一步加快培育"人工智能+"、"机器人+"等重大应用场景。</p>
+        <div class="card-footer">
+          <span class="card-tag">#合肥</span>
+          <span class="card-tag">#词元世界</span>
+          <span class="card-tag">#应用落地</span>
+          <a class="card-link" href="https://new.qq.com/rain/a/20260830A03RSQ00?refer=cp_1009">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Editor Pick -->
+    <div class="editor-pick">
+      <div class="editor-pick-title">✍️ 编辑精选 · 深度观点</div>
+      <div class="editor-pick-content">
+        <p>8月最后一个周末，AI行业三条主线愈发清晰——<strong>"模型更像人"已被消化，"模型更像研究员/工人"成为主战场</strong>。谷歌Gemini驱动的Co-Scientist首次直接操控CVD炉并成功生长二维半导体，把AI的边界从"写方案"推到"动手做实验"；美团基于完全国产芯片训练的大模型与沐曦Day 0适配腾讯混元Hy4则证明，国产AI算力的"训练闭环"已经形成，禁运不再是绝对枷锁。</p>
+        <p>与此同时，DeepSeek 740亿美元估值推进74亿美元融资、月之暗面Kimi冲刺港股500亿美元IPO、中国开源大模型全球下载占比首次超过美国——<strong>国产AI正在把"成本优势 + 性能逼近 + 资本认可"打成一张组合牌</strong>。叠加《人工智能训练数据合规使用指引》正式发布、上海"芯-模-云"与北京"AI4Chip"政策双轮启动，中国AI生态有望从"模型开源"迈入"基础设施+合规体系"的全栈输出阶段。<strong>一句话总结：</strong>当AI从屏幕走向物理、从云端走向设备、从追赶走向合规，2026下半场的竞争焦点已经不是"谁更聪明"，而是"谁先把智能嵌入真实世界并合规地跑起来"。</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p class="footer-text"><span class="footer-brand">三木AI 每日一刻钟</span> · 每天15分钟，读懂AI世界</p>
+      <p class="footer-text">2026年08月30日 星期日</p>
+    </div>
+  </div>
+  <script>
+  (function() {
+    var availableDates = [];
+    var calYear = 2026, calMonth = 7;
+
+    fetch('manifest.json?t=' + Date.now())
+      .then(function(r){return r.json();})
+      .then(function(data){
+        availableDates = data.dates || [];
+        renderCalendar();
+      })
+      .catch(function(){
+        availableDates = ['2026-08-30'];
+        renderCalendar();
+      });
+
+    window.openCalendar = function() {
+      document.getElementById('calOverlay').classList.add('active');
+      renderCalendar();
+    };
+    window.closeCalendar = function(e) {
+      if (!e || e.target.id === 'calOverlay') {
+        document.getElementById('calOverlay').classList.remove('active');
+      }
+    };
+    window.changeMonth = function(delta) {
+      calMonth += delta;
+      if (calMonth > 11) { calMonth = 0; calYear++; }
+      if (calMonth < 0) { calMonth = 11; calYear--; }
+      renderCalendar();
+    };
+    window.goToDate = function(dateStr) {
+      if (dateStr === '2026-08-30') {
+        window.location.href = 'index.html';
+      } else {
+        window.location.href = 'ai-daily-' + dateStr + '.html';
+      }
+    };
+
+    function renderCalendar() {
+      var monthNames = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+      document.getElementById('calMonth').textContent = calYear + '年' + monthNames[calMonth];
+      var firstDay = new Date(calYear, calMonth, 1).getDay();
+      var daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+      var prevDays = new Date(calYear, calMonth, 0).getDate();
+      var html = '';
+      for (var i = firstDay - 1; i >= 0; i--) {
+        html += '<button class="calendar-day other-month" disabled>' + (prevDays - i) + '</button>';
+      }
+      for (var d = 1; d <= daysInMonth; d++) {
+        var ds = calYear + '-' + String(calMonth + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+        var cls = 'calendar-day';
+        var isAvail = availableDates.indexOf(ds) !== -1;
+        var isToday = ds === '2026-08-30';
+        if (isAvail) cls += ' available';
+        if (isToday) cls += ' today';
+        if (isAvail) {
+          html += '<button class="' + cls + '" onclick="goToDate(\'' + ds + '\')">' + d + '</button>';
+        } else {
+          html += '<button class="' + cls + '" disabled>' + d + '</button>';
+        }
+      }
+      var totalCells = firstDay + daysInMonth;
+      var nextPadding = (7 - (totalCells % 7)) % 7;
+      for (var j = 1; j <= nextPadding; j++) {
+        html += '<button class="calendar-day other-month" disabled>' + j + '</button>';
+      }
+      document.getElementById('calDays').innerHTML = html;
+    }
+  })();
+  </script>
+
+</body>
+</html>
