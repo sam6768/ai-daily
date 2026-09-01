@@ -14,17 +14,6 @@
     .header-title {font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:1px;}
     .header-sub {font-size:13px;color:var(--text-muted);margin-top:4px;}
     .header-date {display:inline-block;margin-top:12px;padding:4px 16px;background:var(--accent-blue-light);color:var(--accent-blue);border-radius:20px;font-size:13px;font-weight:500;}
-    .nav-bar {background:var(--card-bg);border-radius:var(--radius);padding:10px 20px;margin-bottom:24px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);}
-    .nav-brand {display:flex;align-items:center;gap:8px;}
-    .nav-logo {font-size:15px;font-weight:600;color:var(--text-primary);}
-    .nav-sub {font-size:11px;color:var(--text-muted);}
-    .nav-center {display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);}
-    .nav-btn {cursor:pointer;background:none;border:none;padding:4px 8px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
-    .nav-btn:hover{color:var(--accent-blue);background:var(--accent-blue-light);}
-    .nav-date-text{font-weight:500;color:var(--text-primary);}
-    .nav-right {display:flex;align-items:center;gap:8px;}
-    .nav-calendar-btn {cursor:pointer;display:flex;align-items:center;gap:4px;padding:5px 12px;border-radius:8px;font-size:13px;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;font-weight:500;transition:.2s;}
-    .nav-calendar-btn:hover{opacity:.9;}
     .intro {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow);border:1px solid var(--border);}
     .intro-text {font-size:14px;color:var(--text-secondary);line-height:1.8;}
     .quick-tips {background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;color:white;box-shadow:var(--shadow);}
@@ -49,411 +38,36 @@
     .badge-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .badge-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .badge-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
-    .badge-green {background:var(--accent-green-light);color:var(--accent-green);}
     .icon-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
     .icon-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .icon-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .icon-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
-    .icon-green {background:var(--accent-green-light);color:var(--accent-green);}
     .editor-pick {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);border:1px solid var(--border);border-left:3px solid var(--accent-orange);}
-    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;}
     .editor-pick-content {font-size:13px;color:var(--text-secondary);line-height:1.8;}
     .editor-pick-content p {margin-bottom:8px;}
     .editor-pick-content strong {color:var(--text-primary);font-weight:600;}
     .footer {text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
     .footer-text {font-size:12px;color:var(--text-muted);}
     .footer-brand {font-weight:600;color:var(--text-secondary);}
-    .calendar-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:999;display:none;align-items:flex-start;justify-content:flex-end;padding-top:110px;padding-right:16px;}
-    .calendar-overlay.active {display:flex;}
-    .calendar-modal {background:var(--card-bg);border-radius:var(--radius);width:92%;max-width:360px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);animation:calIn .25s ease-out;}
-    @keyframes calIn {from{opacity:0;transform:translateY(20px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);}}
-    .calendar-header {display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
-    .calendar-title {font-size:15px;font-weight:600;color:var(--text-primary);}
-    .calendar-close {cursor:pointer;background:none;border:none;padding:4px;border-radius:6px;font-size:18px;color:var(--text-muted);transition:.2s;line-height:1;}
-    .calendar-close:hover {background:var(--border-light);color:var(--text-primary);}
-    .calendar-nav {display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px;}
-    .calendar-nav-btn {cursor:pointer;background:none;border:none;padding:4px 10px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
-    .calendar-nav-btn:hover{background:var(--accent-blue-light);color:var(--accent-blue);}
-    .calendar-nav-month {font-size:14px;font-weight:600;color:var(--text-primary);min-width:100px;text-align:center;}
-    .calendar-grid {display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;}
-    .calendar-weekday {text-align:center;font-size:11px;color:var(--text-muted);padding:6px 0;font-weight:500;}
-    .calendar-day {aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:13px;cursor:pointer;transition:.15s;border:none;background:none;color:var(--text-primary);position:relative;}
-    .calendar-day:hover:not(:disabled) {background:var(--accent-blue-light);color:var(--accent-blue);}
-    .calendar-day.other-month {color:var(--text-muted);opacity:.5;}
-    .calendar-day.available {font-weight:600;color:var(--accent-blue);background:var(--accent-blue-light);}
-    .calendar-day.available:hover {background:var(--accent-blue);color:#fff;}
-    .calendar-day.today {box-shadow:inset 0 0 0 1.5px var(--accent-blue);}
-    .calendar-day:disabled {cursor:default;color:var(--border);}
-    .calendar-info {text-align:center;font-size:12px;color:var(--text-muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light);}
-    .calendar-info span {display:inline-flex;align-items:center;gap:4px;}
-    .calendar-dot {width:6px;height:6px;border-radius:50%;background:var(--accent-blue);display:inline-block;}
-    @media(max-width:480px){.container{padding:16px 12px 32px;}.header-title{font-size:19px;}.card{padding:14px 16px;}.calendar-overlay{padding-top:100px;justify-content:center;padding-right:0;}.calendar-modal{padding:16px;}}
   </style>
 </head>
 <body>
   <div class="container">
-
     <div class="header">
       <h1 class="header-title">三木AI 每日一刻钟</h1>
       <p class="header-sub">每天15分钟，读懂AI世界</p>
       <span class="header-date">2026年09月01日 星期二</span>
     </div>
-
-    <div class="nav-bar">
-      <div class="nav-brand">
-        <span class="nav-logo">🤖 三木AI</span>
-        <span class="nav-sub">每日一刻钟</span>
-      </div>
-      <div class="nav-center">
-        <button class="nav-btn" onclick="window.location.href='ai-daily-2026-08-31.html'">‹</button>
-        <span class="nav-date-text">2026-09-01</span>
-        <button class="nav-btn" disabled style="opacity:.3" href="#">›</button>
-      </div>
-      <div class="nav-right">
-        <button class="nav-calendar-btn" onclick="openCalendar()">📅 日历</button>
-      </div>
-    </div>
-
-    <div class="calendar-overlay" id="calOverlay" onclick="closeCalendar(event)">
-      <div class="calendar-modal" onclick="event.stopPropagation()">
-        <div class="calendar-header">
-          <span class="calendar-title">📅 选择日期</span>
-          <button class="calendar-close" onclick="closeCalendar()">&times;</button>
-        </div>
-        <div class="calendar-nav">
-          <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
-          <span class="calendar-nav-month" id="calMonth">2026年9月</span>
-          <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
-        </div>
-        <div class="calendar-grid">
-          <div class="calendar-weekday">日</div><div class="calendar-weekday">一</div><div class="calendar-weekday">二</div>
-          <div class="calendar-weekday">三</div><div class="calendar-weekday">四</div><div class="calendar-weekday">五</div><div class="calendar-weekday">六</div>
-        </div>
-        <div class="calendar-grid" id="calDays"></div>
-        <div class="calendar-info"><span><i class="calendar-dot"></i> 蓝色日期表示有简报</span></div>
-      </div>
-    </div>
-
+    
     <div class="intro">
-      <p class="intro-text">
-        9月开局，AI行业进入"<strong>模型迭代 + 硬件垄断 + 治理深水区</strong>"三轨并进阶段——<strong>OpenAI广告200天破10亿美元ARR</strong>验证免费用户变现潜力，DeepSeek与智谱同日开源多模态与基座模型新版本，标志国产模型周调用量首次占据全球约68%；<strong>英伟达35亿美元入股联发科</strong>绑定XPU生态，OpenAI采购数万台Mac训练Computer-Use Agent，硬件层军备竞赛同步升级；监管端，欧盟将ChatGPT列入VLOSE、加州集中通过约24项AI法案、中国工信部AI服务商培育专项启动，全球治理节奏同步收紧。
-      </p>
+      <p class="intro-text">今日简报内容正在整理中，请稍后再试。</p>
     </div>
-
-    <div class="quick-tips">
-      <div class="quick-tips-title">🔥 今日要点速览</div>
-      <ul class="quick-tips-list">
-        <li><strong>OpenAI广告业务年化收入突破10亿美元</strong>，推出仅约200天，ChatGPT免费用户流量变现能力得到验证，9月1日起向印度、欧洲、中东和北非开放自助投放</li>
-        <li><strong>英伟达35亿美元入股联发科</strong>，AI芯片生态再扩张；OpenAI采购数万台Mac mini和Mac Studio训练Computer-Use Agent，硬件层军备竞赛同步升级</li>
-        <li><strong>DeepSeek开源V4首个多模态模型V4-Flash-Vision-Exp</strong>，真实软件工程测试DeepSWE以59.3%反超Opus-4.8登顶；智谱开源GLM-5.3权重，国产模型周调用量占全球约68%</li>
-        <li><strong>阿里配售800亿港元新股全额投入AI</strong>，Waymo融资160亿美元估值1260亿美元；DeepSeek拟50亿美元融资估值740亿美元瞄准2027科创板IPO</li>
-        <li><strong>工信部启动AI应用服务商培育专项行动</strong>，探索首购首用、风险补偿等模式加大大模型、智能体、Token等服务采购力度，欧盟同时将ChatGPT列入VLOSE最严格平台规则</li>
-      </ul>
-    </div>
-
-    <!-- Section 1: 技术前沿动态 -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-blue">⚡</div>
-        <span class="section-title">技术前沿动态</span>
-        <span class="section-count">3条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-blue">开源多模态</span>
-          <h3 class="card-title">DeepSeek开源V4-Flash-Vision-Exp：DeepSWE 59.3%反超Opus-4.8登顶软件工程评测</h3>
-        </div>
-        <p class="card-summary">DeepSeek正式开源V4系列首个实验性多模态模型DeepSeek-V4-Flash-Vision-Exp，基于V4-Flash架构集成视觉模块持续训练。真实软件工程测试DeepSWE以59.3%反超Opus-4.8登顶，工具调用Toolathlon-Verified得75.9%仅落后0.3%。V4系列一个月内更新6次，Harness开发者预览版同步开源迭代，标志着开源模型已逼近闭源前沿。</p>
-        <div class="card-footer">
-          <span class="card-tag">#DeepSeek</span>
-          <span class="card-tag">#V4-Flash-Vision</span>
-          <span class="card-tag">#多模态</span>
-          <a class="card-link" href="https://www.sohu.com/a/1070192038_455313">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-blue">开源Agent</span>
-          <h3 class="card-title">OpenClaw 2.0发布：933贡献者、1.6万PR史上最大更新，重构Active Memory与多Agent协作</h3>
-        </div>
-        <p class="card-summary">开源个人AI助手OpenClaw发布v2026.8.1版本，被官方称作"OpenClaw 2.0"——项目历史最大更新。933名贡献者提交超1.6万个PR，占项目历史合并代码一半，为此罕见停更近七周。更新覆盖安装、浏览器、Memory、Skills、自动化与权限体系；新增Shared Cloud Sessions支持团队协作，会话可在本地、配对机器与云端Worker间迁移。</p>
-        <div class="card-footer">
-          <span class="card-tag">#OpenClaw</span>
-          <span class="card-tag">#Agent协作</span>
-          <span class="card-tag">#开源</span>
-          <a class="card-link" href="https://www.toutiao.com/article/7680345873091461678/">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-blue">开源基座</span>
-          <h3 class="card-title">智谱开源GLM-5.3权重，国产模型周调用量占全球约68%，连续19周居首</h3>
-        </div>
-        <p class="card-summary">智谱正式开源GLM-5.3模型权重，支持本地部署、微调及商业化，擅长复杂代码、防御性网络安全与长程任务。GLM-5.3-Flash登顶OpenRouter，单周处理27.2万亿Token跑在10万张国产芯片上，价格仅为前沿模型的1/100。中国模型全球周调用量达68.1T，连续19周居首，与美国差距扩大至4.8倍。</p>
-        <div class="card-footer">
-          <span class="card-tag">#智谱</span>
-          <span class="card-tag">#GLM-5.3</span>
-          <span class="card-tag">#开源</span>
-          <a class="card-link" href="https://www.ithome.com">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Section 2: 国内外AI动态 -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-purple">🌍</div>
-        <span class="section-title">国内外AI动态</span>
-        <span class="section-count">4条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">广告变现</span>
-          <h3 class="card-title">OpenAI广告业务年化收入突破10亿美元，推出仅约200天剑指全球</h3>
-        </div>
-        <p class="card-summary">当地时间8月31日，OpenAI宣布广告业务年化收入已达10亿美元。今年2月开始在美国ChatGPT中测试广告，约200天便达到这一规模。ChatGPT广告已覆盖40多个国家，9月1日进一步向印度、欧洲、中东和北非地区开放自助广告投放。广告主要面向ChatGPT免费用户和Go订阅用户，而这两类用户占其10亿周活跃用户的绝大多数。</p>
-        <div class="card-footer">
-          <span class="card-tag">#OpenAI</span>
-          <span class="card-tag">#广告业务</span>
-          <span class="card-tag">#ARR</span>
-          <a class="card-link" href="https://www.toutiao.com/article/7680345873091461678/">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">硬件竞备</span>
-          <h3 class="card-title">英伟达35亿美元入股联发科：NVLink Fusion+NVHBM绑定XPU生态，AI芯片全栈融合</h3>
-        </div>
-        <p class="card-summary">8月31日，英伟达与联发科发布联合声明，英伟达斥资35亿美元购买联发科发行的可转债，为英伟达迄今美国以外最大一笔直接投资。联发科定制算力芯片可使用英伟达NVLink Fusion与上周发布的NVHBM技术，XPU可"无缝接入"英伟达AI基础设施。联发科预期AI芯片业务今年获20亿美元营收、明年70-120亿美元（相当于全球AI ASIC市场最高15%份额）。</p>
-        <div class="card-footer">
-          <span class="card-tag">#英伟达</span>
-          <span class="card-tag">#联发科</span>
-          <span class="card-tag">#NVLink</span>
-          <a class="card-link" href="https://www.toutiao.com/article/7680244760291901979/">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">智能体硬件</span>
-          <h3 class="card-title">OpenAI采购数万台Mac mini与Mac Studio做强化学习，训练可自主操作电脑的智能体</h3>
-        </div>
-        <p class="card-summary">OpenAI已购入数以万计Mac mini与Mac Studio专用于强化学习，训练可自主操作电脑的智能体，Anthropic也通过AWS租用Mac。苹果统一内存让CPU与GPU共享同一内存池，配合独立散热可长时间满载；上季度Mac营收103亿美元、同比增近29%。高配机型已断货数月，英伟达以DGX Spark正面竞争——苹果缺少企业工程与开发者关系团队，被迫借Mount Thor等伙伴切入。</p>
-        <div class="card-footer">
-          <span class="card-tag">#OpenAI</span>
-          <span class="card-tag">#Apple</span>
-          <span class="card-tag">#Computer-Use</span>
-          <a class="card-link" href="https://www.sohu.com/a/1070192038_455313">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">欧盟监管</span>
-          <h3 class="card-title">欧盟将ChatGPT列入VLOSE：《数字服务法》最严格平台规则，首批适用AI服务</h3>
-        </div>
-        <p class="card-summary">欧盟委员会根据《数字服务法》（DSA）将ChatGPT列为"超大在线搜索引擎"（VLOSE），这是首个被纳入欧盟最严格平台规则的独立AI服务。同日Reddit与Roblox被指定为"超大在线平台"。VLOSE将要求ChatGPT承担更严格的透明度、风险评估与系统性风险缓解义务，这意味着欧盟正以平台监管框架直接套用到生成式AI产品。</p>
-        <div class="card-footer">
-          <span class="card-tag">#欧盟</span>
-          <span class="card-tag">#DSA</span>
-          <span class="card-tag">#ChatGPT</span>
-          <a class="card-link" href="https://www.euronews.com">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Section 3: 投资与商业 -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-green">💰</div>
-        <span class="section-title">投资与商业</span>
-        <span class="section-count">3条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-green">港股融资</span>
-          <h3 class="card-title">阿里巴巴配售800亿港元新股全额投入AI：2019年港股上市以来首次新股配售</h3>
-        </div>
-        <p class="card-summary">阿里巴巴宣布拟向美国境外的非美国人士配售新股，配售总金额为800亿港元，为2019年港股上市以来首次启动新股配售。本次配售所得款项净额将100%用于投资全栈AI能力，加强AI基础设施建设，进一步巩固阿里在AI领域的全球领先地位——阿里正式将AI作为第二条增长曲线全面押注。</p>
-        <div class="card-footer">
-          <span class="card-tag">#阿里巴巴</span>
-          <span class="card-tag">#AI基础设施</span>
-          <span class="card-tag">#港股配售</span>
-          <a class="card-link" href="https://gu.qq.com/resources/shy/news/detail-v2/index.html?id=SN202608291013379753fb2c">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-green">科创板IPO</span>
-          <h3 class="card-title">DeepSeek拟50亿美元融资估值740亿美元，瞄准2027年上海科创板IPO</h3>
-        </div>
-        <p class="card-summary">DeepSeek正接近完成约50亿美元融资轮，pre-money估值近740亿美元。Monolith、Shixiang Capital与CATL等老股东参与，资金用于算力建设并为可能的IPO做准备，目标2027年登陆上海科创板。DeepSeek与投资人均未公开确认该交易——一家中国实验室以800亿美元级别估值启动本土IPO，显示中国前沿AI生态融资与估值规模已可比肩顶级美国实验室。</p>
-        <div class="card-footer">
-          <span class="card-tag">#DeepSeek</span>
-          <span class="card-tag">#科创板IPO</span>
-          <span class="card-tag">#融资</span>
-          <a class="card-link" href="https://www.aiimpacthub.com/ai-news">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-green">Robotaxi</span>
-          <h3 class="card-title">Waymo融资160亿美元估值1260亿美元，滴滴自动驾驶R2开启无人载客测试</h3>
-        </div>
-        <p class="card-summary">Waymo完成160亿美元融资，估值达1260亿美元，由Dragoneer Investment Group领投，红杉、DST等参投，资金用于扩展车队规模并进入纽约、伦敦、东京等20余座新城市。Waymo当前在6座美国城市运营超2500辆Robotaxi。同日，滴滴自动驾驶与广汽埃安联合打造的L4 Robotaxi R2正式开启无人载客测试，在北京、广州部分示范区域运营，搭载33个传感器与三域融合计算平台。</p>
-        <div class="card-footer">
-          <span class="card-tag">#Waymo</span>
-          <span class="card-tag">#Robotaxi</span>
-          <span class="card-tag">#滴滴</span>
-          <a class="card-link" href="https://miraitalk.com/article/waymo-s-16-billion-investment-expanding-robotaxi-service-globally/12808">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Section 4: 政策与行业生态 -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-orange">🏛️</div>
-        <span class="section-title">政策与行业生态</span>
-        <span class="section-count">3条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-orange">工信部</span>
-          <h3 class="card-title">工信部启动AI应用服务商培育专项行动：首购首用、风险补偿支持大模型与Token采购</h3>
-        </div>
-        <p class="card-summary">8月31日工业和信息化部办公厅发布关于开展人工智能应用服务商培育专项行动的通知。引导服务商围绕高频、刚需、可复用业务封装"小快轻准"解决方案，探索通过首购首用、风险补偿等模式加大大模型、智能体、Token等服务采购力度，提升行业用模用智质效——这是工信部首次系统性提出Token层面的采购政策。</p>
-        <div class="card-footer">
-          <span class="card-tag">#工信部</span>
-          <span class="card-tag">#AI采购</span>
-          <span class="card-tag">#政策</span>
-          <a class="card-link" href="https://www.toutiao.com/article/7680322369587511834/">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-orange">数据要素</span>
-          <h3 class="card-title">国家数据局：日均词元调用量突破500万亿，两年增长超5000倍</h3>
-        </div>
-        <p class="card-summary">国家数据局披露，我国日均词元调用量已突破500万亿，较两年前的1000亿增长超5000倍。大模型加速落地带动词元调用爆发式增长，"算力优化师"新职业应运而生，企业应用AI门槛从"建电站"降至"插电卡"。腾讯副总裁同期透露，Token正在变成新一代"货币"，AI智能体自动化任务成最大推手。</p>
-        <div class="card-footer">
-          <span class="card-tag">#国家数据局</span>
-          <span class="card-tag">#词元</span>
-          <span class="card-tag">#Token</span>
-          <a class="card-link" href="https://www.toutiao.com/article/7680322369587511834/">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-orange">太空算力</span>
-          <h3 class="card-title">全球首个太空算力云常态化运行：北邮牵头，大模型推理能效比达10Token/J</h3>
-        </div>
-        <p class="card-summary">由北京邮电大学牵头建设的全球首个对外提供在轨试验服务的太空算力云正式常态化提供在轨算力服务。该平台打通卫星平台、太空服务器、地面站与地面数据中心之间的任务编排、算力调度、数据计算、服务供应等环节，实现端到端自动化。大模型推理能效比达10Token/J，算力竞赛已从地面延伸至轨道。</p>
-        <div class="card-footer">
-          <span class="card-tag">#太空算力</span>
-          <span class="card-tag">#北邮</span>
-          <span class="card-tag">#在轨试验</span>
-          <a class="card-link" href="https://www.toutiao.com/article/7680322369587511834/">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Editor Pick -->
-    <div class="editor-pick">
-      <div class="editor-pick-title">✍️ 编辑精选 · 深度观点</div>
-      <div class="editor-pick-content">
-        <p>9月开局，AI产业进入"<strong>模型为王</strong>"到"<strong>应用为王</strong>"的拐点加速期。技术端，OpenAI/OpenClaw/DeepSeek-V4-Flash-Vision-Exp/智谱GLM-5.3四大开源或商用模型在同一窗口集中亮相，标志基座模型迭代周期已缩短至月度，国产模型周调用量首次占据全球约68%份额；<strong>商业端</strong>，OpenAI广告200天破10亿美元、阿里800亿港元全押AI、英伟达35亿美元入股联发科绑定XPU生态、Waymo 160亿美元融资——资本市场对AI的押注正从"概念叙事"走向"现金流+硬件落地"双验证。</p>
-        <p><strong>一句话总结：</strong>当开源多模态模型与硬件生态联盟在同一周密集落子，当欧盟VLOSE、加州AI法案与中国工信部培育专项同步启动，2026下半年的AI竞争已不再是单点突破，而是"<strong>模型-硬件-监管</strong>"三角协同的体系化战争。</p>
-      </div>
-    </div>
-
+    
     <div class="footer">
       <p class="footer-text"><span class="footer-brand">三木AI 每日一刻钟</span> · 每天15分钟，读懂AI世界</p>
       <p class="footer-text">2026年09月01日 星期二</p>
     </div>
   </div>
-  <script>
-  (function() {
-    var availableDates = [];
-    var calYear = 2026, calMonth = 8;
-
-    fetch('manifest.json?t=' + Date.now())
-      .then(function(r){return r.json();})
-      .then(function(data){
-        availableDates = data.dates || [];
-        renderCalendar();
-      })
-      .catch(function(){
-        availableDates = ['2026-09-01'];
-        renderCalendar();
-      });
-
-    window.openCalendar = function() {
-      document.getElementById('calOverlay').classList.add('active');
-      renderCalendar();
-    };
-    window.closeCalendar = function(e) {
-      if (!e || e.target.id === 'calOverlay') {
-        document.getElementById('calOverlay').classList.remove('active');
-      }
-    };
-    window.changeMonth = function(delta) {
-      calMonth += delta;
-      if (calMonth > 11) { calMonth = 0; calYear++; }
-      if (calMonth < 0) { calMonth = 11; calYear--; }
-      renderCalendar();
-    };
-    window.goToDate = function(dateStr) {
-      if (dateStr === '2026-09-01') {
-        window.location.href = 'index.html';
-      } else {
-        window.location.href = 'ai-daily-' + dateStr + '.html';
-      }
-    };
-
-    function renderCalendar() {
-      var monthNames = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
-      document.getElementById('calMonth').textContent = calYear + '年' + monthNames[calMonth];
-      var firstDay = new Date(calYear, calMonth, 1).getDay();
-      var daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
-      var prevDays = new Date(calYear, calMonth, 0).getDate();
-      var html = '';
-      for (var i = firstDay - 1; i >= 0; i--) {
-        html += '<button class="calendar-day other-month" disabled>' + (prevDays - i) + '</button>';
-      }
-      for (var d = 1; d <= daysInMonth; d++) {
-        var ds = calYear + '-' + String(calMonth + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
-        var cls = 'calendar-day';
-        var isAvail = availableDates.indexOf(ds) !== -1;
-        var isToday = ds === '2026-09-01';
-        if (isAvail) cls += ' available';
-        if (isToday) cls += ' today';
-        if (isAvail) {
-          html += '<button class="' + cls + '" onclick="goToDate(\'' + ds + '\')">' + d + '</button>';
-        } else {
-          html += '<button class="' + cls + '" disabled>' + d + '</button>';
-        }
-      }
-      var totalCells = firstDay + daysInMonth;
-      var nextPadding = (7 - (totalCells % 7)) % 7;
-      for (var j = 1; j <= nextPadding; j++) {
-        html += '<button class="calendar-day other-month" disabled>' + j + '</button>';
-      }
-      document.getElementById('calDays').innerHTML = html;
-    }
-  })();
-  </script>
-
 </body>
 </html>
