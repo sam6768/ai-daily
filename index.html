@@ -14,17 +14,6 @@
     .header-title {font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:1px;}
     .header-sub {font-size:13px;color:var(--text-muted);margin-top:4px;}
     .header-date {display:inline-block;margin-top:12px;padding:4px 16px;background:var(--accent-blue-light);color:var(--accent-blue);border-radius:20px;font-size:13px;font-weight:500;}
-    .nav-bar {background:var(--card-bg);border-radius:var(--radius);padding:10px 20px;margin-bottom:24px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);}
-    .nav-brand {display:flex;align-items:center;gap:8px;}
-    .nav-logo {font-size:15px;font-weight:600;color:var(--text-primary);}
-    .nav-sub {font-size:11px;color:var(--text-muted);}
-    .nav-center {display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);}
-    .nav-btn {cursor:pointer;background:none;border:none;padding:4px 8px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
-    .nav-btn:hover{color:var(--accent-blue);background:var(--accent-blue-light);}
-    .nav-date-text{font-weight:500;color:var(--text-primary);}
-    .nav-right {display:flex;align-items:center;gap:8px;}
-    .nav-calendar-btn {cursor:pointer;display:flex;align-items:center;gap:4px;padding:5px 12px;border-radius:8px;font-size:13px;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;font-weight:500;transition:.2s;}
-    .nav-calendar-btn:hover{opacity:.9;}
     .intro {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow);border:1px solid var(--border);}
     .intro-text {font-size:14px;color:var(--text-secondary);line-height:1.8;}
     .quick-tips {background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;color:white;box-shadow:var(--shadow);}
@@ -49,397 +38,36 @@
     .badge-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .badge-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .badge-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
-    .badge-green {background:var(--accent-green-light);color:var(--accent-green);}
     .icon-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
     .icon-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .icon-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .icon-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
-    .icon-green {background:var(--accent-green-light);color:var(--accent-green);}
     .editor-pick {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);border:1px solid var(--border);border-left:3px solid var(--accent-orange);}
-    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;}
     .editor-pick-content {font-size:13px;color:var(--text-secondary);line-height:1.8;}
     .editor-pick-content p {margin-bottom:8px;}
     .editor-pick-content strong {color:var(--text-primary);font-weight:600;}
     .footer {text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
     .footer-text {font-size:12px;color:var(--text-muted);}
     .footer-brand {font-weight:600;color:var(--text-secondary);}
-    .calendar-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:999;display:none;align-items:flex-start;justify-content:flex-end;padding-top:110px;padding-right:16px;}
-    .calendar-overlay.active {display:flex;}
-    .calendar-modal {background:var(--card-bg);border-radius:var(--radius);width:92%;max-width:360px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);animation:calIn .25s ease-out;}
-    @keyframes calIn {from{opacity:0;transform:translateY(20px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);}}
-    .calendar-header {display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
-    .calendar-title {font-size:15px;font-weight:600;color:var(--text-primary);}
-    .calendar-close {cursor:pointer;background:none;border:none;padding:4px;border-radius:6px;font-size:18px;color:var(--text-muted);transition:.2s;line-height:1;}
-    .calendar-close:hover {background:var(--border-light);color:var(--text-primary);}
-    .calendar-nav {display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px;}
-    .calendar-nav-btn {cursor:pointer;background:none;border:none;padding:4px 10px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
-    .calendar-nav-btn:hover{background:var(--accent-blue-light);color:var(--accent-blue);}
-    .calendar-nav-month {font-size:14px;font-weight:600;color:var(--text-primary);min-width:100px;text-align:center;}
-    .calendar-grid {display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;}
-    .calendar-weekday {text-align:center;font-size:11px;color:var(--text-muted);padding:6px 0;font-weight:500;}
-    .calendar-day {aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:13px;cursor:pointer;transition:.15s;border:none;background:none;color:var(--text-primary);position:relative;}
-    .calendar-day:hover:not(:disabled) {background:var(--accent-blue-light);color:var(--accent-blue);}
-    .calendar-day.other-month {color:var(--text-muted);opacity:.5;}
-    .calendar-day.available {font-weight:600;color:var(--accent-blue);background:var(--accent-blue-light);}
-    .calendar-day.available:hover {background:var(--accent-blue);color:#fff;}
-    .calendar-day.today {box-shadow:inset 0 0 0 1.5px var(--accent-blue);}
-    .calendar-day:disabled {cursor:default;color:var(--border);}
-    .calendar-info {text-align:center;font-size:12px;color:var(--text-muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light);}
-    .calendar-info span {display:inline-flex;align-items:center;gap:4px;}
-    .calendar-dot {width:6px;height:6px;border-radius:50%;background:var(--accent-blue);display:inline-block;}
-    @media(max-width:480px){.container{padding:16px 12px 32px;}.header-title{font-size:19px;}.card{padding:14px 16px;}.calendar-overlay{padding-top:100px;justify-content:center;padding-right:0;}.calendar-modal{padding:16px;}}
   </style>
 </head>
 <body>
   <div class="container">
-
     <div class="header">
       <h1 class="header-title">三木AI 每日一刻钟</h1>
       <p class="header-sub">每天15分钟，读懂AI世界</p>
       <span class="header-date">2026年09月02日 星期三</span>
     </div>
-
-    <div class="nav-bar">
-      <div class="nav-brand">
-        <span class="nav-logo">🤖 三木AI</span>
-        <span class="nav-sub">每日一刻钟</span>
-      </div>
-      <div class="nav-center">
-        <button class="nav-btn" onclick="window.location.href='ai-daily-2026-09-01.html'">‹</button>
-        <span class="nav-date-text">2026-09-02</span>
-        <button class="nav-btn" disabled style="opacity:.3" href="#">›</button>
-      </div>
-      <div class="nav-right">
-        <button class="nav-calendar-btn" onclick="openCalendar()">📅 日历</button>
-      </div>
-    </div>
-
-    <div class="calendar-overlay" id="calOverlay" onclick="closeCalendar(event)">
-      <div class="calendar-modal" onclick="event.stopPropagation()">
-        <div class="calendar-header">
-          <span class="calendar-title">📅 选择日期</span>
-          <button class="calendar-close" onclick="closeCalendar()">&times;</button>
-        </div>
-        <div class="calendar-nav">
-          <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
-          <span class="calendar-nav-month" id="calMonth">2026年9月</span>
-          <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
-        </div>
-        <div class="calendar-grid">
-          <div class="calendar-weekday">日</div><div class="calendar-weekday">一</div><div class="calendar-weekday">二</div>
-          <div class="calendar-weekday">三</div><div class="calendar-weekday">四</div><div class="calendar-weekday">五</div><div class="calendar-weekday">六</div>
-        </div>
-        <div class="calendar-grid" id="calDays"></div>
-        <div class="calendar-info"><span><i class="calendar-dot"></i> 蓝色日期表示有简报</span></div>
-      </div>
-    </div>
-
+    
     <div class="intro">
-      <p class="intro-text">
-        9月第二天，AI产业多线并发：<strong>Anthropic 推出 Fable 5.1 把缓存读取价格直接砍掉 75%</strong>，冲刺 IPO 前最后一次"能力秀"；讯飞开源端侧模型 X2.5-4B/1.7B，把百万级上下文塞进 4B 小模型，"端侧能干活"时代正式开启；OpenAI 发布《Path to Astra》安全报告，新模型成首个触及"关键网络安全能力"红线的产物；HBM5 路线图、影眸 Hyper3D WorldGen、VAST 30 亿融资、"豆包手机"NaviX Ultra 9 月上市——技术、消费、商业三条赛道同时沸腾。
-      </p>
+      <p class="intro-text">今日简报内容正在整理中，请稍后再试。</p>
     </div>
-
-    <div class="quick-tips">
-      <div class="quick-tips-title">🔥 今日要点速览</div>
-      <ul class="quick-tips-list">
-        <li><strong>Anthropic 发布 Fable 5.1</strong>：SWE-bench 89.3%、典型工作负载成本降 25%、缓存读取价降 75%，IPO 招股书最快下周公开，预计年化收入破 650 亿美元、估值或达 2 万亿美元</li>
-        <li><strong>OpenAI 公布《Path to Astra》安全报告</strong>：新模型 Astra 成为 OpenAI 首款达到"关键网络安全能力"阈值的产物，可自主开发零日漏洞利用链，先进网安功能仅对极少数测试者开放</li>
-        <li><strong>讯飞开源星火 X2.5-4B/1.7B</strong>：端侧首个原生支持 100 万 Token 上下文的模型，Domux 智能家居测试集端到端正确率 90.3%、平均响应 0.85 秒，9 月 7 日将发布 293B 旗舰版</li>
-        <li><strong>"豆包手机"努比亚 NaviX Ultra 正式获工信部入网许可</strong>：搭载豆包手机助手的量产旗舰 9 月内开售，由中兴通讯与字节跳动联合研发，备货量从此前的 3 万台扩至数十万台</li>
-        <li><strong>三星 SEMICON Taiwan 2026 路线图</strong>：HBM5 性能目标为 HBM4E 的 2 倍、采用 2nm 基础裸片，2028 年前后量产；全新 zHBM 架构性能可达 HBM4E 的 8 倍，2029 年后推出</li>
-      </ul>
-    </div>
-
-    <!-- Section 1: 技术前沿动态 -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-blue">⚡</div>
-        <span class="section-title">技术前沿动态</span>
-        <span class="section-count">4条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-blue">旗舰编程模型</span>
-          <h3 class="card-title">Anthropic 发布 Fable 5.1：SWE-bench 89.3%，典型工作负载成本下降 25%，缓存读取价格降 75%</h3>
-        </div>
-        <p class="card-summary">当地时间9月1日，Anthropic 推出旗舰编程与知识工作模型 Fable 5.1，同步为持有 Mythos 权限的用户发布 Mythos 5.1。Fable 5.1 多项基准测试超过前代 Fable 5 与 OpenAI GPT-5.6 Sol，SWE-bench 软件工程实测跃升至 89.3%、GAIA 复杂推理首次破 92 分，多跳检索+自主验证闭环任务完成率较 Fable 5 提升 37%。更关键的变化是降本：缓存读取价格直降 75%，典型工作负载成本比 Fable 5 低 25%，高度智能体化任务降幅最高可达约 45%。</p>
-        <div class="card-footer">
-          <span class="card-tag">#Anthropic</span>
-          <span class="card-tag">#Fable5.1</span>
-          <span class="card-tag">#缓存降价</span>
-          <a class="card-link" href="https://www.toutiao.com/article/7680670277654610459/">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-blue">端侧开源</span>
-          <h3 class="card-title">讯飞开源星火 X2.5-4B/1.7B：端侧首个原生支持 100 万 Token 上下文，智能家居控制正确率 90.3%</h3>
-        </div>
-        <p class="card-summary">9月1日科大讯飞子公司词元星火正式开源星火 X2.5-4B 与 1.7B 两款端侧通用大模型，是端侧首个原生支持最长 100 万 Token 上下文的模型。采用混合注意力架构（每层全量注意力配三层滑动窗口注意力），围绕智能体、代码、数学与指令遵循优化，基于全国产算力用约 20 万亿 Token 预训练。在 Domux 智能家居测试集上端到端控制正确率 90.3%、平均响应 0.85 秒；适配英伟达、华为、海光、后摩硬件与 vLLM/SGLang/llama.cpp 框架，已上线 Hugging Face 与 GitHub。9月7日将发布旗舰 293B 版本。</p>
-        <div class="card-footer">
-          <span class="card-tag">#星火X2.5</span>
-          <span class="card-tag">#端侧模型</span>
-          <span class="card-tag">#百万Token</span>
-          <a class="card-link" href="https://www.aibase.com/news/30749">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-blue">3D世界生成</span>
-          <h3 class="card-title">影眸 Hyper3D WorldGen 上线：单图生成可交互 3D 场景，最快 4 秒一个资产</h3>
-        </div>
-        <p class="card-summary">9月1日影眸科技发布世界生成模型 Hyper3D WorldGen——用户上传一张场景图片，系统自动识别主要物体、还原位置/尺度/支撑关系，输出由多个独立 3D 资产组成的完整场景。基于 SIGGRAPH 2025 最佳论文 CAST 架构重建物体间的接触、悬空与堆叠关系，最快 4 秒生成一个可用资产，可接入 Isaac Sim、Blender、虚幻引擎等管线与 Seedance 2.5 组合影视工作流，标志着 3D 生成正从"画单个物体"升级为"造一座世界"。</p>
-        <div class="card-footer">
-          <span class="card-tag">#影眸</span>
-          <span class="card-tag">#Hyper3D</span>
-          <span class="card-tag">#世界模型</span>
-          <a class="card-link" href="https://www.toutiao.com/article/7680604065528660530/">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-blue">AI安全阈值</span>
-          <h3 class="card-title">OpenAI 发布《Path to Astra》安全报告：首个触及"关键网络安全能力"阈值的模型诞生</h3>
-        </div>
-        <p class="card-summary">OpenAI 于 9 月 1 日发布《Path to Astra》安全报告，正式认定即将推出的 Astra 模型在 Preparedness 框架下达到"关键网络安全能力"（Critical）阈值——这是公司首款达到该级别的模型。Astra 在 ExploitBench 拿到 100% 满分（此前最佳约 78%），并在内部基准上自主发现两枚零日漏洞。在专家主导的硬化浏览器与操作系统评估中，Astra 构建出从浏览器沙箱逃逸到宿主的完整链路，并完成从未授权用户到 root 的提权链。先进网安功能将仅向小范围 alpha 测试者开放，防御端则通过 Daybreak Blue 分阶段放开。</p>
-        <div class="card-footer">
-          <span class="card-tag">#OpenAI</span>
-          <span class="card-tag">#Astra</span>
-          <span class="card-tag">#网络安全</span>
-          <a class="card-link" href="https://openai.com/index/path-to-astra">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Section 2: 国内外AI动态 -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-purple">🌍</div>
-        <span class="section-title">国内外AI动态</span>
-        <span class="section-count">4条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">存储路线图</span>
-          <h3 class="card-title">三星 SEMICON Taiwan 2026 路线图：HBM5 性能翻倍 + 全新 zHBM 架构性能达 HBM4E 的 8 倍</h3>
-        </div>
-        <p class="card-summary">9月1日三星电子在 SEMICON Taiwan 2026 披露下一代存储技术路线图：HBM5 采用 2nm 自研基础裸片，提供 12/16/20 层三种 DRAM 堆叠方案，目标性能为 HBM4E 的 2 倍、单瓦性能提升 20%、热阻降低 20%，预计 2028 年前后量产；全新 zHBM 架构将存储直接堆叠在处理器顶部，目标性能为 HBM4E 的 8 倍、单瓦性能提升 3 倍、热阻降低 75%-90%，2029 年后推出。"C.U.B.E"战略同步发布，围绕容量、利用率、带宽、能效做系统级架构升级，直面 AI 加速器带宽与散热的双重瓶颈。</p>
-        <div class="card-footer">
-          <span class="card-tag">#三星</span>
-          <span class="card-tag">#HBM5</span>
-          <span class="card-tag">#zHBM</span>
-          <a class="card-link" href="https://www.cnbeta.com.tw/articles/tech/1575972.htm">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">智能体手机</span>
-          <h3 class="card-title">"豆包手机"努比亚 NaviX Ultra 获工信部入网许可：9 月上市，备货量从 3 万台升至数十万台</h3>
-        </div>
-        <p class="card-summary">9月1日努比亚 NaviX Ultra 正式获工信部入网许可，搭载豆包手机助手的量产旗舰计划于 9 月内上市开售，由中兴通讯与字节跳动联合研发。该机定位全球首款 AI 智能体手机，从大模型备案到终端入网完成完整合规，备货量从前代工程样机的 3 万台扩至数十万台。豆包手机助手从一代 GUI 模拟点击升级为 Agent 协议调用，可跨应用自动执行价格比对、行程规划、文档处理等任务——AI 手机竞争正从硬件参数内卷转向智能体体验主导。</p>
-        <div class="card-footer">
-          <span class="card-tag">#豆包手机</span>
-          <span class="card-tag">#NaviXUltra</span>
-          <span class="card-tag">#AI智能体</span>
-          <a class="card-link" href="https://k.sina.cn/article_7880068262_1d5b04ca606801pvsi.html">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">智能体分拆</span>
-          <h3 class="card-title">Manus 正式恢复独立运营：肖弘、张涛、季逸超原创始团队继续领导，与 Meta 分拆基本完成</h3>
-        </div>
-        <p class="card-summary">9月1日通用 AI 智能体公司 Manus 正式宣布恢复独立运营，肖弘、张涛、季逸超组成的原创始团队继续领导。此前 2025 年 12 月 Meta 以超过 20 亿美元收购 Manus；2026 年 4 月中国监管部门依法禁止该收购并要求撤销交易；7 月腾讯牵头联合真格基金、红杉中国等以约 20 亿美元估值从 Meta 手中完成股权回购。下一阶段 Manus 将重点推动智能体更深入嵌入日常工作流程，更主动地代表用户执行任务；云电脑、计划任务 2.0、面向中小企业的 Manus 等新功能已陆续推出。</p>
-        <div class="card-footer">
-          <span class="card-tag">#Manus</span>
-          <span class="card-tag">#独立运营</span>
-          <span class="card-tag">#Meta分拆</span>
-          <a class="card-link" href="https://www.chinadaily.com.cn/a/202609/01/WS6a96940be4b06d4aa055bb70.html">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">具身智能</span>
-          <h3 class="card-title">智平方 AlphaBot 2 落地香港兰桂坊酒吧：香港首个真实开放场景服务机器人常态化运营</h3>
-        </div>
-        <p class="card-summary">8月31日智平方宣布，搭载原创类脑架构具身大模型的 AlphaBot 2（爱宝）机器人正式入驻中国香港兰桂坊酒吧，为顾客提供鸡尾酒调制与互动服务，标志着香港首个真实开放场景服务机器人实现合法、合规、可持续的常态化运营。酒吧场景充满嘈杂声、动态光照、人群穿梭等多重变量，对环境感知、任务规划、运动控制与人机交互提出综合考验——爱宝能在该环境中稳定运行，被视为具身智能泛化能力的真实压力测试。</p>
-        <div class="card-footer">
-          <span class="card-tag">#智平方</span>
-          <span class="card-tag">#具身智能</span>
-          <span class="card-tag">#服务机器人</span>
-          <a class="card-link" href="https://www.toutiao.com/article/7680705547145970230/">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Section 3: 投资与商业 -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-green">💰</div>
-        <span class="section-title">投资与商业</span>
-        <span class="section-count">2条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-green">3D融资</span>
-          <h3 class="card-title">VAST 半年累计融资约 50 亿元：B/B+ 轮合计 30 亿元，经纬创投领投、发布 Tripo P2.0</h3>
-        </div>
-        <p class="card-summary">9月1日 3D 大模型公司 VAST（三启万物）宣布完成 B 轮和 B+ 轮合计约 30 亿元融资，由经纬创投领投，完美世界、蓝色光标、鼎晖 VGC、中金资本等联合参投。不到半年时间，VAST 累计融资已达约 50 亿元。本轮资金主要用于 3D 原生模型与数据能力迭代、训练与推理基础设施扩建、产品开发与商业化加速。同日发布的旗舰模型 Tripo P2.0 首次实现原生四边面拓扑网格端到端生成，机构投资者正快节奏押注"3D 原生 AI 作为下一代内容生产范式"。</p>
-        <div class="card-footer">
-          <span class="card-tag">#VAST</span>
-          <span class="card-tag">#TripoP2.0</span>
-          <span class="card-tag">#3D融资</span>
-          <a class="card-link" href="https://new.qq.com/rain/a/20260902A03MIX00">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-green">电力IPO</span>
-          <h3 class="card-title">软银旗下 SB Energy 申请 IPO：拟募 50-70 亿美元，招股书自承"高度依赖"OpenAI</h3>
-        </div>
-        <p class="card-summary">当地时间 9 月 1 日，软银控股的 AI 电力基础设施公司 SB Energy 向美国 SEC 提交 IPO 申请，计划以"SBE"为代码在纳斯达克上市，拟募资 50 亿至 70 亿美元，最快本月挂牌。招股书披露，其近期收入、项目融资及开发计划"高度依赖"OpenAI，后者既是主要租户也是股东；目前公司数据中心尚无一座投入运营，也未产生数据中心收入。SB Energy 上市将首次让资本市场直接评估"算力背后的电力生意"在 AI 资本开支周期中的真实估值锚。</p>
-        <div class="card-footer">
-          <span class="card-tag">#SBEnergy</span>
-          <span class="card-tag">#AI电力</span>
-          <span class="card-tag">#软银</span>
-          <a class="card-link" href="https://finance.eastmoney.com/a/202609023862064519.html">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Section 4: 政策与行业生态 -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-orange">🏛️</div>
-        <span class="section-title">政策与行业生态</span>
-        <span class="section-count">2条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-orange">上市筹备</span>
-          <h3 class="card-title">Anthropic 计划 9 月 7 日后公开招股书：最快 9 月底登陆美股，估值或破 2 万亿美元</h3>
-        </div>
-        <p class="card-summary">The Information 报道 Anthropic 计划在美国劳动节（9 月 7 日）后公开提交招股书，并于 9 月中旬举行投资者日；最快 9 月底至 10 月初上市，有望刷新 SpaceX 2025 年创下的 780 亿美元募资纪录。公司于 6 月秘密递交 S-1 草案，预测市场 10 月底前完成 IPO 概率已达约 90%。估值方面，5 月最近一轮私募估值约 9650 亿美元，多名投资者预计上市时可达 2 万亿美元以上，部分按 30× 年化收入倍数推算甚至触及 3 万亿美元。Goldman Sachs、JPMorgan、Morgan Stanley 担任主承销商，预计年化收入将突破 650 亿美元。</p>
-        <div class="card-footer">
-          <span class="card-tag">#Anthropic</span>
-          <span class="card-tag">#IPO</span>
-          <span class="card-tag">#招股书</span>
-          <a class="card-link" href="https://m.pedaily.cn/news/568403">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-orange">3D产业分水岭</span>
-          <h3 class="card-title">AI 3D 迎来产业化分水岭：巨头与资本密集涌入，赛道从"生成单物"收敛到"生成世界"</h3>
-        </div>
-        <p class="card-summary">2026 年 AI 3D 行业动作密集——谷歌开放 Genie 3 公测、World Labs 发布 Marble 1.1、腾讯开源混元 3D 世界模型 2.0、阿里发布 HappyOyster 1.0、字节跳动推出 Seed3D 2.0，加上影眸 WorldGen 与 VAST Tripo P2.0 同日落地，3D 生成正从"生成单个资产"迈向"生成完整世界"。IDC 数据显示，2026 上半年全球 AI 3D 相关专利申请量同比增长 217%，工业级拓扑控制、物理约束建模、四边面原生生成三大方向占比超 68%——3D 内容生产的门槛正被一次性削平。</p>
-        <div class="card-footer">
-          <span class="card-tag">#3D生成</span>
-          <span class="card-tag">#产业化</span>
-          <span class="card-tag">#世界模型</span>
-          <a class="card-link" href="https://www.sohu.com/a/1070673096_122066679">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Editor Pick -->
-    <div class="editor-pick">
-      <div class="editor-pick-title">✍️ 编辑精选 · 深度观点</div>
-      <div class="editor-pick-content">
-        <p>9月第二天，AI 行业三条主线同时起爆：<strong>模型端</strong>Anthropic Fable 5.1 用"性能反超 + 价格直降"的双重打法堵死 IPO 前的最后质疑，OpenAI Astra 则用《Path to Astra》报告把"模型自主找零日漏洞"的能力摆上台面——一个用价格换市场，一个用安全换信任，但本质相同：模型层已经摸到能力天花板，开始向"商业落地 + 风险可控"双轴收敛；<strong>硬件端</strong>三星 HBM5/zHBM 把"内存堆叠在处理器上"的存算一体路线推到 2028-2029 时间表，与英伟达 NVHBM 形成正面对决；同时 4B 端侧模型原生支持百万 Token、3D 模型从"画单物"变成"造世界"，硬件瓶颈被绕开的同时内容生产范式正在被重写。</p>
-        <p><strong>一句话总结：</strong>当 Fable 5.1 把缓存价格砍掉 75%、Astra 把自主漏洞挖掘写到安全报告里、VAST 单轮融 30 亿、Anthropic 招股书跨入倒计时——2026 下半年的 AI 竞争已经从"谁更强"升级为"谁的单位 Token 成本更低、谁的安全护栏更经得起公众审视、谁的资本故事更经得起 IPO 路演的提问"。</p>
-      </div>
-    </div>
-
+    
     <div class="footer">
       <p class="footer-text"><span class="footer-brand">三木AI 每日一刻钟</span> · 每天15分钟，读懂AI世界</p>
-      <p class="footer-text">2026年09月02日 星期三 · 共收录资讯12条</p>
+      <p class="footer-text">2026年09月02日 星期三</p>
     </div>
   </div>
-  <script>
-  (function() {
-    var availableDates = [];
-    var calYear = 2026, calMonth = 8;
-
-    fetch('manifest.json?t=' + Date.now())
-      .then(function(r){return r.json();})
-      .then(function(data){
-        availableDates = data.dates || [];
-        renderCalendar();
-      })
-      .catch(function(){
-        availableDates = ['2026-09-02'];
-        renderCalendar();
-      });
-
-    window.openCalendar = function() {
-      document.getElementById('calOverlay').classList.add('active');
-      renderCalendar();
-    };
-    window.closeCalendar = function(e) {
-      if (!e || e.target.id === 'calOverlay') {
-        document.getElementById('calOverlay').classList.remove('active');
-      }
-    };
-    window.changeMonth = function(delta) {
-      calMonth += delta;
-      if (calMonth > 11) { calMonth = 0; calYear++; }
-      if (calMonth < 0) { calMonth = 11; calYear--; }
-      renderCalendar();
-    };
-    window.goToDate = function(dateStr) {
-      if (dateStr === '2026-09-02') {
-        window.location.href = 'index.html';
-      } else {
-        window.location.href = 'ai-daily-' + dateStr + '.html';
-      }
-    };
-
-    function renderCalendar() {
-      var monthNames = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
-      document.getElementById('calMonth').textContent = calYear + '年' + monthNames[calMonth];
-      var firstDay = new Date(calYear, calMonth, 1).getDay();
-      var daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
-      var prevDays = new Date(calYear, calMonth, 0).getDate();
-      var html = '';
-      for (var i = firstDay - 1; i >= 0; i--) {
-        html += '<button class="calendar-day other-month" disabled>' + (prevDays - i) + '</button>';
-      }
-      for (var d = 1; d <= daysInMonth; d++) {
-        var ds = calYear + '-' + String(calMonth + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
-        var cls = 'calendar-day';
-        var isAvail = availableDates.indexOf(ds) !== -1;
-        var isToday = ds === '2026-09-02';
-        if (isAvail) cls += ' available';
-        if (isToday) cls += ' today';
-        if (isAvail) {
-          html += '<button class="' + cls + '" onclick="goToDate(\'' + ds + '\')">' + d + '</button>';
-        } else {
-          html += '<button class="' + cls + '" disabled>' + d + '</button>';
-        }
-      }
-      var totalCells = firstDay + daysInMonth;
-      var nextPadding = (7 - (totalCells % 7)) % 7;
-      for (var j = 1; j <= nextPadding; j++) {
-        html += '<button class="calendar-day other-month" disabled>' + j + '</button>';
-      }
-      document.getElementById('calDays').innerHTML = html;
-    }
-  })();
-  </script>
-
 </body>
 </html>
