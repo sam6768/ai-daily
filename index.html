@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>三木AI 每日一刻钟 | 2026-09-03</title>
+  <title>三木AI 每日一刻钟 | 2026-09-04</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {--bg:#f5f7fa;--card-bg:#ffffff;--text-primary:#1a1a2e;--text-secondary:#5a5a7a;--text-muted:#8a8aa0;--accent-blue:#2563eb;--accent-blue-light:#dbeafe;--accent-purple:#7c3aed;--accent-purple-light:#ede9fe;--accent-teal:#0d9488;--accent-teal-light:#ccfbf1;--accent-orange:#ea580c;--accent-orange-light:#ffedd5;--accent-green:#16a34a;--accent-green-light:#dcfce7;--border:#e2e8f0;--border-light:#f1f5f9;--radius:12px;--radius-sm:8px;--shadow:0 1px 3px rgba(0,0,0,0.04),0 4px 12px rgba(0,0,0,0.03);}
@@ -14,6 +14,17 @@
     .header-title {font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:1px;}
     .header-sub {font-size:13px;color:var(--text-muted);margin-top:4px;}
     .header-date {display:inline-block;margin-top:12px;padding:4px 16px;background:var(--accent-blue-light);color:var(--accent-blue);border-radius:20px;font-size:13px;font-weight:500;}
+    .nav-bar {background:var(--card-bg);border-radius:var(--radius);padding:10px 20px;margin-bottom:24px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);}
+    .nav-brand {display:flex;align-items:center;gap:8px;}
+    .nav-logo {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .nav-sub {font-size:11px;color:var(--text-muted);}
+    .nav-center {display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);}
+    .nav-btn {cursor:pointer;background:none;border:none;padding:4px 8px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+    .nav-btn:hover{color:var(--accent-blue);background:var(--accent-blue-light);}
+    .nav-date-text{font-weight:500;color:var(--text-primary);}
+    .nav-right {display:flex;align-items:center;gap:8px;}
+    .nav-calendar-btn {cursor:pointer;display:flex;align-items:center;gap:4px;padding:5px 12px;border-radius:8px;font-size:13px;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;font-weight:500;transition:.2s;}
+    .nav-calendar-btn:hover{opacity:.9;}
     .intro {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow);border:1px solid var(--border);}
     .intro-text {font-size:14px;color:var(--text-secondary);line-height:1.8;}
     .quick-tips {background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;color:white;box-shadow:var(--shadow);}
@@ -38,36 +49,375 @@
     .badge-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .badge-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .badge-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+    .badge-green {background:var(--accent-green-light);color:var(--accent-green);}
     .icon-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
     .icon-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .icon-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .icon-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+    .icon-green {background:var(--accent-green-light);color:var(--accent-green);}
     .editor-pick {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);border:1px solid var(--border);border-left:3px solid var(--accent-orange);}
-    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;}
+    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
     .editor-pick-content {font-size:13px;color:var(--text-secondary);line-height:1.8;}
     .editor-pick-content p {margin-bottom:8px;}
     .editor-pick-content strong {color:var(--text-primary);font-weight:600;}
     .footer {text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
     .footer-text {font-size:12px;color:var(--text-muted);}
     .footer-brand {font-weight:600;color:var(--text-secondary);}
+    .calendar-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:999;display:none;align-items:flex-start;justify-content:flex-end;padding-top:110px;padding-right:16px;}
+    .calendar-overlay.active {display:flex;}
+    .calendar-modal {background:var(--card-bg);border-radius:var(--radius);width:92%;max-width:360px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);animation:calIn .25s ease-out;}
+    @keyframes calIn {from{opacity:0;transform:translateY(20px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);}}
+    .calendar-header {display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+    .calendar-title {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .calendar-close {cursor:pointer;background:none;border:none;padding:4px;border-radius:6px;font-size:18px;color:var(--text-muted);transition:.2s;line-height:1;}
+    .calendar-close:hover {background:var(--border-light);color:var(--text-primary);}
+    .calendar-nav {display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px;}
+    .calendar-nav-btn {cursor:pointer;background:none;border:none;padding:4px 10px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+    .calendar-nav-btn:hover{background:var(--accent-blue-light);color:var(--accent-blue);}
+    .calendar-nav-month {font-size:14px;font-weight:600;color:var(--text-primary);min-width:100px;text-align:center;}
+    .calendar-grid {display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;}
+    .calendar-weekday {text-align:center;font-size:11px;color:var(--text-muted);padding:6px 0;font-weight:500;}
+    .calendar-day {aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:13px;cursor:pointer;transition:.15s;border:none;background:none;color:var(--text-primary);position:relative;}
+    .calendar-day:hover:not(:disabled) {background:var(--accent-blue-light);color:var(--accent-blue);}
+    .calendar-day.other-month {color:var(--text-muted);opacity:.5;}
+    .calendar-day.available {font-weight:600;color:var(--accent-blue);background:var(--accent-blue-light);}
+    .calendar-day.available:hover {background:var(--accent-blue);color:#fff;}
+    .calendar-day.today {box-shadow:inset 0 0 0 1.5px var(--accent-blue);}
+    .calendar-day:disabled {cursor:default;color:var(--border);}
+    .calendar-info {text-align:center;font-size:12px;color:var(--text-muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light);}
+    .calendar-info span {display:inline-flex;align-items:center;gap:4px;}
+    .calendar-dot {width:6px;height:6px;border-radius:50%;background:var(--accent-blue);display:inline-block;}
+    @media(max-width:480px){.container{padding:16px 12px 32px;}.header-title{font-size:19px;}.card{padding:14px 16px;}.calendar-overlay{padding-top:100px;justify-content:center;padding-right:0;}.calendar-modal{padding:16px;}}
   </style>
 </head>
 <body>
   <div class="container">
+
     <div class="header">
       <h1 class="header-title">三木AI 每日一刻钟</h1>
       <p class="header-sub">每天15分钟，读懂AI世界</p>
-      <span class="header-date">2026年09月03日 星期四</span>
+      <span class="header-date">2026年09月04日 星期五</span>
     </div>
-    
+
+    <div class="nav-bar">
+      <div class="nav-brand">
+        <span class="nav-logo">🤖 三木AI</span>
+        <span class="nav-sub">每日一刻钟</span>
+      </div>
+      <div class="nav-center">
+        <button class="nav-btn" onclick="window.location.href='ai-daily-2026-09-03.html'">‹</button>
+        <span class="nav-date-text">2026-09-04</span>
+        <button class="nav-btn" disabled style="opacity:.3" href="#">›</button>
+      </div>
+      <div class="nav-right">
+        <button class="nav-calendar-btn" onclick="openCalendar()">📅 日历</button>
+      </div>
+    </div>
+
+    <div class="calendar-overlay" id="calOverlay" onclick="closeCalendar(event)">
+      <div class="calendar-modal" onclick="event.stopPropagation()">
+        <div class="calendar-header">
+          <span class="calendar-title">📅 选择日期</span>
+          <button class="calendar-close" onclick="closeCalendar()">&times;</button>
+        </div>
+        <div class="calendar-nav">
+          <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
+          <span class="calendar-nav-month" id="calMonth">2026年9月</span>
+          <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
+        </div>
+        <div class="calendar-grid">
+          <div class="calendar-weekday">日</div><div class="calendar-weekday">一</div><div class="calendar-weekday">二</div>
+          <div class="calendar-weekday">三</div><div class="calendar-weekday">四</div><div class="calendar-weekday">五</div><div class="calendar-weekday">六</div>
+        </div>
+        <div class="calendar-grid" id="calDays"></div>
+        <div class="calendar-info"><span><i class="calendar-dot"></i> 蓝色日期表示有简报</span></div>
+      </div>
+    </div>
+
     <div class="intro">
-      <p class="intro-text">今日简报内容正在整理中，请稍后再试。</p>
+      <p class="intro-text">
+        9 月 4 日，AI 行业迎来一个极具象征意义的早晨：<strong>模型能力、资本整合与基础设施风险同时被放大</strong>。OpenAI 用 GPT-6 Astra 将“AGI 时代”的叙事推上新台阶；英伟达则用 129 亿美元收购 Hugging Face，试图同时掌握算力与开源生态的话语权。然而，ChatGPT、Claude、Grok 的集体宕机也提醒市场，AI 服务的底层基础设施仍高度集中。国产层面，Kimi 启动港股 IPO、工信部推出中小企业创业支持计划，技术与政策两条主线并行。今天我们聚焦这些正在重塑行业格局的关键变化。
+      </p>
     </div>
-    
+
+    <div class="quick-tips">
+      <div class="quick-tips-title">🔥 今日要点速览</div>
+      <ul class="quick-tips-list">
+        <li><strong>OpenAI 发布 GPT-6 Astra</strong>：10 万 GPU 训练，首次达到“Critical”网络安全阈值，AGI 叙事再升温</li>
+        <li><strong>英伟达 129 亿美元收购 Hugging Face</strong>：从芯片巨头向开源模型生态上游延伸，承诺不绑定自家 GPU</li>
+        <li><strong>ChatGPT、Claude、Grok 集体宕机</strong>：共享云基础设施风险暴露，AI 本地化概念股应声上涨</li>
+        <li><strong>月之暗面 Kimi 秘密递表港交所</strong>：500 亿美元估值推进 Pre-IPO 轮，国产大模型进入资本退出季</li>
+        <li><strong>工信部启动 AI 中小企业创业支持计划</strong>：三年培育 1 万家以上科创企业，普惠算力成政策关键词</li>
+      </ul>
+    </div>
+
+    <!-- Section: 技术前沿动态 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-blue">⚡</div>
+        <span class="section-title">技术前沿动态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">OpenAI / 旗舰模型</span>
+          <h3 class="card-title">OpenAI 发布 GPT-6 Astra：10 万 GPU 训练，首次达到“Critical”网络安全能力阈值</h3>
+        </div>
+        <p class="card-summary">当地时间 9 月 3 日，OpenAI 正式发布新一代旗舰模型 GPT-6 Astra，称其为“代际跃迁”。该模型在得州 Stargate 基地使用超过 10 万块 GPU 训练，重点提升软件工程、科学研究、推理和计算机操作能力，可直接进入软件环境自主完成编程、金融建模、制作演示文稿等长周期多步骤任务。Astra 也是 OpenAI 首个达到内部“关键”网络安全能力门槛的模型，能在较少人工干预下发现未知软件漏洞并利用零日漏洞，因此最先进网安能力暂不全面开放。API 定价为每百万输入 Token 10 美元、输出 50 美元。</p>
+        <div class="card-footer">
+          <span class="card-tag">#OpenAI</span> <span class="card-tag">#GPT-6</span> <span class="card-tag">#Astra</span> <span class="card-tag">#AGI</span>
+          <a class="card-link" href="https://cd.nbd.com.cn/articles/2026-09-04/4572291.html" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">Google / 模型迭代</span>
+          <h3 class="card-title">谷歌 Gemini 3.8 Flash 发布：六周内第三款 Flash，编程与 Agent 能力再提升</h3>
+        </div>
+        <p class="card-summary">谷歌发布 Gemini 3.8 Flash，为六周内第三款 Flash 系列模型，API 定价维持每百万 Token 输入 0.75 美元、输出 3.75 美元。在长周期软件工程测试 DeepSWE v1.1 中，3.8 Flash 超过多数更大规模前沿模型，HLE-Verified 得分 54.9%，通过更多推理步骤与工具调用换取执行深度。同步推出的 Gemini 3.8 Flash Cyber 专攻网络安全，内部基准漏洞发现成功率超 70%，CWE-Bench 补丁修复 Pass@1 达 47.2%。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Google</span> <span class="card-tag">#Gemini</span> <span class="card-tag">#Flash</span> <span class="card-tag">#网络安全</span>
+          <a class="card-link" href="https://www.sohu.com/a/1071600020_455313" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">Meta / 旗舰模型</span>
+          <h3 class="card-title">Meta 发布 Muse Spark 1.3：指数榜反超 Gemini，主攻长上下文与编程</h3>
+        </div>
+        <p class="card-summary">Meta 发布新旗舰 Muse Spark 1.3，Artificial Analysis 指数得分 62 分，仅次于 Claude Fable 5.1 与 Opus 5，发布数小时即反超 Gemini 3.8 Flash。定价与前代持平，每百万 Token 输入 1.25 美元、缓存命中 0.15 美元、输出 4.25 美元。模型主攻长上下文与编程，相比 1.2 工具调用次数减少 20%、Token 用量减少 25%，后续将推出更大参数模型与开源权重版本。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Meta</span> <span class="card-tag">#MuseSpark</span> <span class="card-tag">#编程模型</span> <span class="card-tag">#长上下文</span>
+          <a class="card-link" href="https://www.sohu.com/a/1071600020_455313" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: 国内外AI动态 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-purple">🌍</div>
+        <span class="section-title">国内外AI动态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">行业事件</span>
+          <h3 class="card-title">“黑色星期四”：ChatGPT、Claude、Grok 出现历史级集体宕机</h3>
+        </div>
+        <p class="card-summary">9 月 3 日，OpenAI 旗下 ChatGPT 与 Codex、Anthropic 旗下 Claude、xAI 旗下 Grok 出现大规模同时宕机，持续约 3 小时 40 分钟，为有史以来最大规模 AI 服务中断事件之一。Downdetector 数据显示，OpenAI 相关故障报告峰值超过 3.7 万份，Claude 约 1324 份，Grok 约 1365 份，AI 编程工具 Cursor 部分服务受波及。业内猜测可能与微软 Azure、Cloudflare 等共享云基础设施有关，谷歌 Gemini 同期未报告服务中断。</p>
+        <div class="card-footer">
+          <span class="card-tag">#宕机</span> <span class="card-tag">#OpenAI</span> <span class="card-tag">#Claude</span> <span class="card-tag">#Grok</span>
+          <a class="card-link" href="https://www.toutiao.com/article/7681458149106188843/" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">腾讯 / 国产系统</span>
+          <h3 class="card-title">腾讯 WorkBuddy 正式上线银河麒麟、统信 UOS 等国产操作系统</h3>
+        </div>
+        <p class="card-summary">腾讯 WorkBuddy 正式登陆银河麒麟操作系统与统信 UOS，并上架其应用商店，同时上架 openKylin 与 deepin 社区软件商店。此次适配围绕系统登录联动、设备互联交互、智能技能调用、任务成果预览等链路定制打磨，达成原生级运行。应用商店搜索即可一键安装，新用户可享 2000 免费积分，至此已覆盖鸿蒙、银河麒麟、统信 UOS 等主流国产操作系统阵营。</p>
+        <div class="card-footer">
+          <span class="card-tag">#腾讯</span> <span class="card-tag">#WorkBuddy</span> <span class="card-tag">#国产系统</span> <span class="card-tag">#信创</span>
+          <a class="card-link" href="https://www.sohu.com/a/1071600020_455313" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">电商 / AI 服务</span>
+          <h3 class="card-title">天猫上线 Token 充值中心：大模型订阅服务进入电商货架</h3>
+        </div>
+        <p class="card-summary">9 月 3 日，天猫正式上线 AI 空间站（Token 充值中心），集合阿里云、智谱、Kimi、MiniMax 等国内头部大模型厂商的订阅服务。在售商品包括按周期订阅的 Token Plan、Coding Plan 以及按用量付费的充值方案，支持卡密或直充两种交付方式。电商平台正成为 AI 大模型服务的重要分销渠道，Token 作为 AI 服务的“硬通货”开始走向标准化、商品化。</p>
+        <div class="card-footer">
+          <span class="card-tag">#天猫</span> <span class="card-tag">#Token</span> <span class="card-tag">#大模型</span> <span class="card-tag">#电商</span>
+          <a class="card-link" href="https://so.html5.qq.com/page/real/search_news?docid=70000021_5116a99fd6568252" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: 投资与商业 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-green">💰</div>
+        <span class="section-title">投资与商业</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">并购</span>
+          <h3 class="card-title">英伟达 129.3 亿美元收购 Hugging Face，承诺维持开放平台定位</h3>
+        </div>
+        <p class="card-summary">当地时间 9 月 3 日，英伟达宣布同意以 129.303 亿美元收购 AI 开源模型平台 Hugging Face，这是英伟达规模最大的收购交易之一。交易包括向投资者支付约 119 亿美元，并提供最高 10 亿美元股权激励以留住员工。Hugging Face 目前拥有超过 1800 万开发者和研究人员，平台汇集超过 300 万个模型、50 万个数据集和 100 万个 AI 应用。黄仁勋承诺 Hugging Face 将继续作为开放平台运营，不强制要求使用英伟达硬件。</p>
+        <div class="card-footer">
+          <span class="card-tag">#英伟达</span> <span class="card-tag">#HuggingFace</span> <span class="card-tag">#收购</span> <span class="card-tag">#开源</span>
+          <a class="card-link" href="https://cd.nbd.com.cn/articles/2026-09-04/4572291.html" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">IPO</span>
+          <h3 class="card-title">月之暗面 Kimi 秘密递表港交所，500 亿美元估值推进 Pre-IPO 轮融资</h3>
+        </div>
+        <p class="card-summary">国产大模型明星公司月之暗面（Moonshot AI）被曝已于本周以保密形式向港交所递交 A1 上市申请文件，正式启动港股 IPO 流程。公司正同步推进 500 亿美元投前估值的 Pre-IPO 轮融资，首批交割已于 8 月 27 日完成。若消息属实，这将是继智谱之后国内“AI 六小虎”中第二家正式进入港交所 IPO 程序的企业。Kimi K3 发布后因用户请求逼近集群承载极限，一度暂停新用户订阅。</p>
+        <div class="card-footer">
+          <span class="card-tag">#月之暗面</span> <span class="card-tag">#Kimi</span> <span class="card-tag">#港股IPO</span> <span class="card-tag">#融资</span>
+          <a class="card-link" href="https://finance.sina.com.cn/roll/2026-09-04/doc-iniqraza4110114.shtml" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">融资</span>
+          <h3 class="card-title">Cognition AI 估值逼近 470 亿美元：编码 Agent 年化收入超 9 亿美元</h3>
+        </div>
+        <p class="card-summary">AI 编码初创公司 Cognition 正在完成新一轮约 10 亿美元融资，投资者需求接近 100 亿美元，投后估值逼近 470 亿美元，几乎三个月前 260 亿美元估值的两倍。公司年化经常性收入从 5 月底的 4.92 亿美元增长至目前的超过 9 亿美元。这家由编码 Agent Devin 撑起的公司，正在证明基于真实收入增长的 AI 编程工具仍是资本追逐热点。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Cognition</span> <span class="card-tag">#Devin</span> <span class="card-tag">#融资</span> <span class="card-tag">#编码Agent</span>
+          <a class="card-link" href="https://www.aiimpacthub.com/ai-news" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: 政策与行业生态 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-orange">🏛️</div>
+        <span class="section-title">政策与行业生态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">政策</span>
+          <h3 class="card-title">工信部启动人工智能中小企业创业支持计划：三年培育 1 万家以上科创企业</h3>
+        </div>
+        <p class="card-summary">9 月 3 日，工业和信息化部宣布启动人工智能中小企业创业支持计划。计划通过三年时间，在行业应用、数据服务、智能算力等重点领域培育形成一大批人工智能创业企业，新培育科技和创新型中小企业 1 万家以上。计划还将高标准建设 10 个科技型企业孵化器、10 个国家中小企业公共服务示范平台（基地），新培育 10 个国家级中小企业特色产业集群。</p>
+        <div class="card-footer">
+          <span class="card-tag">#工信部</span> <span class="card-tag">#中小企业</span> <span class="card-tag">#创业支持</span> <span class="card-tag">#政策</span>
+          <a class="card-link" href="https://news.cctv.cn/2026/09/04/ARTIO8JO3dGdKdX94HNbJXk9260904.shtml" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">规划</span>
+          <h3 class="card-title">十部门印发《促进中小企业发展“十五五”规划》：推动普惠算力赋能中小企业</h3>
+        </div>
+        <p class="card-summary">工业和信息化部等十部门印发《促进中小企业发展“十五五”规划》，提出推进智能化赋能，鼓励具备数字化基础的中小企业加强人工智能应用，参与“人工智能+制造”、智能工厂梯度培育、智能制造系统解决方案攻关与标准制定应用。规划明确推动普惠算力赋能中小企业发展，降低中小企业用算成本，并鼓励中小企业参与国家级人工智能开源社区建设。</p>
+        <div class="card-footer">
+          <span class="card-tag">#十五五规划</span> <span class="card-tag">#普惠算力</span> <span class="card-tag">#中小企业</span> <span class="card-tag">#AI+制造</span>
+          <a class="card-link" href="https://www.163.com/dy/article/L5VBB2FQ05198RSU.html" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">能源 / 半导体</span>
+          <h3 class="card-title">韩国电力拟向三星、SK 海力士预收 25 万亿韩元电费</h3>
+        </div>
+        <p class="card-summary">韩国国有电力公司韩国电力正与三星电子和 SK 海力士洽谈一项数十亿美元规模的电费预付款计划，以筹集资金建设新半导体产业集群所需的电网。根据目前方案，三星电子将预付 20 万亿韩元，SK 海力士预付 5 万亿韩元，合计 25 万亿韩元，约相当于未来 5 年的电费。此举折射出 AI 算力驱动下半导体产业用电需求的爆发式增长，电力已成为晶圆厂扩张的核心瓶颈。</p>
+        <div class="card-footer">
+          <span class="card-tag">#韩国</span> <span class="card-tag">#半导体</span> <span class="card-tag">#电力</span> <span class="card-tag">#算力</span>
+          <a class="card-link" href="https://so.html5.qq.com/page/real/search_news?docid=70000021_5116a99fd6568252" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Editor Pick -->
+    <div class="editor-pick">
+      <div class="editor-pick-title">✍️ 编辑精选 · 深度观点</div>
+      <div class="editor-pick-content">
+        <p>今天的 AI 圈几乎同时上演了<strong>“高光”与“惊魂”</strong>两面：OpenAI 用 GPT-6 Astra 宣告“欢迎进入 AGI 时代”，英伟达收购 Hugging Face 则标志着算力霸权开始向模型生态延伸。但 ChatGPT、Claude、Grok 的集体宕机，把共享云基础设施的脆弱性暴露得淋漓尽致——当 AI 成为生产力底座，稳定性将与能力同等重要。</p>
+<p>商业层面，月之暗面 Kimi 递表港交所、Cognition 估值翻倍，说明资本市场对 AI 的热情并未冷却，只是估值逻辑从“故事”转向“收入与算力”。而工信部推动普惠算力、扶持中小企业创业，意味着中国正在试图把 AI 红利从头部大厂扩散到更广泛的产业带。</p>
+<p><strong>一句话总结：</strong>2026 年秋天的 AI 竞争，已从“谁模型最强”升级为“谁能同时驾驭能力、成本、生态与韧性”。</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
     <div class="footer">
       <p class="footer-text"><span class="footer-brand">三木AI 每日一刻钟</span> · 每天15分钟，读懂AI世界</p>
-      <p class="footer-text">2026年09月03日 星期四</p>
+      <p class="footer-text">2026年09月04日 星期五 · 共收录资讯12条</p>
     </div>
   </div>
+  <script>
+  (function() {
+    var availableDates = [];
+    var calYear = 2026, calMonth = 8;
+
+    fetch('manifest.json?t=' + Date.now())
+      .then(function(r){return r.json();})
+      .then(function(data){
+        availableDates = data.dates || [];
+        renderCalendar();
+      })
+      .catch(function(){
+        availableDates = ['2026-09-04'];
+        renderCalendar();
+      });
+
+    window.openCalendar = function() {
+      document.getElementById('calOverlay').classList.add('active');
+      renderCalendar();
+    };
+    window.closeCalendar = function(e) {
+      if (!e || e.target.id === 'calOverlay') {
+        document.getElementById('calOverlay').classList.remove('active');
+      }
+    };
+    window.changeMonth = function(delta) {
+      calMonth += delta;
+      if (calMonth > 11) { calMonth = 0; calYear++; }
+      if (calMonth < 0) { calMonth = 11; calYear--; }
+      renderCalendar();
+    };
+    window.goToDate = function(dateStr) {
+      if (dateStr === '2026-09-04') {
+        window.location.href = 'index.html';
+      } else {
+        window.location.href = 'ai-daily-' + dateStr + '.html';
+      }
+    };
+
+    function renderCalendar() {
+      var monthNames = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+      document.getElementById('calMonth').textContent = calYear + '年' + monthNames[calMonth];
+      var firstDay = new Date(calYear, calMonth, 1).getDay();
+      var daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+      var prevDays = new Date(calYear, calMonth, 0).getDate();
+      var html = '';
+      for (var i = firstDay - 1; i >= 0; i--) {
+        html += '<button class="calendar-day other-month" disabled>' + (prevDays - i) + '</button>';
+      }
+      for (var d = 1; d <= daysInMonth; d++) {
+        var ds = calYear + '-' + String(calMonth + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+        var cls = 'calendar-day';
+        var isAvail = availableDates.indexOf(ds) !== -1;
+        var isToday = ds === '2026-09-04';
+        if (isAvail) cls += ' available';
+        if (isToday) cls += ' today';
+        if (isAvail) {
+          html += '<button class="' + cls + '" onclick="goToDate('' + ds + '')">' + d + '</button>';
+        } else {
+          html += '<button class="' + cls + '" disabled>' + d + '</button>';
+        }
+      }
+      var totalCells = firstDay + daysInMonth;
+      var nextPadding = (7 - (totalCells % 7)) % 7;
+      for (var j = 1; j <= nextPadding; j++) {
+        html += '<button class="calendar-day other-month" disabled>' + j + '</button>';
+      }
+      document.getElementById('calDays').innerHTML = html;
+    }
+  })();
+  </script>
+
 </body>
 </html>
