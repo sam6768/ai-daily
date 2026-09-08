@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>三木AI 每日一刻钟 | 2026-09-07</title>
+  <title>三木AI 每日一刻钟 | 2026-09-08</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {--bg:#f5f7fa;--card-bg:#ffffff;--text-primary:#1a1a2e;--text-secondary:#5a5a7a;--text-muted:#8a8aa0;--accent-blue:#2563eb;--accent-blue-light:#dbeafe;--accent-purple:#7c3aed;--accent-purple-light:#ede9fe;--accent-teal:#0d9488;--accent-teal-light:#ccfbf1;--accent-orange:#ea580c;--accent-orange-light:#ffedd5;--accent-green:#16a34a;--accent-green-light:#dcfce7;--border:#e2e8f0;--border-light:#f1f5f9;--radius:12px;--radius-sm:8px;--shadow:0 1px 3px rgba(0,0,0,0.04),0 4px 12px rgba(0,0,0,0.03);}
@@ -14,6 +14,17 @@
     .header-title {font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:1px;}
     .header-sub {font-size:13px;color:var(--text-muted);margin-top:4px;}
     .header-date {display:inline-block;margin-top:12px;padding:4px 16px;background:var(--accent-blue-light);color:var(--accent-blue);border-radius:20px;font-size:13px;font-weight:500;}
+    .nav-bar {background:var(--card-bg);border-radius:var(--radius);padding:10px 20px;margin-bottom:24px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);}
+    .nav-brand {display:flex;align-items:center;gap:8px;}
+    .nav-logo {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .nav-sub {font-size:11px;color:var(--text-muted);}
+    .nav-center {display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);}
+    .nav-btn {cursor:pointer;background:none;border:none;padding:4px 8px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+    .nav-btn:hover{color:var(--accent-blue);background:var(--accent-blue-light);}
+    .nav-date-text{font-weight:500;color:var(--text-primary);}
+    .nav-right {display:flex;align-items:center;gap:8px;}
+    .nav-calendar-btn {cursor:pointer;display:flex;align-items:center;gap:4px;padding:5px 12px;border-radius:8px;font-size:13px;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;font-weight:500;transition:.2s;}
+    .nav-calendar-btn:hover{opacity:.9;}
     .intro {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow);border:1px solid var(--border);}
     .intro-text {font-size:14px;color:var(--text-secondary);line-height:1.8;}
     .quick-tips {background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;color:white;box-shadow:var(--shadow);}
@@ -38,36 +49,418 @@
     .badge-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .badge-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .badge-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+    .badge-green {background:var(--accent-green-light);color:var(--accent-green);}
     .icon-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
     .icon-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .icon-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .icon-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+    .icon-green {background:var(--accent-green-light);color:var(--accent-green);}
     .editor-pick {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);border:1px solid var(--border);border-left:3px solid var(--accent-orange);}
-    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;}
+    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
     .editor-pick-content {font-size:13px;color:var(--text-secondary);line-height:1.8;}
     .editor-pick-content p {margin-bottom:8px;}
     .editor-pick-content strong {color:var(--text-primary);font-weight:600;}
     .footer {text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
     .footer-text {font-size:12px;color:var(--text-muted);}
     .footer-brand {font-weight:600;color:var(--text-secondary);}
+    .calendar-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:999;display:none;align-items:flex-start;justify-content:flex-end;padding-top:110px;padding-right:16px;}
+    .calendar-overlay.active {display:flex;}
+    .calendar-modal {background:var(--card-bg);border-radius:var(--radius);width:92%;max-width:360px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);animation:calIn .25s ease-out;}
+    @keyframes calIn {from{opacity:0;transform:translateY(20px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);}}
+    .calendar-header {display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+    .calendar-title {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .calendar-close {cursor:pointer;background:none;border:none;padding:4px;border-radius:6px;font-size:18px;color:var(--text-muted);transition:.2s;line-height:1;}
+    .calendar-close:hover {background:var(--border-light);color:var(--text-primary);}
+    .calendar-nav {display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px;}
+    .calendar-nav-btn {cursor:pointer;background:none;border:none;padding:4px 10px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+    .calendar-nav-btn:hover{background:var(--accent-blue-light);color:var(--accent-blue);}
+    .calendar-nav-month {font-size:14px;font-weight:600;color:var(--text-primary);min-width:100px;text-align:center;}
+    .calendar-grid {display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;}
+    .calendar-weekday {text-align:center;font-size:11px;color:var(--text-muted);padding:6px 0;font-weight:500;}
+    .calendar-day {aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:13px;cursor:pointer;transition:.15s;border:none;background:none;color:var(--text-primary);position:relative;}
+    .calendar-day:hover:not(:disabled) {background:var(--accent-blue-light);color:var(--accent-blue);}
+    .calendar-day.other-month {color:var(--text-muted);opacity:.5;}
+    .calendar-day.available {font-weight:600;color:var(--accent-blue);background:var(--accent-blue-light);}
+    .calendar-day.available:hover {background:var(--accent-blue);color:#fff;}
+    .calendar-day.today {box-shadow:inset 0 0 0 1.5px var(--accent-blue);}
+    .calendar-day:disabled {cursor:default;color:var(--border);}
+    .calendar-info {text-align:center;font-size:12px;color:var(--text-muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light);}
+    .calendar-info span {display:inline-flex;align-items:center;gap:4px;}
+    .calendar-dot {width:6px;height:6px;border-radius:50%;background:var(--accent-blue);display:inline-block;}
+    @media(max-width:480px){.container{padding:16px 12px 32px;}.header-title{font-size:19px;}.card{padding:14px 16px;}.calendar-overlay{padding-top:100px;justify-content:center;padding-right:0;}.calendar-modal{padding:16px;}}
   </style>
 </head>
 <body>
   <div class="container">
+
+    <!-- Header -->
     <div class="header">
       <h1 class="header-title">三木AI 每日一刻钟</h1>
       <p class="header-sub">每天15分钟，读懂AI世界</p>
-      <span class="header-date">2026年09月07日 星期一</span>
+      <span class="header-date">2026年09月08日 星期二</span>
     </div>
-    
+
+    <!-- Nav -->
+    <div class="nav-bar">
+      <div class="nav-brand">
+        <span class="nav-logo">🤖 三木AI</span>
+        <span class="nav-sub">每日一刻钟</span>
+      </div>
+      <div class="nav-center">
+        <button class="nav-btn" onclick="window.location.href='ai-daily-2026-09-07.html'">‹</button>
+        <span class="nav-date-text">2026-09-08</span>
+        <button class="nav-btn" disabled style="opacity:.3" href="#">›</button>
+      </div>
+      <div class="nav-right">
+        <button class="nav-calendar-btn" onclick="openCalendar()">📅 日历</button>
+      </div>
+    </div>
+
+    <!-- Calendar Modal -->
+    <div class="calendar-overlay" id="calOverlay" onclick="closeCalendar(event)">
+      <div class="calendar-modal" onclick="event.stopPropagation()">
+        <div class="calendar-header">
+          <span class="calendar-title">📅 选择日期</span>
+          <button class="calendar-close" onclick="closeCalendar()">&times;</button>
+        </div>
+        <div class="calendar-nav">
+          <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
+          <span class="calendar-nav-month" id="calMonth">2026年9月</span>
+          <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
+        </div>
+        <div class="calendar-grid">
+          <div class="calendar-weekday">日</div><div class="calendar-weekday">一</div><div class="calendar-weekday">二</div>
+          <div class="calendar-weekday">三</div><div class="calendar-weekday">四</div><div class="calendar-weekday">五</div><div class="calendar-weekday">六</div>
+        </div>
+        <div class="calendar-grid" id="calDays"></div>
+        <div class="calendar-info"><span><i class="calendar-dot"></i> 蓝色日期表示有简报</span></div>
+      </div>
+    </div>
+
+    <!-- Intro -->
     <div class="intro">
-      <p class="intro-text">今日简报内容正在整理中，请稍后再试。</p>
+      <p class="intro-text">
+        今日AI行业迎来多重重磅信号——OpenAI首次公开&ldquo;递归式自我改进&rdquo;(RSI)内部进展，首席科学家发文呼吁行业自愿减速；华为发布麒麟9050 Pro芯片，实现端侧300亿参数大模型入端；最高法出台首部涉AI司法裁判规则；宇树科技实现全球首次世界模型驱动人形机器人全自主搏击。AI竞争从&ldquo;谁的分数高&rdquo;转向&ldquo;谁能被真的用起来、被管得住、被信得过&rdquo;。
+      </p>
     </div>
-    
+
+    <!-- Quick Tips -->
+    <div class="quick-tips">
+      <div class="quick-tips-title">🔥 今日要点速览</div>
+      <ul class="quick-tips-list">
+        <li><strong>OpenAI首曝RSI进展</strong>：Agent工作量已是人类3.1倍，首席科学家称已造出&ldquo;异星心智&rdquo;呼吁全人类刹车</li>
+        <li><strong>华为发布麒麟9050 Pro</strong>：首款&ldquo;韬定律&rdquo;芯片，逻辑折叠技术实现端侧300亿参数大模型入端，整机性能提升42%</li>
+        <li><strong>最高法发布首部涉AI司法裁判规则</strong>：24条意见覆盖AI换脸拟声、AI幻觉侵权、自动驾驶&ldquo;人机共担&rdquo;等</li>
+        <li><strong>宇树科技全球首次实现世界模型驱动人形机器人全自主搏击</strong>，突破瞬时规划与动态交互瓶颈</li>
+        <li><strong>中国大模型调用量连续19周领跑全球</strong>：腾讯混元Hy4 preview以14.7万亿Token登顶，环比暴涨379%</li>
+      </ul>
+    </div>
+
+    <!-- Section 1: 技术前沿 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-blue">⚡</div>
+        <span class="section-title">技术前沿动态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">递归自我改进</span>
+          <h3 class="card-title">OpenAI首曝RSI内部进展：Agent工作量达人类3.1倍，首席科学家呼吁减速</h3>
+        </div>
+        <p class="card-summary">OpenAI官方博客首次公开&ldquo;递归式自我改进&rdquo;(RSI)进展，宣布已实现&ldquo;自动化研究实习生&rdquo;目标——Agent可在人类指导下完成需数天的研究任务。内部数据显示Agent工作量已是人类研究员的3.1倍，中位研究员日均推理成本超600美元。首席科学家Pachocki同日发文称&ldquo;AI是养出来的不是造的&rdquo;，思维链监控正在失效，呼吁行业在安全标准确立前自愿放缓。OpenAI预计2028年3月实现完整的&ldquo;自动化AI研究员&rdquo;。</p>
+        <div class="card-footer">
+          <span class="card-tag">#OpenAI</span>
+          <span class="card-tag">#RSI</span>
+          <span class="card-tag">#递归自我改进</span>
+          <a class="card-link" href="https://openai.com/index/research-acceleration-view-inside-openai/">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">端侧芯片</span>
+          <h3 class="card-title">华为发布麒麟9050 Pro：首款&ldquo;韬定律&rdquo;芯片，端侧可跑300亿大模型</h3>
+        </div>
+        <p class="card-summary">华为Mate XT 2三折叠手机首发麒麟9050 Pro芯片，全球首款落地&ldquo;韬定律&rdquo;、采用逻辑折叠技术的旗舰芯片。晶体管密度从每平方毫米1.55亿颗提升至2.38亿颗（增幅55%），同等性能下NPU功耗降66%、GPU降58%。达芬奇NPU支持总参数300亿、激活20亿的端侧MoE全模态大模型入端，整机性能提升42%。时隔六年华为再在旗舰发布会专门解读全新麒麟芯片。</p>
+        <div class="card-footer">
+          <span class="card-tag">#华为</span>
+          <span class="card-tag">#麒麟9050Pro</span>
+          <span class="card-tag">#端侧AI</span>
+          <a class="card-link" href="https://view.inews.qq.com/a/20260907A0B9RP00">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">数学突破</span>
+          <h3 class="card-title">AI密集攻克数学难题：费马大定理完成机器核验，素数间隔推进至186</h3>
+        </div>
+        <p class="card-summary">Anthropic用Claude约11天完成费马大定理首个完整计算机核验证明（Lean语言）；OpenAI的GPT-6 Astra将相邻素数间隔上限推进至186；Claude还将黎曼猜想临界线零点比例下界提至67.2%。陶哲轩等数学家指出AI正带来&ldquo;提出证明&mdash;机器验证&mdash;自动修正&rdquo;的范式转变，数学研究方法论正在被重塑。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Anthropic</span>
+          <span class="card-tag">#Claude</span>
+          <span class="card-tag">#数学证明</span>
+          <a class="card-link" href="https://view.inews.qq.com/a/20260907A0DM0300">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: 国内外AI动态 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-purple">🌍</div>
+        <span class="section-title">国内外AI动态</span>
+        <span class="section-count">4条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">国产模型</span>
+          <h3 class="card-title">中国大模型调用量连续19周领跑全球，腾讯混元登顶暴涨379%</h3>
+        </div>
+        <p class="card-summary">OpenRouter最新数据显示，上周全球AI大模型总调用量115万亿Token，中国大模型周调用量56.72万亿Token（环比增2.83%），连续19周超过美国稳居全球首位。腾讯混元Hy4 preview以14.7万亿Token登顶，环比暴涨379%。全球前五中四款来自中国（混元、GPT-5.6 Luna、智谱GLM-5.3 Flash、DeepSeek-V4-Flash），开发者正用真实API调用给国产模型投票。</p>
+        <div class="card-footer">
+          <span class="card-tag">#腾讯混元</span>
+          <span class="card-tag">#OpenRouter</span>
+          <span class="card-tag">#调用量</span>
+          <a class="card-link" href="https://www.toutiao.com/article/7682936436160594466/">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">微信开源</span>
+          <h3 class="card-title">微信开源WeMM-Embedding多模态嵌入模型，9B版本登顶MMEB-v2榜单</h3>
+        </div>
+        <p class="card-summary">微信视觉团队开源多模态嵌入模型WeMM-Embedding，含2B、4B、9B三个版本，支持文本、图像、视频及任意交错输入。9B版本在MMEB-v2榜单以80.6分位列第一，2B版本77.9分超过此前领先的8B开源模型。模型已部署于视频号、公众号、朋友圈等推荐与搜索场景，日调用量达十亿量级。</p>
+        <div class="card-footer">
+          <span class="card-tag">#微信</span>
+          <span class="card-tag">#开源</span>
+          <span class="card-tag">#多模态嵌入</span>
+          <a class="card-link" href="https://www.sohu.com/a/1073029447_455313">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">企业动态</span>
+          <h3 class="card-title">宇树科技全球首次实现世界模型驱动人形机器人全自主搏击</h3>
+        </div>
+        <p class="card-summary">宇树科技发布全球首次世界模型实时驱动全自主人形机器人格斗视频。机器人摆脱预设程序与人工遥控，依托自研UnifoLM-X2-1.0世界-动作大模型，突破瞬时规划、决策和动态交互执行瓶颈，实时感知对手姿态、预判变化并自主完成攻防动作，打通感知-预测-决策-执行闭环。宇树IPO募资42亿中超20亿投入具身大模型研发。</p>
+        <div class="card-footer">
+          <span class="card-tag">#宇树科技</span>
+          <span class="card-tag">#世界模型</span>
+          <span class="card-tag">#人形机器人</span>
+          <a class="card-link" href="https://www.sohu.com/a/1073121431_121347613">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">AI长剧</span>
+          <h3 class="card-title">国内首部AI长剧《后西游记》上星播出，首播收视第一</h3>
+        </div>
+        <p class="card-summary">9月8日，无真人参演、全程AI生成的《后西游记》第一季在湖南卫视、芒果TV同步首发，首播斩获省级卫视同时段实时收视第一。系&ldquo;广电21条&rdquo;后全国首部&ldquo;边审边播&rdquo;试点剧集，标志AI长剧正式进入主流影视工业评价体系。</p>
+        <div class="card-footer">
+          <span class="card-tag">#AI长剧</span>
+          <span class="card-tag">#后西游记</span>
+          <span class="card-tag">#影视工业</span>
+          <a class="card-link" href="https://view.inews.qq.com/a/20260908A03B1M00">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: 投资与商业 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-green">💰</div>
+        <span class="section-title">投资与商业</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">算力军备</span>
+          <h3 class="card-title">Anthropic 11个月锁定5170亿美元算力，但仍落后OpenAI</h3>
+        </div>
+        <p class="card-summary">据The Information分析，Anthropic过去11个月密集签署算力协议总价值高达5170亿美元，锁定至少14.8吉瓦容量。亚马逊和谷歌合计提供11吉瓦（超3000亿美元），另有微软300亿、SpaceX 450亿等合约。Anthropic年化营收已超650亿美元超过OpenAI的400亿，但算力储备仍落后于OpenAI规划的30吉瓦目标。IPO招股书预计数周内公开。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Anthropic</span>
+          <span class="card-tag">#算力</span>
+          <span class="card-tag">#IPO</span>
+          <a class="card-link" href="https://www.toutiao.com/article/7682605843354878464/">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">GPU扩张</span>
+          <h3 class="card-title">黄仁勋称GPT-6 Astra标志AGI已到来，40万GPU即将上线</h3>
+        </div>
+        <p class="card-summary">英伟达CEO黄仁勋在X平台祝贺OpenAI发布GPT-6 Astra，透露该模型由约10万颗NVIDIA Grace Blackwell NVLink72集群训练完成，并称&ldquo;从ChatGPT到o1再到Astra，仅用4年，AGI已经到来&rdquo;。他同时透露&ldquo;接下来将有40万块GPU上线&rdquo;，释放算力需求井喷信号。不过AI学者Gary Marcus等专家对此提出质疑。OpenAI同时更新Astra产品页面，上下文窗口105万Token，API定价输入10美元/百万Token。</p>
+        <div class="card-footer">
+          <span class="card-tag">#英伟达</span>
+          <span class="card-tag">#黄仁勋</span>
+          <span class="card-tag">#AGI</span>
+          <a class="card-link" href="https://news.qq.com/rain/a/20260908A03EF100">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">存储受益</span>
+          <h3 class="card-title">GPT-6 Astra点燃存储芯片交易，HBM/DRAM成AI基础设施主线</h3>
+        </div>
+        <p class="card-summary">OpenAI旗舰模型Astra发布再度点燃市场对AI算力基础设施的热情，存储芯片率先受益，美股半导体股及亚洲存储龙头集体走强。机构认为，随着前沿模型能力持续提升，AI算力需求和存储瓶颈将进一步扩大，HBM、DRAM等有望成为AI基础设施交易的重要主线。博通FY2026Q3 AI半导体收入167亿美元，同比增长221%，Q4预计217亿美元同比增长236%。</p>
+        <div class="card-footer">
+          <span class="card-tag">#存储芯片</span>
+          <span class="card-tag">#HBM</span>
+          <span class="card-tag">#博通</span>
+          <a class="card-link" href="https://cj.sina.com.cn/articles/view/5115326071/130e5ae77020030qoi">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4: 政策与行业生态 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-orange">🏛️</div>
+        <span class="section-title">政策与行业生态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">司法规则</span>
+          <h3 class="card-title">最高法发布首部涉AI司法裁判规则：24条意见覆盖AI换脸拟声、自动驾驶</h3>
+        </div>
+        <p class="card-summary">9月7日，最高人民法院发布《关于依法审理涉人工智能纠纷案件的意见》，共24条，是我国首部由国家最高审判机构出台的涉AI司法裁判规则文件。明确AI换脸拟声、AI幻觉侵权、大数据杀熟、自动驾驶&ldquo;人机共担&rdquo;等裁判规则，并首次确立人格权侵害禁令制度，为AI发展系上司法&ldquo;安全带&rdquo;。</p>
+        <div class="card-footer">
+          <span class="card-tag">#最高法</span>
+          <span class="card-tag">#AI司法</span>
+          <span class="card-tag">#裁判规则</span>
+          <a class="card-link" href="https://view.inews.qq.com/a/20260908A01Z2Y00">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">金融智能体</span>
+          <h3 class="card-title">千问开放平台集中上线十余家金融类智能体，覆盖证券基金期货保险</h3>
+        </div>
+        <p class="card-summary">9月7日，首批金融类智能体集中上线千问开放平台，覆盖证券投资、基金、期货、保险等领域。用户可直接在千问调用兴业证券、国泰海通、浙商期货、易方达基金、众安保险等机构提供的专业AI服务，进行市场分析、投资研究、基金研选和保险咨询。千问开放平台支持生态伙伴通过标准化协议低门槛接入，并提供账号、AI支付等基础设施。</p>
+        <div class="card-footer">
+          <span class="card-tag">#千问</span>
+          <span class="card-tag">#金融智能体</span>
+          <span class="card-tag">#AI应用</span>
+          <a class="card-link" href="https://www.toutiao.com/article/7682932161384579584/">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">AI制药</span>
+          <h3 class="card-title">我国首款AI辅助原创药艾普司韦获批上市，从发现到临床仅三年半</h3>
+        </div>
+        <p class="card-summary">由西湖大学、西湖实验室、西湖制药联合研发的盐酸伊司特韦片获国家药监局附条件批准，用于成人轻中型新冠治疗，系国内首款AI辅助研发获批的原创药。从源头发现到临床仅用三年半，展示了AI在药物研发领域的巨大潜力。同日，德国研究团队在《自然》发文，借助AI从头设计出RNA转运蛋白，进一步拓展AI在蛋白质设计领域的突破。</p>
+        <div class="card-footer">
+          <span class="card-tag">#AI制药</span>
+          <span class="card-tag">#西湖大学</span>
+          <span class="card-tag">#原创药</span>
+          <a class="card-link" href="https://view.inews.qq.com/a/20260907A077GE00">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Editor Pick -->
+    <div class="editor-pick">
+      <div class="editor-pick-title">✍️ 编辑精选 · 深度观点</div>
+      <div class="editor-pick-content">
+        <p>今天的资讯放在一起看，有一条清晰主线：<strong>AI的竞争重心已从&ldquo;谁的分数高&rdquo;转向&ldquo;谁能被真的用起来、被管得住、被信得过&rdquo;</strong>。</p>
+        <p>OpenAI首曝RSI进展、首席科学家发文呼吁减速，说明&ldquo;AI训练AI&rdquo;的飞轮正在加速转动，但安全监控的窗口正在收窄。华为麒麟9050 Pro用&ldquo;逻辑折叠&rdquo;绕过传统摩尔定律，在制程受限下找到了新路径——国产半导体从&ldquo;跟跑&rdquo;走向&ldquo;重构规则&rdquo;。最高法出台首部AI司法裁判规则、千问上线金融智能体，则标志着AI从野生走向标准化：规则明确后，合规成本可预期，落地反而会加速。</p>
+        <p><strong>一句话总结：</strong>技术层面RSI飞轮加速、商业层面算力军备白热化、政策层面规则基础设施成形——AI正在从&ldquo;能不能&rdquo;走向&ldquo;该不该&rdquo;和&ldquo;怎么管&rdquo;。</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
     <div class="footer">
       <p class="footer-text"><span class="footer-brand">三木AI 每日一刻钟</span> · 每天15分钟，读懂AI世界</p>
-      <p class="footer-text">2026年09月07日 星期一</p>
+      <p class="footer-text">2026年09月08日 星期二</p>
     </div>
   </div>
+  <script>
+  (function() {
+    var availableDates = [];
+    var calYear = 2026, calMonth = 8;
+
+    fetch('manifest.json?t=' + Date.now())
+      .then(function(r){return r.json();})
+      .then(function(data){
+        availableDates = data.dates || [];
+        renderCalendar();
+      })
+      .catch(function(){
+        availableDates = ['2026-09-08'];
+        renderCalendar();
+      });
+
+    window.openCalendar = function() {
+      document.getElementById('calOverlay').classList.add('active');
+      renderCalendar();
+    };
+    window.closeCalendar = function(e) {
+      if (!e || e.target.id === 'calOverlay') {
+        document.getElementById('calOverlay').classList.remove('active');
+      }
+    };
+    window.changeMonth = function(delta) {
+      calMonth += delta;
+      if (calMonth > 11) { calMonth = 0; calYear++; }
+      if (calMonth < 0) { calMonth = 11; calYear--; }
+      renderCalendar();
+    };
+    window.goToDate = function(dateStr) {
+      if (dateStr === '2026-09-08') {
+        window.location.href = 'index.html';
+      } else {
+        window.location.href = 'ai-daily-' + dateStr + '.html';
+      }
+    };
+
+    function renderCalendar() {
+      var monthNames = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+      document.getElementById('calMonth').textContent = calYear + '年' + monthNames[calMonth];
+      var firstDay = new Date(calYear, calMonth, 1).getDay();
+      var daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+      var prevDays = new Date(calYear, calMonth, 0).getDate();
+      var html = '';
+      for (var i = firstDay - 1; i >= 0; i--) {
+        html += '<button class="calendar-day other-month" disabled>' + (prevDays - i) + '</button>';
+      }
+      for (var d = 1; d <= daysInMonth; d++) {
+        var ds = calYear + '-' + String(calMonth + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+        var cls = 'calendar-day';
+        var isAvail = availableDates.indexOf(ds) !== -1;
+        var isToday = ds === '2026-09-08';
+        if (isAvail) cls += ' available';
+        if (isToday) cls += ' today';
+        if (isAvail) {
+          html += '<button class="' + cls + '" onclick="goToDate(\'' + ds + '\')">' + d + '</button>';
+        } else {
+          html += '<button class="' + cls + '" disabled>' + d + '</button>';
+        }
+      }
+      var totalCells = firstDay + daysInMonth;
+      var nextPadding = (7 - (totalCells % 7)) % 7;
+      for (var j = 1; j <= nextPadding; j++) {
+        html += '<button class="calendar-day other-month" disabled>' + j + '</button>';
+      }
+      document.getElementById('calDays').innerHTML = html;
+    }
+  })();
+  </script>
+
 </body>
 </html>
