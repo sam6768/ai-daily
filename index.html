@@ -14,17 +14,6 @@
     .header-title {font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:1px;}
     .header-sub {font-size:13px;color:var(--text-muted);margin-top:4px;}
     .header-date {display:inline-block;margin-top:12px;padding:4px 16px;background:var(--accent-blue-light);color:var(--accent-blue);border-radius:20px;font-size:13px;font-weight:500;}
-    .nav-bar {background:var(--card-bg);border-radius:var(--radius);padding:10px 20px;margin-bottom:24px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);}
-    .nav-brand {display:flex;align-items:center;gap:8px;}
-    .nav-logo {font-size:15px;font-weight:600;color:var(--text-primary);}
-    .nav-sub {font-size:11px;color:var(--text-muted);}
-    .nav-center {display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);}
-    .nav-btn {cursor:pointer;background:none;border:none;padding:4px 8px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
-    .nav-btn:hover{color:var(--accent-blue);background:var(--accent-blue-light);}
-    .nav-date-text{font-weight:500;color:var(--text-primary);}
-    .nav-right {display:flex;align-items:center;gap:8px;}
-    .nav-calendar-btn {cursor:pointer;display:flex;align-items:center;gap:4px;padding:5px 12px;border-radius:8px;font-size:13px;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;font-weight:500;transition:.2s;}
-    .nav-calendar-btn:hover{opacity:.9;}
     .intro {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow);border:1px solid var(--border);}
     .intro-text {font-size:14px;color:var(--text-secondary);line-height:1.8;}
     .quick-tips {background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;color:white;box-shadow:var(--shadow);}
@@ -49,395 +38,36 @@
     .badge-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .badge-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .badge-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
-    .badge-green {background:var(--accent-green-light);color:var(--accent-green);}
     .icon-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
     .icon-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .icon-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .icon-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
-    .icon-green {background:var(--accent-green-light);color:var(--accent-green);}
     .editor-pick {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);border:1px solid var(--border);border-left:3px solid var(--accent-orange);}
-    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;}
     .editor-pick-content {font-size:13px;color:var(--text-secondary);line-height:1.8;}
     .editor-pick-content p {margin-bottom:8px;}
     .editor-pick-content strong {color:var(--text-primary);font-weight:600;}
     .footer {text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
     .footer-text {font-size:12px;color:var(--text-muted);}
     .footer-brand {font-weight:600;color:var(--text-secondary);}
-    .calendar-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:999;display:none;align-items:flex-start;justify-content:flex-end;padding-top:110px;padding-right:16px;}
-    .calendar-overlay.active {display:flex;}
-    .calendar-modal {background:var(--card-bg);border-radius:var(--radius);width:92%;max-width:360px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);animation:calIn .25s ease-out;}
-    @keyframes calIn {from{opacity:0;transform:translateY(20px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);}}
-    .calendar-header {display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
-    .calendar-title {font-size:15px;font-weight:600;color:var(--text-primary);}
-    .calendar-close {cursor:pointer;background:none;border:none;padding:4px;border-radius:6px;font-size:18px;color:var(--text-muted);transition:.2s;line-height:1;}
-    .calendar-close:hover {background:var(--border-light);color:var(--text-primary);}
-    .calendar-nav {display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px;}
-    .calendar-nav-btn {cursor:pointer;background:none;border:none;padding:4px 10px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
-    .calendar-nav-btn:hover{background:var(--accent-blue-light);color:var(--accent-blue);}
-    .calendar-nav-month {font-size:14px;font-weight:600;color:var(--text-primary);min-width:100px;text-align:center;}
-    .calendar-grid {display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;}
-    .calendar-weekday {text-align:center;font-size:11px;color:var(--text-muted);padding:6px 0;font-weight:500;}
-    .calendar-day {aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:13px;cursor:pointer;transition:.15s;border:none;background:none;color:var(--text-primary);position:relative;}
-    .calendar-day:hover:not(:disabled) {background:var(--accent-blue-light);color:var(--accent-blue);}
-    .calendar-day.other-month {color:var(--text-muted);opacity:.5;}
-    .calendar-day.available {font-weight:600;color:var(--accent-blue);background:var(--accent-blue-light);}
-    .calendar-day.available:hover {background:var(--accent-blue);color:#fff;}
-    .calendar-day.today {box-shadow:inset 0 0 0 1.5px var(--accent-blue);}
-    .calendar-day:disabled {cursor:default;color:var(--border);}
-    .calendar-info {text-align:center;font-size:12px;color:var(--text-muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light);}
-    .calendar-info span {display:inline-flex;align-items:center;gap:4px;}
-    .calendar-dot {width:6px;height:6px;border-radius:50%;background:var(--accent-blue);display:inline-block;}
-    @media(max-width:480px){.container{padding:16px 12px 32px;}.header-title{font-size:19px;}.card{padding:14px 16px;}.calendar-overlay{padding-top:100px;justify-content:center;padding-right:0;}.calendar-modal{padding:16px;}}
   </style>
 </head>
 <body>
   <div class="container">
-
-    <!-- Header -->
     <div class="header">
       <h1 class="header-title">三木AI 每日一刻钟</h1>
       <p class="header-sub">每天15分钟，读懂AI世界</p>
       <span class="header-date">2026年09月10日 星期四</span>
     </div>
-
-    <!-- Nav -->
-    <div class="nav-bar">
-      <div class="nav-brand">
-        <span class="nav-logo">🤖 三木AI</span>
-        <span class="nav-sub">每日一刻钟</span>
-      </div>
-      <div class="nav-center">
-        <button class="nav-btn" onclick="window.location.href='ai-daily-2026-09-09.html'">‹</button>
-        <span class="nav-date-text">2026-09-10</span>
-        <button class="nav-btn" disabled style="opacity:.3" href="#">›</button>
-      </div>
-      <div class="nav-right">
-        <button class="nav-calendar-btn" onclick="openCalendar()">📅 日历</button>
-      </div>
-    </div>
-
-    <!-- Calendar Modal -->
-    <div class="calendar-overlay" id="calOverlay" onclick="closeCalendar(event)">
-      <div class="calendar-modal" onclick="event.stopPropagation()">
-        <div class="calendar-header">
-          <span class="calendar-title">📅 选择日期</span>
-          <button class="calendar-close" onclick="closeCalendar()">&times;</button>
-        </div>
-        <div class="calendar-nav">
-          <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
-          <span class="calendar-nav-month" id="calMonth">2026年9月</span>
-          <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
-        </div>
-        <div class="calendar-grid">
-          <div class="calendar-weekday">日</div><div class="calendar-weekday">一</div><div class="calendar-weekday">二</div>
-          <div class="calendar-weekday">三</div><div class="calendar-weekday">四</div><div class="calendar-weekday">五</div><div class="calendar-weekday">六</div>
-        </div>
-        <div class="calendar-grid" id="calDays"></div>
-        <div class="calendar-info"><span><i class="calendar-dot"></i> 蓝色日期表示有简报</span></div>
-      </div>
-    </div>
-
-    <!-- Intro -->
+    
     <div class="intro">
-      <p class="intro-text">9月10日，AI 行业迎来密集发布日。苹果折叠屏 iPhone 与新一代 Siri AI 同台亮相，京东、智元、OpenAI、Meta 等技术巨头纷纷抛出 Agent、世界模型与自研芯片的新叙事。与此同时，最高法 24 条涉 AI 司法裁判规则落地，DeepSeek 启动科创板 IPO，资本与监管两条主线同步加速。</p>
+      <p class="intro-text">今日简报内容正在整理中，请稍后再试。</p>
     </div>
-
-    <!-- Quick Tips -->
-    <div class="quick-tips">
-      <div class="quick-tips-title">🔥 今日要点速览</div>
-      <ul class="quick-tips-list">
-        <li><strong>DeepSeek 启动科创板 IPO</strong>，估值约 5000 亿元，'杭州六小龙'资本化进程再进一步</li>
-        <li><strong>最高法发布首部涉 AI 司法裁判规则</strong>，24 条意见覆盖 AI 换脸拟声、幻觉侵权与大数据杀熟</li>
-        <li><strong>字节跳动获 296 亿美元贷款</strong>，主要投向境外 AI 数据中心，锁定全球算力交付能力</li>
-        <li><strong>OpenAI 牵手三星开发下一代芯片</strong>，ChatGPT 开发商从模型层向底层算力延伸</li>
-        <li><strong>Meta 发布个人 AI Agent Muse</strong>，可自主完成邮件、购票、预约等复杂任务</li>
-      </ul>
-    </div>
-
-    <!-- 技术前沿动态 -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-blue">⚡</div>
-        <span class="section-title">技术前沿动态</span>
-        <span class="section-count">3条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-blue">图像生成</span>
-          <h3 class="card-title">OpenAI 发布 ChatGPT Images 2.5：生成延迟最高降50%，支持手绘与局部编辑</h3>
-        </div>
-        <p class="card-summary">OpenAI 推出新一代图像生成模型 ChatGPT Images 2.5，重点提升图片细节质量、生成速度与编辑精度。新增 Sketch 手绘参考、创作模板与圈选局部编辑功能，可在多轮修改中保持人物与产品主体稳定。API 同步上线 Flare 与 Sunburst 两款模型，目前用户每周通过 ChatGPT 与 API 生成超30亿张图片。</p>
-        <div class="card-footer">
-          <span class="card-tag">#OpenAI</span><span class="card-tag">#图像生成</span><span class="card-tag">#ChatGPT</span>
-          <a class="card-link" href="https://www.sohu.com/a/1074000662_455313">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-blue">个人Agent</span>
-          <h3 class="card-title">Meta 发布个人 AI Agent Muse：可自主完成邮件、购票、预约等任务</h3>
-        </div>
-        <p class="card-summary">Meta 正式推出个人 AI Agent Muse，用户只需说出目标，它便能自行拆解任务、打开网页、填写表单并调用外部应用。首批面向美国用户开放 App、网页与 WhatsApp 端。每位用户拥有独立的 Muse Secure VM，关闭应用后仍可后台执行，Sentinel 系统负责审查敏感操作，并与 Stripe 合作生成一次性卡号。</p>
-        <div class="card-footer">
-          <span class="card-tag">#Meta</span><span class="card-tag">#AI Agent</span><span class="card-tag">#个人智能体</span>
-          <a class="card-link" href="https://www.sohu.com/a/1074000662_455313">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-blue">世界模型</span>
-          <h3 class="card-title">京东发布 JoyAI-Echo WM 世界模型，规划国产十万卡算力集群</h3>
-        </div>
-        <p class="card-summary">在 2026 京东全球科技探索者大会上，京东开源实时可交互世界模型 JoyAI-Echo WM，在 WBench Navigation 评测中以 81.6 分位列第一。京东还宣布规划建设国产十万卡算力集群，两年内累计采集超过 1000 万小时真实场景视频数据，并计划五年内采购 300 万台机器人，全面重仓物理 AI。</p>
-        <div class="card-footer">
-          <span class="card-tag">#京东</span><span class="card-tag">#世界模型</span><span class="card-tag">#物理AI</span>
-          <a class="card-link" href="https://www.163.com/dy/article/L6E3UITQ0512B07B.html">阅读原文 →</a>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- 国内外AI动态 -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-purple">🌍</div>
-        <span class="section-title">国内外AI动态</span>
-        <span class="section-count">4条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">产品发布</span>
-          <h3 class="card-title">苹果秋季发布会：首款折叠屏 iPhone Duo 亮相，Siri AI 全面升级</h3>
-        </div>
-        <p class="card-summary">北京时间 9 月 10 日凌晨，苹果发布首款折叠屏 iPhone Duo，采用 7.6 英寸内屏与 5.4 英寸外屏，搭载 A20 Pro 芯片，国行起售价 15999 元。同时 iOS/iPadOS 27 RC 推送，全新 Siri AI 具备上下文理解、App 操作与端侧个性化能力，正式版将于 9 月 15 日推出。</p>
-        <div class="card-footer">
-          <span class="card-tag">#苹果</span><span class="card-tag">#折叠屏</span><span class="card-tag">#Siri AI</span>
-          <a class="card-link" href="https://new.qq.com/rain/a/20260910A02T0W00">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">机器人</span>
-          <h3 class="card-title">智元发布 AGILE2.0 感控一体模型，人形机器人开始'边看边想边动'</h3>
-        </div>
-        <p class="card-summary">智元机器人发布 AGILE2.0（AGIBOT Generative Intelligent Locomotion Engine）感控一体模型，将人形机器人运动控制从分段式架构推向端到端感控一体。模型有望让机器人像人一样实现视觉、理解与动作同步，从根本上解决'所见非所动'的痛点，但真实产线的长期磨练仍不可少。</p>
-        <div class="card-footer">
-          <span class="card-tag">#智元机器人</span><span class="card-tag">#具身智能</span><span class="card-tag">#运动控制</span>
-          <a class="card-link" href="https://news.qq.com/rain/a/20260910A02RWS00">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">芯片合作</span>
-          <h3 class="card-title">OpenAI 牵手三星开发下一代芯片，向底层算力延伸</h3>
-        </div>
-        <p class="card-summary">OpenAI 韩国总经理 Harrison Kim 在首尔发布会上表示，OpenAI 与三星电子在下一代芯片的研发与联合生产方面取得最大进展。这意味着 ChatGPT 开发商正从模型层向底层算力延伸。不过从'取得进展'到真正量产仍隔着架构、流片、产能爬坡多道关卡，短期内更像战略卡位。</p>
-        <div class="card-footer">
-          <span class="card-tag">#OpenAI</span><span class="card-tag">#三星</span><span class="card-tag">#自研芯片</span>
-          <a class="card-link" href="https://news.qq.com/rain/a/20260910A02RWS00">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">人才动态</span>
-          <h3 class="card-title">OpenAI 前研究员田永龙入职腾讯，出任混元多模态负责人</h3>
-        </div>
-        <p class="card-summary">OpenAI 前研究员田永龙加入腾讯 CEO 办公室，出任混元多模态负责人，直接向腾讯首席 AI 科学家姚顺雨汇报。田永龙拥有清华、港中文、MIT 求学背景，曾任职谷歌、DeepMind、OpenAI，今年 7 月正式入职腾讯，主攻 VLM 视觉语言模型。</p>
-        <div class="card-footer">
-          <span class="card-tag">#腾讯</span><span class="card-tag">#混元</span><span class="card-tag">#多模态</span>
-          <a class="card-link" href="https://dy.163.com/article/L6E3POO20511CMF5.html">阅读原文 →</a>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- 投资与商业 -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-green">💰</div>
-        <span class="section-title">投资与商业</span>
-        <span class="section-count">3条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-green">IPO</span>
-          <h3 class="card-title">DeepSeek 筹备科创板 IPO，估值约 5000 亿元</h3>
-        </div>
-        <p class="card-summary">DeepSeek 已委托中信证券筹备科创板上市，目前双方已接洽并进入尽职调查阶段，但尚未签订正式上市辅导协议。公司 2026 年前 7 个月营收约 4.75 亿元，综合毛利率 44.6%，同期净亏损 7.15 亿元。市场分析人士认为，若以当前 5000 亿元估值为基础，上市后整体市值区间有望落在 1.5 万亿至 2.5 万亿元之间。</p>
-        <div class="card-footer">
-          <span class="card-tag">#DeepSeek</span><span class="card-tag">#IPO</span><span class="card-tag">#科创板</span>
-          <a class="card-link" href="https://www.163.com/dy/article/L6E3SIOL05561FZF.html">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-green">融资</span>
-          <h3 class="card-title">法国 Mistral AI 完成 30 亿欧元 D 轮融资，三星领投</h3>
-        </div>
-        <p class="card-summary">法国 AI 公司 Mistral AI 宣布完成 30 亿欧元 D 轮融资，投后估值升至 210 亿欧元，成为欧洲估值第二高的私营科技公司。本轮由三星电子、PSG Equity 与欧盟支持的 Scaleup Europe Fund 共同领投，资金将投向自建算力与前沿模型，目标 2030 年建成 1GW 欧洲本地数据中心。</p>
-        <div class="card-footer">
-          <span class="card-tag">#Mistral</span><span class="card-tag">#融资</span><span class="card-tag">#欧洲AI</span>
-          <a class="card-link" href="https://new.qq.com/rain/a/20260910A02T0W00">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-green">商业布局</span>
-          <h3 class="card-title">字节跳动获 296 亿美元贷款，布局全球 AI 数据中心</h3>
-        </div>
-        <p class="card-summary">字节跳动拿下 296 亿美元三年期无抵押贷款，参与银行近 30 家，借款规模较两年前扩大近三倍。约 60% 资金来自中资银行，主要投向境外 AI 数据中心与算力基础设施。作为东南亚多个在建数据中心承购方，字节意在抢先锁定全球交付能力，备战 AI 规模化全球竞争。</p>
-        <div class="card-footer">
-          <span class="card-tag">#字节跳动</span><span class="card-tag">#算力</span><span class="card-tag">#贷款</span>
-          <a class="card-link" href="https://new.qq.com/rain/a/20260910A02PVP00">阅读原文 →</a>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- 政策与行业生态 -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-orange">🏛️</div>
-        <span class="section-title">政策与行业生态</span>
-        <span class="section-count">3条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-orange">司法政策</span>
-          <h3 class="card-title">最高法发布涉 AI 司法裁判规则 24 条：AI 换脸拟声、幻觉侵权、大数据杀熟入规</h3>
-        </div>
-        <p class="card-summary">最高人民法院发布《关于依法审理涉人工智能纠纷案件的意见》，共 5 个部分 24 条，精准聚焦 AI 换脸拟声、AI 幻觉侵权、网络开盒、大数据杀熟、自动驾驶、AI 模型训练等热点问题，明确涉人工智能纠纷案件实体裁判和诉讼程序规则，释放坚持发展和安全并重的鲜明信号。</p>
-        <div class="card-footer">
-          <span class="card-tag">#最高法</span><span class="card-tag">#司法</span><span class="card-tag">#AI治理</span>
-          <a class="card-link" href="https://news.qq.com/rain/a/20260910A02UWO00">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-orange">国际博弈</span>
-          <h3 class="card-title">商务部回应美方 AI 蒸馏指控：科技霸权、算力垄断，中方坚决反对</h3>
-        </div>
-        <p class="card-summary">针对美国三机构联合公告指控中国 AI 企业从事'工业规模'蒸馏美模型，商务部新闻发言人表示，美方所谓指控于事无凭、于法无据，是将蒸馏这一业内正常的技术和商业问题政治化、工具化，是其在人工智能领域推行科技霸权、搞算力垄断、打压竞争的又一明证，中方对此坚决反对。</p>
-        <div class="card-footer">
-          <span class="card-tag">#商务部</span><span class="card-tag">#中美AI</span><span class="card-tag">#蒸馏</span>
-          <a class="card-link" href="https://new.qq.com/rain/a/20260910A02QPP00">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-orange">行业大会</span>
-          <h3 class="card-title">2026 外滩大会开幕：AI 开始有了真实的'体温'</h3>
-        </div>
-        <p class="card-summary">9 月 10 日，2026 Inclusion·外滩大会在上海黄浦世博园区开幕，主题为'共创 AI 新经济'。搭载蚂蚁灵波通用大脑的机器人在上海国大药房值夜班分拣药品，AI 眼镜'看一下'即可完成支付。大会发布的'AI 科技人文十问'直指效率、真实与人际关系等深层议题，展现 AI 从技术能力到经济价值的跨越。</p>
-        <div class="card-footer">
-          <span class="card-tag">#外滩大会</span><span class="card-tag">#蚂蚁集团</span><span class="card-tag">#AI新经济</span>
-          <a class="card-link" href="https://new.qq.com/rain/a/20260910A02T7800">阅读原文 →</a>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Editor Pick -->
-    <div class="editor-pick">
-      <div class="editor-pick-title">✍️ 编辑精选 · 深度观点</div>
-      <div class="editor-pick-content">
-<p>今天的 AI 行业呈现出一条清晰的主线：<strong>技术、资本与治理三线并进</strong>。</p>
-<p>技术层面，从京东的 JoyAI-Echo WM 世界模型到 Meta 的 Muse 个人 Agent，从 OpenAI 与三星的芯片合作到智元的感控一体模型，行业正在从'数字世界的理解与生成'加速跃迁到'物理世界的感知与行动'。</p>
-<p>资本层面，DeepSeek 筹备科创板 IPO、Mistral 完成 30 亿欧元融资、字节跳动 296 亿美元贷款布局全球算力，说明市场对 AI 基础设施与头部平台的信心仍在升温。</p>
-<p>治理层面，最高法 24 条司法裁判规则与商务部对美蒸馏指控的强硬回应，标志着 AI 竞争已进入规则博弈阶段。<strong>一句话总结：</strong>2026 年下半年的 AI 叙事，正在从'模型竞赛'转向'Agent 落地 + 物理 AI + 全球规则'的三重奏。</p>
-      </div>
-    </div>
-
-    <!-- Footer -->
+    
     <div class="footer">
       <p class="footer-text"><span class="footer-brand">三木AI 每日一刻钟</span> · 每天15分钟，读懂AI世界</p>
-      <p class="footer-text">2026年09月10日 星期四 · 共收录资讯13条</p>
+      <p class="footer-text">2026年09月10日 星期四</p>
     </div>
   </div>
-  <script>
-  (function() {
-    var availableDates = [];
-    var calYear = 2026, calMonth = 8;
-
-    fetch('manifest.json?t=' + Date.now())
-      .then(function(r){return r.json();})
-      .then(function(data){
-        availableDates = data.dates || [];
-        renderCalendar();
-      })
-      .catch(function(){
-        availableDates = ['2026-09-10'];
-        renderCalendar();
-      });
-
-    window.openCalendar = function() {
-      document.getElementById('calOverlay').classList.add('active');
-      renderCalendar();
-    };
-    window.closeCalendar = function(e) {
-      if (!e || e.target.id === 'calOverlay') {
-        document.getElementById('calOverlay').classList.remove('active');
-      }
-    };
-    window.changeMonth = function(delta) {
-      calMonth += delta;
-      if (calMonth > 11) { calMonth = 0; calYear++; }
-      if (calMonth < 0) { calMonth = 11; calYear--; }
-      renderCalendar();
-    };
-    window.goToDate = function(dateStr) {
-      if (dateStr === '2026-09-10') {
-        window.location.href = 'index.html';
-      } else {
-        window.location.href = 'ai-daily-' + dateStr + '.html';
-      }
-    };
-
-    function renderCalendar() {
-      var monthNames = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
-      document.getElementById('calMonth').textContent = calYear + '年' + monthNames[calMonth];
-      var firstDay = new Date(calYear, calMonth, 1).getDay();
-      var daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
-      var prevDays = new Date(calYear, calMonth, 0).getDate();
-      var html = '';
-      for (var i = firstDay - 1; i >= 0; i--) {
-        html += '<button class="calendar-day other-month" disabled>' + (prevDays - i) + '</button>';
-      }
-      for (var d = 1; d <= daysInMonth; d++) {
-        var ds = calYear + '-' + String(calMonth + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
-        var cls = 'calendar-day';
-        var isAvail = availableDates.indexOf(ds) !== -1;
-        var isToday = ds === '2026-09-10';
-        if (isAvail) cls += ' available';
-        if (isToday) cls += ' today';
-        if (isAvail) {
-          html += '<button class="' + cls + '" onclick="goToDate('' + ds + '')">' + d + '</button>';
-        } else {
-          html += '<button class="' + cls + '" disabled>' + d + '</button>';
-        }
-      }
-      var totalCells = firstDay + daysInMonth;
-      var nextPadding = (7 - (totalCells % 7)) % 7;
-      for (var j = 1; j <= nextPadding; j++) {
-        html += '<button class="calendar-day other-month" disabled>' + j + '</button>';
-      }
-      document.getElementById('calDays').innerHTML = html;
-    }
-  })();
-  </script>
-
 </body>
 </html>
