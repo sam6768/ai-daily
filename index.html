@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>三木AI 每日一刻钟 | 2026-09-24</title>
+  <title>三木AI 每日一刻钟 | 2026-09-25</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {--bg:#f5f7fa;--card-bg:#ffffff;--text-primary:#1a1a2e;--text-secondary:#5a5a7a;--text-muted:#8a8aa0;--accent-blue:#2563eb;--accent-blue-light:#dbeafe;--accent-purple:#7c3aed;--accent-purple-light:#ede9fe;--accent-teal:#0d9488;--accent-teal-light:#ccfbf1;--accent-orange:#ea580c;--accent-orange-light:#ffedd5;--accent-green:#16a34a;--accent-green-light:#dcfce7;--border:#e2e8f0;--border-light:#f1f5f9;--radius:12px;--radius-sm:8px;--shadow:0 1px 3px rgba(0,0,0,0.04),0 4px 12px rgba(0,0,0,0.03);}
@@ -14,6 +14,17 @@
     .header-title {font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:1px;}
     .header-sub {font-size:13px;color:var(--text-muted);margin-top:4px;}
     .header-date {display:inline-block;margin-top:12px;padding:4px 16px;background:var(--accent-blue-light);color:var(--accent-blue);border-radius:20px;font-size:13px;font-weight:500;}
+    .nav-bar {background:var(--card-bg);border-radius:var(--radius);padding:10px 20px;margin-bottom:24px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);}
+    .nav-brand {display:flex;align-items:center;gap:8px;}
+    .nav-logo {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .nav-sub {font-size:11px;color:var(--text-muted);}
+    .nav-center {display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);}
+    .nav-btn {cursor:pointer;background:none;border:none;padding:4px 8px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+    .nav-btn:hover{color:var(--accent-blue);background:var(--accent-blue-light);}
+    .nav-date-text{font-weight:500;color:var(--text-primary);}
+    .nav-right {display:flex;align-items:center;gap:8px;}
+    .nav-calendar-btn {cursor:pointer;display:flex;align-items:center;gap:4px;padding:5px 12px;border-radius:8px;font-size:13px;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;font-weight:500;transition:.2s;}
+    .nav-calendar-btn:hover{opacity:.9;}
     .intro {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow);border:1px solid var(--border);}
     .intro-text {font-size:14px;color:var(--text-secondary);line-height:1.8;}
     .quick-tips {background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;color:white;box-shadow:var(--shadow);}
@@ -38,36 +49,418 @@
     .badge-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .badge-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .badge-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+    .badge-green {background:var(--accent-green-light);color:var(--accent-green);}
     .icon-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
     .icon-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .icon-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .icon-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+    .icon-green {background:var(--accent-green-light);color:var(--accent-green);}
     .editor-pick {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);border:1px solid var(--border);border-left:3px solid var(--accent-orange);}
-    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;}
+    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
     .editor-pick-content {font-size:13px;color:var(--text-secondary);line-height:1.8;}
     .editor-pick-content p {margin-bottom:8px;}
     .editor-pick-content strong {color:var(--text-primary);font-weight:600;}
     .footer {text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
     .footer-text {font-size:12px;color:var(--text-muted);}
     .footer-brand {font-weight:600;color:var(--text-secondary);}
+    .calendar-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:999;display:none;align-items:flex-start;justify-content:flex-end;padding-top:110px;padding-right:16px;}
+    .calendar-overlay.active {display:flex;}
+    .calendar-modal {background:var(--card-bg);border-radius:var(--radius);width:92%;max-width:360px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);animation:calIn .25s ease-out;}
+    @keyframes calIn {from{opacity:0;transform:translateY(20px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);}}
+    .calendar-header {display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+    .calendar-title {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .calendar-close {cursor:pointer;background:none;border:none;padding:4px;border-radius:6px;font-size:18px;color:var(--text-muted);transition:.2s;line-height:1;}
+    .calendar-close:hover {background:var(--border-light);color:var(--text-primary);}
+    .calendar-nav {display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px;}
+    .calendar-nav-btn {cursor:pointer;background:none;border:none;padding:4px 10px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+    .calendar-nav-btn:hover{background:var(--accent-blue-light);color:var(--accent-blue);}
+    .calendar-nav-month {font-size:14px;font-weight:600;color:var(--text-primary);min-width:100px;text-align:center;}
+    .calendar-grid {display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;}
+    .calendar-weekday {text-align:center;font-size:11px;color:var(--text-muted);padding:6px 0;font-weight:500;}
+    .calendar-day {aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:13px;cursor:pointer;transition:.15s;border:none;background:none;color:var(--text-primary);position:relative;}
+    .calendar-day:hover:not(:disabled) {background:var(--accent-blue-light);color:var(--accent-blue);}
+    .calendar-day.other-month {color:var(--text-muted);opacity:.5;}
+    .calendar-day.available {font-weight:600;color:var(--accent-blue);background:var(--accent-blue-light);}
+    .calendar-day.available:hover {background:var(--accent-blue);color:#fff;}
+    .calendar-day.today {box-shadow:inset 0 0 0 1.5px var(--accent-blue);}
+    .calendar-day:disabled {cursor:default;color:var(--border);}
+    .calendar-info {text-align:center;font-size:12px;color:var(--text-muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light);}
+    .calendar-info span {display:inline-flex;align-items:center;gap:4px;}
+    .calendar-dot {width:6px;height:6px;border-radius:50%;background:var(--accent-blue);display:inline-block;}
+    @media(max-width:480px){.container{padding:16px 12px 32px;}.header-title{font-size:19px;}.card{padding:14px 16px;}.calendar-overlay{padding-top:100px;justify-content:center;padding-right:0;}.calendar-modal{padding:16px;}}
   </style>
 </head>
 <body>
   <div class="container">
+
+    <!-- Header -->
     <div class="header">
       <h1 class="header-title">三木AI 每日一刻钟</h1>
       <p class="header-sub">每天15分钟，读懂AI世界</p>
-      <span class="header-date">2026年09月24日 星期四</span>
+      <span class="header-date">2026年09月25日 星期五</span>
     </div>
-    
+
+    <!-- Nav -->
+    <div class="nav-bar">
+      <div class="nav-brand">
+        <span class="nav-logo">🤖 三木AI</span>
+        <span class="nav-sub">每日一刻钟</span>
+      </div>
+      <div class="nav-center">
+        <button class="nav-btn" onclick="window.location.href='ai-daily-2026-09-24.html'">‹</button>
+        <span class="nav-date-text">2026-09-25</span>
+        <button class="nav-btn" disabled style="opacity:.3">›</button>
+      </div>
+      <div class="nav-right">
+        <button class="nav-calendar-btn" onclick="openCalendar()">📅 日历</button>
+      </div>
+    </div>
+
+    <!-- Calendar Modal -->
+    <div class="calendar-overlay" id="calOverlay" onclick="closeCalendar(event)">
+      <div class="calendar-modal" onclick="event.stopPropagation()">
+        <div class="calendar-header">
+          <span class="calendar-title">📅 选择日期</span>
+          <button class="calendar-close" onclick="closeCalendar()">&times;</button>
+        </div>
+        <div class="calendar-nav">
+          <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
+          <span class="calendar-nav-month" id="calMonth">2026年9月</span>
+          <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
+        </div>
+        <div class="calendar-grid">
+          <div class="calendar-weekday">日</div><div class="calendar-weekday">一</div><div class="calendar-weekday">二</div>
+          <div class="calendar-weekday">三</div><div class="calendar-weekday">四</div><div class="calendar-weekday">五</div><div class="calendar-weekday">六</div>
+        </div>
+        <div class="calendar-grid" id="calDays"></div>
+        <div class="calendar-info"><span><i class="calendar-dot"></i> 蓝色日期表示有简报</span></div>
+      </div>
+    </div>
+
+    <!-- Intro -->
     <div class="intro">
-      <p class="intro-text">今日简报内容正在整理中，请稍后再试。</p>
+      <p class="intro-text">
+        今日AI行业呈现<strong>"生态卡位日"</strong>特征：高通40亿美元收购Modular，宣告芯片竞争正式转向软件生态；OpenAI Aeon与Meta Muse Charm在<strong>个人AI入口</strong>上短兵相接；三大前沿实验室绕开停滞的政府谈判，自建安全标准组织。与此同时，30年期美债收益率创2004年以来新高，AI板块却走出分化行情——市场开始只为"有落地故事"的AI公司买单。
+      </p>
     </div>
-    
+
+    <!-- Quick Tips -->
+    <div class="quick-tips">
+      <div class="quick-tips-title">🔥 今日要点速览</div>
+      <ul class="quick-tips-list">
+        <li><strong>OpenAI Aeon 代码曝光</strong>，最快9月29日发布，与 Meta Muse 正面争夺个人AI入口</li>
+        <li><strong>高通约40亿美元收购 Modular</strong>，AI竞争从拼芯片转向拼软件生态，Mojo 将原生支持 Win11</li>
+        <li>谷歌、OpenAI、Anthropic 推动<strong>"前沿AI标准局"（SAFA）</strong>行业自律组织，最早年底启动</li>
+        <li>美股顶住美债风暴：<strong>Meta 大涨4.5%发布掌上AI设备 Muse Charm</strong>，英特尔联手阿里云攻坚 Agent 云端浏览器</li>
+        <li>IFR报告：<strong>中国工业机器人年装机35.4万台、占全球59%</strong>创新高，"物理AI"成产业新方向</li>
+      </ul>
+    </div>
+
+    <!-- Section 1: 技术前沿 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-blue">⚡</div>
+        <span class="section-title">技术前沿动态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">架构创新</span>
+          <h3 class="card-title">小米公开 MiMo-V3 核心架构 HySparse2：专为长程多轮 Agent 优化</h3>
+        </div>
+        <p class="card-summary">小米正式公开 MiMo-V3 大模型核心架构 HySparse2，通过稀疏激活机制与路径优化，在多轮对话、工具调用与复杂任务编排场景下显著降低推理耗时与算力消耗，同时保持长上下文稳定性。这是小米继登顶开源模型榜后，在大模型架构层面的又一核心技术突破。</p>
+        <div class="card-footer">
+          <span class="card-tag">#小米</span>
+          <span class="card-tag">#MiMo-V3</span>
+          <span class="card-tag">#Agent</span>
+          <a class="card-link" href="https://www.163.com/dy/article/L7KORVJ005569XIR.html">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">多模态</span>
+          <h3 class="card-title">谷歌 Gemini 3.8 Live"数字人"上线：97种语言实时唇形同步</h3>
+        </div>
+        <p class="card-summary">谷歌云 Gemini 3.8 Live with Live Avatar 正式面向企业开放，支持实时唇形同步、97种语言自动切换与后台异步工具调用，所有生成音视频均嵌入 SynthID 水印。数字人实时对话从演示走向规模商用，客服、直播、培训等场景迎来新解法。</p>
+        <div class="card-footer">
+          <span class="card-tag">#谷歌</span>
+          <span class="card-tag">#Gemini</span>
+          <span class="card-tag">#数字人</span>
+          <a class="card-link" href="https://news.qq.com/rain/a/20260925A02NWA00">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">芯片生态</span>
+          <h3 class="card-title">高通约40亿美元收购 Modular：AI竞争从拼芯片转向拼软件栈</h3>
+        </div>
+        <p class="card-summary">高通在骁龙峰会宣布完成对AI软件公司 Modular 的收购（估值约40亿美元），目标是让同一套AI软件在GPU、NPU等不同芯片上运行。其编程语言 Mojo 语法接近Python且已开源，并将获得 Windows 原生支持。若统一软件栈走通，端侧AI的竞争格局或被重塑。</p>
+        <div class="card-footer">
+          <span class="card-tag">#高通</span>
+          <span class="card-tag">#Modular</span>
+          <span class="card-tag">#Mojo</span>
+          <a class="card-link" href="https://www.163.com/dy/article/L7LFHEAR051288FS.html">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: 国内外AI动态 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-purple">🌍</div>
+        <span class="section-title">国内外AI动态</span>
+        <span class="section-count">4条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">智能体</span>
+          <h3 class="card-title">OpenAI Aeon 代码曝光：9月29日前发布，正面迎战 Meta Muse</h3>
+        </div>
+        <p class="card-summary">OpenAI 个人智能体 Aeon 的代码线索在客户端提前曝光，定位可持续运行的桌面级个人AI助手，主打系统级桌面自动化与跨应用多步骤任务执行，可后台持续处理日程管理、信息整理、流程协同等个人事务，预计最快 9 月 29 日 DevDay 前发布。</p>
+        <div class="card-footer">
+          <span class="card-tag">#OpenAI</span>
+          <span class="card-tag">#Aeon</span>
+          <span class="card-tag">#MetaMuse</span>
+          <a class="card-link" href="https://www.163.com/dy/article/L7KORVJ005569XIR.html">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">观点交锋</span>
+          <h3 class="card-title">黄仁勋驳"AI末日论"：安全问题可以靠工程解决</h3>
+        </div>
+        <p class="card-summary">黄仁勋在访谈中表示，AI本质是"被赋予目标函数的软件和算法"，安全与对齐完全可以通过隔离、沙盒化等工程手段解决；他批评部分公司一边声称技术"强大到无法控制"、一边寻求监管或反垄断豁免，并透露英伟达将 80% 研发资源投入验证，认为AI实验室应逐步翻转这一比例。</p>
+        <div class="card-footer">
+          <span class="card-tag">#英伟达</span>
+          <span class="card-tag">#黄仁勋</span>
+          <span class="card-tag">#AI安全</span>
+          <a class="card-link" href="https://news.qq.com/rain/a/20260925A02NWA00">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">机器人产业</span>
+          <h3 class="card-title">IFR《2026世界机器人报告》：中国装机量占全球59%创历史新高</h3>
+        </div>
+        <p class="card-summary">国际机器人联合会发布年度报告：2025年中国工业机器人安装量达35.4万台、约占全球59%，保持全球最大市场。秘书长比勒表示，中国正从市场规模扩张转向技术创新与产业升级协同，机器人正成为AI进入真实生产环境的重要载体，"物理AI"有望成为产业新方向。</p>
+        <div class="card-footer">
+          <span class="card-tag">#IFR</span>
+          <span class="card-tag">#工业机器人</span>
+          <span class="card-tag">#物理AI</span>
+          <a class="card-link" href="https://so.html5.qq.com/page/real/search_news?docid=70000021_9626ab5b6c748352">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">产业协同</span>
+          <h3 class="card-title">中国具身智能 Tier1 产业联盟成立：20余家企业共建产业底座</h3>
+        </div>
+        <p class="card-summary">由珞石机器人、灵心巧手、星源智等20余家产业链核心企业组成的"中国具身智能Tier1产业联盟"正式成立，汇聚机械臂、灵巧手、算力、视觉等关键环节，旨在通过产业链协同加速具身智能从单点创新走向系统化落地。产业竞争重心正从单点技术突破转向开放协同的基础设施构建。</p>
+        <div class="card-footer">
+          <span class="card-tag">#具身智能</span>
+          <span class="card-tag">#产业联盟</span>
+          <span class="card-tag">#珞石机器人</span>
+          <a class="card-link" href="https://www.163.com/dy/article/L7LFDFGR05568W0A.html">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: 投资与商业 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-green">💰</div>
+        <span class="section-title">投资与商业</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">美股</span>
+          <h3 class="card-title">美股顶住美债风暴：Meta大涨4.5%创新高，纳指微涨</h3>
+        </div>
+        <p class="card-summary">美东时间周四美股三大指数涨跌不一：道指跌0.31%、标普跌0.02%、纳指涨0.01%。30年期美债收益率盘中升至5.502%创2004年以来新高，货币市场已完全定价未来一年加息三次。Meta大涨4.5%创去年9月以来新高——公司发布掌上AI设备 Muse Charm，资金正向"有AI落地故事"的个股集中。</p>
+        <div class="card-footer">
+          <span class="card-tag">#美股</span>
+          <span class="card-tag">#Meta</span>
+          <span class="card-tag">#美债</span>
+          <a class="card-link" href="https://www.toutiao.com/article/7689221122683961891/">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">企业合作</span>
+          <h3 class="card-title">英特尔联手阿里云攻坚海量 Agent 云端浏览器，股价创7个月新高</h3>
+        </div>
+        <p class="card-summary">英特尔宣布与阿里云围绕面向海量Agent的轻量级云端浏览器开展合作，股价上涨近4%创7月份以来收盘新高；同日云计算服务商 Nebius 涨超7%、CoreWeave 涨超3%，AI算力服务板块集体走强，"Agent基础设施"成为资本市场新叙事。</p>
+        <div class="card-footer">
+          <span class="card-tag">#英特尔</span>
+          <span class="card-tag">#阿里云</span>
+          <span class="card-tag">#Agent</span>
+          <a class="card-link" href="https://www.163.com/dy/article/L7L5TUUP05198CJN.html">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">融资</span>
+          <h3 class="card-title">大虎智源完成数千万元Pre-A轮：AI复刻非遗美食的餐饮机器人</h3>
+        </div>
+        <p class="card-summary">北京大虎智源宣布完成数千万元Pre-A轮融资，老鹰基金追资。公司通过机器视觉、智能感知与自适应温控算法，将煎饼果子、非遗面条、中式炒菜等手工工艺转化为可精准复刻的AI程序，打造全流程无人化的智能餐饮机器人矩阵，已适配景区、商圈、校园等多元场景。</p>
+        <div class="card-footer">
+          <span class="card-tag">#融资</span>
+          <span class="card-tag">#餐饮机器人</span>
+          <span class="card-tag">#具身智能</span>
+          <a class="card-link" href="#">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4: 政策与行业生态 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-orange">🏛️</div>
+        <span class="section-title">政策与行业生态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">行业自律</span>
+          <h3 class="card-title">谷歌、OpenAI、Anthropic 推进成立"前沿AI标准局"（SAFA）</h3>
+        </div>
+        <p class="card-summary">据 The Information 援引知情人士，三大实验室正推动成立行业自律组织"前沿AI标准局"（SAFA），计划今年底或2027年初落地，为最先进AI模型制定统一安全与安保标准，职能涵盖部署前第三方测试与事故报告规范——此前三家公司寻求与美政府共建监管框架的努力已陷入停滞。</p>
+        <div class="card-footer">
+          <span class="card-tag">#SAFA</span>
+          <span class="card-tag">#AI安全</span>
+          <span class="card-tag">#行业自律</span>
+          <a class="card-link" href="https://news.qq.com/rain/a/20260925A02NWA00">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">AI医疗</span>
+          <h3 class="card-title">FDA专家委员会7:2支持 GRAIL 多癌早筛：一管血查50余种癌症</h3>
+        </div>
+        <p class="card-summary">美国FDA专家委员会以7:2投票认定 GRAIL 的 Galleri 多癌种早筛产品获益超过风险。该产品可通过一管血筛查50余种癌症，特异性达99.85%、阳性预测值约77%。AI辅助筛查时代的监管放行信号已经出现，早筛商业化进程有望加速。</p>
+        <div class="card-footer">
+          <span class="card-tag">#FDA</span>
+          <span class="card-tag">#GRAIL</span>
+          <span class="card-tag">#AI医疗</span>
+          <a class="card-link" href="https://news.qq.com/rain/a/20260925A02NWA00">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">政策规划</span>
+          <h3 class="card-title">上海"十五五"战新产业规划：攻坚灵巧手与端到端大模型</h3>
+        </div>
+        <p class="card-summary">上海市人民政府办公厅印发《上海市战略性新兴产业发展"十五五"规划》，提出推动智能机器人能力提升与应用深化，重点攻克高精度多模态传感器、关节模组及高精密灵巧手等关键技术，布局端到端大模型，加快开发多形态通用智能机器人等标志性产品。</p>
+        <div class="card-footer">
+          <span class="card-tag">#上海</span>
+          <span class="card-tag">#十五五</span>
+          <span class="card-tag">#智能机器人</span>
+          <a class="card-link" href="#">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Editor Pick -->
+    <div class="editor-pick">
+      <div class="editor-pick-title">✍️ 编辑精选 · 深度观点</div>
+      <div class="editor-pick-content">
+        <p>今天的行业叙事可以概括为<strong>"卡位"</strong>二字。高通花40亿美元收购Modular，买的不只是一家公司，而是<strong>"一套软件栈通吃所有设备"的生态入场券</strong>——当芯片性能趋同，胜负手正转向开发体验。同期，OpenAI Aeon与Meta Muse Charm在个人AI入口上贴身肉搏，从云端模型打到掌上设备，巨头都在抢"离用户最近"的那个位置。</p>
+        <p>更有意思的是治理层面：政府间框架停滞之后，三大实验室干脆自建SAFA，<strong>自律成了通往监管的先手棋</strong>。而在美债收益率创22年新高的背景下，AI股明显分化——市场不再为概念买单，只为"能落地"的公司付费。</p>
+        <p><strong>一句话总结：</strong>AI下半场的竞争，拼的不再是单一模型，而是生态、入口与标准的三重卡位。</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
     <div class="footer">
       <p class="footer-text"><span class="footer-brand">三木AI 每日一刻钟</span> · 每天15分钟，读懂AI世界</p>
-      <p class="footer-text">2026年09月24日 星期四</p>
+      <p class="footer-text">2026年09月25日 星期五</p>
     </div>
   </div>
+  <script>
+  (function() {
+    var availableDates = [];
+    var calYear = 2026, calMonth = 8;
+
+    fetch('manifest.json?t=' + Date.now())
+      .then(function(r){return r.json();})
+      .then(function(data){
+        availableDates = data.dates || [];
+        renderCalendar();
+      })
+      .catch(function(){
+        availableDates = ['2026-09-25'];
+        renderCalendar();
+      });
+
+    window.openCalendar = function() {
+      document.getElementById('calOverlay').classList.add('active');
+      renderCalendar();
+    };
+    window.closeCalendar = function(e) {
+      if (!e || e.target.id === 'calOverlay') {
+        document.getElementById('calOverlay').classList.remove('active');
+      }
+    };
+    window.changeMonth = function(delta) {
+      calMonth += delta;
+      if (calMonth > 11) { calMonth = 0; calYear++; }
+      if (calMonth < 0) { calMonth = 11; calYear--; }
+      renderCalendar();
+    };
+    window.goToDate = function(dateStr) {
+      if (dateStr === '2026-09-25') {
+        window.location.href = 'index.html';
+      } else {
+        window.location.href = 'ai-daily-' + dateStr + '.html';
+      }
+    };
+
+    function renderCalendar() {
+      var monthNames = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+      document.getElementById('calMonth').textContent = calYear + '年' + monthNames[calMonth];
+      var firstDay = new Date(calYear, calMonth, 1).getDay();
+      var daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+      var prevDays = new Date(calYear, calMonth, 0).getDate();
+      var html = '';
+      for (var i = firstDay - 1; i >= 0; i--) {
+        html += '<button class="calendar-day other-month" disabled>' + (prevDays - i) + '</button>';
+      }
+      for (var d = 1; d <= daysInMonth; d++) {
+        var ds = calYear + '-' + String(calMonth + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+        var cls = 'calendar-day';
+        var isAvail = availableDates.indexOf(ds) !== -1;
+        var isToday = ds === '2026-09-25';
+        if (isAvail) cls += ' available';
+        if (isToday) cls += ' today';
+        if (isAvail) {
+          html += '<button class="' + cls + '" onclick="goToDate(\'' + ds + '\')">' + d + '</button>';
+        } else {
+          html += '<button class="' + cls + '" disabled>' + d + '</button>';
+        }
+      }
+      var totalCells = firstDay + daysInMonth;
+      var nextPadding = (7 - (totalCells % 7)) % 7;
+      for (var j = 1; j <= nextPadding; j++) {
+        html += '<button class="calendar-day other-month" disabled>' + j + '</button>';
+      }
+      document.getElementById('calDays').innerHTML = html;
+    }
+  })();
+  </script>
+
 </body>
 </html>
