@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>三木AI 每日一刻钟 | 2026-09-25</title>
+  <title>三木AI 每日一刻钟 | 2026-09-26</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {--bg:#f5f7fa;--card-bg:#ffffff;--text-primary:#1a1a2e;--text-secondary:#5a5a7a;--text-muted:#8a8aa0;--accent-blue:#2563eb;--accent-blue-light:#dbeafe;--accent-purple:#7c3aed;--accent-purple-light:#ede9fe;--accent-teal:#0d9488;--accent-teal-light:#ccfbf1;--accent-orange:#ea580c;--accent-orange-light:#ffedd5;--accent-green:#16a34a;--accent-green-light:#dcfce7;--border:#e2e8f0;--border-light:#f1f5f9;--radius:12px;--radius-sm:8px;--shadow:0 1px 3px rgba(0,0,0,0.04),0 4px 12px rgba(0,0,0,0.03);}
@@ -14,6 +14,17 @@
     .header-title {font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:1px;}
     .header-sub {font-size:13px;color:var(--text-muted);margin-top:4px;}
     .header-date {display:inline-block;margin-top:12px;padding:4px 16px;background:var(--accent-blue-light);color:var(--accent-blue);border-radius:20px;font-size:13px;font-weight:500;}
+    .nav-bar {background:var(--card-bg);border-radius:var(--radius);padding:10px 20px;margin-bottom:24px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);}
+    .nav-brand {display:flex;align-items:center;gap:8px;}
+    .nav-logo {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .nav-sub {font-size:11px;color:var(--text-muted);}
+    .nav-center {display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);}
+    .nav-btn {cursor:pointer;background:none;border:none;padding:4px 8px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+    .nav-btn:hover{color:var(--accent-blue);background:var(--accent-blue-light);}
+    .nav-date-text{font-weight:500;color:var(--text-primary);}
+    .nav-right {display:flex;align-items:center;gap:8px;}
+    .nav-calendar-btn {cursor:pointer;display:flex;align-items:center;gap:4px;padding:5px 12px;border-radius:8px;font-size:13px;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;font-weight:500;transition:.2s;}
+    .nav-calendar-btn:hover{opacity:.9;}
     .intro {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow);border:1px solid var(--border);}
     .intro-text {font-size:14px;color:var(--text-secondary);line-height:1.8;}
     .quick-tips {background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;color:white;box-shadow:var(--shadow);}
@@ -38,36 +49,418 @@
     .badge-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .badge-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .badge-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+    .badge-green {background:var(--accent-green-light);color:var(--accent-green);}
     .icon-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
     .icon-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .icon-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .icon-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+    .icon-green {background:var(--accent-green-light);color:var(--accent-green);}
     .editor-pick {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);border:1px solid var(--border);border-left:3px solid var(--accent-orange);}
-    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;}
+    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
     .editor-pick-content {font-size:13px;color:var(--text-secondary);line-height:1.8;}
     .editor-pick-content p {margin-bottom:8px;}
     .editor-pick-content strong {color:var(--text-primary);font-weight:600;}
     .footer {text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
     .footer-text {font-size:12px;color:var(--text-muted);}
     .footer-brand {font-weight:600;color:var(--text-secondary);}
+    .calendar-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:999;display:none;align-items:flex-start;justify-content:flex-end;padding-top:110px;padding-right:16px;}
+    .calendar-overlay.active {display:flex;}
+    .calendar-modal {background:var(--card-bg);border-radius:var(--radius);width:92%;max-width:360px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);animation:calIn .25s ease-out;}
+    @keyframes calIn {from{opacity:0;transform:translateY(20px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);}}
+    .calendar-header {display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+    .calendar-title {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .calendar-close {cursor:pointer;background:none;border:none;padding:4px;border-radius:6px;font-size:18px;color:var(--text-muted);transition:.2s;line-height:1;}
+    .calendar-close:hover {background:var(--border-light);color:var(--text-primary);}
+    .calendar-nav {display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px;}
+    .calendar-nav-btn {cursor:pointer;background:none;border:none;padding:4px 10px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+    .calendar-nav-btn:hover{background:var(--accent-blue-light);color:var(--accent-blue);}
+    .calendar-nav-month {font-size:14px;font-weight:600;color:var(--text-primary);min-width:100px;text-align:center;}
+    .calendar-grid {display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;}
+    .calendar-weekday {text-align:center;font-size:11px;color:var(--text-muted);padding:6px 0;font-weight:500;}
+    .calendar-day {aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:13px;cursor:pointer;transition:.15s;border:none;background:none;color:var(--text-primary);position:relative;}
+    .calendar-day:hover:not(:disabled) {background:var(--accent-blue-light);color:var(--accent-blue);}
+    .calendar-day.other-month {color:var(--text-muted);opacity:.5;}
+    .calendar-day.available {font-weight:600;color:var(--accent-blue);background:var(--accent-blue-light);}
+    .calendar-day.available:hover {background:var(--accent-blue);color:#fff;}
+    .calendar-day.today {box-shadow:inset 0 0 0 1.5px var(--accent-blue);}
+    .calendar-day:disabled {cursor:default;color:var(--border);}
+    .calendar-info {text-align:center;font-size:12px;color:var(--text-muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light);}
+    .calendar-info span {display:inline-flex;align-items:center;gap:4px;}
+    .calendar-dot {width:6px;height:6px;border-radius:50%;background:var(--accent-blue);display:inline-block;}
+    @media(max-width:480px){.container{padding:16px 12px 32px;}.header-title{font-size:19px;}.card{padding:14px 16px;}.calendar-overlay{padding-top:100px;justify-content:center;padding-right:0;}.calendar-modal{padding:16px;}}
   </style>
 </head>
 <body>
   <div class="container">
+
+    <!-- Header -->
     <div class="header">
       <h1 class="header-title">三木AI 每日一刻钟</h1>
       <p class="header-sub">每天15分钟，读懂AI世界</p>
-      <span class="header-date">2026年09月25日 星期五</span>
+      <span class="header-date">2026年09月26日 星期六</span>
     </div>
-    
+
+    <!-- Nav -->
+    <div class="nav-bar">
+      <div class="nav-brand">
+        <span class="nav-logo">🤖 三木AI</span>
+        <span class="nav-sub">每日一刻钟</span>
+      </div>
+      <div class="nav-center">
+        <button class="nav-btn" onclick="window.location.href='ai-daily-2026-09-25.html'">‹</button>
+        <span class="nav-date-text">2026-09-26</span>
+        <button class="nav-btn" disabled style="opacity:.3">›</button>
+      </div>
+      <div class="nav-right">
+        <button class="nav-calendar-btn" onclick="openCalendar()">📅 日历</button>
+      </div>
+    </div>
+
+    <!-- Calendar Modal -->
+    <div class="calendar-overlay" id="calOverlay" onclick="closeCalendar(event)">
+      <div class="calendar-modal" onclick="event.stopPropagation()">
+        <div class="calendar-header">
+          <span class="calendar-title">📅 选择日期</span>
+          <button class="calendar-close" onclick="closeCalendar()">&times;</button>
+        </div>
+        <div class="calendar-nav">
+          <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
+          <span class="calendar-nav-month" id="calMonth">2026年9月</span>
+          <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
+        </div>
+        <div class="calendar-grid">
+          <div class="calendar-weekday">日</div><div class="calendar-weekday">一</div><div class="calendar-weekday">二</div>
+          <div class="calendar-weekday">三</div><div class="calendar-weekday">四</div><div class="calendar-weekday">五</div><div class="calendar-weekday">六</div>
+        </div>
+        <div class="calendar-grid" id="calDays"></div>
+        <div class="calendar-info"><span><i class="calendar-dot"></i> 蓝色日期表示有简报</span></div>
+      </div>
+    </div>
+
+    <!-- Intro -->
     <div class="intro">
-      <p class="intro-text">今日简报内容正在整理中，请稍后再试。</p>
+      <p class="intro-text">
+        今日AI行业呈现<strong>"收敛与对冲"</strong>特征：产品端，腾讯QClaw官宣停运、阿里字节百度同步收拢智能体阵线，靠热度起飞的AI入口开始退潮；资本端，Anthropic把11个月算力合同推过<strong>5000亿美元</strong>，高盛测算五大巨头今年AI基建支出达8000亿美元；治理端，盖茨"10亿人死亡"警告与上诉法院维持五角大楼列名同日出现，AI安全议题从舆论走向程序。与此同时，微软把Copilot升级为"工作的操作系统"，Claude则在理论物理里替人类破了纪录。
+      </p>
     </div>
-    
+
+    <!-- Quick Tips -->
+    <div class="quick-tips">
+      <div class="quick-tips-title">🔥 今日要点速览</div>
+      <ul class="quick-tips-list">
+        <li><strong>微软史上最大Copilot更新</strong>：Autopilot云端长时智能体上线并转向按用量计费，纳德拉称其"工作的操作系统"</li>
+        <li><strong>Claude无监督运行数天破理论物理九圈散射振幅纪录</strong>，AI自主科学发现再下一城</li>
+        <li><strong>盖茨警告AI可致"10亿人死亡"</strong>呼吁强制监管；美上诉法院维持五角大楼对Anthropic的列名</li>
+        <li><strong>Anthropic签116亿美元Akamai云协议</strong>，11个月算力合同累计超5000亿美元</li>
+        <li><strong>腾讯QClaw"龙虾"官宣停运</strong>，阿里字节百度同步收拢——AI智能体赛道从狂飙走向收敛</li>
+      </ul>
+    </div>
+
+    <!-- Section 1: 技术前沿 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-blue">⚡</div>
+        <span class="section-title">技术前沿动态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">企业智能体</span>
+          <h3 class="card-title">微软史上最大Copilot更新：Autopilot长时智能体上线，转向按用量计费</h3>
+        </div>
+        <p class="card-summary">微软发布史上最大规模Copilot更新，纳德拉称之为"工作的操作系统"：新增可长时间在云端自主运行的Autopilot企业智能体（基于OpenClaw构建，可监控Teams频道并自主完成任务），推出Copilot Code与Copilot Home，并将Word/Excel/PowerPoint直接嵌入Copilot。Autopilot与Code同步转向按用量计费，微软正进一步告别AI补贴模式。</p>
+        <div class="card-footer">
+          <span class="card-tag">#微软</span>
+          <span class="card-tag">#Copilot</span>
+          <span class="card-tag">#Autopilot</span>
+          <a class="card-link" href="https://the-decoder.com/microsoft-gives-copilot-another-makeover-adding-an-autopilot-agent-and-usage-based-billing/">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">AI for Science</span>
+          <h3 class="card-title">Claude无监督运行数天，破理论物理"九圈散射振幅"纪录</h3>
+        </div>
+        <p class="card-summary">Anthropic科学博客披露：在单个提示词与学术级算力预算下，Claude无监督连续运行数天，将平面N=4超杨-米尔斯理论的散射振幅计算推至九圈精度，打破SLAC Lance Dixon团队此前保持的八圈纪录。继噬菌体发现新型酶系统后，"AI自主科学发现"再添标志性案例。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Anthropic</span>
+          <span class="card-tag">#Claude</span>
+          <span class="card-tag">#AI4Science</span>
+          <a class="card-link" href="https://agihunt.info/en/daily/2026-09-26">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">太空算力</span>
+          <h3 class="card-title">谷歌下周发射首颗搭载自研AI芯片的实验卫星：4颗Trillium TPU上轨跑Gemini</h3>
+        </div>
+        <p class="card-summary">谷歌下周将发射首颗搭载自研AI芯片的实验卫星，4颗Trillium TPU将首次在轨运行Gemini模型——这是"日晷捕手"项目的首次在轨测试，重点验证芯片应对发射冲击、辐射与散热的能力。目前芯片全功率运行约15分钟便需停机降温，谷歌计划2027年进一步验证星间激光组网，太空数据中心从纸面走向实验。</p>
+        <div class="card-footer">
+          <span class="card-tag">#谷歌</span>
+          <span class="card-tag">#TPU</span>
+          <span class="card-tag">#太空算力</span>
+          <a class="card-link" href="https://news.qq.com/rain/a/20260926A02R1700">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: 国内外AI动态 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-purple">🌍</div>
+        <span class="section-title">国内外AI动态</span>
+        <span class="section-count">4条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">观点交锋</span>
+          <h3 class="card-title">盖茨罕见严厉警告：AI足够强大到"引发造成10亿人死亡的事件"</h3>
+        </div>
+        <p class="card-summary">比尔·盖茨在本周末播出的节目采访中表示："AI足够强大，能够引发造成10亿人死亡的事件，历史上从未出现过一种武器，能像坏人与最新AI工具相结合那样强大。"他强调行业自律远远不够，需要执法部门参与、明确监管措施且必须强制——与黄仁勋"末日论太过火"的表态形成鲜明对立，硅谷安全叙事进一步两极化。</p>
+        <div class="card-footer">
+          <span class="card-tag">#比尔盖茨</span>
+          <span class="card-tag">#AI安全</span>
+          <span class="card-tag">#监管</span>
+          <a class="card-link" href="https://www.sohu.com/a/1080985872_130887">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">行业洗牌</span>
+          <h3 class="card-title">腾讯QClaw"龙虾"官宣停运：智能体赛道半年内从狂飙到收敛</h3>
+        </div>
+        <p class="card-summary">腾讯QClaw（"龙虾"）官宣将于12月24日停止运营，用户可迁移至WorkBuddy并获退款。该产品3月上线10天即破百万用户、"今天你养虾了吗"一度刷屏，但7月月活仅225.9万、不足WorkBuddy的三分之一。同期阿里将三款智能体并入"千问办公"、字节并入豆包、百度并入百度搭子——AI智能体赛道从百花齐放大步走向收敛。</p>
+        <div class="card-footer">
+          <span class="card-tag">#腾讯</span>
+          <span class="card-tag">#QClaw</span>
+          <span class="card-tag">#智能体</span>
+          <a class="card-link" href="https://www.toutiao.com/w/1877347494814732/">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">人形机器人</span>
+          <h3 class="card-title">特斯拉Optimus产能提升10倍：目标年底周产千台</h3>
+        </div>
+        <p class="card-summary">据报道，特斯拉上月Optimus周产量已达数百台，较二季度小批量测试阶段的每周数十台增长约十倍；管理层已向员工传达年底前建立连续自动化生产线、实现每周逾千台产能的目标。但产线技术难题、供应链约束与AI能力不足，仍在制约这款被马斯克视为公司"最重要产品"的机器人走向商业化。</p>
+        <div class="card-footer">
+          <span class="card-tag">#特斯拉</span>
+          <span class="card-tag">#Optimus</span>
+          <span class="card-tag">#人形机器人</span>
+          <a class="card-link" href="https://www.toutiao.com/article/7689617245084926464/">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">算力基建</span>
+          <h3 class="card-title">马斯克披露Colossus 2：已部署55万颗英伟达芯片，年底或翻倍</h3>
+        </div>
+        <p class="card-summary">马斯克披露xAI算力集群最新进展：Colossus 1拥有15万H100、5万H200和3万GB200；Colossus 2已部署11万颗GB200与44万颗GB300，共计55万颗芯片，年底前芯片数量可能超过目前水平的两倍。头部厂商的超大规模算力军备竞赛仍在加速，GB300成为当前部署主力。</p>
+        <div class="card-footer">
+          <span class="card-tag">#马斯克</span>
+          <span class="card-tag">#xAI</span>
+          <span class="card-tag">#Colossus2</span>
+          <a class="card-link" href="https://www.sohu.com/a/1080985872_130887">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: 投资与商业 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-green">💰</div>
+        <span class="section-title">投资与商业</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">算力订单</span>
+          <h3 class="card-title">Anthropic签116亿美元Akamai云协议：11个月算力合同累计超5000亿美元</h3>
+        </div>
+        <p class="card-summary">Anthropic与Akamai签订7年116亿美元云协议（满足条件可扩至200亿美元，并获至多5% Akamai股份认股权证），另据报正探讨从Stream Data Centers租赁高达1GW算力（完整部署需至少400亿美元投资）。统计显示其11个月内算力合同累计已超5000亿美元，Amodei曾警告若营收预期稍有偏差公司可能破产——豪赌与风险同步膨胀。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Anthropic</span>
+          <span class="card-tag">#Akamai</span>
+          <span class="card-tag">#算力</span>
+          <a class="card-link" href="https://the-decoder.com/anthropic-signs-11-6-billion-cloud-deal-with-akamai-pushing-its-compute-spending-past-500-billion-in-under-a-year/">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">商业模式</span>
+          <h3 class="card-title">OpenAI疑备500美元/月"Pro Max"套餐：9月29日DevDay或揭晓</h3>
+        </div>
+        <p class="card-summary">据媒体报道，OpenAI疑似筹备推出月费500美元的"Pro Max"高端ChatGPT订阅套餐，较现有Pro套餐新增"最快工作速度与Codex"功能及更高使用额度，并可能采用Cerebras基础设施支持，更多细节或于9月29日DevDay 2026上披露（官方未确认）。此前不少用户抱怨即便600美元档也频繁触发限流，算力配给正成为订阅分层的核心卖点。</p>
+        <div class="card-footer">
+          <span class="card-tag">#OpenAI</span>
+          <span class="card-tag">#ProMax</span>
+          <span class="card-tag">#订阅</span>
+          <a class="card-link" href="https://www.toutiao.com/article/7689617245084926464/">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">资本市场</span>
+          <h3 class="card-title">美股周五齐涨，Meta月涨36%创13年最佳：但Muse算力瓶颈浮出水面</h3>
+        </div>
+        <p class="card-summary">美股周五三大股指收涨：道指+0.93%报51828.62点，标普500+0.51%报7743.41点，纳指+0.48%报27068.72点，科技板块领涨。Meta 9月累计大涨36%，创2013年以来最佳月度表现、市值直逼2万亿美元。但隐忧同步显现：Muse实际资源消耗约为内部测试的10倍，一次压力测试中120个子Agent仅33个成功，独立虚拟机架构正把算力扩容压力推向台前。</p>
+        <div class="card-footer">
+          <span class="card-tag">#美股</span>
+          <span class="card-tag">#Meta</span>
+          <span class="card-tag">#Muse</span>
+          <a class="card-link" href="https://www.news.cn/fortune/20260926/8beac8cb11af42e7b9278e474c4e1d23/c.html">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4: 政策与行业生态 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-orange">🏛️</div>
+        <span class="section-title">政策与行业生态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">政策监管</span>
+          <h3 class="card-title">美上诉法院2:1维持五角大楼对Anthropic"供应链国家安全风险"列名</h3>
+        </div>
+        <p class="card-summary">美国联邦哥伦比亚特区巡回上诉法院周五以2:1裁决，驳回Anthropic对五角大楼将其列为"供应链国家安全风险"的异议，该列名意味着Anthropic被排除在美军方合同之外；公司称已因此损失数十亿美元，并表示考虑寻求复审。此前加州联邦法官发布的暂停禁令裁定仍然有效，这场"AI公司对峙五角大楼"的拉锯远未结束。</p>
+        <div class="card-footer">
+          <span class="card-tag">#五角大楼</span>
+          <span class="card-tag">#Anthropic</span>
+          <span class="card-tag">#供应链</span>
+          <a class="card-link" href="https://www.sohu.com/a/1080985872_130887">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">舆论定调</span>
+          <h3 class="card-title">经济日报：告别野蛮生长，AI降速并非坏事</h3>
+        </div>
+        <p class="card-summary">经济日报刊文回应近期"AI产业急刹车"担忧：OpenAI等海外头部企业集体放缓前沿模型迭代节奏、我国监管部门收紧具身智能企业IPO审核标准，本质是行业发展阶段的必然选择。文章指出，放缓不等于停滞，构建与技术能力相匹配的安全边界，恰恰是AI从野蛮生长走向可持续发展的坚实底座，也有助于资源投向场景创新、避免低水平重复建设。</p>
+        <div class="card-footer">
+          <span class="card-tag">#经济日报</span>
+          <span class="card-tag">#AI治理</span>
+          <span class="card-tag">#降速</span>
+          <a class="card-link" href="https://finance.sina.com.cn/stock/t/2026-09-26/doc-initccvi3965730.shtml">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">政府应用</span>
+          <h3 class="card-title">五角大楼申请3030万美元研发"Polygraph+"：AI测谎仪引争议</h3>
+        </div>
+        <p class="card-summary">美国国防部申请未来五年3030万美元预算，开发"Polygraph+"——用AI与非接触式传感技术现代化联邦测谎与可信度评估，由国防反情报与安全局负责人员审查与内部威胁排查。专家批评测谎证据本就薄弱，叠加AI是"两个世界最糟的结合"；同期纽约市推出AI相关举报奖励机制，政府应用AI的边界之争同步升温。</p>
+        <div class="card-footer">
+          <span class="card-tag">#五角大楼</span>
+          <span class="card-tag">#AI测谎</span>
+          <span class="card-tag">#Polygraph</span>
+          <a class="card-link" href="https://www.technologyreview.com/2026/09/25/1145144/pentagon-ai-lie-detector/">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Editor Pick -->
+    <div class="editor-pick">
+      <div class="editor-pick-title">✍️ 编辑精选 · 深度观点</div>
+      <div class="editor-pick-content">
+        <p>今天的行业叙事可以概括为<strong>"收敛"</strong>二字。产品端，腾讯QClaw从上线10天破百万用户到官宣停运只用了半年，阿里、字节、百度几乎同时收拢智能体阵线——靠发布会热度冲出来的AI入口正在退潮，<strong>活下来的逻辑只剩"用户每天用它干活"</strong>。</p>
+        <p>资本端，Anthropic一纸116亿美元协议把11个月算力合同推过5000亿美元，高盛测算五大巨头今年AI基建支出达8000亿美元、每年需约3000亿美元AI收入才能打平：<strong>账本越滚越大，回款压力越绷越紧</strong>。治理端，盖茨"10亿人死亡"警告与上诉法院维持五角大楼列名同日落地，监管正从呼吁进入程序。</p>
+        <p><strong>一句话总结：</strong>狂奔的AI行业正在给产品、资本和治理同时做减法——减掉泡沫，剩下的才是地基。</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
     <div class="footer">
       <p class="footer-text"><span class="footer-brand">三木AI 每日一刻钟</span> · 每天15分钟，读懂AI世界</p>
-      <p class="footer-text">2026年09月25日 星期五</p>
+      <p class="footer-text">2026年09月26日 星期六</p>
     </div>
   </div>
+  <script>
+  (function() {
+    var availableDates = [];
+    var calYear = 2026, calMonth = 8;
+
+    fetch('manifest.json?t=' + Date.now())
+      .then(function(r){return r.json();})
+      .then(function(data){
+        availableDates = data.dates || [];
+        renderCalendar();
+      })
+      .catch(function(){
+        availableDates = ['2026-09-26'];
+        renderCalendar();
+      });
+
+    window.openCalendar = function() {
+      document.getElementById('calOverlay').classList.add('active');
+      renderCalendar();
+    };
+    window.closeCalendar = function(e) {
+      if (!e || e.target.id === 'calOverlay') {
+        document.getElementById('calOverlay').classList.remove('active');
+      }
+    };
+    window.changeMonth = function(delta) {
+      calMonth += delta;
+      if (calMonth > 11) { calMonth = 0; calYear++; }
+      if (calMonth < 0) { calMonth = 11; calYear--; }
+      renderCalendar();
+    };
+    window.goToDate = function(dateStr) {
+      if (dateStr === '2026-09-26') {
+        window.location.href = 'index.html';
+      } else {
+        window.location.href = 'ai-daily-' + dateStr + '.html';
+      }
+    };
+
+    function renderCalendar() {
+      var monthNames = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+      document.getElementById('calMonth').textContent = calYear + '年' + monthNames[calMonth];
+      var firstDay = new Date(calYear, calMonth, 1).getDay();
+      var daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+      var prevDays = new Date(calYear, calMonth, 0).getDate();
+      var html = '';
+      for (var i = firstDay - 1; i >= 0; i--) {
+        html += '<button class="calendar-day other-month" disabled>' + (prevDays - i) + '</button>';
+      }
+      for (var d = 1; d <= daysInMonth; d++) {
+        var ds = calYear + '-' + String(calMonth + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+        var cls = 'calendar-day';
+        var isAvail = availableDates.indexOf(ds) !== -1;
+        var isToday = ds === '2026-09-26';
+        if (isAvail) cls += ' available';
+        if (isToday) cls += ' today';
+        if (isAvail) {
+          html += '<button class="' + cls + '" onclick="goToDate(\'' + ds + '\')">' + d + '</button>';
+        } else {
+          html += '<button class="' + cls + '" disabled>' + d + '</button>';
+        }
+      }
+      var totalCells = firstDay + daysInMonth;
+      var nextPadding = (7 - (totalCells % 7)) % 7;
+      for (var j = 1; j <= nextPadding; j++) {
+        html += '<button class="calendar-day other-month" disabled>' + j + '</button>';
+      }
+      document.getElementById('calDays').innerHTML = html;
+    }
+  })();
+  </script>
+
 </body>
 </html>
