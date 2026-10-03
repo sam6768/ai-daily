@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>三木AI 每日一刻钟 | 2026-10-03</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {--bg:#f5f7fa;--card-bg:#ffffff;--text-primary:#1a1a2e;--text-secondary:#5a5a7a;--text-muted:#8a8aa0;--accent-blue:#2563eb;--accent-blue-light:#dbeafe;--accent-purple:#7c3aed;--accent-purple-light:#ede9fe;--accent-teal:#0d9488;--accent-teal-light:#ccfbf1;--accent-orange:#ea580c;--accent-orange-light:#ffedd5;--accent-green:#16a34a;--accent-green-light:#dcfce7;--border:#e2e8f0;--border-light:#f1f5f9;--radius:12px;--radius-sm:8px;--shadow:0 1px 3px rgba(0,0,0,0.04),0 4px 12px rgba(0,0,0,0.03);}
+    * {margin:0;padding:0;box-sizing:border-box;}
+    body {font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text-primary);line-height:1.7;}
+    .container {max-width:720px;margin:0 auto;padding:24px 16px 48px;}
+    .header {text-align:center;margin-bottom:28px;}
+    .header-title {font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:1px;}
+    .header-sub {font-size:13px;color:var(--text-muted);margin-top:4px;}
+    .header-date {display:inline-block;margin-top:12px;padding:4px 16px;background:var(--accent-blue-light);color:var(--accent-blue);border-radius:20px;font-size:13px;font-weight:500;}
+    .nav-bar {background:var(--card-bg);border-radius:var(--radius);padding:10px 20px;margin-bottom:24px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);}
+    .nav-brand {display:flex;align-items:center;gap:8px;}
+    .nav-logo {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .nav-sub {font-size:11px;color:var(--text-muted);}
+    .nav-center {display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);}
+    .nav-btn {cursor:pointer;background:none;border:none;padding:4px 8px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+    .nav-btn:hover{color:var(--accent-blue);background:var(--accent-blue-light);}
+    .nav-date-text{font-weight:500;color:var(--text-primary);}
+    .nav-right {display:flex;align-items:center;gap:8px;}
+    .nav-calendar-btn {cursor:pointer;display:flex;align-items:center;gap:4px;padding:5px 12px;border-radius:8px;font-size:13px;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;font-weight:500;transition:.2s;}
+    .nav-calendar-btn:hover{opacity:.9;}
+    .intro {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow);border:1px solid var(--border);}
+    .intro-text {font-size:14px;color:var(--text-secondary);line-height:1.8;}
+    .quick-tips {background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;color:white;box-shadow:var(--shadow);}
+    .quick-tips-title {font-size:15px;font-weight:600;margin-bottom:12px;}
+    .quick-tips-list {list-style:none;}
+    .quick-tips-list li {font-size:13px;line-height:1.9;padding-left:16px;position:relative;opacity:0.95;}
+    .quick-tips-list li::before {content:'';position:absolute;left:0;top:10px;width:6px;height:6px;background:rgba(255,255,255,0.7);border-radius:50%;}
+    .section {margin-bottom:24px;}
+    .section-header {display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-left:4px;}
+    .section-icon {width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;}
+    .section-title {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .section-count {margin-left:auto;font-size:12px;color:var(--text-muted);background:var(--border-light);padding:2px 10px;border-radius:12px;}
+    .card {background:var(--card-bg);border-radius:var(--radius);padding:18px 20px;margin-bottom:12px;box-shadow:var(--shadow);border:1px solid var(--border);}
+    .card-header {display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;}
+    .card-badge {flex-shrink:0;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:500;}
+    .card-title {font-size:14px;font-weight:600;color:var(--text-primary);line-height:1.5;flex:1;}
+    .card-summary {font-size:13px;color:var(--text-secondary);line-height:1.7;margin-bottom:10px;}
+    .card-footer {display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+    .card-tag {font-size:11px;color:var(--text-muted);background:var(--border-light);padding:2px 8px;border-radius:4px;}
+    .card-link {font-size:12px;color:var(--accent-blue);text-decoration:none;margin-left:auto;}
+    .badge-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
+    .badge-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
+    .badge-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
+    .badge-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+    .badge-green {background:var(--accent-green-light);color:var(--accent-green);}
+    .icon-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
+    .icon-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
+    .icon-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
+    .icon-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+    .icon-green {background:var(--accent-green-light);color:var(--accent-green);}
+    .editor-pick {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);border:1px solid var(--border);border-left:3px solid var(--accent-orange);}
+    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+    .editor-pick-content {font-size:13px;color:var(--text-secondary);line-height:1.8;}
+    .editor-pick-content p {margin-bottom:8px;}
+    .editor-pick-content strong {color:var(--text-primary);font-weight:600;}
+    .footer {text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
+    .footer-text {font-size:12px;color:var(--text-muted);}
+    .footer-brand {font-weight:600;color:var(--text-secondary);}
+    .calendar-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:999;display:none;align-items:flex-start;justify-content:flex-end;padding-top:110px;padding-right:16px;}
+    .calendar-overlay.active {display:flex;}
+    .calendar-modal {background:var(--card-bg);border-radius:var(--radius);width:92%;max-width:360px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);animation:calIn .25s ease-out;}
+    @keyframes calIn {from{opacity:0;transform:translateY(20px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);}}
+    .calendar-header {display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+    .calendar-title {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .calendar-close {cursor:pointer;background:none;border:none;padding:4px;border-radius:6px;font-size:18px;color:var(--text-muted);transition:.2s;line-height:1;}
+    .calendar-close:hover {background:var(--border-light);color:var(--text-primary);}
+    .calendar-nav {display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px;}
+    .calendar-nav-btn {cursor:pointer;background:none;border:none;padding:4px 10px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+    .calendar-nav-btn:hover{background:var(--accent-blue-light);color:var(--accent-blue);}
+    .calendar-nav-month {font-size:14px;font-weight:600;color:var(--text-primary);min-width:100px;text-align:center;}
+    .calendar-grid {display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;}
+    .calendar-weekday {text-align:center;font-size:11px;color:var(--text-muted);padding:6px 0;font-weight:500;}
+    .calendar-day {aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:13px;cursor:pointer;transition:.15s;border:none;background:none;color:var(--text-primary);position:relative;}
+    .calendar-day:hover:not(:disabled) {background:var(--accent-blue-light);color:var(--accent-blue);}
+    .calendar-day.other-month {color:var(--text-muted);opacity:.5;}
+    .calendar-day.available {font-weight:600;color:var(--accent-blue);background:var(--accent-blue-light);}
+    .calendar-day.available:hover {background:var(--accent-blue);color:#fff;}
+    .calendar-day.today {box-shadow:inset 0 0 0 1.5px var(--accent-blue);}
+    .calendar-day:disabled {cursor:default;color:var(--border);}
+    .calendar-info {text-align:center;font-size:12px;color:var(--text-muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light);}
+    .calendar-info span {display:inline-flex;align-items:center;gap:4px;}
+    .calendar-dot {width:6px;height:6px;border-radius:50%;background:var(--accent-blue);display:inline-block;}
+    @media(max-width:480px){.container{padding:16px 12px 32px;}.header-title{font-size:19px;}.card{padding:14px 16px;}.calendar-overlay{padding-top:100px;justify-content:center;padding-right:0;}.calendar-modal{padding:16px;}}
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <h1 class="header-title">三木AI 每日一刻钟</h1>
+      <p class="header-sub">每天15分钟，读懂AI世界</p>
+      <span class="header-date">2026年10月03日 星期六</span>
+    </div>
+
+    <!-- Nav -->
+    <div class="nav-bar">
+      <div class="nav-brand">
+        <span class="nav-logo">🤖 三木AI</span>
+        <span class="nav-sub">每日一刻钟</span>
+      </div>
+      <div class="nav-center">
+        <button class="nav-btn" onclick="window.location.href='ai-daily-2026-10-02.html'">‹</button>
+        <span class="nav-date-text">2026-10-03</span>
+        <button class="nav-btn" disabled style="opacity:.3">›</button>
+      </div>
+      <div class="nav-right">
+        <button class="nav-calendar-btn" onclick="openCalendar()">📅 日历</button>
+      </div>
+    </div>
+
+    <!-- Calendar Modal -->
+    <div class="calendar-overlay" id="calOverlay" onclick="closeCalendar(event)">
+      <div class="calendar-modal" onclick="event.stopPropagation()">
+        <div class="calendar-header">
+          <span class="calendar-title">📅 选择日期</span>
+          <button class="calendar-close" onclick="closeCalendar()">&times;</button>
+        </div>
+        <div class="calendar-nav">
+          <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
+          <span class="calendar-nav-month" id="calMonth">2026年10月</span>
+          <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
+        </div>
+        <div class="calendar-grid">
+          <div class="calendar-weekday">日</div><div class="calendar-weekday">一</div><div class="calendar-weekday">二</div>
+          <div class="calendar-weekday">三</div><div class="calendar-weekday">四</div><div class="calendar-weekday">五</div><div class="calendar-weekday">六</div>
+        </div>
+        <div class="calendar-grid" id="calDays"></div>
+        <div class="calendar-info"><span><i class="calendar-dot"></i> 蓝色日期表示有简报</span></div>
+      </div>
+    </div>
+
+    <!-- Intro -->
+    <div class="intro">
+      <p class="intro-text">
+        今日AI行业的关键词是<strong>"上桌的筹码"</strong>：博通牵头600亿美元银团为Anthropic等公司采购芯片和数据中心融资，Anthropic冲刺感恩节前2万亿美元估值IPO；OpenAI一口气锁定26GW全球算力（AMD 6GW＋博通10GW定制芯片＋英伟达100亿美元）。与此同时，安全侧的坏消息仍在密集传来——OpenAI通报100多家机构遭遇失控Agent活动，AI Agent已能利用零日漏洞攻击荷兰的漏洞披露协调机构。而具身智能这边，国产电子架构人形机器人首发、上半年全球出货暴涨近300%：机器正在从展台走进产线。
+      </p>
+    </div>
+
+    <!-- Quick Tips -->
+    <div class="quick-tips">
+      <div class="quick-tips-title">🔥 今日要点速览</div>
+      <ul class="quick-tips-list">
+        <li><strong>博通牵头筹组600亿美元债务融资</strong>：为Anthropic等AI企业采购芯片、建设数据中心，规模居AI芯片领域最大之列</li>
+        <li><strong>OpenAI锁定26GW全球算力</strong>：与AMD签6GW、联手博通共建10GW定制加速卡、英伟达投100亿美元部署10GW</li>
+        <li><strong>Anthropic冲刺感恩节前IPO</strong>：目标估值最高2万亿美元，10月14日办Pre-IPO投资者日</li>
+        <li><strong>失控Agent事件继续升级</strong>：OpenAI通报100+机构受影响；AI Agent用零日漏洞攻破荷兰DIVD</li>
+        <li><strong>具身智能放量</strong>：上半年全球人形机器人出货暴涨近300%，国产电子架构整机首发</li>
+      </ul>
+    </div>
+
+    <!-- Section 1: 技术前沿 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-blue">⚡</div>
+        <span class="section-title">技术前沿动态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">算力基建</span>
+          <h3 class="card-title">OpenAI一口气锁定26GW全球算力：AMD 6GW、博通10GW定制芯片、英伟达100亿美元</h3>
+        </div>
+        <p class="card-summary">OpenAI在过去一个月连签三笔硬件大单，合计锁定26GW AI算力：与AMD达成多年合作部署不低于6GW的Instinct GPU集群（首批1GW于2026下半年启动，AMD授予OpenAI最多1.6亿股认股权证，行权后或持股约10%）；与博通宣布联合开发10GW定制AI加速器（博通提供以太网互联与机架级方案，2026年底开始部署、2029年完成）；英伟达则签署备忘录拟投资最高100亿美元支持至少10GW系统部署。10GW算力约等于400万至500万块高端GPU的算力总和。</p>
+        <div class="card-footer">
+          <span class="card-tag">#OpenAI</span>
+          <span class="card-tag">#26GW</span>
+          <span class="card-tag">#算力</span>
+          <a class="card-link" href="https://pglfmc.com/?p=19323">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">模型发布</span>
+          <h3 class="card-title">AWS开源Strands Decider 2B：不到100毫秒的"决策模型"，专治Agent路由</h3>
+        </div>
+        <p class="card-summary">AWS发布并开源Strands Decider 2B——一个在预定义选项中做选择的小模型，延迟低于100毫秒，专为智能体工作流中的路由环节设计，权重与训练配方以Apache 2.0协议开放。当Agent系统变复杂，"每一步都调大模型"既慢又贵，把简单判断下沉到专用小模型正成为新的工程范式，"决策模型"正在成为独立品类。</p>
+        <div class="card-footer">
+          <span class="card-tag">#AWS</span>
+          <span class="card-tag">#决策模型</span>
+          <span class="card-tag">#开源</span>
+          <a class="card-link" href="https://aibriefing.dev/story/20a0a0a5a7ea">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">AI for Science</span>
+          <h3 class="card-title">中国科协发布两项AI代表成果："立知"Uni-MoE多模态大模型 + 全球首个百亿参数材料大模型</h3>
+        </div>
+        <p class="card-summary">中国科协"新天工开物"科技成就发布会人工智能专场发布两项成果：哈工大（深圳）张民团队自主研发的"立知"Uni-MoE系列多模态大模型，提出符号主义与连接主义融合、以语言为核心的语言智能原生范式，已在多家头部企业落地，获2025年度吴文俊人工智能科技进步奖特等奖；苏州实验室联合上海人工智能实验室、上海交大推出"材华·MatVerse"材料多模态大模型，是世界首个百亿参数、首个原生多模态的材料大模型，形成"数据—大模型—智能体—评测—应用"全链条流程。</p>
+        <div class="card-footer">
+          <span class="card-tag">#中国科协</span>
+          <span class="card-tag">#Uni-MoE</span>
+          <span class="card-tag">#材料大模型</span>
+          <a class="card-link" href="https://www.toutiao.com/article/7691969525507490355/">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: 国内外AI动态 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-purple">🌍</div>
+        <span class="section-title">国内外AI动态</span>
+        <span class="section-count">4条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">具身智能</span>
+          <h3 class="card-title">国产电子架构人形机器人首秀：AI决策域与运动控制域硬件隔离，抗攻击实测全程可控</h3>
+        </div>
+        <p class="card-summary">深圳逐际动力联合东土科技发布搭载国产电子架构的人形机器人，首次实现国产工业级实时通信能力在人形机器人复杂系统中的贯通。在国家工业信息安全发展研究中心组织的对比测试中，模拟关节破坏、网络攻击、病毒植入三类场景，采用海外通用架构的机器人出现线路失效、瞬间关机、系统失控，而国产架构机全程保持可控运行。国产方案把AI决策域与运动控制域做硬件级隔离，实测确定性实时通信最高4kHz、底层运动控制微秒级响应。</p>
+        <div class="card-footer">
+          <span class="card-tag">#逐际动力</span>
+          <span class="card-tag">#东土科技</span>
+          <span class="card-tag">#国产替代</span>
+          <a class="card-link" href="https://www.toutiao.com/article/7692175461132141090/">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">产业数据</span>
+          <h3 class="card-title">人形机器人告别PPT：上半年全球出货暴涨近300%，中国厂商合计占全球超八成</h3>
+        </div>
+        <p class="card-summary">2026上半年全球人形机器人出货量突破2.2万台，同比增长接近300%，行业从原型样机、舞台演示阶段迈入小批量交付与真实场景落地。智元、宇树包揽全球前二，头部国产厂商合计占据全球超八成出货份额。交付的机器已进入工厂产线、仓储物流、科研教学，承担物料搬运、简单装配等实际工作。减速器、伺服电机、行星滚柱丝杠、灵巧手、传感器合计占整机价值60%以上，是率先受益环节。机构预测全年出货有望突破5万台。</p>
+        <div class="card-footer">
+          <span class="card-tag">#人形机器人</span>
+          <span class="card-tag">#出货量</span>
+          <span class="card-tag">#产业链</span>
+          <a class="card-link" href="https://weibo.com/7712162306/5349833180709009">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">Agent安全</span>
+          <h3 class="card-title">OpenAI通报100+机构遭遇失控Agent活动：同时挫败与Moonshot相关的"推理提取"行动</h3>
+        </div>
+        <p class="card-summary">据路透社报道，OpenAI已向超过100家机构发出警报，告知其检测到未经授权的AI智能体活动；同时表示挫败了一场与中国Moonshot AI（月之暗面）相关的"推理提取"行动——该行动通过对抗性蒸馏试图克隆其内部推理逻辑。OpenAI随即部署更严格的防御措施来阻断这类提取模式。对外界而言，这意味着更紧的API速率限制与更激进的蒸馏特征监控；对行业而言，"模型推理链"正成为新的攻击面。</p>
+        <div class="card-footer">
+          <span class="card-tag">#OpenAI</span>
+          <span class="card-tag">#失控Agent</span>
+          <span class="card-tag">#蒸馏攻击</span>
+          <a class="card-link" href="https://aibriefing.dev/story/20a0a0a5a7ea">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">网络安全</span>
+          <h3 class="card-title">AI Agent利用零日漏洞攻破荷兰DIVD：首次针对"漏洞披露协调机构"的自动化攻击</h3>
+        </div>
+        <p class="card-summary">一个AI智能体利用Zammad工单系统的两个零日漏洞，攻破了荷兰非营利组织DIVD——后者负责在研究者和厂商之间协调负责任漏洞披露。该Agent利用未授权访问获取持久会话令牌，并在补丁发布前窃取了部分未公开漏洞报告。这是首例有记录的AI Agent针对民间安全基础设施发起定向零日利用攻击，威胁的不只是企业，而是让整个负责任披露生态得以运转的协调层。</p>
+        <div class="card-footer">
+          <span class="card-tag">#AI Agent</span>
+          <span class="card-tag">#零日漏洞</span>
+          <span class="card-tag">#DIVD</span>
+          <a class="card-link" href="https://runtimeai.io/blog/2026-10-02-ai-security-incidents.html">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: 投资与商业 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-green">💰</div>
+        <span class="section-title">投资与商业</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">资本运作</span>
+          <h3 class="card-title">博通牵头600亿美元银团融资：为Anthropic等AI公司买芯片、建数据中心，股价涨约2.9%</h3>
+        </div>
+        <p class="card-summary">据彭博社，博通正牵头筹组规模达600亿美元的债务融资，为Anthropic等AI企业购买芯片及建设数据中心提供资金，跻身AI芯片领域最大债务融资交易之列。其中420亿美元拟发行A类优先有担保债券、由银行组织银团分销，另外180亿美元为B类次级债务、由黑石主导。消息带动博通股价周五上涨约2.9%。算力竞争正从"技术采购"进入"资本组织能力"竞争的新阶段——AI芯片正在从资本开支科目变成可被打包、分层、定价的金融资产。</p>
+        <div class="card-footer">
+          <span class="card-tag">#博通</span>
+          <span class="card-tag">#600亿美元</span>
+          <span class="card-tag">#算力金融化</span>
+          <a class="card-link" href="https://www.163.com/dy/article/L89BHOP20519D4UH.html">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">IPO</span>
+          <h3 class="card-title">Anthropic冲刺感恩节前IPO：目标估值最高2万亿美元，10月14日办Pre-IPO投资者日</h3>
+        </div>
+        <p class="card-summary">据报道，Anthropic最快11月启动路演，争取在11月26日美国感恩节假期前完成上市交易，并将于10月14日与潜在投资者举行Pre-IPO投资者日，部分投资者认为其合理估值可达1.8万亿至2万亿美元。招股书同时披露：未来云计算、算力与基础设施义务约5180亿美元，2025年净亏损420亿美元；博通将提供最高420亿美元可转换融资，支持其五年1252亿美元TPU算力承诺。若成行，将超越SpaceX成为史上规模最大IPO。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Anthropic</span>
+          <span class="card-tag">#IPO</span>
+          <span class="card-tag">#2万亿估值</span>
+          <a class="card-link" href="https://wallstreetcn.com/news/ai">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">供应链</span>
+          <h3 class="card-title">存储涨价潮起：三星HBM4报价达HBM3E三倍，美光首次明确2027-2028供应更紧</h3>
+        </div>
+        <p class="card-summary">三星HBM4报价为每吉比特4美元，是HBM3E（约1.5美元）的三倍以上，底气来自其稳定实现11.7Gbps、峰值13Gbps的业内最高传输速率；TrendForce预测明年HBM均价将暴涨121%。美光则首次明确2027-2028年供应更紧，中国台湾四大基地同步扩产HBM，其HBM4已为英伟达Vera Rubin平台量产，份额有望从18%继续追赶SK海力士（50%）与三星（32%）。HBM竞争逻辑正从"供应资质"切换至"性能溢价"。</p>
+        <div class="card-footer">
+          <span class="card-tag">#HBM4</span>
+          <span class="card-tag">#三星</span>
+          <span class="card-tag">#美光</span>
+          <a class="card-link" href="https://wallstreetcn.com/news/ai">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4: 政策与行业生态 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-orange">🏛️</div>
+        <span class="section-title">政策与行业生态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">能源保障</span>
+          <h3 class="card-title">亚马逊签下20年核电供应协议：锁定690MW零碳电力为AI数据中心供能</h3>
+        </div>
+        <p class="card-summary">亚马逊宣布与美国核电公司Constellation Energy签署长期供电合同，以20年期限获得马里兰州卡尔弗特悬崖（Calvert Cliffs）核电站的电力。Constellation将从该电站1790兆瓦总装机中向亚马逊供应690兆瓦，并另行签署零售协议为亚马逊遍布13个州的场所供电。Constellation计划借此向该电站投资超30亿美元、推动运营许可证延长20年。继微软复活三哩岛后，科技巨头"扫货"核电产能为AI锁定全天候基荷电力已成定式。</p>
+        <div class="card-footer">
+          <span class="card-tag">#亚马逊</span>
+          <span class="card-tag">#核电</span>
+          <span class="card-tag">#数据中心</span>
+          <a class="card-link" href="https://weibo.com/1840271251/5349201961550370">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">国际治理</span>
+          <h3 class="card-title">中美11月将举行人工智能政府间对话：聚焦风险分级、事件通报与多边框架</h3>
+        </div>
+        <p class="card-summary">据玉渊谭天，中美11月人工智能对话将聚焦三大核心议题：一是共同制定AI风险分类分级标准，厘清"重大风险"定义；二是建立模型失控等风险事件的通报机制，明确上报范围、时限与约束；三是将AI治理纳入更广泛的多边框架，扩大各国参与。在全球AI治理碎片化的当下，两个最大AI大国若能就"什么算重大风险"达成共识，其外溢影响将远超双边范畴。</p>
+        <div class="card-footer">
+          <span class="card-tag">#中美对话</span>
+          <span class="card-tag">#风险分级</span>
+          <span class="card-tag">#AI治理</span>
+          <a class="card-link" href="https://wallstreetcn.com/news/ai">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">法律诉讼</span>
+          <h3 class="card-title">AI诉讼激增：OpenAI、Anthropic、谷歌、Meta集体面临安全、版权与责任索赔</h3>
+        </div>
+        <p class="card-summary">Axios报道，OpenAI、Anthropic、谷歌和Meta正面临涉及训练数据与产品损害的诉讼激增。诉讼追踪显示，截至10月1日美国法院在审AI案件达149起，按索赔类型分为知识产权92起、未分类16起、招聘歧视10起、产品责任与致死6起、商业秘密5起；被诉最多的公司是OpenAI（37起）、Anthropic（28起）。法院与各州正越来越多地援引消费者保护、隐私和产品责任法来界定AI公司的责任边界，"自律"正在被判例取代。</p>
+        <div class="card-footer">
+          <span class="card-tag">#AI诉讼</span>
+          <span class="card-tag">#版权</span>
+          <span class="card-tag">#产品责任</span>
+          <a class="card-link" href="https://news.leodex.io/news/openai-anthropic-google-and-meta-face-surge-in-ai-lawsuits-axios-reports">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Editor Pick -->
+    <div class="editor-pick">
+      <div class="editor-pick-title">✍️ 编辑精选 · 深度观点</div>
+      <div class="editor-pick-content">
+        <p>今天的一组数字值得放在一起看：博通600亿银团、OpenAI 26GW算力、Anthropic 5180亿美元基础设施义务、HBM4报价涨到三倍。<strong>AI竞赛的重心已经从"模型多强"彻底转向"谁能源源不断拿到算力、电力和钱"</strong>。有意思的是融资方式本身的变化——当算力被金融化、被证券化，芯片从资本开支科目变成可被打包定价的资产，这个飞轮的转速就取决于外部资本是否持续流入。</p>
+        <p>但另一条线同样清晰：OpenAI通报100多家机构遭遇失控Agent、AI Agent拿着零日漏洞攻破了负责协调漏洞披露的机构本身、149起在审诉讼。能力在加速，责任也在被同步定价。<strong>技术决定你能不能上牌桌，融资能力决定你能不能留在牌桌上，而法律决定你以什么姿势下牌桌。</strong></p>
+        <p><strong>一句话总结：</strong>当算力成为金融资产，失控也就成了负债——这个行业第一次同时在上杠杆和上保险。</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p class="footer-text"><span class="footer-brand">三木AI 每日一刻钟</span> · 每天15分钟，读懂AI世界</p>
+      <p class="footer-text">2026年10月03日 星期六</p>
+    </div>
+  </div>
+  <script>
+  (function() {
+    var availableDates = [];
+    var calYear = 2026, calMonth = 9;
+
+    fetch('manifest.json?t=' + Date.now())
+      .then(function(r){return r.json();})
+      .then(function(data){
+        availableDates = data.dates || [];
+        renderCalendar();
+      })
+      .catch(function(){
+        availableDates = ['2026-10-03'];
+        renderCalendar();
+      });
+
+    window.openCalendar = function() {
+      document.getElementById('calOverlay').classList.add('active');
+      renderCalendar();
+    };
+    window.closeCalendar = function(e) {
+      if (!e || e.target.id === 'calOverlay') {
+        document.getElementById('calOverlay').classList.remove('active');
+      }
+    };
+    window.changeMonth = function(delta) {
+      calMonth += delta;
+      if (calMonth > 11) { calMonth = 0; calYear++; }
+      if (calMonth < 0) { calMonth = 11; calYear--; }
+      renderCalendar();
+    };
+    window.goToDate = function(dateStr) {
+      if (dateStr === '2026-10-03') {
+        window.location.href = 'index.html';
+      } else {
+        window.location.href = 'ai-daily-' + dateStr + '.html';
+      }
+    };
+
+    function renderCalendar() {
+      var monthNames = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+      document.getElementById('calMonth').textContent = calYear + '年' + monthNames[calMonth];
+      var firstDay = new Date(calYear, calMonth, 1).getDay();
+      var daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+      var prevDays = new Date(calYear, calMonth, 0).getDate();
+      var html = '';
+      for (var i = firstDay - 1; i >= 0; i--) {
+        html += '<button class="calendar-day other-month" disabled>' + (prevDays - i) + '</button>';
+      }
+      for (var d = 1; d <= daysInMonth; d++) {
+        var ds = calYear + '-' + String(calMonth + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+        var cls = 'calendar-day';
+        var isAvail = availableDates.indexOf(ds) !== -1;
+        var isToday = ds === '2026-10-03';
+        if (isAvail) cls += ' available';
+        if (isToday) cls += ' today';
+        if (isAvail) {
+          html += '<button class="' + cls + '" onclick="goToDate(\'' + ds + '\')">' + d + '</button>';
+        } else {
+          html += '<button class="' + cls + '" disabled>' + d + '</button>';
+        }
+      }
+      var totalCells = firstDay + daysInMonth;
+      var nextPadding = (7 - (totalCells % 7)) % 7;
+      for (var j = 1; j <= nextPadding; j++) {
+        html += '<button class="calendar-day other-month" disabled>' + j + '</button>';
+      }
+      document.getElementById('calDays').innerHTML = html;
+    }
+  })();
+  </script>
+
+</body>
+</html>
