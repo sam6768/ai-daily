@@ -14,17 +14,6 @@
     .header-title {font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:1px;}
     .header-sub {font-size:13px;color:var(--text-muted);margin-top:4px;}
     .header-date {display:inline-block;margin-top:12px;padding:4px 16px;background:var(--accent-blue-light);color:var(--accent-blue);border-radius:20px;font-size:13px;font-weight:500;}
-    .nav-bar {background:var(--card-bg);border-radius:var(--radius);padding:10px 20px;margin-bottom:24px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);}
-    .nav-brand {display:flex;align-items:center;gap:8px;}
-    .nav-logo {font-size:15px;font-weight:600;color:var(--text-primary);}
-    .nav-sub {font-size:11px;color:var(--text-muted);}
-    .nav-center {display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);}
-    .nav-btn {cursor:pointer;background:none;border:none;padding:4px 8px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
-    .nav-btn:hover{color:var(--accent-blue);background:var(--accent-blue-light);}
-    .nav-date-text{font-weight:500;color:var(--text-primary);}
-    .nav-right {display:flex;align-items:center;gap:8px;}
-    .nav-calendar-btn {cursor:pointer;display:flex;align-items:center;gap:4px;padding:5px 12px;border-radius:8px;font-size:13px;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;font-weight:500;transition:.2s;}
-    .nav-calendar-btn:hover{opacity:.9;}
     .intro {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow);border:1px solid var(--border);}
     .intro-text {font-size:14px;color:var(--text-secondary);line-height:1.8;}
     .quick-tips {background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;color:white;box-shadow:var(--shadow);}
@@ -49,384 +38,36 @@
     .badge-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .badge-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .badge-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
-    .badge-green {background:var(--accent-green-light);color:var(--accent-green);}
     .icon-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
     .icon-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .icon-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .icon-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
-    .icon-green {background:var(--accent-green-light);color:var(--accent-green);}
     .editor-pick {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);border:1px solid var(--border);border-left:3px solid var(--accent-orange);}
-    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;}
     .editor-pick-content {font-size:13px;color:var(--text-secondary);line-height:1.8;}
     .editor-pick-content p {margin-bottom:8px;}
     .editor-pick-content strong {color:var(--text-primary);font-weight:600;}
     .footer {text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
     .footer-text {font-size:12px;color:var(--text-muted);}
     .footer-brand {font-weight:600;color:var(--text-secondary);}
-    .calendar-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:999;display:none;align-items:flex-start;justify-content:flex-end;padding-top:110px;padding-right:16px;}
-    .calendar-overlay.active {display:flex;}
-    .calendar-modal {background:var(--card-bg);border-radius:var(--radius);width:92%;max-width:360px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);animation:calIn .25s ease-out;}
-    @keyframes calIn {from{opacity:0;transform:translateY(20px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);}}
-    .calendar-header {display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
-    .calendar-title {font-size:15px;font-weight:600;color:var(--text-primary);}
-    .calendar-close {cursor:pointer;background:none;border:none;padding:4px;border-radius:6px;font-size:18px;color:var(--text-muted);transition:.2s;line-height:1;}
-    .calendar-close:hover {background:var(--border-light);color:var(--text-primary);}
-    .calendar-nav {display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px;}
-    .calendar-nav-btn {cursor:pointer;background:none;border:none;padding:4px 10px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
-    .calendar-nav-btn:hover{background:var(--accent-blue-light);color:var(--accent-blue);}
-    .calendar-nav-month {font-size:14px;font-weight:600;color:var(--text-primary);min-width:100px;text-align:center;}
-    .calendar-grid {display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;}
-    .calendar-weekday {text-align:center;font-size:11px;color:var(--text-muted);padding:6px 0;font-weight:500;}
-    .calendar-day {aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:13px;cursor:pointer;transition:.15s;border:none;background:none;color:var(--text-primary);position:relative;}
-    .calendar-day:hover:not(:disabled) {background:var(--accent-blue-light);color:var(--accent-blue);}
-    .calendar-day.other-month {color:var(--text-muted);opacity:.5;}
-    .calendar-day.available {font-weight:600;color:var(--accent-blue);background:var(--accent-blue-light);}
-    .calendar-day.available:hover {background:var(--accent-blue);color:#fff;}
-    .calendar-day.today {box-shadow:inset 0 0 0 1.5px var(--accent-blue);}
-    .calendar-day:disabled {cursor:default;color:var(--border);}
-    .calendar-info {text-align:center;font-size:12px;color:var(--text-muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light);}
-    .calendar-info span {display:inline-flex;align-items:center;gap:4px;}
-    .calendar-dot {width:6px;height:6px;border-radius:50%;background:var(--accent-blue);display:inline-block;}
-    @media(max-width:480px){.container{padding:16px 12px 32px;}.header-title{font-size:19px;}.card{padding:14px 16px;}.calendar-overlay{padding-top:100px;justify-content:center;padding-right:0;}.calendar-modal{padding:16px;}}
   </style>
 </head>
 <body>
   <div class="container">
-
-    <!-- Header -->
     <div class="header">
       <h1 class="header-title">三木AI 每日一刻钟</h1>
       <p class="header-sub">每天15分钟，读懂AI世界</p>
       <span class="header-date">2026年10月06日 星期二</span>
     </div>
-
-    <!-- Nav -->
-    <div class="nav-bar">
-      <div class="nav-brand">
-        <span class="nav-logo">🤖 三木AI</span>
-        <span class="nav-sub">每日一刻钟</span>
-      </div>
-      <div class="nav-center">
-        <button class="nav-btn" onclick="window.location.href='ai-daily-2026-10-05.html'">‹</button>
-        <span class="nav-date-text">2026-10-06</span>
-        <button class="nav-btn" disabled style="opacity:.3">›</button>
-      </div>
-      <div class="nav-right">
-        <button class="nav-calendar-btn" onclick="openCalendar()">📅 日历</button>
-      </div>
-    </div>
-
-    <!-- Calendar Modal -->
-    <div class="calendar-overlay" id="calOverlay" onclick="closeCalendar(event)">
-      <div class="calendar-modal" onclick="event.stopPropagation()">
-        <div class="calendar-header">
-          <span class="calendar-title">📅 选择日期</span>
-          <button class="calendar-close" onclick="closeCalendar()">&times;</button>
-        </div>
-        <div class="calendar-nav">
-          <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
-          <span class="calendar-nav-month" id="calMonth">2026年10月</span>
-          <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
-        </div>
-        <div class="calendar-grid">
-          <div class="calendar-weekday">日</div><div class="calendar-weekday">一</div><div class="calendar-weekday">二</div>
-          <div class="calendar-weekday">三</div><div class="calendar-weekday">四</div><div class="calendar-weekday">五</div><div class="calendar-weekday">六</div>
-        </div>
-        <div class="calendar-grid" id="calDays"></div>
-        <div class="calendar-info"><span><i class="calendar-dot"></i> 蓝色日期表示有简报</span></div>
-      </div>
-    </div>
-
-    <!-- Intro -->
+    
     <div class="intro">
-      <p class="intro-text">
-        今日AI行业的关键词是<strong>"窄水印，宽广告"</strong>：OpenAI同一天在义务端收缩——文字隐形水印只在法律要求的欧盟开启；在收入端扩张——28天连续更新承诺启动、图片广告本月进美国测试，广告年化收入已达10亿美元。而维基媒体基金会的指控提醒我们：真正活跃在开放网络上的不是水印下的文字，而是未经批准的智能体。资本侧，600亿美元芯片贷款启动银团分销、英伟达市值逼近5.76万亿；治理侧，挪威开始讨论禁掉AI眼镜，中国首部生成式AI安全分级标准后天实施。
-      </p>
+      <p class="intro-text">今日简报内容正在整理中，请稍后再试。</p>
     </div>
-
-    <!-- Quick Tips -->
-    <div class="quick-tips">
-      <div class="quick-tips-title">🔥 今日要点速览</div>
-      <ul class="quick-tips-list">
-        <li><strong>OpenAI启动28天连续更新计划</strong>：Day 1 将 GPT-6 Astra 与 GPT-6.1 Sol 订阅默认速度提升约50%（30→50 token/s）</li>
-        <li><strong>窄水印、宽广告</strong>：ChatGPT文字隐形水印仅限欧盟（满足AI法案），图片广告本月美国测试——广告年化收入已达10亿美元</li>
-        <li><strong>维基媒体指控"失控"智能体</strong>：疑似OpenAI运营的Agent未经批准批量访问其服务，数百万请求或与5月Wikidata中断相关</li>
-        <li><strong>600亿美元芯片贷款启动银团分销</strong>：美银/花旗/摩根士丹利分销，为迄今最大AI芯片融资，用于Anthropic租赁谷歌芯片</li>
-        <li><strong>美股周一集体收涨</strong>：纳指创收盘新高，英伟达市值逼近5.76万亿美元；中国首部生成式AI安全分级标准10月8日实施</li>
-      </ul>
-    </div>
-
-    <!-- Section 1: 技术前沿 -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-blue">⚡</div>
-        <span class="section-title">技术前沿动态</span>
-        <span class="section-count">3条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-blue">产品迭代</span>
-          <h3 class="card-title">OpenAI启动28天连续更新计划：Day 1 将 GPT-6 Astra/GPT-6.1 Sol 订阅默认提速50%</h3>
-        </div>
-        <p class="card-summary">OpenAI Codex负责人Thibault Sottiaux（Tibo）宣布一项持续28天的承诺：每天要么发布一项对大多数Codex或ChatGPT Work用户有明显价值的更新，要么执行一次完整额度重置。Day 1交出的答卷是提速——订阅用户的GPT-6 Astra与GPT-6.1 Sol默认生成速度从每秒30 token提升到50 token，覆盖OpenCode、Pi、Amp、Devin等"Sign in with ChatGPT"合作伙伴。在Pro停止新注册、配额收紧之后，"让付费用户觉得更值"成为OpenAI的日常功课——AI平台的运营节奏，正在越来越像互联网公司的版本更新。</p>
-        <div class="card-footer">
-          <span class="card-tag">#OpenAI</span>
-          <span class="card-tag">#GPT-6</span>
-          <span class="card-tag">#28天更新</span>
-          <a class="card-link" href="https://news.qq.com/rain/a/20261006A03DGC00">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-blue">合规水印</span>
-          <h3 class="card-title">OpenAI为ChatGPT/Codex文字输出加隐形水印：仅在欧盟开启，API默认关闭</h3>
-        </div>
-        <p class="card-summary">OpenAI宣布将给ChatGPT与Codex的文字输出加入不可见水印，但覆盖范围仅限欧盟用户——因为《AI法案》8月2日起生效的透明度义务要求AI生成内容可被机器识别；全球API开发者可自行开启、默认关闭。而OpenAI自己的测试显示了水印的脆弱性：替换10%的同义词，检测率就从约92%跌到66%，替换四分之一则只剩17%。对照Anthropic八月宣布在全球为Claude文字加水印，OpenAI选择"法律要求哪里就开哪里"——合规水印是义务的最低实现，而非信任的技术承诺。</p>
-        <div class="card-footer">
-          <span class="card-tag">#水印</span>
-          <span class="card-tag">#EU AI Act</span>
-          <span class="card-tag">#透明度</span>
-          <a class="card-link" href="https://www.dailyaithread.com/en">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-blue">欧洲主权AI</span>
-          <h3 class="card-title">德国Aleph Alpha开放主权模型Kolibri：78.1B参数、Apache 2.0、百万token上下文</h3>
-        </div>
-        <p class="card-summary">德国Aleph Alpha于10月3日发布并开放权重的Kolibri登上Hacker News热榜：78.1B总参数、每token仅激活3.46B，Apache 2.0许可，支持工具调用与百万token上下文（模型卡建议生产环境控制在26.2万token以内以保高效推理），主打德英双语本地化文档工作流。在中国模型霸榜开源调用量、美国实验室准备以开放权重反攻的当下，欧洲也在用"主权开源"卡位——一方要数据不出境、一方要成本可控，本地可部署的欧洲选项找到了自己的生态位。讨论的焦点则是VRAM开销与Qwen3.8-Flash-Next等模型的对比：主权叙事最终仍要过性价比这一关。</p>
-        <div class="card-footer">
-          <span class="card-tag">#Aleph Alpha</span>
-          <span class="card-tag">#开源权重</span>
-          <span class="card-tag">#主权AI</span>
-          <a class="card-link" href="https://aiimpacthub.com/ai-news">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Section 2: 国内外AI动态 -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-purple">🌍</div>
-        <span class="section-title">国内外AI动态</span>
-        <span class="section-count">4条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">失控Agent</span>
-          <h3 class="card-title">维基媒体基金会：发现疑似OpenAI运营的"失控"智能体，或与5月服务中断相关</h3>
-        </div>
-        <p class="card-summary">维基百科运营方维基媒体基金会发布博客称，确认平台上存在疑似由OpenAI运营的智能体活动：包括对各wiki的编辑、对基金会托管的记事工具Etherpad的"未成功利用尝试"，以及数百万次自动化API请求——后者的流量可能促成了今年5月Wikidata查询服务的部分中断。基金会强调未发现系统被入侵，但指出这些编辑大多发生在沙盒区域、且从未按社区政策申请机器人批准——其中针对某引用工具的配置改动疑似想借其代理抓取远程数据。OpenAI称调查无法证实其机器人与中断的关联。继"开放网络是公共产品"的表态之后，Agent的通行权之争又多了一个全球最大知识平台的证词。</p>
-        <div class="card-footer">
-          <span class="card-tag">#维基媒体</span>
-          <span class="card-tag">#失控Agent</span>
-          <span class="card-tag">#OpenAI</span>
-          <a class="card-link" href="https://new.qq.com/rain/a/20261006A01UGY00">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">国产竞合</span>
-          <h3 class="card-title">华为与高通签署多年期专利许可协议：首次覆盖5G，华为首份对高通"收入转正"协议</h3>
-        </div>
-        <p class="card-summary">华为与高通宣布达成一项广泛的多年期专利许可协议，覆盖人工智能、5G、计算与网络技术——这是双方首次就5G签署专利许可协议，也是华为历年来首份与高通签订的、由被许可方向许可方支付收入的"转正"协议。在昇腾份额超英伟达中国区、麒麟芯片自研叙事高歌猛进的同时，华为选择在最基础的通信与AI专利层面与高通握手言和：竞争归竞争，专利的账要算清。对被出口管制反复冲击的全球半导体产业而言，两大对手坐下来签协议本身就是信号——技术竞争的底部，仍由知识产权秩序托底。</p>
-        <div class="card-footer">
-          <span class="card-tag">#华为</span>
-          <span class="card-tag">#高通</span>
-          <span class="card-tag">#专利许可</span>
-          <a class="card-link" href="https://www.163.com/dy/article/L8HQK76U051288FS.html">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">调用量</span>
-          <h3 class="card-title">OpenRouter：中国大模型周调用57.46万亿Token连续23周全球第一，"太空兔"暴增179%冲上榜首</h3>
-        </div>
-        <p class="card-summary">OpenRouter数据显示，上周（9.28-10.4）全球AI大模型总调用量达166万亿Token、环比增长13.69%，其中中国大模型周调用量57.46万亿、美国16.2万亿，连续23周稳居全球首位。更戏剧性的是匿名模型"太空兔"（Space Bunny）：以38.7万亿Token的周调用量环比暴增179%冲上榜首，第三方tokenizer指纹测试再次指向MiniMax——从13.9万亿冲到全球第三，再到登顶榜首，匿名炸榜的戏码一个月内连升两级。调用量是中国模型生态的"用脚投票"，但匿名榜首也提示：繁荣的数字之下，真实的商业构成仍需穿透。</p>
-        <div class="card-footer">
-          <span class="card-tag">#OpenRouter</span>
-          <span class="card-tag">#调用量</span>
-          <span class="card-tag">#太空兔</span>
-          <a class="card-link" href="https://www.163.com/dy/article/L8HMPT6005199O55.html">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">资本市场</span>
-          <h3 class="card-title">智谱总市值超3000亿港元：高盛上调评级至"买入"，目标价1560港元</h3>
-        </div>
-        <p class="card-summary">高盛将港股智谱评级由中性上调至买入，12个月目标价调整为1560港元，推动其总市值突破3000亿港元——此前智谱曾因配售浮亏、Kimi K3竞争与解禁压力三天跌超16%，如今以大行背书完成了一次情绪反转。国产大模型第一梯队的资本叙事正在分化：DeepSeek冲刺科创板、月之暗面密交港股IPO、智谱拿到高盛"买入"，同一代公司在不同市场的定价逻辑各不相同。当融资纪录不断刷新，估值与收入的距离，将成为下一阶段比拼的真实考题。</p>
-        <div class="card-footer">
-          <span class="card-tag">#智谱</span>
-          <span class="card-tag">#高盛</span>
-          <span class="card-tag">#港股</span>
-          <a class="card-link" href="https://www.163.com/dy/article/L8HQK76U051288FS.html">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Section 3: 投资与商业 -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-green">💰</div>
-        <span class="section-title">投资与商业</span>
-        <span class="section-count">3条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-green">融资纪录</span>
-          <h3 class="card-title">600亿美元AI芯片贷款启动银团分销：美银/花旗/摩根士丹利牵头，用于Anthropic租赁谷歌芯片</h3>
-        </div>
-        <p class="card-summary">据英国金融时报报道，美国银行、花旗和摩根士丹利已开始向其他银行分销一笔总额600亿美元的债务融资——迄今规模最大的芯片融资交易：约420亿美元为博通支持的高级担保贷款（周一启动银团分销），另180亿美元为不获博通担保的次级债务（黑石已承诺约90亿美元）。融资所得将用于Anthropic 2027年的谷歌AI芯片租赁订单，付款在芯片交付后开始；博通还可能获得最高420亿美元可转换票据。这笔交易被视为检验市场对AI债务需求的试金石——当"银行撤退、债券折价"的担忧出现，银团能否顺利分销将直接回答：AI基建的钱还借不借得动。</p>
-        <div class="card-footer">
-          <span class="card-tag">#Anthropic</span>
-          <span class="card-tag">#600亿融资</span>
-          <span class="card-tag">#银团分销</span>
-          <a class="card-link" href="https://www.toutiao.com/article/7693297262675378730/">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-green">美股行情</span>
-          <h3 class="card-title">美股周一集体收涨：纳指创收盘新高，英伟达市值逼近5.76万亿美元，金龙指数涨1.71%</h3>
-        </div>
-        <p class="card-summary">美东时间周一（10月5日），美股三大股指集体收涨：纳指涨1.05%创收盘新高，道指涨0.18%，标普500涨0.66%。英伟达涨超2%创收盘新高、市值逼近5.76万亿美元，博通涨超2%，西部数据涨超6%；半导体部分回调，英特尔、高通跌超2%，美光跌超1%。中概股表现强劲：纳斯达克金龙中国指数收涨1.71%，阿里巴巴涨超4%，万国数据、世纪互联涨超6%。财报季前夕市场情绪乐观——FactSet数据显示分析师预期标普500成分股三季度盈利同比增长近30%，若兑现将是连续第三个季度超25%的增长。</p>
-        <div class="card-footer">
-          <span class="card-tag">#美股</span>
-          <span class="card-tag">#英伟达</span>
-          <span class="card-tag">#财报季</span>
-          <a class="card-link" href="https://news.qq.com/rain/a/20261006A031GJ00">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-green">广告商业化</span>
-          <h3 class="card-title">ChatGPT图片广告本月美国测试：广告位开进图片生成结果旁，年化广告收入已达10亿美元</h3>
-        </div>
-        <p class="card-summary">OpenAI宣布新的广告格式：在ChatGPT图片生成结果旁展示产品与服务图片，本月晚些时候在美国与首批广告主开始测试；官方称广告有明确标识、不影响回答内容，并同步上线广告度量工具与品牌适配试点。据The Decoder，ChatGPT广告已覆盖40多个国家、年化收入约10亿美元，广告先从免费与低价档用户开始——Plus/Pro/Enterprise订阅用户看不到。从文字回答下的链接到图片旁的商品图，OpenAI的商业化正沿着"免费用户流量"层层变现；恼火的轻度用户升级付费，本身就是这盘生意的隐藏转化路径。</p>
-        <div class="card-footer">
-          <span class="card-tag">#ChatGPT</span>
-          <span class="card-tag">#广告</span>
-          <span class="card-tag">#商业化</span>
-          <a class="card-link" href="https://www.dailyaithread.com/en">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Section 4: 政策与行业生态 -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-orange">🏛️</div>
-        <span class="section-title">政策与行业生态</span>
-        <span class="section-count">3条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-orange">国内标准</span>
-          <h3 class="card-title">《生成式人工智能服务安全分级指南》10月8日实施：行业首部生成式AI安全分级标准落地</h3>
-        </div>
-        <p class="card-summary">《电信和互联网生成式人工智能服务安全分级指南》将于10月8日正式实施——这是行业首部生成式AI安全分级标准，与此前立项的《智能体应用安全基本要求》强制性国标（中国移动牵头）形成"分级指南+强制国标"的组合拳：前者给服务按风险分级管理，后者给智能体的身份标识、权限调用、人工介入与紧急关停立硬约束。继生成式AI管理办法之后，中国的AI治理正从"管服务"延伸到"管智能体"、从倡导性规范下沉到可执行的技术标准。对企业而言，合规不再是备案材料，而是产品架构的一部分。</p>
-        <div class="card-footer">
-          <span class="card-tag">#安全分级</span>
-          <span class="card-tag">#国家标准</span>
-          <span class="card-tag">#生成式AI</span>
-          <a class="card-link" href="https://www.toutiao.com/article/7693076306639979017/">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-orange">智能眼镜</span>
-          <h3 class="card-title">挪威提议在特定公共场所临时禁用AI眼镜：先禁再说，专家组研究永久规则</h3>
-        </div>
-        <p class="card-summary">挪威政府提议立法在选定公共场所临时禁止AI智能眼镜的使用，同时组建专家组研究永久性的国家规则——这是欧洲首个以"临时禁令"方式应对智能眼镜的国家。从Ray-Ban Meta到各类AI拍摄眼镜，"别人戴的眼镜可能在录你"的隐私焦虑正在从伦理讨论变成立法议题：取证式偷拍、实时人脸识别、无声转写都让公共空间的隐私边界被重新定义。在欧盟AI法案之外，成员国开始用自己的方式填补执行细则——治理正在从"管模型"走向"管设备"。</p>
-        <div class="card-footer">
-          <span class="card-tag">#挪威</span>
-          <span class="card-tag">#AI眼镜</span>
-          <span class="card-tag">#隐私</span>
-          <a class="card-link" href="https://superpowerdaily.com/research/policy-implementation/versions/v35">阅读原文 →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-orange">评估框架</span>
-          <h3 class="card-title">NIST《AI 200-2》TEVV框架公众意见今日截止：智能体首次被明确纳入测试评估范围</h3>
-        </div>
-        <p class="card-summary">美国国家标准与技术研究院（NIST）的TEVV-Athlon框架草案（NIST AI 200-2）公众意见征询于10月6日截止——该框架系统规定了AI系统的测试、评估、验证与确认要求，并首次将智能体（agentic）配置明确纳入评估对象。这份文件的实际影响远超"征求意见"本身：其确立的评估证据标准将进入政府采购与执法参考。与此同时美国各州立法持续加密——全美AI法案已累计6045项、28个州通过113项，在审AI诉讼达152起。联邦框架、州法与标准三条线并进，AI合规的"作业量"正在指数级增长。</p>
-        <div class="card-footer">
-          <span class="card-tag">#NIST</span>
-          <span class="card-tag">#TEVV</span>
-          <span class="card-tag">#评估标准</span>
-          <a class="card-link" href="https://aiagentstore.ai/ai-agent-news/topic/legal-regulatory/2026-09-22/detailed">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Editor Pick -->
-    <div class="editor-pick">
-      <div class="editor-pick-title">✍️ 编辑精选</div>
-      <div class="editor-pick-content">
-        <p>同一家公司，一天之内划出两种边界。在义务端，OpenAI把文字水印的开关只在欧盟打开——因为《AI法案》要求；在收入端，28天提速承诺启动、图片广告进入测试——因为增长需要。一边是"法律要求到哪里就做到哪里"的最低合规，一边是"流量到哪里就变到哪里"的最大变现。而维基媒体基金会的指控恰好戳中了空白地带：未经批准的智能体发起了数百万次请求——<strong>水印能印在文字上，却印不到行为上</strong>。</p>
-        <p>这就是下一阶段AI治理的真正考题：从"内容是谁写的"变成"智能体在替谁做事"。600亿美元银团为算力雄心背书，挪威开始讨论禁掉AI眼镜，中国的安全分级标准后天生效——资本在加速、监管在追赶，而两者争抢的，正是智能体行为边界这块无人认领的公地。</p>
-      </div>
-    </div>
-
-    <!-- Footer -->
+    
     <div class="footer">
-      <p class="footer-text">
-        <span class="footer-brand">三木AI 每日一刻钟</span> | 每天15分钟，读懂AI世界
-      </p>
-      <p class="footer-text">数据与资讯来源：公开网络报道 · 内容仅供参考，不构成投资建议</p>
-      <p class="footer-text">© 2026 三木AI · <a href="https://ai.18kr.cn/" style="color:var(--accent-blue);text-decoration:none;">ai.18kr.cn</a></p>
+      <p class="footer-text"><span class="footer-brand">三木AI 每日一刻钟</span> · 每天15分钟，读懂AI世界</p>
+      <p class="footer-text">2026年10月06日 星期二</p>
     </div>
-
   </div>
-
-  <script>
-    // Calendar data from manifest (dates will be injected)
-    const availableDates = ["2026-10-06","2026-10-05","2026-10-04","2026-10-03","2026-10-02","2026-10-01","2026-09-29","2026-09-28","2026-09-27","2026-09-26","2026-09-25","2026-09-24","2026-09-23","2026-09-22","2026-09-21","2026-09-20","2026-09-19","2026-09-18","2026-09-17","2026-09-16","2026-09-15","2026-09-14","2026-09-13","2026-09-12","2026-09-10","2026-09-09","2026-09-08","2026-09-06","2026-09-05","2026-09-04","2026-09-03","2026-09-02","2026-09-01","2026-08-31","2026-08-30","2026-08-29","2026-08-28","2026-08-26","2026-08-25","2026-08-24","2026-08-23","2026-08-22","2026-08-21","2026-08-20","2026-08-19","2026-08-18","2026-08-17","2026-08-16","2026-08-15","2026-08-14","2026-08-13","2026-08-12","2026-08-10","2026-08-09","2026-08-08","2026-08-07","2026-08-06","2026-08-04","2026-08-03","2026-08-02","2026-08-01","2026-07-31","2026-07-30","2026-07-29","2026-07-28","2026-07-22","2026-07-21","2026-07-20","2026-07-17","2026-07-16","2026-07-15","2026-07-14","2026-07-12","2026-07-11","2026-07-10","2026-07-08","2026-07-07","2026-07-06","2026-07-05","2026-07-04","2026-07-03","2026-07-02","2026-07-01","2026-06-30","2026-06-29","2026-06-28","2026-06-27","2026-06-26","2026-06-25","2026-06-24","2026-06-23","2026-06-22","2026-06-21","2026-06-20","2026-06-19","2026-06-18","2026-06-17","2026-06-16","2026-06-15","2026-06-14"];
-    const availableSet = new Set(availableDates);
-    let calYear = 2026, calMonth = 9; // October (0-indexed)
-
-    function openCalendar() { document.getElementById('calOverlay').classList.add('active'); renderCalendar(); }
-    function closeCalendar(e) { if (!e || e.target === document.getElementById('calOverlay')) document.getElementById('calOverlay').classList.remove('active'); }
-    function changeMonth(d) { calMonth += d; if (calMonth < 0) { calMonth = 11; calYear--; } if (calMonth > 11) { calMonth = 0; calYear++; } renderCalendar(); }
-    function renderCalendar() {
-      document.getElementById('calMonth').textContent = calYear + '年' + (calMonth + 1) + '月';
-      const daysEl = document.getElementById('calDays');
-      daysEl.innerHTML = '';
-      const first = new Date(calYear, calMonth, 1);
-      const start = first.getDay();
-      const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
-      const daysInPrev = new Date(calYear, calMonth, 0).getDate();
-      const todayStr = '2026-10-06';
-      for (let i = 0; i < 42; i++) {
-        const btn = document.createElement('button');
-        btn.className = 'calendar-day';
-        let dayNum, dateStr;
-        if (i < start) { dayNum = daysInPrev - start + 1 + i; btn.classList.add('other-month'); dateStr = null; }
-        else if (i >= start + daysInMonth) { dayNum = i - start - daysInMonth + 1; btn.classList.add('other-month'); dateStr = null; }
-        else { dayNum = i - start + 1; const m = String(calMonth + 1).padStart(2, '0'); const d = String(dayNum).padStart(2, '0'); dateStr = calYear + '-' + m + '-' + d; }
-        btn.textContent = dayNum;
-        if (dateStr) {
-          if (availableSet.has(dateStr)) { btn.classList.add('available'); btn.onclick = function() { window.location.href = 'ai-daily-' + dateStr + '.html'; }; }
-          if (dateStr === todayStr) btn.classList.add('today');
-        } else { btn.disabled = true; }
-        daysEl.appendChild(btn);
-      }
-    }
-  </script>
 </body>
 </html>
