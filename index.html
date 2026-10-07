@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>三木AI 每日一刻钟 | 2026-10-06</title>
+  <title>三木AI 每日一刻钟 | 2026-10-07</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {--bg:#f5f7fa;--card-bg:#ffffff;--text-primary:#1a1a2e;--text-secondary:#5a5a7a;--text-muted:#8a8aa0;--accent-blue:#2563eb;--accent-blue-light:#dbeafe;--accent-purple:#7c3aed;--accent-purple-light:#ede9fe;--accent-teal:#0d9488;--accent-teal-light:#ccfbf1;--accent-orange:#ea580c;--accent-orange-light:#ffedd5;--accent-green:#16a34a;--accent-green-light:#dcfce7;--border:#e2e8f0;--border-light:#f1f5f9;--radius:12px;--radius-sm:8px;--shadow:0 1px 3px rgba(0,0,0,0.04),0 4px 12px rgba(0,0,0,0.03);}
@@ -14,6 +14,17 @@
     .header-title {font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:1px;}
     .header-sub {font-size:13px;color:var(--text-muted);margin-top:4px;}
     .header-date {display:inline-block;margin-top:12px;padding:4px 16px;background:var(--accent-blue-light);color:var(--accent-blue);border-radius:20px;font-size:13px;font-weight:500;}
+    .nav-bar {background:var(--card-bg);border-radius:var(--radius);padding:10px 20px;margin-bottom:24px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);}
+    .nav-brand {display:flex;align-items:center;gap:8px;}
+    .nav-logo {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .nav-sub {font-size:11px;color:var(--text-muted);}
+    .nav-center {display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);}
+    .nav-btn {cursor:pointer;background:none;border:none;padding:4px 8px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+    .nav-btn:hover{color:var(--accent-blue);background:var(--accent-blue-light);}
+    .nav-date-text{font-weight:500;color:var(--text-primary);}
+    .nav-right {display:flex;align-items:center;gap:8px;}
+    .nav-calendar-btn {cursor:pointer;display:flex;align-items:center;gap:4px;padding:5px 12px;border-radius:8px;font-size:13px;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;font-weight:500;transition:.2s;}
+    .nav-calendar-btn:hover{opacity:.9;}
     .intro {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow);border:1px solid var(--border);}
     .intro-text {font-size:14px;color:var(--text-secondary);line-height:1.8;}
     .quick-tips {background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;color:white;box-shadow:var(--shadow);}
@@ -38,36 +49,342 @@
     .badge-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .badge-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .badge-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+    .badge-green {background:var(--accent-green-light);color:var(--accent-green);}
     .icon-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
     .icon-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .icon-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .icon-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+    .icon-green {background:var(--accent-green-light);color:var(--accent-green);}
     .editor-pick {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);border:1px solid var(--border);border-left:3px solid var(--accent-orange);}
-    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;}
+    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
     .editor-pick-content {font-size:13px;color:var(--text-secondary);line-height:1.8;}
     .editor-pick-content p {margin-bottom:8px;}
     .editor-pick-content strong {color:var(--text-primary);font-weight:600;}
     .footer {text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
     .footer-text {font-size:12px;color:var(--text-muted);}
     .footer-brand {font-weight:600;color:var(--text-secondary);}
+    .calendar-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:999;display:none;align-items:flex-start;justify-content:flex-end;padding-top:110px;padding-right:16px;}
+    .calendar-overlay.active {display:flex;}
+    .calendar-modal {background:var(--card-bg);border-radius:var(--radius);width:92%;max-width:360px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);animation:calIn .25s ease-out;}
+    @keyframes calIn {from{opacity:0;transform:translateY(20px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);}}
+    .calendar-header {display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+    .calendar-title {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .calendar-close {cursor:pointer;background:none;border:none;padding:4px;border-radius:6px;font-size:18px;color:var(--text-muted);transition:.2s;line-height:1;}
+    .calendar-close:hover {background:var(--border-light);color:var(--text-primary);}
+    .calendar-nav {display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px;}
+    .calendar-nav-btn {cursor:pointer;background:none;border:none;padding:4px 10px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+    .calendar-nav-btn:hover{background:var(--accent-blue-light);color:var(--accent-blue);}
+    .calendar-nav-month {font-size:14px;font-weight:600;color:var(--text-primary);min-width:100px;text-align:center;}
+    .calendar-grid {display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;}
+    .calendar-weekday {text-align:center;font-size:11px;color:var(--text-muted);padding:6px 0;font-weight:500;}
+    .calendar-day {aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:13px;cursor:pointer;transition:.15s;border:none;background:none;color:var(--text-primary);position:relative;}
+    .calendar-day:hover:not(:disabled) {background:var(--accent-blue-light);color:var(--accent-blue);}
+    .calendar-day.other-month {color:var(--text-muted);opacity:.5;}
+    .calendar-day.available {font-weight:600;color:var(--accent-blue);background:var(--accent-blue-light);}
+    .calendar-day.available:hover {background:var(--accent-blue);color:#fff;}
+    .calendar-day.today {box-shadow:inset 0 0 0 1.5px var(--accent-blue);}
+    .calendar-day:disabled {cursor:default;color:var(--border);}
+    .calendar-info {text-align:center;font-size:12px;color:var(--text-muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light);}
+    .calendar-info span {display:inline-flex;align-items:center;gap:4px;}
+    .calendar-dot {width:6px;height:6px;border-radius:50%;background:var(--accent-blue);display:inline-block;}
+    @media(max-width:480px){.container{padding:16px 12px 32px;}.header-title{font-size:19px;}.card{padding:14px 16px;}.calendar-overlay{padding-top:100px;justify-content:center;padding-right:0;}.calendar-modal{padding:16px;}}
   </style>
 </head>
 <body>
   <div class="container">
+
+    <!-- Header -->
     <div class="header">
       <h1 class="header-title">三木AI 每日一刻钟</h1>
       <p class="header-sub">每天15分钟，读懂AI世界</p>
-      <span class="header-date">2026年10月06日 星期二</span>
+      <span class="header-date">2026年10月07日 星期三</span>
     </div>
-    
+
+    <!-- Nav -->
+    <div class="nav-bar">
+      <div class="nav-brand">
+        <span class="nav-logo">🤖 三木AI</span>
+        <span class="nav-sub">每日一刻钟</span>
+      </div>
+      <div class="nav-center">
+        <button class="nav-btn" onclick="window.location.href='ai-daily-2026-10-06.html'">‹</button>
+        <span class="nav-date-text">2026-10-07</span>
+        <button class="nav-btn" disabled style="opacity:.3">›</button>
+      </div>
+      <div class="nav-right">
+        <button class="nav-calendar-btn" onclick="openCalendar()">📅 日历</button>
+      </div>
+    </div>
+
+    <!-- Calendar Modal -->
+    <div class="calendar-overlay" id="calOverlay" onclick="closeCalendar(event)">
+      <div class="calendar-modal" onclick="event.stopPropagation()">
+        <div class="calendar-header">
+          <span class="calendar-title">📅 选择日期</span>
+          <button class="calendar-close" onclick="closeCalendar()">&times;</button>
+        </div>
+        <div class="calendar-nav">
+          <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
+          <span class="calendar-nav-month" id="calMonth">2026年10月</span>
+          <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
+        </div>
+        <div class="calendar-grid">
+          <div class="calendar-weekday">日</div><div class="calendar-weekday">一</div><div class="calendar-weekday">二</div>
+          <div class="calendar-weekday">三</div><div class="calendar-weekday">四</div><div class="calendar-weekday">五</div><div class="calendar-weekday">六</div>
+        </div>
+        <div class="calendar-grid" id="calDays"></div>
+        <div class="calendar-info"><span><i class="calendar-dot"></i> 蓝色日期表示有简报</span></div>
+      </div>
+    </div>
+
+    <!-- Intro -->
     <div class="intro">
-      <p class="intro-text">今日简报内容正在整理中，请稍后再试。</p>
+      <p class="intro-text">今日AI行业的关键词是<strong>"开放与责任"</strong>：DeepSeek被曝获腾讯、宁德时代领投至少800亿元融资，为2027年初IPO铺路；中国模型则以AWS Bedrock接入智谱GLM-5.3为标志，从"赢得海外开发者关注"转向"通过国际云平台商业变现"。欧洲 Mistral 发布万亿参数 Large 4，以网络安全和主权AI为卖点加入开源竞争；而 Altman 却在同天警告开源将引发"网络安全海啸"。一边是开放生态的加速扩张，一边是保险公司开始为"失控Agent"计提索赔、讨论高管个人责任。当模型越来越容易获取，安全与治理的账单也到了该结账的时候。</p>
     </div>
-    
+
+    <!-- Quick Tips -->
+    <div class="quick-tips">
+      <div class="quick-tips-title">🔥 今日要点速览</div>
+      <ul class="quick-tips-list">
+        <li><strong>DeepSeek融资至少800亿元</strong>：腾讯、宁德时代领投，规模可能达1000亿元，为2027年初科创板IPO铺路</li>
+        <li><strong>Mistral Large 4 "Le Chonk" 发布</strong>：1万亿参数、欧洲训练，专攻网络安全，权重预计10月底开放</li>
+        <li><strong>AWS Bedrock正式接入智谱GLM-5.3</strong>：基于调用量收入分成，中国大模型出海进入国际云平台商业化阶段</li>
+        <li><strong>谷歌签下史上最大企业核能协议</strong>：与Constellation签署3590兆瓦、20年期核电合同，投资43亿美元升级11座反应堆</li>
+        <li><strong>美股周二续创新高</strong>：标普500首次收盘站上7800点，纳指再创历史新高，AI电力股Constellation大涨12%</li>
+      </ul>
+    </div>
+
+    <!-- Sections -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-blue">⚡</div>
+        <span class="section-title">技术前沿动态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">欧洲大模型</span>
+          <h3 class="card-title">Mistral发布Large 4 "Le Chonk"：1万亿参数、欧洲训练，专攻网络安全</h3>
+        </div>
+        <p class="card-summary">Mistral于10月6日发布目前最大模型Mistral Large 4预览版，昵称"Le Chonk"：总参数1.05万亿、每token激活490亿，在欧洲自有数据中心基于3800块NVIDIA Grace Blackwell训练。在Artificial Analysis Intelligence Index从上一代的9分跃升至38分，但在网络安全场景的独特卖点在于——竞争对手Claude Opus 5.5和GPT-6 Astra因安全过滤拒绝执行漏洞复现任务，而ML4在该测试中以82%得分领先。Mistral计划10月底开放权重，继续押注"欧洲主权AI"企业市场。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Mistral</span><span class="card-tag">#Large4</span><span class="card-tag">#开源权重</span><span class="card-tag">#网络安全</span>
+          <a class="card-link" href="https://the-decoder.com/mistral-large-4-is-said-to-be-the-most-powerful-open-ai-model-from-europe-and-the-u-s/">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">端侧模型</span>
+          <h3 class="card-title">谷歌发布EmbeddingGemma 2：7.4亿参数多模态嵌入模型，主打端侧隐私</h3>
+        </div>
+        <p class="card-summary">Google推出EmbeddingGemma 2，基于Gemma 4架构、Apache 2.0开源，可在手机等本地硬件上统一处理文本、图像、音频与视频嵌入。全模态模式仅需约191MB内存，纯文本负载可精简至2.7亿参数；代码评测提升近10分，上下文窗口扩至8K token。该模型与Gemma 4协同支持全离线RAG流水线，对移动端AI应用和隐私敏感场景具有直接吸引力。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Google</span><span class="card-tag">#EmbeddingGemma</span><span class="card-tag">#端侧AI</span><span class="card-tag">#多模态</span>
+          <a class="card-link" href="https://the-decoder.com/google-claims-embeddinggemma-2-outperforms-rival-embedding-models-twice-its-size/">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">产品策略</span>
+          <h3 class="card-title">谷歌收紧Gemini免费版权限：10月9日起仅保留Flash Lite模型</h3>
+        </div>
+        <p class="card-summary">Google宣布从10月9日起调整Gemini免费版服务范围，免费用户仅能使用Flash Lite模型，目前可用的Flash和Pro模型将不再开放；月费4.99美元的Google AI Plus用户也将失去Pro模型访问权限，仅保留Flash系列。Gemini Pro和Deep Think高级推理将仅面向AI Pro（19.99美元/月）和Ultra（99.99美元/月）订阅用户。这是Google首次对Gemini产品线进行清晰的阶梯式收费重构，标志着高质量生成AI正从免费获客走向付费分层。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Google</span><span class="card-tag">#Gemini</span><span class="card-tag">#订阅策略</span><span class="card-tag">#商业化</span>
+          <a class="card-link" href="https://www.163.com/dy/article/L8KBB9E0051191D6.html">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-purple">🌍</div>
+        <span class="section-title">国内外AI动态</span>
+        <span class="section-count">4条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">出海商业化</span>
+          <h3 class="card-title">AWS Bedrock正式接入智谱GLM-5.3：基于调用量收入分成，中国模型出海再进一步</h3>
+        </div>
+        <p class="card-summary">亚马逊云科技(AWS)宣布其大模型服务平台Amazon Bedrock已接入智谱GLM-5.3，并将基于模型调用量与智谱进行收入分成。至此智谱已打通阿里云百炼、华为云等国内平台与AWS的国际渠道，形成贯通国内外的分成体系。AWS Bedrock还新增DeepSeek V3.2、MiniMax M2.1、阿里Qwen3 Coder Next等六款中国开源权重模型；9月月之暗面Kimi K3也已上架。OpenRouter数据显示，中国模型周调用量连续23周全球第一，Hugging Face过去一年中国模型下载量占比41%反超美国。</p>
+        <div class="card-footer">
+          <span class="card-tag">#智谱</span><span class="card-tag">#AWS</span><span class="card-tag">#Bedrock</span><span class="card-tag">#出海</span>
+          <a class="card-link" href="https://mobile.chinadaily.com.cn/html5/2026-10/07/content_001_6ac52ca2ed503f94b6826c96.htm">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">CEO表态</span>
+          <h3 class="card-title">Altman深度访谈：承认AI灭绝风险"非零"，警告开源将引发"网络安全海啸"</h3>
+        </div>
+        <p class="card-summary">OpenAI CEO Sam Altman在最新深度专访中就AI核心议题系统表态。他承认AI导致人类文明终结的概率"非零"，同时警告开源大模型将引发"网络安全海啸"，并坚持算力投入与安全标准必须同步提升。Altman披露OpenAI近期已暂停Astra 6.1模型发布，并将安全测试前移至训练阶段本身——因为模型已强大到能突破沙盒入侵系统。他指出政策制定者尚未感受到AI发展指数曲线的陡峭程度，世界可能被"下一个大问题"打个措手不及。</p>
+        <div class="card-footer">
+          <span class="card-tag">#OpenAI</span><span class="card-tag">#Altman</span><span class="card-tag">#AI安全</span><span class="card-tag">#开源</span>
+          <a class="card-link" href="https://news.qq.com/rain/a/20261007A02IKC00">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">安全认证</span>
+          <h3 class="card-title">Anthropic扩大网络认证计划至三个权限层，与美国政府合作审查机构</h3>
+        </div>
+        <p class="card-summary">Anthropic宣布扩大其最先进AI模型的网络访问认证计划，现在包含三个权限层。基础层面向一般开发者；专项访问等级正与美国政府合作，对每家申请机构展开深度审查；最高层级则为少量经核实机构预留专属访问权限，可用于对电网、银行和航班运行系统等关键基础设施的安全系统进行"高风险攻击性测试"。这是在"超级智能协议"自律承诺之外，Anthropic为政府背景客户建立的一套分级访问与责任机制。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Anthropic</span><span class="card-tag">#网络安全</span><span class="card-tag">#政府合作</span><span class="card-tag">#模型访问</span>
+          <a class="card-link" href="https://news.qq.com/rain/a/20261007A02JYK00">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">消费机器人</span>
+          <h3 class="card-title">启元机器人全球首店落户上海：国庆长假人形机器人进入家庭消费场景</h3>
+        </div>
+        <p class="card-summary">启元机器人全球首店在淮海中路龙凤PRSCO开业，两款量产人形机器人Q1和T1摆上个人消费市场柜台，最低售价不足2万元。国庆假期门店每日接待100多组顾客，涵盖家庭、老人和大学生群体；有50多岁夫妇为成都80岁独居老人购买T1机器人作陪伴。与此同时，南京首家机器人6S店也落地，通过租赁模式降低企业和个人试用门槛。人形机器人正从工厂和发布会走向商场与家庭，消费级市场开始接受真实检验。</p>
+        <div class="card-footer">
+          <span class="card-tag">#启元机器人</span><span class="card-tag">#人形机器人</span><span class="card-tag">#消费场景</span>
+          <a class="card-link" href="https://www.toutiao.com/article/7693680880199565864">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-green">💰</div>
+        <span class="section-title">投资与商业</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">融资纪录</span>
+          <h3 class="card-title">DeepSeek拟融资至少800亿元：腾讯、宁德时代领投，为2027年初IPO铺路</h3>
+        </div>
+        <p class="card-summary">据彭博社10月6日报道，DeepSeek最新一轮融资额接近锁定至少800亿元人民币（约120亿美元），最终规模可能达1000亿元，远超最初约500亿元的募资目标。腾讯和宁德时代是领投方之一，融资程序即将收官。DeepSeek已选定中信证券筹备科创板IPO，时间窗口指向2027年初。公司计划在内蒙建设数据中心，部署至少16万块华为AI加速器。此轮融资显示中国战略投资者仍在加注能以低成本与OpenAI、Anthropic竞争的前沿实验室。</p>
+        <div class="card-footer">
+          <span class="card-tag">#DeepSeek</span><span class="card-tag">#融资</span><span class="card-tag">#IPO</span><span class="card-tag">#腾讯</span>
+          <a class="card-link" href="https://aibusinessweekly.net/p/deepseek-12b-funding-round-tencent-catl">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">IPO前融资</span>
+          <h3 class="card-title">Lambda拟融资40亿美元冲刺IPO：积压订单从150亿增至500亿美元</h3>
+        </div>
+        <p class="card-summary">英伟达支持的AI云服务商Lambda正在以145亿美元投前估值筹集至多40亿美元，由黑石集团和Coatue Management领投，可能是其2027年上市前的最后一轮私募融资。Lambda致投资者信显示，其AI算力积压订单从6月的150亿美元激增至9月的500亿美元，其中大部分来自Anthropic 8月底签下的350亿美元承诺。Lambda上周刚完成10亿美元债务融资，新云服务商正通过股权+债务组合为数据中心建设筹资。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Lambda</span><span class="card-tag">#新云</span><span class="card-tag">#IPO</span><span class="card-tag">#融资</span>
+          <a class="card-link" href="https://finance.sina.cn/2026-10-07/detail-iniuivur5203742.d.html">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">美股行情</span>
+          <h3 class="card-title">美股周二续创新高：标普500首破7800点，AI电力股Constellation大涨12%</h3>
+        </div>
+        <p class="card-summary">美东时间10月6日，美股三大股指集体收涨：道指涨0.49%报51521.28点，标普500涨0.58%报7818.93点首次收盘站上7800点，纳指涨0.45%报27599.79点续创历史新高。AI产业链领涨：Marvell涨5.8%并上调2028财年营收预期至200亿美元，AMD涨2.8%获花旗目标价上调至800美元，Constellation Energy涨12.25%受益于谷歌核电大单；存储股回调，希捷跌超9%。中概金龙指数涨0.31%，万国数据涨近6%。</p>
+        <div class="card-footer">
+          <span class="card-tag">#美股</span><span class="card-tag">#标普500</span><span class="card-tag">#纳指</span><span class="card-tag">#AI电力</span>
+          <a class="card-link" href="https://news.qq.com/rain/a/20261007A024HX00">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-orange">🏛️</div>
+        <span class="section-title">政策与行业生态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">能源协议</span>
+          <h3 class="card-title">谷歌签下科技史上最大核能协议：3590兆瓦锁定20年，Gemini嵌入能源运营</h3>
+        </div>
+        <p class="card-summary">谷歌与美国最大核电运营商Constellation Energy达成总规模3590兆瓦的长期电力采购协议，含20年期核电合同及15年期供应合同。Constellation将投入逾43亿美元升级11座核反应堆，新增890兆瓦清洁电力，首个机组预计2028年并网，创造约7200个就业机会。双方还签署五年技术协议，部署谷歌云与Gemini AI优化核电运营及电网安全。这是科技企业锁定清洁基荷电力的又一标志性交易，直接回应AI数据中心带来的电力需求激增。</p>
+        <div class="card-footer">
+          <span class="card-tag">#谷歌</span><span class="card-tag">#Constellation</span><span class="card-tag">#核能</span><span class="card-tag">#数据中心</span>
+          <a class="card-link" href="https://news.qq.com/rain/a/20261007A02IL400">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">保险责任</span>
+          <h3 class="card-title">保险公司为"失控AI Agent"计提百万美元索赔，讨论高管个人责任</h3>
+        </div>
+        <p class="card-summary">保险公司报告称正为AI Agent失控导致的索赔做好准备，金额可能达数百万美元，行业内已出现关于让高管对Agent造成的损害承担个人责任的讨论。当前Agent已能自主浏览网页、发起API请求、执行交易和编辑内容，一旦越界造成损害，责任归属远比传统软件事故复杂。MIT Technology Review与Neo4j联合报告也显示，平均仅约34%的企业Agentic AI项目真正进入生产阶段，数据碎片化和知识缺口是主要障碍。当Agent从"辅助工具"变成"自动执行者"，保险和责任框架的更新速度明显落后。</p>
+        <div class="card-footer">
+          <span class="card-tag">#AI保险</span><span class="card-tag">#失控Agent</span><span class="card-tag">#责任归属</span><span class="card-tag">#AgenticAI</span>
+          <a class="card-link" href="https://the-decoder.com/insurers-brace-for-millions-in-claims-as-ai-agents-spin-out-of-control/">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">监管博弈</span>
+          <h3 class="card-title">华盛顿AI监管分歧加剧：民主党质疑大厂影响政策，共和党批Anthropic"危言耸听"</h3>
+        </div>
+        <p class="card-summary">美国参议员Warren和Blumenthal致信财长等高官，要求披露科技巨头是否通过游说影响了5月至6月间AI监管框架的调整过程，并要求公开企业与政府官员围绕第14409号行政令的通信记录及31项问卷回复。与此同时，共和党参议员Moreno致信Anthropic CEO阿莫代伊，批评其对AI风险采取"危言耸听"态度，警告不要发表制造恐慌的言论，并抓住Anthropic准备IPO的节点，质疑公司一方面想让普通投资者分享增长红利、另一方面却警告AI可能导致人类灭绝。华盛顿AI政策争论正沿"安全vs创新"清晰分化。</p>
+        <div class="card-footer">
+          <span class="card-tag">#美国</span><span class="card-tag">#AI监管</span><span class="card-tag">#Anthropic</span><span class="card-tag">#特朗普</span>
+          <a class="card-link" href="https://news.qq.com/rain/a/20261007A00QSQ00">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Editor Pick -->
+    <div class="editor-pick">
+      <div class="editor-pick-title">✍️ 编辑精选</div>
+      <div class="editor-pick-content">
+      <p>今天的AI叙事几乎可以被概括为<strong>"开放的代价"</strong>。DeepSeek拿到可能是中国AI史上最大的一笔私募融资，智谱GLM-5.3通过AWS Bedrock走向世界，Mistral用万亿参数模型为欧洲主权AI站台——开源和出海正在把模型的边界推得越来越远。但同一天，Altman警告开源将引发"网络安全海啸"，保险公司开始为失控Agent计提索赔，华盛顿两党围绕"该监管还是该放手"吵得不可开交。</p>
+      <p>这不是简单的"开放vs封闭"之争，而是能力扩散速度与责任基础设施之间的时间差。当模型可以零成本复制、Agent可以7×24小时自主行动，传统的软件责任、保险精算和国家监管框架都还没有跟上。DeepSeek、智谱、Mistral的扩张证明了开放生态的商业力量；但Altman的警告和保险公司的紧张提醒我们：<strong>谁能用AI不是问题，谁能为AI的后果买单才是。</strong></p>
+      </div>
+    </div>
+
+    <!-- Footer -->
     <div class="footer">
-      <p class="footer-text"><span class="footer-brand">三木AI 每日一刻钟</span> · 每天15分钟，读懂AI世界</p>
-      <p class="footer-text">2026年10月06日 星期二</p>
+      <p class="footer-text">
+        <span class="footer-brand">三木AI 每日一刻钟</span> | 每天15分钟，读懂AI世界
+      </p>
+      <p class="footer-text">数据与资讯来源：公开网络报道 · 内容仅供参考，不构成投资建议</p>
+      <p class="footer-text">© 2026 三木AI · <a href="https://ai.18kr.cn/" style="color:var(--accent-blue);text-decoration:none;">ai.18kr.cn</a></p>
     </div>
+
   </div>
+
+  <script>
+    // Calendar data from manifest (dates will be injected)
+    const availableDates = ["2026-10-07","2026-10-06","2026-10-05","2026-10-04","2026-10-03","2026-10-02","2026-10-01","2026-09-29","2026-09-28","2026-09-27","2026-09-26","2026-09-25","2026-09-24","2026-09-23","2026-09-22","2026-09-21","2026-09-20","2026-09-19","2026-09-18","2026-09-17","2026-09-16","2026-09-15","2026-09-14","2026-09-13","2026-09-12","2026-09-10","2026-09-09","2026-09-08","2026-09-06","2026-09-05","2026-09-04","2026-09-03","2026-09-02","2026-09-01","2026-08-31","2026-08-30","2026-08-29","2026-08-28","2026-08-26","2026-08-25","2026-08-24","2026-08-23","2026-08-22","2026-08-21","2026-08-20","2026-08-19","2026-08-18","2026-08-17","2026-08-16","2026-08-15","2026-08-14","2026-08-13","2026-08-12","2026-08-10","2026-08-09","2026-08-08","2026-08-07","2026-08-06","2026-08-04","2026-08-03","2026-08-02","2026-08-01","2026-07-31","2026-07-30","2026-07-29","2026-07-28","2026-07-22","2026-07-21","2026-07-20","2026-07-17","2026-07-16","2026-07-15","2026-07-14","2026-07-12","2026-07-11","2026-07-10","2026-07-08","2026-07-07","2026-07-06","2026-07-05","2026-07-04","2026-07-03","2026-07-02","2026-07-01","2026-06-30","2026-06-29","2026-06-28","2026-06-27","2026-06-26","2026-06-25","2026-06-24","2026-06-23","2026-06-22","2026-06-21","2026-06-20","2026-06-19","2026-06-18","2026-06-17","2026-06-16","2026-06-15","2026-06-14"];
+    const availableSet = new Set(availableDates);
+    let calYear = 2026, calMonth = 9; // October (0-indexed)
+
+    function openCalendar() { document.getElementById('calOverlay').classList.add('active'); renderCalendar(); }
+    function closeCalendar(e) { if (!e || e.target === document.getElementById('calOverlay')) document.getElementById('calOverlay').classList.remove('active'); }
+    function changeMonth(d) { calMonth += d; if (calMonth < 0) { calMonth = 11; calYear--; } if (calMonth > 11) { calMonth = 0; calYear++; } renderCalendar(); }
+    function renderCalendar() {
+      document.getElementById('calMonth').textContent = calYear + '年' + (calMonth + 1) + '月';
+      const daysEl = document.getElementById('calDays');
+      daysEl.innerHTML = '';
+      const first = new Date(calYear, calMonth, 1);
+      const start = first.getDay();
+      const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+      const daysInPrev = new Date(calYear, calMonth, 0).getDate();
+      const todayStr = '2026-10-07';
+      for (let i = 0; i < 42; i++) {
+        const btn = document.createElement('button');
+        btn.className = 'calendar-day';
+        let dayNum, dateStr;
+        if (i < start) { dayNum = daysInPrev - start + 1 + i; btn.classList.add('other-month'); dateStr = null; }
+        else if (i >= start + daysInMonth) { dayNum = i - start - daysInMonth + 1; btn.classList.add('other-month'); dateStr = null; }
+        else { dayNum = i - start + 1; const m = String(calMonth + 1).padStart(2, '0'); const d = String(dayNum).padStart(2, '0'); dateStr = calYear + '-' + m + '-' + d; }
+        btn.textContent = dayNum;
+        if (dateStr) {
+          if (availableSet.has(dateStr)) { btn.classList.add('available'); btn.onclick = function() { window.location.href = 'ai-daily-' + dateStr + '.html'; }; }
+          if (dateStr === todayStr) btn.classList.add('today');
+        } else { btn.disabled = true; }
+        daysEl.appendChild(btn);
+      }
+    }
+  </script>
 </body>
 </html>
