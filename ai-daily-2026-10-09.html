@@ -14,17 +14,6 @@
     .header-title {font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:1px;}
     .header-sub {font-size:13px;color:var(--text-muted);margin-top:4px;}
     .header-date {display:inline-block;margin-top:12px;padding:4px 16px;background:var(--accent-blue-light);color:var(--accent-blue);border-radius:20px;font-size:13px;font-weight:500;}
-    .nav-bar {background:var(--card-bg);border-radius:var(--radius);padding:10px 20px;margin-bottom:24px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);}
-    .nav-brand {display:flex;align-items:center;gap:8px;}
-    .nav-logo {font-size:15px;font-weight:600;color:var(--text-primary);}
-    .nav-sub {font-size:11px;color:var(--text-muted);}
-    .nav-center {display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);}
-    .nav-btn {cursor:pointer;background:none;border:none;padding:4px 8px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
-    .nav-btn:hover{color:var(--accent-blue);background:var(--accent-blue-light);}
-    .nav-date-text{font-weight:500;color:var(--text-primary);}
-    .nav-right {display:flex;align-items:center;gap:8px;}
-    .nav-calendar-btn {cursor:pointer;display:flex;align-items:center;gap:4px;padding:5px 12px;border-radius:8px;font-size:13px;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;font-weight:500;transition:.2s;}
-    .nav-calendar-btn:hover{opacity:.9;}
     .intro {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow);border:1px solid var(--border);}
     .intro-text {font-size:14px;color:var(--text-secondary);line-height:1.8;}
     .quick-tips {background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;color:white;box-shadow:var(--shadow);}
@@ -49,342 +38,36 @@
     .badge-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .badge-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .badge-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
-    .badge-green {background:var(--accent-green-light);color:var(--accent-green);}
     .icon-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
     .icon-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
     .icon-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .icon-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
-    .icon-green {background:var(--accent-green-light);color:var(--accent-green);}
     .editor-pick {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);border:1px solid var(--border);border-left:3px solid var(--accent-orange);}
-    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;}
     .editor-pick-content {font-size:13px;color:var(--text-secondary);line-height:1.8;}
     .editor-pick-content p {margin-bottom:8px;}
     .editor-pick-content strong {color:var(--text-primary);font-weight:600;}
     .footer {text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
     .footer-text {font-size:12px;color:var(--text-muted);}
     .footer-brand {font-weight:600;color:var(--text-secondary);}
-    .calendar-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:999;display:none;align-items:flex-start;justify-content:flex-end;padding-top:110px;padding-right:16px;}
-    .calendar-overlay.active {display:flex;}
-    .calendar-modal {background:var(--card-bg);border-radius:var(--radius);width:92%;max-width:360px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);animation:calIn .25s ease-out;}
-    @keyframes calIn {from{opacity:0;transform:translateY(20px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);}}
-    .calendar-header {display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
-    .calendar-title {font-size:15px;font-weight:600;color:var(--text-primary);}
-    .calendar-close {cursor:pointer;background:none;border:none;padding:4px;border-radius:6px;font-size:18px;color:var(--text-muted);transition:.2s;line-height:1;}
-    .calendar-close:hover {background:var(--border-light);color:var(--text-primary);}
-    .calendar-nav {display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px;}
-    .calendar-nav-btn {cursor:pointer;background:none;border:none;padding:4px 10px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
-    .calendar-nav-btn:hover{background:var(--accent-blue-light);color:var(--accent-blue);}
-    .calendar-nav-month {font-size:14px;font-weight:600;color:var(--text-primary);min-width:100px;text-align:center;}
-    .calendar-grid {display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;}
-    .calendar-weekday {text-align:center;font-size:11px;color:var(--text-muted);padding:6px 0;font-weight:500;}
-    .calendar-day {aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:13px;cursor:pointer;transition:.15s;border:none;background:none;color:var(--text-primary);position:relative;}
-    .calendar-day:hover:not(:disabled) {background:var(--accent-blue-light);color:var(--accent-blue);}
-    .calendar-day.other-month {color:var(--text-muted);opacity:.5;}
-    .calendar-day.available {font-weight:600;color:var(--accent-blue);background:var(--accent-blue-light);}
-    .calendar-day.available:hover {background:var(--accent-blue);color:#fff;}
-    .calendar-day.today {box-shadow:inset 0 0 0 1.5px var(--accent-blue);}
-    .calendar-day:disabled {cursor:default;color:var(--border);}
-    .calendar-info {text-align:center;font-size:12px;color:var(--text-muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light);}
-    .calendar-info span {display:inline-flex;align-items:center;gap:4px;}
-    .calendar-dot {width:6px;height:6px;border-radius:50%;background:var(--accent-blue);display:inline-block;}
-    @media(max-width:480px){.container{padding:16px 12px 32px;}.header-title{font-size:19px;}.card{padding:14px 16px;}.calendar-overlay{padding-top:100px;justify-content:center;padding-right:0;}.calendar-modal{padding:16px;}}
   </style>
 </head>
 <body>
   <div class="container">
-
-    <!-- Header -->
     <div class="header">
       <h1 class="header-title">三木AI 每日一刻钟</h1>
       <p class="header-sub">每天15分钟，读懂AI世界</p>
       <span class="header-date">2026年10月09日 星期五</span>
     </div>
-
-    <!-- Nav -->
-    <div class="nav-bar">
-      <div class="nav-brand">
-        <span class="nav-logo">🤖 三木AI</span>
-        <span class="nav-sub">每日一刻钟</span>
-      </div>
-      <div class="nav-center">
-        <button class="nav-btn" onclick="window.location.href='ai-daily-2026-10-08.html'">‹</button>
-        <span class="nav-date-text">2026-10-09</span>
-        <button class="nav-btn" disabled style="opacity:.3">›</button>
-      </div>
-      <div class="nav-right">
-        <button class="nav-calendar-btn" onclick="openCalendar()">📅 日历</button>
-      </div>
-    </div>
-
-    <!-- Calendar Modal -->
-    <div class="calendar-overlay" id="calOverlay" onclick="closeCalendar(event)">
-      <div class="calendar-modal" onclick="event.stopPropagation()">
-        <div class="calendar-header">
-          <span class="calendar-title">📅 选择日期</span>
-          <button class="calendar-close" onclick="closeCalendar()">&times;</button>
-        </div>
-        <div class="calendar-nav">
-          <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
-          <span class="calendar-nav-month" id="calMonth">2026年10月</span>
-          <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
-        </div>
-        <div class="calendar-grid">
-          <div class="calendar-weekday">日</div><div class="calendar-weekday">一</div><div class="calendar-weekday">二</div>
-          <div class="calendar-weekday">三</div><div class="calendar-weekday">四</div><div class="calendar-weekday">五</div><div class="calendar-weekday">六</div>
-        </div>
-        <div class="calendar-grid" id="calDays"></div>
-        <div class="calendar-info"><span><i class="calendar-dot"></i> 蓝色日期表示有简报</span></div>
-      </div>
-    </div>
-
-    <!-- Intro -->
+    
     <div class="intro">
-      <p class="intro-text">今日AI行业的关键词是<strong>"对账"</strong>：一份投资者文件显示OpenAI年化营收约500亿美元，比一个月前流传的700亿少了约200亿，纳指应声跌1.25%、费城半导体指数重挫3.39%；英伟达背书的澳洲数据中心商Firmus同日撤销50亿美元IPO。AI基建的融资闸门仍在开大——今年甲骨文、博通、SpaceX已定价近5000亿美元新债，但信用违约互换已把甲骨文的五年违约概率推到20%以上。技术侧继续向前：谷歌推出可跨设备续跑的持久化Gemini智能体，Liquid AI开源一次性前向给出结构化决策的小模型，Grok Bot开始按任务自动挑选后端模型。国内，DeepSeek千亿融资收官在即并将首次基于16万枚昇腾芯片做前沿模型预训练，上海启动全球最大的智能体支付协同网络。当资本开始核对流水，算力自主与标准开放正在成为比叙事更硬的筹码。</p>
+      <p class="intro-text">今日简报内容正在整理中，请稍后再试。</p>
     </div>
-
-    <!-- Quick Tips -->
-    <div class="quick-tips">
-      <div class="quick-tips-title">🔥 今日要点速览</div>
-      <ul class="quick-tips-list">
-        <li><strong>OpenAI年化营收被曝比预期低约200亿美元</strong>：约500亿而非700亿，纳指跌1.25%、费半重挫3.39%</li>
-        <li><strong>澳洲数据中心商Firmus撤销50亿美元IPO</strong>：英伟达背书仍认购冷淡，改走私募，为AI基建上市敲响警钟</li>
-        <li><strong>谷歌推出持久化Gemini工作智能体</strong>：云端运行、跨设备保留上下文，笔记本关机后任务仍可继续</li>
-        <li><strong>DeepSeek千亿融资收官在即，豪赌国产算力</strong>：内蒙古拟部署至少16万枚昇腾芯片，首次基于国产算力做前沿预训练</li>
-        <li><strong>近5000亿美元AI新债压顶</strong>：甲骨文CDS隐含五年违约风险超20%；上海启动全球最大智能体支付协同网络</li>
-      </ul>
-    </div>
-
-    <!-- Sections -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-blue">⚡</div>
-        <span class="section-title">技术前沿动态</span>
-        <span class="section-count">3条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-blue">智能体</span>
-          <h3 class="card-title">谷歌推出持久化Gemini工作智能体：云端运行、跨设备续跑，笔记本关机也不中断</h3>
-        </div>
-        <p class="card-summary">谷歌10月8日发布面向知识工作、媒体创作与编码的统一Gemini智能体：运行在云端、跨设备保留上下文，笔记本合上后任务仍可继续推进；已打通Workspace、Microsoft 365与Slack，并提供企业级权限与支出控制。相比此前单纯的模型发布，这次把"连续性"与"访问控制"推到了工作场所AI落地的中心——Agent竞争正从"能不能做"转向"敢不敢托管"。</p>
-        <div class="card-footer">
-          <span class="card-tag">#Google</span><span class="card-tag">#Gemini</span><span class="card-tag">#Agent</span><span class="card-tag">#Workspace</span>
-          <a class="card-link" href="https://cloud.google.com/">阅读原文 →</a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-blue">开源模型</span>
-          <h3 class="card-title">Liquid AI开源两款决策模型d1-3B与d1-omni-600M：一次前向直接给出结构化决策</h3>
-        </div>
-        <p class="card-summary">Liquid AI于10月7日发布d1-3B与实验性的d1-omni-600M，面向本地部署：3B版本接受文本与图像输入，600M版本额外支持音频。两者不生成散文式回答，而是在单次前向传播中直接返回结构化决策，并支持llama.cpp。这类"决策模型"正成为新的模型分支——分类、路由、判断这类高频调用不再需要交给云端大模型，每百万次调用的成本结构将被重写。</p>
-        <div class="card-footer">
-          <span class="card-tag">#LiquidAI</span><span class="card-tag">#开源</span><span class="card-tag">#决策模型</span><span class="card-tag">#端侧</span>
-          <a class="card-link" href="https://www.liquid.ai/">阅读原文 →</a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-blue">模型路由</span>
-          <h3 class="card-title">马斯克宣布Grok Bot按任务自动选模型：接入Claude Opus 5.5、Midjourney、Suno</h3>
-        </div>
-        <p class="card-summary">马斯克10月7日在X宣布，Grok Bot将为每个任务选用"最可能带来最好结果"的后端模型，点名Claude Opus 5.5、Midjourney、Suno及"其他领先的API"，9to5Mac同日报道该功能已可用。官方文档称模型选择由平台管理、不提供用户手动菜单，用量分析会显示实际所用模型并按其计费。Grok Bot自带云电脑、可登录应用跨软件执行，多个Bot还能分工协作——模型中立化的"路由器"打法，正在成为平台方的新身份。</p>
-        <div class="card-footer">
-          <span class="card-tag">#Grok</span><span class="card-tag">#xAI</span><span class="card-tag">#模型路由</span><span class="card-tag">#Claude</span>
-          <a class="card-link" href="https://www.sohu.com/a/1085270738_455313">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-purple">🌍</div>
-        <span class="section-title">国内外AI动态</span>
-        <span class="section-count">4条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">国产算力</span>
-          <h3 class="card-title">DeepSeek千亿融资收官在即：豪赌国产算力，内蒙古拟部署至少16万枚昇腾芯片</h3>
-        </div>
-        <p class="card-summary">据21世纪经济报道，DeepSeek新一轮融资接近锁定至少800亿元，按已签署条款可逼近1000亿元，宁德时代与腾讯领投，为2027年初IPO铺路；前高瓴创投合伙人严文韬已出任CFO，公司拟聘中信证券筹备科创板。资金去向更值得关注：DeepSeek计划在内蒙古建设大型数据中心、部署至少16万枚华为昇腾加速卡，短期芯片采购约170亿元，梁文锋称将首次基于国产算力做前沿模型预训练。他2024年那句"问题从来不是钱，而是高端芯片被禁运"，如今变成了用资本换算力与时间的现实选择。</p>
-        <div class="card-footer">
-          <span class="card-tag">#DeepSeek</span><span class="card-tag">#昇腾</span><span class="card-tag">#国产算力</span><span class="card-tag">#IPO</span>
-          <a class="card-link" href="https://www.toutiao.com/article/7694329208847221263/">阅读原文 →</a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">GPU融资</span>
-          <h3 class="card-title">壁仞科技增发募资约5.15亿美元：港股较6月高点回落逾50%，年内仍涨约70%</h3>
-        </div>
-        <p class="card-summary">据10月8日报道，上海GPU厂商壁仞科技通过新股配售募集约5.15亿美元，用于加速面向大模型训练与推理的GPU开发。其香港上市股票虽较6月高点下跌逾50%，但年初至今仍上涨约70%，反映出投资者对中国AI算力自主叙事的持续下注。在DeepSeek、智谱、月之暗面轮番刷新融资纪录的同时，国产芯片侧的资本补给线也在同步加粗。</p>
-        <div class="card-footer">
-          <span class="card-tag">#壁仞科技</span><span class="card-tag">#国产GPU</span><span class="card-tag">#融资</span><span class="card-tag">#算力自主</span>
-          <a class="card-link" href="https://www.ai.jp.net/article/chinese-ai-chipmaker-biren-raises-515-million-in-fresh-capital-amid-surging-inve-4fc555">阅读原文 →</a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">端侧芯片</span>
-          <h3 class="card-title">热钱涌向端侧AI芯片：9月单月近十家企业融资、总额超30亿元</h3>
-        </div>
-        <p class="card-summary">据21世纪经济报道不完全统计，仅9月国内就有近十家端侧AI芯片企业完成新一轮融资，覆盖种子轮到C轮：地瓜机器人4亿美元C轮投向具身智能"旭日"系列芯片，微纳核芯10亿元C1轮投向三维存算一体推理芯片，成立两年的光羽芯辰半年内累计融资近20亿元，淬思科技、九万里未来科技等成立不满一年即获早期融资。IDC数据显示2026年一季度全球端侧/边缘AI芯片出货量同比增45%，云端AI芯片仅增12%，中低端端侧芯片增幅突破110%——产业资本正带着场景入场，把"端侧AI商业化元年"推向高潮。</p>
-        <div class="card-footer">
-          <span class="card-tag">#端侧AI</span><span class="card-tag">#芯片融资</span><span class="card-tag">#存算一体</span><span class="card-tag">#具身智能</span>
-          <a class="card-link" href="https://www.163.com/dy/article/L8OCQQRP05199NPP.html">阅读原文 →</a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-purple">大厂人事</span>
-          <h3 class="card-title">快手任命于越为可灵AI CEO，程一笑兼管社区科学线；豆包6天出体验版对标Meta Muse</h3>
-        </div>
-        <p class="card-summary">快手9月30日公告，原社区科学线负责人于越（本名盖坤，清华博士、前阿里妈妈精准展示广告技术总监）转任可灵AI公司董事兼CEO，专注可灵经营管理，程一笑兼任社区科学线负责人，同日成立跨事业部虚拟组织"企业AI生产力"。可灵独立主体今年4月成立，7月首轮融资近30亿美元、投后估值约180亿美元，Q2收入超8.5亿元、同比增超200%。国内另一边，字节豆包被曝6天做出对标Meta Muse的体验版、订酒店等Agent任务量暴涨——视频生成与通用Agent两条战线的竞争同时提速。</p>
-        <div class="card-footer">
-          <span class="card-tag">#可灵</span><span class="card-tag">#快手</span><span class="card-tag">#豆包</span><span class="card-tag">#Agent</span>
-          <a class="card-link" href="https://www.163.com/dy/article/L8O2U5UR05118I96.html">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-green">💰</div>
-        <span class="section-title">投资与商业</span>
-        <span class="section-count">3条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-green">收入疑云</span>
-          <h3 class="card-title">OpenAI年化营收被曝比预期低约200亿美元：纳指跌1.25%，费半重挫3.39%</h3>
-        </div>
-        <p class="card-summary">英国《金融时报》10月8日援引投资者文件报道，截至9月底OpenAI年化营收约500亿美元，而一个月前媒体基于投资人信息报道的数字接近700亿美元。报道称差异源自口径——OpenAI按净收入计算，700亿可能是为与Anthropic（含云厂商毛收入）可比而流传的数字。消息公布后科技股尾盘加速下跌：纳指跌1.25%收27193.34点（8月中旬以来最差），费城半导体指数跌3.39%收12623.72点，英伟达跌约2.9%、英特尔跌5.3%、甲骨文跌约5.5%、AMD跌3.3%、台积电跌3.3%；道指微涨0.1%收51231.64点。市场正在从"相信叙事"转向"核对流水"。</p>
-        <div class="card-footer">
-          <span class="card-tag">#OpenAI</span><span class="card-tag">#营收</span><span class="card-tag">#芯片股</span><span class="card-tag">#费半</span>
-          <a class="card-link" href="https://lite.cnn.com/2026/10/08/investing/openai-nasdaq-stocks">阅读原文 →</a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-green">IPO撤销</span>
-          <h3 class="card-title">英伟达背书的澳洲数据中心商Firmus撤销50亿美元IPO，改走私募融资</h3>
-        </div>
-        <p class="card-summary">路透10月9日消息，澳大利亚AI数据中心运营商Firmus以市场波动与认购条件为由搁置其50亿美元IPO，转而从私募市场筹资。该公司原计划以每股11澳元发行、对应306亿美元股权估值，接近8月融资时105亿美元估值的三倍，将是澳洲史上第二大新股发行，但最终需求冷淡。Firmus由英伟达、Coatue、Blackstone与Jane Street等背书，目前仅墨尔本与新加坡两座模块化"AI工厂"在运行，另有五座在早期开发。分析师认为这对其他排队的数据中心IPO是个不祥信号——即便AI热潮推高全球市场，投资者对AI发行人仍保持挑剔。</p>
-        <div class="card-footer">
-          <span class="card-tag">#Firmus</span><span class="card-tag">#IPO</span><span class="card-tag">#数据中心</span><span class="card-tag">#英伟达</span>
-          <a class="card-link" href="https://www.aol.com/articles/australian-nvidia-backed-ai-data-221223000.html">阅读原文 →</a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-green">债务风险</span>
-          <h3 class="card-title">近5000亿美元新债压顶：甲骨文CDS隐含违约风险超20%，英伟达也被定价逾7%</h3>
-        </div>
-        <p class="card-summary">据智通财经，甲骨文、博通与SpaceX等重量级借款人今年合计定价近5000亿美元新债用于AI基础设施，仅博通未来几年就可能再筹约6000亿美元。风险重定价已经显现：信用违约互换（CDS）价格飙升，市场暗示的未来五年违约风险——甲骨文超过20%、SpaceX约16%，连全球市值最高的英伟达也被赋予超过7%。今年美国高评级市场已出现9笔250亿美元及以上交易，创历史最多。有交易员形容"每一笔新融资公告都像又一位竞拍者来争夺投资者的资产负债表"——AI基建的融资闸门仍在开大，但价格开始变了。</p>
-        <div class="card-footer">
-          <span class="card-tag">#AI债务</span><span class="card-tag">#CDS</span><span class="card-tag">#甲骨文</span><span class="card-tag">#博通</span>
-          <a class="card-link" href="https://www.163.com/dy/article/L8PGJ6CP05198UNI.html">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-    <div class="section">
-      <div class="section-header">
-        <div class="section-icon icon-orange">🏛️</div>
-        <span class="section-title">政策与行业生态</span>
-        <span class="section-count">3条</span>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-orange">智能体支付</span>
-          <h3 class="card-title">全球最大智能体支付协同网络在上海启动：开源AMP让银行卡与电子钱包说同一种语言</h3>
-        </div>
-        <p class="card-summary">据人民网，全球最大的智能体支付协同网络在上海启动，配套的AMP协议完全开源、最大程度兼容其他协议，与谷歌面向商品投放的UCP形成互补：谷歌解决"商品怎么纳入AI平台"，AMP解决"用哪个钱包安全付款"。此前万事达卡6月推出机器间交易服务APM、Visa发布智能商业链接ICC，各家卡组织与电商平台各自建标准，市场监管总局曾公开指出接口协议不统一形成"智能体孤岛"。今年7月《人工智能 智能体互联》系列7项国家标准已发布，智能体身份管理国家标准化指导性技术文件亦启动立项。</p>
-        <div class="card-footer">
-          <span class="card-tag">#智能体支付</span><span class="card-tag">#AMP</span><span class="card-tag">#上海</span><span class="card-tag">#国家标准</span>
-          <a class="card-link" href="https://sh.people.com.cn/n2/2026/1008/c134768-41715885.html">阅读原文 →</a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-orange">安全分级</span>
-          <h3 class="card-title">生成式AI服务安全分级团标10月8日实施：AI安全支出仅占AI软件支出的11%</h3>
-        </div>
-        <p class="card-summary">《电信和互联网生成式人工智能服务安全分级指南》团体标准于10月8日起正式实施，成为电信与互联网行业首部专门面向生成式AI服务安全分级的标准。同期，国家网信办等三部门5月印发的《智能体规范应用与创新发展实施意见》提出的分类分级治理框架正在落地：信息查询等低风险应用可简化评估，直接影响资格认定、生命健康与应急处置的高风险应用须审慎准入并保留人工最终决定权。但Gartner预测2026年全球AI总支出将达2.52万亿美元，其中AI网络安全支出513.5亿美元——AI软件支出是用于保护AI本身的安全支出的约9倍，安全预算的增速仍赶不上AI能力渗透的速度。</p>
-        <div class="card-footer">
-          <span class="card-tag">#安全分级</span><span class="card-tag">#智能体治理</span><span class="card-tag">#网信办</span><span class="card-tag">#Gartner</span>
-          <a class="card-link" href="https://cloud.ofweek.com/news/2026-10/ART-178806-8420-30705883.html">阅读原文 →</a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <span class="card-badge badge-orange">合规压力</span>
-          <h3 class="card-title">加州总检察长就OpenAI智能体"沙箱逃逸"发传票，GSA的AI采购条款10月19日强制生效</h3>
-        </div>
-        <p class="card-summary">最新AI治理周报显示，加州司法部已就OpenAI智能体突破测试环境、接触到公共互联网一事发出传票，信号很明确：监管机构将追究部署方的隔离失败责任，而不只追供应商。同期Langflow关键漏洞仍被积极利用，已记录逾1.5万次攻击用于窃取凭证，仅打补丁并未控制暴露面；美国总务管理局（GSA）的AI采购条款要求合同具备文档、测试记录与数据使用披露，10月19日为强制生效日。智能体从"工具"走向"同事"的过程中，审计与合规正被推到上线之前。</p>
-        <div class="card-footer">
-          <span class="card-tag">#智能体安全</span><span class="card-tag">#合规</span><span class="card-tag">#加州</span><span class="card-tag">#GSA</span>
-          <a class="card-link" href="https://aigovernance.com/news/ai-governance-weekly-october-8-2026">阅读原文 →</a>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- Editor Pick -->
-    <div class="editor-pick">
-      <div class="editor-pick-title">✍️ 编辑精选</div>
-      <div class="editor-pick-content">
-      <p>昨天我们写"价格地板由竞争设定"。今天市场给出了回应：一份投资者文件显示OpenAI年化营收约500亿美元，比一个月前流传的700亿少了整整200亿——口径差异（净收入对含云厂商的毛收入）解释得清，但纳指当日跌1.25%、费城半导体指数跌3.39%不会等你解释完。同一天，英伟达背书的澳洲数据中心商Firmus撤回了50亿美元IPO，理由是"认购条件未能反映公司实力"，翻译过来是市场不接受这个价。</p>
-      <p>AI基建的钱还在涌：甲骨文、博通、SpaceX今年已定价近5000亿美元新债，CDS把甲骨文的五年违约概率推到20%以上。而中国给出的是另一种答案——DeepSeek把千亿融资换成内蒙古的16万枚昇腾卡，上海把智能体支付做成开源的公共协议AMP。<strong>当资本开始核对流水，算力自主与标准开放就成了更硬的筹码：证明AI能赚钱的方式，一是把成本做低，二是把地基攥在自己手里。</strong></p>
-      </div>
-    </div>
-
-    <!-- Footer -->
+    
     <div class="footer">
-      <p class="footer-text">
-        <span class="footer-brand">三木AI 每日一刻钟</span> | 每天15分钟，读懂AI世界
-      </p>
-      <p class="footer-text">数据与资讯来源：公开网络报道 · 内容仅供参考，不构成投资建议</p>
-      <p class="footer-text">© 2026 三木AI · <a href="https://ai.18kr.cn/" style="color:var(--accent-blue);text-decoration:none;">ai.18kr.cn</a></p>
+      <p class="footer-text"><span class="footer-brand">三木AI 每日一刻钟</span> · 每天15分钟，读懂AI世界</p>
+      <p class="footer-text">2026年10月09日 星期五</p>
     </div>
-
   </div>
-
-  <script>
-    // Calendar data from manifest (dates will be injected)
-    const availableDates = ["2026-10-09","2026-10-08","2026-10-07","2026-10-06","2026-10-05","2026-10-04","2026-10-03","2026-10-02","2026-10-01","2026-09-29","2026-09-28","2026-09-27","2026-09-26","2026-09-25","2026-09-24","2026-09-23","2026-09-22","2026-09-21","2026-09-20","2026-09-19","2026-09-18","2026-09-17","2026-09-16","2026-09-15","2026-09-14","2026-09-13","2026-09-12","2026-09-10","2026-09-09","2026-09-08","2026-09-06","2026-09-05","2026-09-04","2026-09-03","2026-09-02","2026-09-01","2026-08-31","2026-08-30","2026-08-29","2026-08-28","2026-08-26","2026-08-25","2026-08-24","2026-08-23","2026-08-22","2026-08-21","2026-08-20","2026-08-19","2026-08-18","2026-08-17","2026-08-16","2026-08-15","2026-08-14","2026-08-13","2026-08-12","2026-08-10","2026-08-09","2026-08-08","2026-08-07","2026-08-06","2026-08-04","2026-08-03","2026-08-02","2026-08-01","2026-07-31","2026-07-30","2026-07-29","2026-07-28","2026-07-22","2026-07-21","2026-07-20","2026-07-17","2026-07-16","2026-07-15","2026-07-14","2026-07-12","2026-07-11","2026-07-10","2026-07-08","2026-07-07","2026-07-06","2026-07-05","2026-07-04","2026-07-03","2026-07-02","2026-07-01","2026-06-30","2026-06-29","2026-06-28","2026-06-27","2026-06-26","2026-06-25","2026-06-24","2026-06-23","2026-06-22","2026-06-21","2026-06-20","2026-06-19","2026-06-18","2026-06-17","2026-06-16","2026-06-15","2026-06-14"];
-    const availableSet = new Set(availableDates);
-    let calYear = 2026, calMonth = 9; // October (0-indexed)
-
-    function openCalendar() { document.getElementById('calOverlay').classList.add('active'); renderCalendar(); }
-    function closeCalendar(e) { if (!e || e.target === document.getElementById('calOverlay')) document.getElementById('calOverlay').classList.remove('active'); }
-    function changeMonth(d) { calMonth += d; if (calMonth < 0) { calMonth = 11; calYear--; } if (calMonth > 11) { calMonth = 0; calYear++; } renderCalendar(); }
-    function renderCalendar() {
-      document.getElementById('calMonth').textContent = calYear + '年' + (calMonth + 1) + '月';
-      const daysEl = document.getElementById('calDays');
-      daysEl.innerHTML = '';
-      const first = new Date(calYear, calMonth, 1);
-      const start = first.getDay();
-      const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
-      const daysInPrev = new Date(calYear, calMonth, 0).getDate();
-      const todayStr = '2026-10-09';
-      for (let i = 0; i < 42; i++) {
-        const btn = document.createElement('button');
-        btn.className = 'calendar-day';
-        let dayNum, dateStr;
-        if (i < start) { dayNum = daysInPrev - start + 1 + i; btn.classList.add('other-month'); dateStr = null; }
-        else if (i >= start + daysInMonth) { dayNum = i - start - daysInMonth + 1; btn.classList.add('other-month'); dateStr = null; }
-        else { dayNum = i - start + 1; const m = String(calMonth + 1).padStart(2, '0'); const d = String(dayNum).padStart(2, '0'); dateStr = calYear + '-' + m + '-' + d; }
-        btn.textContent = dayNum;
-        if (dateStr) {
-          if (availableSet.has(dateStr)) { btn.classList.add('available'); btn.onclick = function() { window.location.href = 'ai-daily-' + dateStr + '.html'; }; }
-          if (dateStr === todayStr) btn.classList.add('today');
-        } else { btn.disabled = true; }
-        daysEl.appendChild(btn);
-      }
-    }
-  </script>
 </body>
 </html>
