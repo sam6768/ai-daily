@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>三木AI 每日一刻钟 | 2026-10-09</title>
+  <title>三木AI 每日一刻钟 | 2026-10-10</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {--bg:#f5f7fa;--card-bg:#ffffff;--text-primary:#1a1a2e;--text-secondary:#5a5a7a;--text-muted:#8a8aa0;--accent-blue:#2563eb;--accent-blue-light:#dbeafe;--accent-purple:#7c3aed;--accent-purple-light:#ede9fe;--accent-teal:#0d9488;--accent-teal-light:#ccfbf1;--accent-orange:#ea580c;--accent-orange-light:#ffedd5;--accent-green:#16a34a;--accent-green-light:#dcfce7;--border:#e2e8f0;--border-light:#f1f5f9;--radius:12px;--radius-sm:8px;--shadow:0 1px 3px rgba(0,0,0,0.04),0 4px 12px rgba(0,0,0,0.03);}
@@ -14,6 +14,19 @@
     .header-title {font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:1px;}
     .header-sub {font-size:13px;color:var(--text-muted);margin-top:4px;}
     .header-date {display:inline-block;margin-top:12px;padding:4px 16px;background:var(--accent-blue-light);color:var(--accent-blue);border-radius:20px;font-size:13px;font-weight:500;}
+    /* Nav Bar */
+    .nav-bar {background:var(--card-bg);border-radius:var(--radius);padding:10px 20px;margin-bottom:24px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);}
+    .nav-brand {display:flex;align-items:center;gap:8px;}
+    .nav-logo {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .nav-sub {font-size:11px;color:var(--text-muted);}
+    .nav-center {display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);}
+    .nav-btn {cursor:pointer;background:none;border:none;padding:4px 8px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+    .nav-btn:hover{color:var(--accent-blue);background:var(--accent-blue-light);}
+    .nav-date-text{font-weight:500;color:var(--text-primary);}
+    .nav-right {display:flex;align-items:center;gap:8px;}
+    .nav-calendar-btn {cursor:pointer;display:flex;align-items:center;gap:4px;padding:5px 12px;border-radius:8px;font-size:13px;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;font-weight:500;transition:.2s;}
+    .nav-calendar-btn:hover{opacity:.9;}
+
     .intro {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow);border:1px solid var(--border);}
     .intro-text {font-size:14px;color:var(--text-secondary);line-height:1.8;}
     .quick-tips {background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;color:white;box-shadow:var(--shadow);}
@@ -43,31 +56,366 @@
     .icon-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
     .icon-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
     .editor-pick {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);border:1px solid var(--border);border-left:3px solid var(--accent-orange);}
-    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;}
+    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
     .editor-pick-content {font-size:13px;color:var(--text-secondary);line-height:1.8;}
     .editor-pick-content p {margin-bottom:8px;}
     .editor-pick-content strong {color:var(--text-primary);font-weight:600;}
     .footer {text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
     .footer-text {font-size:12px;color:var(--text-muted);}
     .footer-brand {font-weight:600;color:var(--text-secondary);}
+    /* Calendar Modal */
+    .calendar-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:999;display:none;align-items:flex-start;justify-content:flex-end;padding-top:110px;padding-right:16px;}
+    .calendar-overlay.active {display:flex;}
+    .calendar-modal {background:var(--card-bg);border-radius:var(--radius);width:92%;max-width:360px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);animation:calIn .25s ease-out;}
+    @keyframes calIn {from{opacity:0;transform:translateY(20px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);}}
+    .calendar-header {display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+    .calendar-title {font-size:15px;font-weight:600;color:var(--text-primary);}
+    .calendar-close {cursor:pointer;background:none;border:none;padding:4px;border-radius:6px;font-size:18px;color:var(--text-muted);transition:.2s;line-height:1;}
+    .calendar-close:hover {background:var(--border-light);color:var(--text-primary);}
+    .calendar-nav {display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px;}
+    .calendar-nav-btn {cursor:pointer;background:none;border:none;padding:4px 10px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+    .calendar-nav-btn:hover{background:var(--accent-blue-light);color:var(--accent-blue);}
+    .calendar-nav-month {font-size:14px;font-weight:600;color:var(--text-primary);min-width:100px;text-align:center;}
+    .calendar-grid {display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;}
+    .calendar-weekday {text-align:center;font-size:11px;color:var(--text-muted);padding:6px 0;font-weight:500;}
+    .calendar-day {aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:13px;cursor:pointer;transition:.15s;border:none;background:none;color:var(--text-primary);position:relative;}
+    .calendar-day:hover:not(:disabled) {background:var(--accent-blue-light);color:var(--accent-blue);}
+    .calendar-day.other-month {color:var(--text-muted);opacity:.5;}
+    .calendar-day.available {font-weight:600;color:var(--accent-blue);background:var(--accent-blue-light);}
+    .calendar-day.available:hover {background:var(--accent-blue);color:#fff;}
+    .calendar-day.today {box-shadow:inset 0 0 0 1.5px var(--accent-blue);}
+    .calendar-day:disabled {cursor:default;color:var(--border);}
+    .calendar-info {text-align:center;font-size:12px;color:var(--text-muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light);}
+    .calendar-info span {display:inline-flex;align-items:center;gap:4px;}
+    .calendar-dot {width:6px;height:6px;border-radius:50%;background:var(--accent-blue);display:inline-block;}
+    @media(max-width:480px){.container{padding:16px 12px 32px;}.header-title{font-size:19px;}.card{padding:14px 16px;}.calendar-overlay{padding-top:100px;justify-content:center;padding-right:0;}.calendar-modal{padding:16px;}}
   </style>
 </head>
 <body>
   <div class="container">
+
+    <!-- Header -->
     <div class="header">
       <h1 class="header-title">三木AI 每日一刻钟</h1>
       <p class="header-sub">每天15分钟，读懂AI世界</p>
-      <span class="header-date">2026年10月09日 星期五</span>
+      <span class="header-date">2026年10月10日 星期六</span>
     </div>
-    
+
+    <!-- Nav -->
+    <div class="nav-bar">
+      <div class="nav-brand">
+        <span class="nav-logo">🤖 三木AI</span>
+        <span class="nav-sub">每日一刻钟</span>
+      </div>
+      <div class="nav-center">
+        <button class="nav-btn" onclick="window.location.href='ai-daily-2026-10-09.html'">‹</button>
+        <span class="nav-date-text">2026-10-10</span>
+        <button class="nav-btn" disabled style="opacity:.3" href="#">›</button>
+      </div>
+      <div class="nav-right">
+        <button class="nav-calendar-btn" onclick="openCalendar()">📅 日历</button>
+      </div>
+    </div>
+
+    <!-- Calendar Modal -->
+    <div class="calendar-overlay" id="calOverlay" onclick="closeCalendar(event)">
+      <div class="calendar-modal" onclick="event.stopPropagation()">
+        <div class="calendar-header">
+          <span class="calendar-title">📅 选择日期</span>
+          <button class="calendar-close" onclick="closeCalendar()">&times;</button>
+        </div>
+        <div class="calendar-nav">
+          <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
+          <span class="calendar-nav-month" id="calMonth">2026年6月</span>
+          <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
+        </div>
+        <div class="calendar-grid">
+          <div class="calendar-weekday">日</div><div class="calendar-weekday">一</div><div class="calendar-weekday">二</div>
+          <div class="calendar-weekday">三</div><div class="calendar-weekday">四</div><div class="calendar-weekday">五</div><div class="calendar-weekday">六</div>
+        </div>
+        <div class="calendar-grid" id="calDays"></div>
+        <div class="calendar-info"><span><i class="calendar-dot"></i> 蓝色日期表示有简报</span></div>
+      </div>
+    </div>
+
+
+    <!-- Intro -->
     <div class="intro">
-      <p class="intro-text">今日简报内容正在整理中，请稍后再试。</p>
+      <p class="intro-text">今天的AI行业关键词是<strong>“产出过剩”与“智能体集群”</strong>——OpenAI 一夜公开 722 篇 AI 生成的数学手稿，数学界直言“读不过来”；Anthropic 让 Claude 可以并行调度上千个子智能体；谷歌云推出企业级“数字同事” Gemini Agent。与此同时，资本持续加码：OpenAI 以 1.4 万亿美元估值寻求 300 亿美元新融资，腾讯拟发债 50 亿美元投 AI。监管侧，网信办通报清朗专项成果，AI 治理持续收紧。</p>
     </div>
-    
+
+    <!-- Quick Tips -->
+    <div class="quick-tips">
+      <div class="quick-tips-title">🔥 今日要点速览</div>
+      <ul class="quick-tips-list">
+        <li>OpenAI 一夜公开 <strong>722 篇 AI 生成数学手稿</strong>，涉及准黎曼猜想、霍奇猜想、BSD 等三大千禧难题方向</li>
+        <li>OpenAI 年化营收约 <strong>500 亿美元</strong>，拟以 1.4 万亿美元估值再融资 300 亿美元，消息引发芯片股回落</li>
+        <li>Anthropic Claude 动态工作流上线，<strong>主智能体可并行调度 1000 个子智能体</strong>，Agent 编排进入集群时代</li>
+        <li>谷歌云推出企业通用智能体 <strong>Gemini Agent</strong> 限量预览，“数字同事”可拥有独立企业邮箱与目录身份</li>
+        <li>网信办通报清朗专项成效：<strong>清理 AI 违规信息 561 万条</strong>，重点整治 AI“毒动画”侵害未成年人</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-blue">🔬</div>
+        <span class="section-title">技术前沿动态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">AI科研</span>
+          <h3 class="card-title">OpenAI 一夜公开 722 篇 AI 生成数学手稿，数学界直呼“读不过来”</h3>
+        </div>
+        <p class="card-summary">OpenAI 公开一个未发布内部模型产出的 722 篇数学手稿（归为 372 组结果），覆盖准黎曼猜想、霍奇猜想、BSD 猜想等三大千禧难题方向及 17 个领域，平均每项结果消耗约 ChatGPT Pro 思考 3 小时的算力。仅约 42% 完成了 Lean 形式化验证，九位学者组成的独立顾问组（含三位菲尔兹奖得主）声明不为其背书，有数学家估计消化这些成果需要数年。</p>
+        <div class="card-footer">
+          <span class="card-tag">#OpenAI</span><span class="card-tag">#AI数学</span><span class="card-tag">#千禧难题</span>
+          <a class="card-link" href="https://www.thepaper.cn/newsDetail_forward_34218436">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">模型发布</span>
+          <h3 class="card-title">OpenAI 上线 GPT-6.1 Sol Ultrafast：速度提升 8 倍</h3>
+        </div>
+        <p class="card-summary">OpenAI 为 9 月底发布的 GPT-6.1 Sol 推出 Ultrafast 模式，智能水平与标准版一致、接近旗舰 Astra，速度最高达标准版 8 倍。API 每百万 Token 输入 12 美元、输出 60 美元；Codex 与 ChatGPT Work 端仅向 Pro 500 等高级订阅用户开放，官方用例包括线上故障排查与智能体实时导航。</p>
+        <div class="card-footer">
+          <span class="card-tag">#OpenAI</span><span class="card-tag">#GPT-6.1</span><span class="card-tag">#推理速度</span>
+          <a class="card-link" href="https://mp.weixin.qq.com/s/qe3dJ1yVFGaLpzmk_-9gEA">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">智能体</span>
+          <h3 class="card-title">Anthropic 动态工作流：Claude 可并行调度 1000 个子智能体</h3>
+        </div>
+        <p class="card-summary">Anthropic 为 Claude Managed Agents 推出动态工作流能力，主智能体可将任务分发给最多 1000 个并行子智能体协同完成，标志着 Agent 编排从单线程走向“集群作战”，为大规模企业级自动化任务铺路。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Anthropic</span><span class="card-tag">#Agent</span><span class="card-tag">#编排</span>
+          <a class="card-link" href="https://the-decoder.com/anthropics-claude-can-now-orchestrate-up-to-1000-ai-agents-in-parallel-through-dynamic-workflows/">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-purple">🌍</div>
+        <span class="section-title">国内外AI动态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">企业动态</span>
+          <h3 class="card-title">谷歌云推出企业通用智能体 Gemini Agent，“数字同事”限量预览</h3>
+        </div>
+        <p class="card-summary">在 Gemini at Work 2026 大会上，谷歌云发布可自主拆解任务、调用企业数据、编写并运行代码的企业通用智能体 Gemini Agent。它设有会话、语义、程序、情节四类记忆，可在谷歌模型与 Claude 等第三方模型间智能路由，官方称综合成本降至全用前沿模型的 1/3、速度提升 40%。目前仅向部分企业开放预览。</p>
+        <div class="card-footer">
+          <span class="card-tag">#谷歌</span><span class="card-tag">#Gemini Agent</span><span class="card-tag">#数字同事</span>
+          <a class="card-link" href="https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=SN20261010000802987ec003">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">AI伦理</span>
+          <h3 class="card-title">Anthropic 首次全面修订使用政策：禁止持续无端“虐待”Claude</h3>
+        </div>
+        <p class="card-summary">Anthropic 一年多来首次全面修改使用政策：用户反复折磨模型且无明确目的时，Claude 可主动结束对话；新规同时禁止欺骗性商业或政治活动、未经同意追踪个人，武器禁令扩展至让武器运转的软件与关键组件，并禁止用 Claude 建议执法对象。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Anthropic</span><span class="card-tag">#使用政策</span><span class="card-tag">#AI伦理</span>
+          <a class="card-link" href="https://mp.weixin.qq.com/s/a4-SllVsY_LHLfRxpfAFdQ">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">行业反思</span>
+          <h3 class="card-title">AI 数学论文井喷引发学界反弹：产出速度远超人类消化能力</h3>
+        </div>
+        <p class="card-summary">OpenAI 722 篇手稿发布后，数学界反应强烈：由九位学者组成的独立顾问组声明不认可结果的正确性；有数学家呼吁抵制，认为这是“秀肌肉而非学术”；此前陶哲轩也公开表示 AI 发展速度“太疯狂了”。AI 科研产出与人类同行评审能力之间的鸿沟正在成为行业新矛盾。</p>
+        <div class="card-footer">
+          <span class="card-tag">#数学界</span><span class="card-tag">#同行评审</span><span class="card-tag">#陶哲轩</span>
+          <a class="card-link" href="https://www.dailyaithread.com/en/topics/models">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-green">💰</div>
+        <span class="section-title">投资与商业</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">融资估值</span>
+          <h3 class="card-title">OpenAI 年化营收约 500 亿美元，拟以 1.4 万亿美元估值再融资 300 亿</h3>
+        </div>
+        <p class="card-summary">据 The Decoder 报道，OpenAI 年化营收约 500 亿美元（此前按不同口径报出的 700 亿美元已下修），同时寻求以约 1.4 万亿美元估值募集至少 300 亿美元新资本。营收口径修正的消息发布后，引发芯片股回落，市场开始重新审视 AI 估值与真实收入的差距。</p>
+        <div class="card-footer">
+          <span class="card-tag">#OpenAI</span><span class="card-tag">#融资</span><span class="card-tag">#估值</span>
+          <a class="card-link" href="https://the-decoder.com/openai-revenue-keeps-surging-as-company-seeks-30-billion-in-fresh-capital/">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">融资</span>
+          <h3 class="card-title">非文本模型 Jev 走红：TypeSafe AI 成立数周估值 75 亿美元</h3>
+        </div>
+        <p class="card-summary">据 TechCrunch 报道，TypeSafe AI 完成 8.7 亿美元融资，估值 75 亿美元，a16z 领投、红杉与 DCVC 跟投。其 Jev 模型 9 月 15 日才发布，基于 Transformer 架构但输出概率而非文本，主打“校准决策”，宣称已有三分之一的财富 500 强企业使用。</p>
+        <div class="card-footer">
+          <span class="card-tag">#TypeSafe AI</span><span class="card-tag">#Jev</span><span class="card-tag">#a16z</span>
+          <a class="card-link" href="https://www.dailyaithread.com/en/topics/models">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">大厂动向</span>
+          <h3 class="card-title">腾讯拟发债最高 50 亿美元加码 AI，马化腾与首席 AI 科学家姚顺雨同框</h3>
+        </div>
+        <p class="card-summary">据券商中国报道，腾讯考虑发行最高 50 亿美元离岸债券，市场普遍认为募资将主要投向 AI。广东省委书记调研腾讯时，马化腾与清华姚班出身的首席 AI 科学家姚顺雨罕见同框。腾讯二季度资本开支达 527.8 亿元、同比增长 176%，混元大模型与智能体矩阵加速落地。</p>
+        <div class="card-footer">
+          <span class="card-tag">#腾讯</span><span class="card-tag">#发债</span><span class="card-tag">#姚顺雨</span>
+          <a class="card-link" href="https://www.163.com/dy/article/L8RBN7N80531G0IB.html">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-orange">🏛️</div>
+        <span class="section-title">政策与行业生态</span>
+        <span class="section-count">3条</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">监管治理</span>
+          <h3 class="card-title">网信办通报清朗专项成效：清理 AI 违规信息 561 万条</h3>
+        </div>
+        <p class="card-summary">中央网信办通报“清朗·整治AI应用乱象”专项行动第二阶段成果：累计清理违法违规信息 561 万余条，查处账号 4.9 万余个，处置违规网站和应用程序 2400 余个。利用 AI 批量制作的“毒动画”侵害未成年人被列为重点整治对象，平台被要求建立 AI 模型特征库进行技术拦截。</p>
+        <div class="card-footer">
+          <span class="card-tag">#网信办</span><span class="card-tag">#清朗行动</span><span class="card-tag">#未成年人保护</span>
+          <a class="card-link" href="https://www.sohu.com/a/1085790677_119038">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">应用落地</span>
+          <h3 class="card-title">深圳率先开放夜间无人车路权，“实体AI”昼夜运转</h3>
+        </div>
+        <p class="card-summary">据环球时报援引彭博社报道，深圳今年 3 月在全国率先向功能型无人车开放夜间路权，无人配送车以 45 公里时速夜间送货。截至 2025 年底美团无人车配送订单已突破 550 万单，全国已有 103 个城市开放无人配送路权，中国“实体人工智能”规模化落地持续领跑。</p>
+        <div class="card-footer">
+          <span class="card-tag">#深圳</span><span class="card-tag">#无人配送</span><span class="card-tag">#实体AI</span>
+          <a class="card-link" href="https://www.toutiao.com/article/7694802863117206026/">阅读原文 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">AI安全</span>
+          <h3 class="card-title">Anthropic 发布 Cyber Mission 计划：免费 AI 扫描器守护开源软件</h3>
+        </div>
+        <p class="card-summary">Anthropic 启动“Cyber Mission”项目保护关键基础设施与开源软件，并推出免费 AI 扫描器自动检测开源项目漏洞，官方预期准确率超过 90%，合作方包括 CrowdStrike 与 Palo Alto Networks。AI 开始成为网络安全的“防御性武器”。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Anthropic</span><span class="card-tag">#网络安全</span><span class="card-tag">#开源</span>
+          <a class="card-link" href="https://the-decoder.com/anthropic-launches-a-free-ai-scanner-for-open-source-projects/">阅读原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Editor Pick -->
+    <div class="editor-pick">
+      <div class="editor-pick-title">✍️ 编辑精选 · 深度观点</div>
+      <div class="editor-pick-content">
+<p>今天最耐人寻味的，是 OpenAI 的 722 篇数学手稿与数学界的冷淡回应之间的反差。当 AI 产出研究成果的速度超过人类验证和理解的速度，“发表” itself 就失去了意义——<strong>AI 时代稀缺的不再是产出能力，而是消化能力</strong>。</p>
+<p>另一个清晰的信号是 Agent 的“集群化”：Anthropic 的千级子智能体并行、谷歌的“数字同事”，都说明竞争焦点已从模型本身转向<strong>编排与成本控制</strong>。而监管侧的持续收紧（清朗专项、使用政策修订）提醒行业：能力越强，边界越重要。</p>
+<p><strong>一句话总结：</strong>AI 正在从“会聊天”走向“会做事”再到“会做研究”，但人类的审查、消化与治理能力必须同步跟上，否则增长的只有数字，而非认知。</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
     <div class="footer">
       <p class="footer-text"><span class="footer-brand">三木AI 每日一刻钟</span> · 每天15分钟，读懂AI世界</p>
-      <p class="footer-text">2026年10月09日 星期五</p>
+      <p class="footer-text">2026年10月10日 星期六</p>
     </div>
-  </div>
+
+  <script>
+  (function() {
+    var availableDates = [];
+    var calYear = 2026, calMonth = 9;
+
+    fetch('manifest.json?t=' + Date.now())
+      .then(function(r){return r.json();})
+      .then(function(data){
+        availableDates = data.dates || [];
+        renderCalendar();
+      })
+      .catch(function(){
+        availableDates = ['2026-10-10'];
+        renderCalendar();
+      });
+
+    window.openCalendar = function() {
+      document.getElementById('calOverlay').classList.add('active');
+      renderCalendar();
+    };
+    window.closeCalendar = function(e) {
+      if (!e || e.target.id === 'calOverlay') {
+        document.getElementById('calOverlay').classList.remove('active');
+      }
+    };
+    window.changeMonth = function(delta) {
+      calMonth += delta;
+      if (calMonth > 11) { calMonth = 0; calYear++; }
+      if (calMonth < 0) { calMonth = 11; calYear--; }
+      renderCalendar();
+    };
+    window.goToDate = function(dateStr) {
+      if (dateStr === '2026-10-10') {
+        window.location.href = 'index.html';
+      } else {
+        window.location.href = 'ai-daily-' + dateStr + '.html';
+      }
+    };
+
+    function renderCalendar() {
+      var monthNames = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+      document.getElementById('calMonth').textContent = calYear + '年' + monthNames[calMonth];
+      var firstDay = new Date(calYear, calMonth, 1).getDay();
+      var daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+      var prevDays = new Date(calYear, calMonth, 0).getDate();
+      var html = '';
+      for (var i = firstDay - 1; i >= 0; i--) {
+        html += '<button class="calendar-day other-month" disabled>' + (prevDays - i) + '</button>';
+      }
+      for (var d = 1; d <= daysInMonth; d++) {
+        var ds = calYear + '-' + String(calMonth + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+        var cls = 'calendar-day';
+        var isAvail = availableDates.indexOf(ds) !== -1;
+        var isToday = ds === '2026-10-10';
+        if (isAvail) cls += ' available';
+        if (isToday) cls += ' today';
+        if (isAvail) {
+          html += '<button class="' + cls + '" onclick="goToDate(\'' + ds + '\')">' + d + '</button>';
+        } else {
+          html += '<button class="' + cls + '" disabled>' + d + '</button>';
+        }
+      }
+      var totalCells = firstDay + daysInMonth;
+      var nextPadding = (7 - (totalCells % 7)) % 7;
+      for (var j = 1; j <= nextPadding; j++) {
+        html += '<button class="calendar-day other-month" disabled>' + j + '</button>';
+      }
+      document.getElementById('calDays').innerHTML = html;
+    }
+  })();
+  </script>
+
 </body>
 </html>
