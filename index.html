@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>三木AI 每日一刻钟 | 2026-10-20</title>
+  <title>三木AI 每日一刻钟 | 2026-10-21</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {--bg:#f5f7fa;--card-bg:#ffffff;--text-primary:#1a1a2e;--text-secondary:#5a5a7a;--text-muted:#8a8aa0;--accent-blue:#2563eb;--accent-blue-light:#dbeafe;--accent-purple:#7c3aed;--accent-purple-light:#ede9fe;--accent-teal:#0d9488;--accent-teal-light:#ccfbf1;--accent-orange:#ea580c;--accent-orange-light:#ffedd5;--accent-green:#16a34a;--accent-green-light:#dcfce7;--border:#e2e8f0;--border-light:#f1f5f9;--radius:12px;--radius-sm:8px;--shadow:0 1px 3px rgba(0,0,0,0.04),0 4px 12px rgba(0,0,0,0.03);}
@@ -96,7 +96,7 @@
     <div class="header">
       <h1 class="header-title">三木AI 每日一刻钟</h1>
       <p class="header-sub">每天15分钟，读懂AI世界</p>
-      <span class="header-date">2026年10月20日 星期二</span>
+      <span class="header-date">2026年10月21日 星期三</span>
     </div>
 
     <!-- Nav -->
@@ -106,8 +106,8 @@
         <span class="nav-sub">每日一刻钟</span>
       </div>
       <div class="nav-center">
-        <button class="nav-btn" onclick="window.location.href='ai-daily-2026-10-19.html'">‹</button>
-        <span class="nav-date-text">2026-10-20</span>
+        <button class="nav-btn" onclick="window.location.href='ai-daily-2026-10-20.html'">‹</button>
+        <span class="nav-date-text">2026-10-21</span>
         <button class="nav-btn" disabled style="opacity:.3" href="#">›</button>
       </div>
       <div class="nav-right">
@@ -354,7 +354,7 @@
     <!-- Footer -->
     <div class="footer">
       <p class="footer-text"><span class="footer-brand">三木AI 每日一刻钟</span> · 每天15分钟，读懂AI世界</p>
-      <p class="footer-text">2026年10月20日 星期二</p>
+      <p class="footer-text">2026年10月21日 星期三</p>
     </div>
   </div>
   <script>
@@ -369,7 +369,7 @@
         renderCalendar();
       })
       .catch(function(){
-        availableDates = ['2026-10-20'];
+        availableDates = ['2026-10-21'];
         renderCalendar();
       });
 
@@ -389,7 +389,7 @@
       renderCalendar();
     };
     window.goToDate = function(dateStr) {
-      if (dateStr === '2026-10-20') {
+      if (dateStr === '2026-10-21') {
         window.location.href = 'index.html';
       } else {
         window.location.href = 'ai-daily-' + dateStr + '.html';
@@ -410,7 +410,7 @@
         var ds = calYear + '-' + String(calMonth + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
         var cls = 'calendar-day';
         var isAvail = availableDates.indexOf(ds) !== -1;
-        var isToday = ds === '2026-10-20';
+        var isToday = ds === '2026-10-21';
         if (isAvail) cls += ' available';
         if (isToday) cls += ' today';
         if (isAvail) {
