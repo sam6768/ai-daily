@@ -3,71 +3,416 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>三木AI 每日一刻钟 | 2026-10-24</title>
+  <title>三木AI 每日一刻钟 | 2026-10-25</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {--bg:#f5f7fa;--card-bg:#ffffff;--text-primary:#1a1a2e;--text-secondary:#5a5a7a;--text-muted:#8a8aa0;--accent-blue:#2563eb;--accent-blue-light:#dbeafe;--accent-purple:#7c3aed;--accent-purple-light:#ede9fe;--accent-teal:#0d9488;--accent-teal-light:#ccfbf1;--accent-orange:#ea580c;--accent-orange-light:#ffedd5;--accent-green:#16a34a;--accent-green-light:#dcfce7;--border:#e2e8f0;--border-light:#f1f5f9;--radius:12px;--radius-sm:8px;--shadow:0 1px 3px rgba(0,0,0,0.04),0 4px 12px rgba(0,0,0,0.03);}
-    * {margin:0;padding:0;box-sizing:border-box;}
-    body {font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text-primary);line-height:1.7;}
-    .container {max-width:720px;margin:0 auto;padding:24px 16px 48px;}
-    .header {text-align:center;margin-bottom:28px;}
-    .header-title {font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:1px;}
-    .header-sub {font-size:13px;color:var(--text-muted);margin-top:4px;}
-    .header-date {display:inline-block;margin-top:12px;padding:4px 16px;background:var(--accent-blue-light);color:var(--accent-blue);border-radius:20px;font-size:13px;font-weight:500;}
-    .intro {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow);border:1px solid var(--border);}
-    .intro-text {font-size:14px;color:var(--text-secondary);line-height:1.8;}
-    .quick-tips {background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;color:white;box-shadow:var(--shadow);}
-    .quick-tips-title {font-size:15px;font-weight:600;margin-bottom:12px;}
-    .quick-tips-list {list-style:none;}
-    .quick-tips-list li {font-size:13px;line-height:1.9;padding-left:16px;position:relative;opacity:0.95;}
-    .quick-tips-list li::before {content:'';position:absolute;left:0;top:10px;width:6px;height:6px;background:rgba(255,255,255,0.7);border-radius:50%;}
-    .section {margin-bottom:24px;}
-    .section-header {display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-left:4px;}
-    .section-icon {width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;}
-    .section-title {font-size:15px;font-weight:600;color:var(--text-primary);}
-    .section-count {margin-left:auto;font-size:12px;color:var(--text-muted);background:var(--border-light);padding:2px 10px;border-radius:12px;}
-    .card {background:var(--card-bg);border-radius:var(--radius);padding:18px 20px;margin-bottom:12px;box-shadow:var(--shadow);border:1px solid var(--border);}
-    .card-header {display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;}
-    .card-badge {flex-shrink:0;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:500;}
-    .card-title {font-size:14px;font-weight:600;color:var(--text-primary);line-height:1.5;flex:1;}
-    .card-summary {font-size:13px;color:var(--text-secondary);line-height:1.7;margin-bottom:10px;}
-    .card-footer {display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
-    .card-tag {font-size:11px;color:var(--text-muted);background:var(--border-light);padding:2px 8px;border-radius:4px;}
-    .card-link {font-size:12px;color:var(--accent-blue);text-decoration:none;margin-left:auto;}
-    .badge-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
-    .badge-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
-    .badge-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
-    .badge-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
-    .icon-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
-    .icon-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
-    .icon-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
-    .icon-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
-    .editor-pick {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);border:1px solid var(--border);border-left:3px solid var(--accent-orange);}
-    .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;}
-    .editor-pick-content {font-size:13px;color:var(--text-secondary);line-height:1.8;}
-    .editor-pick-content p {margin-bottom:8px;}
-    .editor-pick-content strong {color:var(--text-primary);font-weight:600;}
-    .footer {text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
-    .footer-text {font-size:12px;color:var(--text-muted);}
-    .footer-brand {font-weight:600;color:var(--text-secondary);}
+        * {margin:0;padding:0;box-sizing:border-box;}
+        body {font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text-primary);line-height:1.7;}
+        .container {max-width:720px;margin:0 auto;padding:24px 16px 48px;}
+        .header {text-align:center;margin-bottom:28px;}
+        .header-title {font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:1px;}
+        .header-sub {font-size:13px;color:var(--text-muted);margin-top:4px;}
+        .header-date {display:inline-block;margin-top:12px;padding:4px 16px;background:var(--accent-blue-light);color:var(--accent-blue);border-radius:20px;font-size:13px;font-weight:500;}
+        .nav-bar {background:var(--card-bg);border-radius:var(--radius);padding:10px 20px;margin-bottom:24px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);}
+        .nav-brand {display:flex;align-items:center;gap:8px;}
+        .nav-logo {font-size:15px;font-weight:600;color:var(--text-primary);}
+        .nav-sub {font-size:11px;color:var(--text-muted);}
+        .nav-center {display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);}
+        .nav-btn {cursor:pointer;background:none;border:none;padding:4px 8px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+        .nav-btn:hover{color:var(--accent-blue);background:var(--accent-blue-light);}
+        .nav-date-text{font-weight:500;color:var(--text-primary);}
+        .nav-right {display:flex;align-items:center;gap:8px;}
+        .nav-calendar-btn {cursor:pointer;display:flex;align-items:center;gap:4px;padding:5px 12px;border-radius:8px;font-size:13px;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;font-weight:500;transition:.2s;}
+        .nav-calendar-btn:hover{opacity:.9;}
+        .intro {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow);border:1px solid var(--border);}
+        .intro-text {font-size:14px;color:var(--text-secondary);line-height:1.8;}
+        .quick-tips {background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;color:white;box-shadow:var(--shadow);}
+        .quick-tips-title {font-size:15px;font-weight:600;margin-bottom:12px;}
+        .quick-tips-list {list-style:none;}
+        .quick-tips-list li {font-size:13px;line-height:1.9;padding-left:16px;position:relative;opacity:0.95;}
+        .quick-tips-list li::before {content:'';position:absolute;left:0;top:10px;width:6px;height:6px;background:rgba(255,255,255,0.7);border-radius:50%;}
+        .section {margin-bottom:24px;}
+        .section-header {display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-left:4px;}
+        .section-icon {width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;}
+        .section-title {font-size:15px;font-weight:600;color:var(--text-primary);}
+        .section-count {margin-left:auto;font-size:12px;color:var(--text-muted);background:var(--border-light);padding:2px 10px;border-radius:12px;}
+        .card {background:var(--card-bg);border-radius:var(--radius);padding:18px 20px;margin-bottom:12px;box-shadow:var(--shadow);border:1px solid var(--border);}
+        .card-header {display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;}
+        .card-badge {flex-shrink:0;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:500;}
+        .card-title {font-size:14px;font-weight:600;color:var(--text-primary);line-height:1.5;flex:1;}
+        .card-summary {font-size:13px;color:var(--text-secondary);line-height:1.7;margin-bottom:10px;}
+        .card-footer {display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+        .card-tag {font-size:11px;color:var(--text-muted);background:var(--border-light);padding:2px 8px;border-radius:4px;}
+        .card-link {font-size:12px;color:var(--accent-blue);text-decoration:none;margin-left:auto;}
+        .badge-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
+        .badge-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
+        .badge-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
+        .badge-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+        .badge-green {background:var(--accent-green-light);color:var(--accent-green);}
+        .icon-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
+        .icon-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
+        .icon-green {background:var(--accent-green-light);color:var(--accent-green);}
+        .icon-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+        .editor-pick {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);border:1px solid var(--border);border-left:3px solid var(--accent-orange);}
+        .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+        .editor-pick-content {font-size:13px;color:var(--text-secondary);line-height:1.8;}
+        .editor-pick-content p {margin-bottom:8px;}
+        .editor-pick-content strong {color:var(--text-primary);font-weight:600;}
+        .footer {text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
+        .footer-text {font-size:12px;color:var(--text-muted);}
+        .footer-brand {font-weight:600;color:var(--text-secondary);}
+        .calendar-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:999;display:none;align-items:flex-start;justify-content:flex-end;padding-top:110px;padding-right:16px;}
+        .calendar-overlay.active {display:flex;}
+        .calendar-modal {background:var(--card-bg);border-radius:var(--radius);width:92%;max-width:360px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);animation:calIn .25s ease-out;}
+        @keyframes calIn {from{opacity:0;transform:translateY(20px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);}}
+        .calendar-header {display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+        .calendar-title {font-size:15px;font-weight:600;color:var(--text-primary);}
+        .calendar-close {cursor:pointer;background:none;border:none;padding:4px;border-radius:6px;font-size:18px;color:var(--text-muted);transition:.2s;line-height:1;}
+        .calendar-close:hover {background:var(--border-light);color:var(--text-primary);}
+        .calendar-nav {display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px;}
+        .calendar-nav-btn {cursor:pointer;background:none;border:none;padding:4px 10px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+        .calendar-nav-btn:hover{background:var(--accent-blue-light);color:var(--accent-blue);}
+        .calendar-nav-month {font-size:14px;font-weight:600;color:var(--text-primary);min-width:100px;text-align:center;}
+        .calendar-grid {display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;}
+        .calendar-weekday {text-align:center;font-size:11px;color:var(--text-muted);padding:6px 0;font-weight:500;}
+        .calendar-day {aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:13px;cursor:pointer;transition:.15s;border:none;background:none;color:var(--text-primary);position:relative;}
+        .calendar-day:hover:not(:disabled) {background:var(--accent-blue-light);color:var(--accent-blue);}
+        .calendar-day.other-month {color:var(--text-muted);opacity:.5;}
+        .calendar-day.available {font-weight:600;color:var(--accent-blue);background:var(--accent-blue-light);}
+        .calendar-day.available:hover {background:var(--accent-blue);color:#fff;}
+        .calendar-day.today {box-shadow:inset 0 0 0 1.5px var(--accent-blue);}
+        .calendar-day:disabled {cursor:default;color:var(--border);}
+        .calendar-info {text-align:center;font-size:12px;color:var(--text-muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light);}
+        .calendar-info span {display:inline-flex;align-items:center;gap:4px;}
+        .calendar-dot {width:6px;height:6px;border-radius:50%;background:var(--accent-blue);display:inline-block;}
+        @media(max-width:480px){.container{padding:16px 12px 32px;}.header-title{font-size:19px;}.card{padding:14px 16px;}.calendar-overlay{padding-top:100px;justify-content:center;padding-right:0;}.calendar-modal{padding:16px;}}
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="header">
-      <h1 class="header-title">三木AI 每日一刻钟</h1>
-      <p class="header-sub">每天15分钟，读懂AI世界</p>
-      <span class="header-date">2026年10月24日 星期六</span>
-    </div>
-    
-    <div class="intro">
-      <p class="intro-text">今日简报内容正在整理中，请稍后再试。</p>
-    </div>
-    
-    <div class="footer">
-      <p class="footer-text"><span class="footer-brand">三木AI 每日一刻钟</span> · 每天15分钟，读懂AI世界</p>
-      <p class="footer-text">2026年10月24日 星期六</p>
-    </div>
+
+<!-- Header -->
+<div class="header">
+  <h1 class="header-title">三木AI 每日一刻钟</h1>
+  <p class="header-sub">每天15分钟，读懂AI世界</p>
+  <span class="header-date">2026年10月25日 星期日</span>
+</div>
+
+<!-- Nav -->
+<div class="nav-bar">
+  <div class="nav-brand">
+    <span class="nav-logo">🤖 三木AI</span>
+    <span class="nav-sub">每日一刻钟</span>
   </div>
+  <div class="nav-center">
+    <button class="nav-btn" onclick="window.location.href='ai-daily-2026-10-24.html'">‹</button>
+    <span class="nav-date-text">2026-10-25</span>
+    <button class="nav-btn" disabled style="opacity:.3" href="#">›</button>
+  </div>
+  <div class="nav-right">
+    <button class="nav-calendar-btn" onclick="openCalendar()">📅 日历</button>
+  </div>
+</div>
+
+<!-- Calendar Modal -->
+<div class="calendar-overlay" id="calOverlay" onclick="closeCalendar(event)">
+  <div class="calendar-modal" onclick="event.stopPropagation()">
+    <div class="calendar-header">
+      <span class="calendar-title">📅 选择日期</span>
+      <button class="calendar-close" onclick="closeCalendar()">&times;</button>
+    </div>
+    <div class="calendar-nav">
+      <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
+      <span class="calendar-nav-month" id="calMonth">2026年10月</span>
+      <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
+    </div>
+    <div class="calendar-grid">
+      <div class="calendar-weekday">日</div><div class="calendar-weekday">一</div><div class="calendar-weekday">二</div>
+      <div class="calendar-weekday">三</div><div class="calendar-weekday">四</div><div class="calendar-weekday">五</div><div class="calendar-weekday">六</div>
+    </div>
+    <div class="calendar-grid" id="calDays"></div>
+    <div class="calendar-info"><span><i class="calendar-dot"></i> 蓝色日期表示有简报</span></div>
+  </div>
+</div>
+
+<!-- Intro -->
+<div class="intro">
+  <p class="intro-text">今天的主线不是"模型又变强了"，而是<strong>能力、算力与监管三张账单同时到期</strong>。月之暗面发布Kimi K3.1 Pro，3万亿参数、100万词元上下文，编程智能体基准反超GPT-6 Astra，价格压到对手的两成，把开源天花板再抬高一档；可同一周，中国信通院的数据显示国内词元归一化均价从6.8元涨到13.46元、接近翻倍，日均消耗量却涨到去年12月的近4倍——降价与涨价，第一次同时写在同一个市场里。算力侧的答案更直白：Anthropic与谷歌云签下最高100万颗TPU的史上最大算力协议，亚马逊则承认AWS产能已基本售罄到2027年底、部分订单排到2028年。监管侧也在同一天落子：美国25州联名要求国会立法，英国设立全球首个AI生物安全实验室，而OpenAI与Anthropic两家被监管者，出的钱比政府还多一倍。
+  </p>
+</div>
+
+<!-- Quick Tips -->
+<div class="quick-tips">
+  <div class="quick-tips-title">🔥 今日要点速览</div>
+  <ul class="quick-tips-list">
+    <li><strong>Kimi K3.1 Pro发布</strong>：3万亿参数、100万词元上下文，Terminal-Bench 4.0得65.7%超GPT-6 Astra，价格为对手两成，11月4日前开放完整权重</li>
+    <li><strong>Anthropic锁定最高100万颗TPU</strong>：与谷歌云签署数百亿美元级协议，2026年上线超1吉瓦容量，为AI史上最大算力协议之一</li>
+    <li><strong>信通院报告：词元价格接近翻倍</strong>：国内归一化均价从6.8元涨至13.46元，日均消耗量2026年6月约500万亿、为2025年12月的近4倍</li>
+    <li><strong>亚马逊AWS产能售罄至2027年底</strong>：贾西称2028年大部分也已售罄，公司2026年资本开支约2200亿美元继续加码</li>
+    <li><strong>港交所推出AI与半导体双指数</strong>：AI指数追踪40家港股AI产业链公司，含智谱、MiniMax，授权南方基金在内地发ETF</li>
+  </ul>
+</div>
+
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-blue">⚡</div>
+    <span class="section-title">技术前沿动态</span>
+    <span class="section-count">3条</span>
+  </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">国产大模型</span>
+          <h3 class="card-title">Kimi K3.1 Pro发布：3万亿参数、百万词元上下文，编程智能体基准反超GPT-6 Astra</h3>
+        </div>
+        <p class="card-summary">10月24日凌晨，月之暗面发布K3.1系列首个模型Kimi K3.1 Pro，参数规模达3万亿级、支持100万词元上下文，继续位居全球开源模型参数规模第一。作为Kimi K3（2.8万亿）的后训练版本，新模型大幅增加强化学习算力投入，在代码、Agent与知识类基准上达到或接近最强闭源模型水平：Terminal-Bench 4.0得65.7%，高于GPT-6 Astra的58.2%，与Claude Opus 5.5的66.4%仅一步之遥；Office QA Pro v2与SpreadsheetBench v2取得全球最佳。官方比价口径为GPT-6 Astra的两成、Claude Opus 5.5的五成，同步推出输出速度约2—3倍的Highspeed版。完整权重将于11月4日前开放，留给对手的时间窗口只有十天——不是追赶，而是观望。</p>
+        <div class="card-footer">
+          <span class="card-tag">#月之暗面</span><span class="card-tag">#开源模型</span><span class="card-tag">#长上下文</span>
+          <a class="card-link" href="https://news.qq.com/rain/a/20261025A03DXI00" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">视觉模型</span>
+          <h3 class="card-title">腾讯开源WeVisOne-VL：一个模型同时做检测、计数、OCR、分割与抠图，且会说"这里没有"</h3>
+        </div>
+        <p class="card-summary">腾讯推出WeVisOne-VL视觉语言模型，提供2B与4B两个版本，技术论文于10月22日提交。与传统方案不同，它把目标检测、计数、OCR、分割（像素掩码）与抠图整合进单一模型，而非用多个专用模型拼接流水线。更值得注意的是它支持"对象缺失"的显式响应——当图中确实没有目标物时直接明确告知，而不是像多数检测模型那样抑或返回一个勉强的定位框、抑或静默失败。这一设计对需要同时处理文档文字与精确图像区域的工具（如票据审核、质检报告、无障碍读图）意义颇大，可显著降低工程复杂度与误判成本。</p>
+        <div class="card-footer">
+          <span class="card-tag">#腾讯</span><span class="card-tag">#多模态</span><span class="card-tag">#视觉理解</span>
+          <a class="card-link" href="https://www.aiimpacthub.com/ai-news/2026-10-25" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">Agent基建</span>
+          <h3 class="card-title">Codex CLI 0.164上线十个可复用提示槽，Agent标准的"公共写法"开始收敛</h3>
+        </div>
+        <p class="card-summary">OpenAI于10月23日发布稳定版Codex CLI 0.164.0，新增 /presets 命令，可把常用提示词与斜杠命令存入十个编号槽位；内联命令则用于临时切换模型、推理强度与权限等级。同时修复了压缩（compaction）失败时的历史丢失问题，并支持恢复会话时还原保存的设置。这类改动看似琐碎，却是Agent走向工程化的必经一步：可复用的提示资产、可回溯的执行历史、可控制的权限边界。同期Linux基金会旗下Agentic AI Foundation已接纳Agent Skills、Open Responses、OpenEnv、OpenSandbox四个项目，托管项目由3个增至10个、会员达305家——标准的公共写法正在从各家自研走向中立治理。</p>
+        <div class="card-footer">
+          <span class="card-tag">#OpenAI</span><span class="card-tag">#Codex</span><span class="card-tag">#Agent标准</span>
+          <a class="card-link" href="https://www.aiimpacthub.com/ai-news/2026-10-25" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-purple">🌍</div>
+    <span class="section-title">国内外AI动态</span>
+    <span class="section-count">4条</span>
+  </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">安全治理</span>
+          <h3 class="card-title">25州联名致信国会要求联邦立法监管AI，中国网络安全法修正草案二审加入AI安全条款</h3>
+        </div>
+        <p class="card-summary">据多家媒体报道，包括北卡罗来纳州在内的美国25个州联合致信国会，要求在联邦层面建立AI监管框架，反映地方层面对AI系统性风险的关切上升——在联邦缺位的情况下，各州分散立法正在形成碎片化合规成本。同期，中国网络安全法修正草案提请全国人大常委会二次审议，拟增加"支持人工智能基础理论研究和关键技术研发、完善伦理规范、加强安全风险监测评估、创新安全监管"等内容，并完善相关处罚规定。两条路径指向同一件事：AI治理正从行业倡议与自愿承诺，走向有执法主体的法律条款；而对企业而言，合规成本将成为年底前的核心变量。</p>
+        <div class="card-footer">
+          <span class="card-tag">#AI监管</span><span class="card-tag">#网安法</span><span class="card-tag">#合规</span>
+          <a class="card-link" href="http://mp.weixin.qq.com/s?__biz=MzU4NTExMzQ0OQ==&mid=2247484111&idx=1&sn=503b59913fc3ae7006b268ab08e41a2e" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">算力协议</span>
+          <h3 class="card-title">Anthropic与谷歌云签最高100万颗TPU协议，同时Claude Platform在谷歌云全面可用</h3>
+        </div>
+        <p class="card-summary">Anthropic于10月24日宣布大幅扩展谷歌云使用，协议价值达数百亿美元量级，覆盖最多100万颗TPU，并将在2026年在谷歌云上线超过1吉瓦的算力容量，是公司史上最大的算力扩张。此前10月22日，Anthropic托管的Claude服务已在谷歌云全面可用，客户可直接使用Google Cloud的IAM与计费体系、退订既有云承诺，并随Claude Platform新功能与Beta同步获得——US与Global双端点，由Anthropic运营并担任数据处理者。一手锁算力、一手铺渠道，这是模型厂商在IPO窗口前最典型的双线动作：把未来两年的成本提前锁定，同时把分发嵌入别人的账单里。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Anthropic</span><span class="card-tag">#Google Cloud</span><span class="card-tag">#TPU</span>
+          <a class="card-link" href="https://www.ai.jp.net/article/openai-cuts-frontier-training-off-from-the-internet-as-anthropic-locks-in-up-to--c480a6?lang=sc" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">产业观察</span>
+          <h3 class="card-title">字节AI应用再整合：小云雀并入即梦；百度健康AI服务月活破5000万</h3>
+        </div>
+        <p class="card-summary">10月24日，字节跳动完成一次内部整合：AI短剧创作平台小云雀并入智能创作平台即梦，产品保留独立入口，即梦已接入小云雀的短剧相关能力，运营由即梦团队负责人陈欣然统一负责。调整源于增长空间受限与资源聚焦需求，据36氪报道字节还在讨论其他AI产品合并的可能性。同一天，百度健康宣布升级文心健康管家，发布支持动态视频识别的"健康相机"与"好医矩阵"，可通过打字、方言语音、拍照及视频上传识别动态体征与多发症状，其AI服务月活已超5000万；中国信通院测评显示其在报告单解读、皮肤病识别、药盒识别、中医舌诊四项综合评分中位列第一。一个在收拢，一个在做深，国内AI应用正从"多生孩子"转向"养好一个"。</p>
+        <div class="card-footer">
+          <span class="card-tag">#字节跳动</span><span class="card-tag">#百度健康</span><span class="card-tag">#应用落地</span>
+          <a class="card-link" href="http://mp.weixin.qq.com/s?__biz=MzI1NTUxMzE4NA==&mid=2247485295&idx=1&sn=832c51682d8291446c157b8e87ade450" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">具身智能</span>
+          <h3 class="card-title">智元110台人形机器人同场群舞创吉尼斯纪录，六项人形机器人国家标准落地</h3>
+        </div>
+        <p class="card-summary">10月24日，智元机器人在山东济南黄河国际会展中心组织110台远征A3全尺寸人形机器人同场群舞，创下"最多人形机器人同时跳舞"吉尼斯世界纪录。挑战依托智元灵动LinkBots集群调控平台与UWB厘米级定位技术，实现多机同步动作与编队切换，110台量产机零失误通过认证，后续将投入文旅演艺、公共服务与科研教育场景。技术之外，标准侧同步收口：首批六项人形机器人国家标准发布（TC591归口，覆盖作业操作等，2027年实施），中国电子技术标准化研究院在全球开发者先锋大会上发布具身智能评测基准体系与工具，试图为快速迭代的机器人能力立一把统一"标尺"，破解行业"各说各话"的评测痛点。</p>
+        <div class="card-footer">
+          <span class="card-tag">#智元</span><span class="card-tag">#人形机器人</span><span class="card-tag">#国家标准</span>
+          <a class="card-link" href="http://mp.weixin.qq.com/s?__biz=MzI1NTUxMzE4NA==&mid=2247485295&idx=1&sn=832c51682d8291446c157b8e87ade450" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-green">💰</div>
+    <span class="section-title">投资与商业</span>
+    <span class="section-count">3条</span>
+  </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">融资</span>
+          <h3 class="card-title">OpenAI接近敲定最高300亿美元融资，投前估值1.25万亿美元，被定位为IPO前过桥轮</h3>
+        </div>
+        <p class="card-summary">据CNBC等多家媒体报道，OpenAI正接近敲定一轮最高300亿美元的融资，投前估值达1.25万亿美元，由阿联酋投资方与Coatue领投（较一个多月前传言的1.4万亿美元有所下调）。该轮被明确定位为IPO前的过渡性融资——OpenAI已于今年6月秘密向美国SEC提交IPO注册文件，但尚未公布上市时间。同期对比更显微妙：Anthropic计划11月中旬完成IPO，目标估值高达2万亿美元，有望超越SpaceX今年早些时候1.77万亿美元估值；但AI相关股票近期大幅回调，管理层正面临推迟上市的压力，而资本需求的迫切又可能推动其坚持原计划。两家最贵的未上市公司，一家在抢时间，一家在抢规模。</p>
+        <div class="card-footer">
+          <span class="card-tag">#OpenAI</span><span class="card-tag">#一级市场</span><span class="card-tag">#IPO</span>
+          <a class="card-link" href="http://mp.weixin.qq.com/s?__biz=Mzg3MzEwNjU2Nw==&mid=2247485893&idx=1&sn=0bf9b54b07152a6635aa7fc94f5ab6ff" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">硬科技</span>
+          <h3 class="card-title">存算一体AI芯片公司亿铸科技完成超10亿元融资，3D DRAM全数字通用芯片已流片</h3>
+        </div>
+        <p class="card-summary">10月24日，36氪获悉，存算一体AI芯片公司亿铸科技宣布完成超10亿元新一轮融资。公司基于3D DRAM的全数字通用存算一体AI芯片已完成流片，商用芯片测试结果基本达到预设设计指标，资金将用于研发投入、产品迭代与产业化推进。亿铸科技正式运营于2022年，聚焦通用存算一体架构与超异构技术路线——在先进制程受限、HBM供应紧张的背景下，"用架构换制程"成为国产算力的现实分支。同日另一笔：美国个人AI公司Today AI完成2亿美元融资，单轮规模在"个人专属AI"赛道较为罕见。资金并未退潮，只是更集中地流向算力底座与可交付的硬件。</p>
+        <div class="card-footer">
+          <span class="card-tag">#亿铸科技</span><span class="card-tag">#存算一体</span><span class="card-tag">#AI芯片</span>
+          <a class="card-link" href="http://mp.weixin.qq.com/s?__biz=MzI1NTUxMzE4NA==&mid=2247485295&idx=1&sn=832c51682d8291446c157b8e87ade450" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">A股行情</span>
+          <h3 class="card-title">A股周五深V反弹：沪指涨0.89%报3690.48点，创业板指涨4.16%，机器人板块涨7.98%、宇树20cm涨停</h3>
+        </div>
+        <p class="card-summary">10月23日A股低开弱势下探，午后急剧拉升：上证指数收涨0.89%报3690.48点，深证成指涨2.79%，创业板指从盘中一度跌超3%强势翻红、最终收涨4.16%，科创50涨3.04%，万得全A涨2.02%，成交放量至1.97万亿元、较前一日增加超4200亿元，超4500只个股上涨。人形机器人是最强主线，板块涨7.98%，宇树科技20cm涨停报624元、总市值重回2500亿元，为上市以来首个涨停，近6个交易日累计涨超54%；半导体跟涨，粤芯半导体、晶丰明源20cm涨停，长鑫科技涨近8%、总市值重回A股首位。资金明显从拥挤的算力硬件扩散至具备产业落地预期的机器人、物理AI方向，银行、电力等前期防御板块则午后走弱。券商提示放量V反带短线博弈属性，趋势未稳。</p>
+        <div class="card-footer">
+          <span class="card-tag">#A股</span><span class="card-tag">#人形机器人</span><span class="card-tag">#资金流向</span>
+          <a class="card-link" href="https://news.10jqka.com.cn/field/20261024/681047428.shtml" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-orange">🏛️</div>
+    <span class="section-title">政策与行业生态</span>
+    <span class="section-count">3条</span>
+  </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">行业报告</span>
+          <h3 class="card-title">信通院：国内模型词元均价从6.8元涨至13.46元接近翻倍，日均消耗量涨至去年末近4倍</h3>
+        </div>
+        <p class="card-summary">10月23日，中国信通院人工智能所联合发布《大模型词元服务性能监测报告（2026年）》。报告显示，经历两年价格战后，2026年模型服务价格明显上涨：国内归一化均价从2025年下半年的6.8元涨至今年的13.46元，涨幅接近一倍；国外今年典型模型平均归一化价格约117.8元。用量涨得更快——2026年6月国内词元日均消耗量约500万亿，是2025年12月的近4倍。性能侧出现反向信号：8月国内模型平均每秒输出词元数78.23个，较2025年均值38.25个翻倍，但平均首词时延从0.78秒升至1.26秒。价格涨一倍、用量涨三倍、时延同步变长，共同指向同一个判断：挤的不只是钱，还有算力。</p>
+        <div class="card-footer">
+          <span class="card-tag">#信通院</span><span class="card-tag">#词元价格</span><span class="card-tag">#算力供需</span>
+          <a class="card-link" href="http://mp.weixin.qq.com/s?__biz=MzY4MzQ4MDI1Mg==&mid=2247483844&idx=1&sn=69898514d2a62a109aceb931d9468864" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">资本市场</span>
+          <h3 class="card-title">港交所推出AI指数与半导体指数，授权南方基金在内地发行挂钩ETF</h3>
+        </div>
+        <p class="card-summary">10月23日至24日，港交所宣布正式推出香港交易所人工智能指数与香港交易所半导体指数。AI指数追踪40家与AI产业链高度相关的香港上市公司，覆盖芯片设计、数据中心、AI基础设施、AI模型等五层架构，成分股既有阿里巴巴、腾讯，也包括智谱（2513）、MiniMax（100）等新一代AI公司；半导体指数追踪30家规模最大的香港上市半导体公司。港交所同日与南方基金签署授权协议，将在内地推出追踪该AI指数的ETF。把尚在亏损期的新一代模型公司放进同一个可交易指数，等于给这个物种定了"可交易的身份"，内地投资者不必开港股账户也能买入一篮子港股AI资产——流动性供给，此刻比估值更重要。</p>
+        <div class="card-footer">
+          <span class="card-tag">#港交所</span><span class="card-tag">#AI指数</span><span class="card-tag">#ETF</span>
+          <a class="card-link" href="https://www.sohu.com/a/1091976957_99992453" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">国际治理</span>
+          <h3 class="card-title">英国设立全球首个AI生物安全实验室：政府出1亿英镑，OpenAI与Anthropic合计出至多2亿</h3>
+        </div>
+        <p class="card-summary">10月24日，英国内阁办公厅公告将设立AI生物安全实验室（AIBL），官方称其为全球首个专门从事AI生物安全的机构，定位为独立非营利组织。资金结构是这则公告最值得读的部分：政府拨款1亿英镑，OpenAI提供1亿英镑算力与模型额度，Anthropic提供最高1亿英镑模型额度与技术支持，实验室同时与谷歌DeepMind、生命科学企业Basecamp Research合作。同批公告还向英国AI安全研究所追加1.2亿英镑预算，向筹建的AI经济研究所增拨2300万英镑。看住模型的成本，第一次由卖模型的人先垫了一大半——这种"被监管者出资"的安排，可能比金额本身更有制度意义。</p>
+        <div class="card-footer">
+          <span class="card-tag">#AI安全</span><span class="card-tag">#英国</span><span class="card-tag">#生物安全</span>
+          <a class="card-link" href="http://mp.weixin.qq.com/s?__biz=MzY4MzQ4MDI1Mg==&mid=2247483844&idx=1&sn=69898514d2a62a109aceb931d9468864" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+</div>
+
+<!-- Editor Pick -->
+<div class="editor-pick">
+  <div class="editor-pick-title">✍️ 编辑精选 · 深度观点</div>
+  <div class="editor-pick-content"><p>今天最容易被忽略的一条新闻，藏在一份技术监测报告里：<strong>词元价格涨了接近一倍，用量涨了三倍，首词时延也变长了</strong>。这条数据把过去一年的叙事拆成了两半——我们习惯说"AI越来越便宜"，但真实发生的是"单位算力的效率在提升，同时被消耗的总算力以更快速度膨胀"。降价是局部的，涨价是总量的。</p><p>同一周的另外两条消息正好接上这笔账。Anthropic签下最高100万颗TPU的协议，亚马逊说AWS的产能已经卖到2027年底、2028年也所剩不多。云厂商把两年后的产能提前卖光，等于把闲置风险挪给了客户；而客户签下的承诺，并不等于已经到账的收入。算力正在变成一种类似电力、带宽的"准公用事业"：先签长约、后结算，价格由拥塞程度决定。</p><p>再看开源这一侧。Kimi K3.1 Pro把3万亿参数、百万上下文打到对手的两成价格，这确实是效率的胜利；但它同时也把整个行业锚进了更激烈的军备竞赛——因为便宜的前提，是有人愿意为更大的集群买单。所以"越降本越能花钱"不是悖论，而是这门生意的结构：<strong>降本让更多人用得起，用得起让总量爆炸，总量爆炸再推高下一轮投入</strong>。</p><p>监管的动作同日跟上，而且方式很有意思：英国建AI生物安全实验室，政府出1亿，被监管的OpenAI与Anthropic出到2亿；美国25州联名要联邦立法；中国把AI安全条款写进网络安全法修正草案二审。<strong>一句话总结</strong>：这一轮真正在定价的，不是模型有多聪明，而是"聪明"这件事的边际成本由谁承担。对普通用户，明年会更贵；对企业，先问价格不如先问——断网之后，它还能不能干活。</p></div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p class="footer-text"><span class="footer-brand">三木AI 每日一刻钟</span> · 每天15分钟，读懂AI世界</p>
+  <p class="footer-text">2026年10月25日 星期日</p>
+</div>
+  </div>
+  <script>
+  (function() {
+var availableDates = [];
+var calYear = 2026, calMonth = 9;
+
+fetch('manifest.json?t=' + Date.now())
+  .then(function(r){return r.json();})
+  .then(function(data){
+    availableDates = data.dates || [];
+    renderCalendar();
+  })
+  .catch(function(){
+    availableDates = ['2026-10-25'];
+    renderCalendar();
+  });
+
+window.openCalendar = function() {
+  document.getElementById('calOverlay').classList.add('active');
+  renderCalendar();
+};
+window.closeCalendar = function(e) {
+  if (!e || e.target.id === 'calOverlay') {
+    document.getElementById('calOverlay').classList.remove('active');
+  }
+};
+window.changeMonth = function(delta) {
+  calMonth += delta;
+  if (calMonth > 11) { calMonth = 0; calYear++; }
+  if (calMonth < 0) { calMonth = 11; calYear--; }
+  renderCalendar();
+};
+window.goToDate = function(dateStr) {
+  if (dateStr === '2026-10-25') {
+    window.location.href = 'index.html';
+  } else {
+    window.location.href = 'ai-daily-' + dateStr + '.html';
+  }
+};
+
+function renderCalendar() {
+  var monthNames = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+  document.getElementById('calMonth').textContent = calYear + '年' + monthNames[calMonth];
+  var firstDay = new Date(calYear, calMonth, 1).getDay();
+  var daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+  var prevDays = new Date(calYear, calMonth, 0).getDate();
+  var html = '';
+  for (var i = firstDay - 1; i >= 0; i--) {
+    html += '<button class="calendar-day other-month" disabled>' + (prevDays - i) + '</button>';
+  }
+  for (var d = 1; d <= daysInMonth; d++) {
+    var ds = calYear + '-' + String(calMonth + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+    var cls = 'calendar-day';
+    var isAvail = availableDates.indexOf(ds) !== -1;
+    var isToday = ds === '2026-10-25';
+    if (isAvail) cls += ' available';
+    if (isToday) cls += ' today';
+    if (isAvail) {
+      html += '<button class="' + cls + '" onclick="goToDate(\'' + ds + '\')">' + d + '</button>';
+    } else {
+      html += '<button class="' + cls + '" disabled>' + d + '</button>';
+    }
+  }
+  var totalCells = firstDay + daysInMonth;
+  var nextPadding = (7 - (totalCells % 7)) % 7;
+  for (var j = 1; j <= nextPadding; j++) {
+    html += '<button class="calendar-day other-month" disabled>' + j + '</button>';
+  }
+  document.getElementById('calDays').innerHTML = html;
+}
+  })();
+  </script>
+
 </body>
 </html>
