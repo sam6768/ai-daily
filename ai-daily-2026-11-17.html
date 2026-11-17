@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>三木AI 每日一刻钟 | 2026-11-17</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {--bg:#f5f7fa;--card-bg:#ffffff;--text-primary:#1a1a2e;--text-secondary:#5a5a7a;--text-muted:#8a8aa0;--accent-blue:#2563eb;--accent-blue-light:#dbeafe;--accent-purple:#7c3aed;--accent-purple-light:#ede9fe;--accent-teal:#0d9488;--accent-teal-light:#ccfbf1;--accent-orange:#ea580c;--accent-orange-light:#ffedd5;--accent-green:#16a34a;--accent-green-light:#dcfce7;--border:#e2e8f0;--border-light:#f1f5f9;--radius:12px;--radius-sm:8px;--shadow:0 1px 3px rgba(0,0,0,0.04),0 4px 12px rgba(0,0,0,0.03);}
+        * {margin:0;padding:0;box-sizing:border-box;}
+        body {font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text-primary);line-height:1.7;}
+        .container {max-width:720px;margin:0 auto;padding:24px 16px 48px;}
+        .header {text-align:center;margin-bottom:28px;}
+        .header-title {font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:1px;}
+        .header-sub {font-size:13px;color:var(--text-muted);margin-top:4px;}
+        .header-date {display:inline-block;margin-top:12px;padding:4px 16px;background:var(--accent-blue-light);color:var(--accent-blue);border-radius:20px;font-size:13px;font-weight:500;}
+        .nav-bar {background:var(--card-bg);border-radius:var(--radius);padding:10px 20px;margin-bottom:24px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);}
+        .nav-brand {display:flex;align-items:center;gap:8px;}
+        .nav-logo {font-size:15px;font-weight:600;color:var(--text-primary);}
+        .nav-sub {font-size:11px;color:var(--text-muted);}
+        .nav-center {display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);}
+        .nav-btn {cursor:pointer;background:none;border:none;padding:4px 8px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+        .nav-btn:hover{color:var(--accent-blue);background:var(--accent-blue-light);}
+        .nav-date-text{font-weight:500;color:var(--text-primary);}
+        .nav-right {display:flex;align-items:center;gap:8px;}
+        .nav-calendar-btn {cursor:pointer;display:flex;align-items:center;gap:4px;padding:5px 12px;border-radius:8px;font-size:13px;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;font-weight:500;transition:.2s;}
+        .nav-calendar-btn:hover{opacity:.9;}
+        .intro {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow);border:1px solid var(--border);}
+        .intro-text {font-size:14px;color:var(--text-secondary);line-height:1.8;}
+        .quick-tips {background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;color:white;box-shadow:var(--shadow);}
+        .quick-tips-title {font-size:15px;font-weight:600;margin-bottom:12px;}
+        .quick-tips-list {list-style:none;}
+        .quick-tips-list li {font-size:13px;line-height:1.9;padding-left:16px;position:relative;opacity:0.95;}
+        .quick-tips-list li::before {content:'';position:absolute;left:0;top:10px;width:6px;height:6px;background:rgba(255,255,255,0.7);border-radius:50%;}
+        .section {margin-bottom:24px;}
+        .section-header {display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-left:4px;}
+        .section-icon {width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;}
+        .section-title {font-size:15px;font-weight:600;color:var(--text-primary);}
+        .section-count {margin-left:auto;font-size:12px;color:var(--text-muted);background:var(--border-light);padding:2px 10px;border-radius:12px;}
+        .card {background:var(--card-bg);border-radius:var(--radius);padding:18px 20px;margin-bottom:12px;box-shadow:var(--shadow);border:1px solid var(--border);}
+        .card-header {display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;}
+        .card-badge {flex-shrink:0;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:500;}
+        .card-title {font-size:14px;font-weight:600;color:var(--text-primary);line-height:1.5;flex:1;}
+        .card-summary {font-size:13px;color:var(--text-secondary);line-height:1.7;margin-bottom:10px;}
+        .card-footer {display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+        .card-tag {font-size:11px;color:var(--text-muted);background:var(--border-light);padding:2px 8px;border-radius:4px;}
+        .card-link {font-size:12px;color:var(--accent-blue);text-decoration:none;margin-left:auto;}
+        .badge-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
+        .badge-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
+        .badge-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
+        .badge-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+        .badge-green {background:var(--accent-green-light);color:var(--accent-green);}
+        .icon-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
+        .icon-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
+        .icon-green {background:var(--accent-green-light);color:var(--accent-green);}
+        .icon-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+        .editor-pick {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);border:1px solid var(--border);border-left:3px solid var(--accent-orange);}
+        .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+        .editor-pick-content {font-size:13px;color:var(--text-secondary);line-height:1.8;}
+        .editor-pick-content p {margin-bottom:8px;}
+        .editor-pick-content strong {color:var(--text-primary);font-weight:600;}
+        .footer {text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
+        .footer-text {font-size:12px;color:var(--text-muted);}
+        .footer-brand {font-weight:600;color:var(--text-secondary);}
+        .calendar-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:999;display:none;align-items:flex-start;justify-content:flex-end;padding-top:110px;padding-right:16px;}
+        .calendar-overlay.active {display:flex;}
+        .calendar-modal {background:var(--card-bg);border-radius:var(--radius);width:92%;max-width:360px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);animation:calIn .25s ease-out;}
+        @keyframes calIn {from{opacity:0;transform:translateY(20px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);}}
+        .calendar-header {display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+        .calendar-title {font-size:15px;font-weight:600;color:var(--text-primary);}
+        .calendar-close {cursor:pointer;background:none;border:none;padding:4px;border-radius:6px;font-size:18px;color:var(--text-muted);transition:.2s;line-height:1;}
+        .calendar-close:hover {background:var(--border-light);color:var(--text-primary);}
+        .calendar-nav {display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px;}
+        .calendar-nav-btn {cursor:pointer;background:none;border:none;padding:4px 10px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+        .calendar-nav-btn:hover{background:var(--accent-blue-light);color:var(--accent-blue);}
+        .calendar-nav-month {font-size:14px;font-weight:600;color:var(--text-primary);min-width:100px;text-align:center;}
+        .calendar-grid {display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;}
+        .calendar-weekday {text-align:center;font-size:11px;color:var(--text-muted);padding:6px 0;font-weight:500;}
+        .calendar-day {aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:13px;cursor:pointer;transition:.15s;border:none;background:none;color:var(--text-primary);position:relative;}
+        .calendar-day:hover:not(:disabled) {background:var(--accent-blue-light);color:var(--accent-blue);}
+        .calendar-day.other-month {color:var(--text-muted);opacity:.5;}
+        .calendar-day.available {font-weight:600;color:var(--accent-blue);background:var(--accent-blue-light);}
+        .calendar-day.available:hover {background:var(--accent-blue);color:#fff;}
+        .calendar-day.today {box-shadow:inset 0 0 0 1.5px var(--accent-blue);}
+        .calendar-day:disabled {cursor:default;color:var(--border);}
+        .calendar-info {text-align:center;font-size:12px;color:var(--text-muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light);}
+        .calendar-info span {display:inline-flex;align-items:center;gap:4px;}
+        .calendar-dot {width:6px;height:6px;border-radius:50%;background:var(--accent-blue);display:inline-block;}
+        @media(max-width:480px){.container{padding:16px 12px 32px;}.header-title{font-size:19px;}.card{padding:14px 16px;}.calendar-overlay{padding-top:100px;justify-content:center;padding-right:0;}.calendar-modal{padding:16px;}}
+  </style>
+</head>
+<body>
+  <div class="container">
+
+<!-- Header -->
+<div class="header">
+  <h1 class="header-title">三木AI 每日一刻钟</h1>
+  <p class="header-sub">每天15分钟，读懂AI世界</p>
+  <span class="header-date">2026年11月17日 星期二</span>
+</div>
+
+<!-- Nav -->
+<div class="nav-bar">
+  <div class="nav-brand">
+    <span class="nav-logo">🤖 三木AI</span>
+    <span class="nav-sub">每日一刻钟</span>
+  </div>
+  <div class="nav-center">
+    <button class="nav-btn" onclick="window.location.href='ai-daily-2026-11-16.html'">‹</button>
+    <span class="nav-date-text">2026-11-17</span>
+    <button class="nav-btn" disabled style="opacity:.3" href="#">›</button>
+  </div>
+  <div class="nav-right">
+    <button class="nav-calendar-btn" onclick="openCalendar()">📅 日历</button>
+  </div>
+</div>
+
+<!-- Calendar Modal -->
+<div class="calendar-overlay" id="calOverlay" onclick="closeCalendar(event)">
+  <div class="calendar-modal" onclick="event.stopPropagation()">
+    <div class="calendar-header">
+      <span class="calendar-title">📅 选择日期</span>
+      <button class="calendar-close" onclick="closeCalendar()">&times;</button>
+    </div>
+    <div class="calendar-nav">
+      <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
+      <span class="calendar-nav-month" id="calMonth">2026年11月</span>
+      <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
+    </div>
+    <div class="calendar-grid">
+      <div class="calendar-weekday">日</div><div class="calendar-weekday">一</div><div class="calendar-weekday">二</div>
+      <div class="calendar-weekday">三</div><div class="calendar-weekday">四</div><div class="calendar-weekday">五</div><div class="calendar-weekday">六</div>
+    </div>
+    <div class="calendar-grid" id="calDays"></div>
+    <div class="calendar-info"><span><i class="calendar-dot"></i> 蓝色日期表示有简报</span></div>
+  </div>
+</div>
+
+<!-- Intro -->
+<div class="intro">
+  <p class="intro-text">周二开盘前，AI 行业的三条主线同时收紧。国产模型把战场从榜单挪到了价目表：阿里 Qwen4-Max 以 2.4 万亿参数首发即闭源、单任务成本较上代降约六成，同日腾讯混元 Hy4 flash 把百万上下文的输入价打到每百万 token 0.5 元。美国则在同一天用两套工具一收一放：BIS 把海外数据中心「远程租芯」纳入许可，商务部又批出 33 个全栈 AI 出口联盟。而在市场端，纳指较 10 月 6 日高点回落超 10% 确认进入技术性回调，费半单日跌 5.28%——<strong>今晚英伟达财报与周四 Anthropic 挂牌，是这一轮 AI 叙事必须同时通过的两场考试。</strong></p>
+</div>
+
+<!-- Quick Tips -->
+<div class="quick-tips">
+  <div class="quick-tips-title">🔥 今日要点速览</div>
+  <ul class="quick-tips-list">
+    <li><strong>阿里 Qwen4-Max 发布：2.4 万亿参数、百万上下文，千问旗舰首次不开放权重</strong>：采用基于 Qwen 稀疏注意力的全新 MoE 架构，每 token 激活约 710 亿，缓存命中每百万 token 低至 0.5 元，单任务平均费用较上代降约六成</li>
+    <li><strong>腾讯混元 Hy4 flash 同日上线：224B 总参数仅激活 12B，单任务成本压到旗舰的 1/20</strong>：输入 0.5 元、输出 2 元每百万 token，缓存命中仅 0.02 元，11 月 30 日前 API 五折，官方称计划开源</li>
+    <li><strong>今晚英伟达发布 2027 财年三季报，周四 Anthropic 挂牌纳斯达克</strong>：市场预期英伟达营收约 1090 亿美元、同比增约九成；Anthropic 定于 11 月 18 日定价、19 日以 ANT 挂牌，认购已达发行规模约 7 倍</li>
+    <li><strong>谷歌披露首例「无人值守」补丁转漏洞利用管线，Anthropic 把披露窗口从 90 天砍到 30 天</strong>：GTIG 发现 exploit_agent 框架可自动比对补丁前后代码、推断漏洞并生成攻击代码；零日漏洞由 2025 年月均 8 个升至今年 8 月的 22 个</li>
+    <li><strong>美国一收一放：BIS 将海外数据中心远程租芯纳入许可，商务部批出 33 个全栈 AI 出口联盟</strong>：海外机房向受限地区企业提供超 1200 万 TPP 算力须先申请许可；同期首批 33 个预制联盟覆盖硬件、数据、模型、安全与行业应用五层</li>
+  </ul>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-blue">⚡</div>
+    <span class="section-title">技术前沿动态</span>
+    <span class="section-count">3条</span>
+  </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">模型发布</span>
+          <h3 class="card-title">阿里 Qwen4-Max 发布：2.4 万亿参数首发即闭源，单任务成本较上代降约六成</h3>
+        </div>
+        <p class="card-summary">11 月 16 日，阿里巴巴发布新一代基座大模型 Qwen4，千问 AI 平台首发上线 Qwen4-Max。模型采用基于 Qwen 稀疏注意力（QSA）的全新 MoE 架构，总参数 2.4 万亿、每 token 激活约 710 亿（较上代少约 25%），原生支持视觉与百万上下文，最大输出约 39.3 万 token，并兼容 OpenAI 与 Anthropic 两套 API 格式。官方口径下单任务平均费用较上代下降约六成，缓存命中每百万 token 低至 0.5 元；全球前端编程盲测 CodeArena 位列第六，创下中国模型最好成绩，自测 DeepSWE v1.1 得 75.7 分（Claude Opus 5.5 为 74.2），但 Terminal-Bench 4.0 仍落后于头部闭源模型。最值得记录的信号是发行方式：与以往旗舰不同，Qwen4-Max 只通过云端 API 提供，<strong>这是千问旗舰首次不开放权重</strong>——中小尺寸的 Qwen4 才会陆续开源。阿里云同步开放 API 服务与词元订阅计划，意图把基座能力直接转成稳定的云收入。<strong>当最强的那一档选择闭源、便宜的那一档选择开源，国产大模型的竞争轴心已经从跑分转向了成本与部署</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Qwen4-Max</span>          <span class="card-tag">#MoE</span>          <span class="card-tag">#闭源</span>          
+          <a class="card-link" href="https://www.alibabacloud.com/press-room/alibaba-unveils-qwen4-max" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-teal">成本战争</span>
+          <h3 class="card-title">腾讯混元 Hy4 flash 同日上线：224B 总参数仅激活 12B，单任务成本压到旗舰的 1/20</h3>
+        </div>
+        <p class="card-summary">同一天，腾讯混元发布最新语言模型 Hy4 flash。总参数量 224B（其中 64B 为 Engram 参数），激活参数仅 12B，支持多模态与 100 万 token 上下文。价格是这款模型的主角：每百万 token 输入 0.5 元、输出 2 元，命中缓存时输入仅 0.02 元，官方称单任务成本约为旗舰 Hy4 的 1/20，11 月 30 日前 API 五折，并计划开源。能力侧的参照是 85 人内部盲测：满意度接近 Claude Haiku 5.5，端到端耗时最短——这不是一个去争榜首的模型，而是一个去争调用量的模型。把两款同日发布的模型并排看，国内厂商的产品矩阵正明显分层：旗舰层承接复杂推理与长程任务，Flash 层承接高并发的批量调用，中间靠缓存命中价做成本缓冲。<strong>稀疏架构加低价策略的组合，本质是在争夺「默认模型」这个位置——一旦开发者的代码里写死了你的 endpoint，迁移成本比任何榜单排名都更难撼动</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Hy4 flash</span>          <span class="card-tag">#腾讯混元</span>          <span class="card-tag">#API定价</span>          
+          <a class="card-link" href="https://www.163.com/dy/article/LBSC8DSK051481US.html" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">算力基准</span>
+          <h3 class="card-title">英伟达 Vera Rubin NVL72 在 MLPerf Endpoints v1.0 首秀：智能体推理每千瓦吞吐最高 10 倍于上代</h3>
+        </div>
+        <p class="card-summary">MLCommons 于 11 月 9 日至 10 日推出 MLPerf Endpoints v1.0，专门补上智能体负载的评测空白——一次会话的上下文会随轮次从约 3 万 token 涨到约 20 万，中间混着推理、工具调用与长回复，传统单轮基准测不出这种压力。英伟达公布的提交结果显示，Vera Rubin NVL72 在三个智能体数据集上对比上代 GB300 NVL72：Kimi K3 每千瓦吞吐提升 10 倍（32 个加速器跑出 41,414 tokens/s）、DeepSeek-V4.1-Flash 提升 9 倍、Qwen3.6-35B-A3B 提升 5 倍；配套的 MLPerf Training v6.1 训练性能最高为上代 Blackwell Ultra 的 2 倍。需要留意口径局限：以上均为英伟达自行提交，Vera Rubin 结果仍为暂定、待 MLCommons 验证，GB300 结果已完成验证，且每千瓦吞吐是在统一交互性门槛下选定的对比基准。同期英伟达还开源了 SkillEvaluator 0.9，用「带技能跑一遍、不带技能跑一遍」的对照实验回答 agent 技能到底值不值得它的 token 开销。<strong>基准正在从「单轮问答有多快」转向「长会话加工具调用有多省」——这恰好是智能体真正烧钱的地方</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Vera Rubin</span>          <span class="card-tag">#MLPerf</span>          <span class="card-tag">#推理性能</span>          
+          <a class="card-link" href="https://developer.nvidia.com/blog/nvidia-vera-rubin-nvl72-leads-agentic-inference-performance-on-mlperf-endpoints-v1-0/" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-purple">🌏</div>
+    <span class="section-title">国内外 AI 动态</span>
+    <span class="section-count">4条</span>
+  </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">安全阈值</span>
+          <h3 class="card-title">谷歌披露首例「无人值守」补丁转漏洞利用管线，Anthropic 把披露窗口从 90 天砍到 30 天</h3>
+        </div>
+        <p class="card-summary">谷歌威胁情报组（GTIG）与 Mandiant 的季度报告给出了一个阶段性判断：智能体攻击已越过临界点。调查人员在一台暴露的中转服务器上发现名为 exploit_agent 的多智能体框架，接入多个前沿与本地模型，持续对流行 Web 应用做补丁前后代码比对，推断漏洞、生成利用代码并自动打向真实目标，全程无人值守；报告同时记录 ARTEX、CAIRN、PentAGI 等开源攻击框架的在野使用，以及被盗模型权限在黑市按每百万 token 0.10 至 25 美元转卖。数据侧的印证很直接：零日漏洞由 2025 年月均 8 个升至 2026 年 8 月的 22 个。同一天，Anthropic 宣布把高危与危急漏洞的披露窗口从 90 天缩短到 30 天、其他漏洞 45 天，2027 年 1 月 1 日起适用；维护者 15 天不回应即升级外部协调员，补丁发布 30 天后公开完整技术细节，在野利用的 7 天窗口不变。官方给出的理由是重复发现率在上升——一个模型能找到的漏洞，别的模型大概率也能找到，90 天窗口的设计假设已经失效。<strong>补丁发布到利用成型的时间窗已被压到小时级，意味着「月度补丁周期」对公网系统不再够用，而漏洞的私有期正从月级被压到周级</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#GTIG</span>          <span class="card-tag">#智能体攻击</span>          <span class="card-tag">#漏洞披露</span>          
+          <a class="card-link" href="https://cloud.google.com/blog/topics/threat-intelligence/agentic-threat-activity-crosses-a-significant-threshold" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-red">人事悬念</span>
+          <h3 class="card-title">黄仁勋去留悬而未决：白宫与硅谷公开呼吁回归，董事会据报未予考虑，今晚财报成新团队首考</h3>
+        </div>
+        <p class="card-summary">距离 11 月 12 日英伟达管理层变动已过一周，接任问题仍在拉锯。英国《金融时报》报道黄仁勋正与前盟友讨论回归，有人召集硅谷高管游说董事会并争取白宫支持，要求其复职的公开信签名已超 15.6 万个；美国财政部长贝森特公开呼吁英伟达任命外部人士出任下一任 CEO，称公司亟需一场「大刀阔斧的变革」；总统特朗普 11 月 16 日亦表态支持其回归，并淡化了有关国家安全方面的担忧。但 CNBC 援引知情人士称，英伟达董事会并未考虑让黄仁勋重新出任 CEO。当前架构是 CFO 科莱特·克雷斯任临时 CEO、前新思科技 CEO 哈维·琼斯出任董事长，董事会独立调查仍在进行，公司称未发现技术或国家安全受损的证据。资本市场已用价格投票：11 月 16 日英伟达跌 4.12% 报 156.14 美元，为 2025 年 7 月以来最低；当晚（美东 11 月 17 日盘后）的 2027 财年三季报是新管理团队首次面对投资者，LSEG 一致预期营收约 1090 亿美元、盈利同比增约 90%，公司此前指引营收中点 1080 亿美元、GAAP 毛利率约 74%。<strong>对市场而言，新团队给出的产品路线图与资本开支方向，可能比那两个数字更重要——信心缺口从来不是靠单季业绩补上的</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#英伟达</span>          <span class="card-tag">#黄仁勋</span>          <span class="card-tag">#财报</span>          
+          <a class="card-link" href="https://www.stcn.com/article/detail/4339381.html" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">安全治理</span>
+          <h3 class="card-title">OpenAI 引入四家机构做「嵌入式评估」，同时把科研者计划扩到 20 万人</h3>
+        </div>
+        <p class="card-summary">OpenAI 与 Apollo Research、METR、Transluce、Goodfire 四家独立机构签署「嵌入式评估」协议，外部评估者可在较长周期内访问模型检查点、源代码、训练与评估数据等内部资源，独立检验模型的对齐与安全状况。这与过往「发布前跑一遍红队、出一份系统卡」的做法有本质区别：从一次性抽检变成常驻审计。同一周 OpenAI 还做了三件事：把 ChatGPT 科研者计划扩容至最多 20 万名研究者，11 月 23 日开放新一轮申请、5 万个名额先到先得；发布一个可提示「图像是否由 AI 生成」的 CSAM 分类器，称是首个广泛可用的此类工具，经 API 免费提供给审核机构；并公开了 Check Point 使用其网络安全产品 Daybreak 的案例研究。把这几条放在一起看，安全话语的重心正在从「我们自己说安全」转向「让第三方进来看」。<strong>当评估权限本身成为可谈判的资源，前沿实验室的透明度就变成了一个可以被外部定价的指标</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#OpenAI</span>          <span class="card-tag">#嵌入式评估</span>          <span class="card-tag">#AI安全</span>          
+          <a class="card-link" href="http://mp.weixin.qq.com/s?__biz=MzY4MjMyNjIyNQ==&mid=2247489661&idx=1&sn=8d3e913bd612da19b614b5aaa0525fa7" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">具身落地</span>
+          <h3 class="card-title">具身智能同日四重商业化信号：上市辅导、整机预售、核心部件进入国际巨头供应链</h3>
+        </div>
+        <p class="card-summary">11 月 16 日，具身智能赛道单日释放四个指向商业化的信号。一是五一视界启动 A 股上市辅导，把数字孪生与仿真能力向资本市场推进；二是华为云与福龙马的智能清扫机器人启动预售，把世界模型能力落到环卫这一高频、可量化的场景；三是星动纪元的灵巧手成为英伟达 GR00T 2 生态的官配部件，国产核心零部件首次进入国际巨头的机器人基础模型生态；四是蔚建科技完成新一轮融资，建筑机器人订单预期继续放大。更底层的一组数字是：华为云披露昇腾云已覆盖约 80% 的中国具身智能企业。这条数据的分量不亚于任何一个模型发布——它意味着在具身这条需要长期烧算力的赛道上，国产算力已经成了默认底座。另一侧的应用端也在扩容：豆包工作上线「工作台」功能，首批覆盖金融、医疗、教育、创意设计等 21 个专业场景，把 AI 能力从零散对话搬进场景化工作流。<strong>具身智能真正的分水岭不是能不能演示，而是能不能进采购清单；而当一个赛道 80% 的公司都跑在同一套算力底座上，底座本身的议价能力就被悄悄抬高了</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#具身智能</span>          <span class="card-tag">#昇腾云</span>          <span class="card-tag">#商业化</span>          
+          <a class="card-link" href="http://mp.weixin.qq.com/s?__biz=MzY4MjMyNjIyNQ==&mid=2247489661&idx=1&sn=8d3e913bd612da19b614b5aaa0525fa7" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-green">📈</div>
+    <span class="section-title">投资与商业</span>
+    <span class="section-count">3条</span>
+  </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">IPO</span>
+          <h3 class="card-title">Anthropic 定于 11 月 18 日定价、19 日以 ANT 挂牌：9 个月营收 332 亿美元，认购约 7 倍</h3>
+        </div>
+        <p class="card-summary">Claude 母公司 Anthropic 的修订版 S-1/A 招股书显示，公司计划 11 月 18 日盘后敲定最终发行价，11 月 19 日在纳斯达克挂牌，代码 ANT。发行区间 70 至 78 美元、公开发行 8.25 亿股 A 类普通股，按上限计公开募资规模达 643.5 亿美元；计入绿鞋与全部期权、受限股后，完全稀释估值最高 1.405 万亿美元。支撑万亿估值的是收入曲线：截至 2026 年 9 月 30 日的前九个月，Anthropic 总营收 332.4 亿美元，同比增长超过 1200%。私募侧同样激进——台积电、AMD、博通、谷歌、美光、微软、英伟达等 7 家机构通过同步私募配售认购 260 亿美元无投票权 N 类股。两个细节值得单独标出：一是本次 IPO 为散户预留了 15% 至 20% 的认购额度，创超大型科技股新高，刻意对冲机构定价权；二是治理结构，7 位联合创始人共同持有一股特殊 F 类超级股票，长期利益信托掌握 7 个董事席位中的 4 席，公开股东的话语权被结构性限制。风险侧同样明确：约 9000 亿美元的基础设施与算力采购承诺中，约 80% 不可取消，形成类债务义务。据知情人士，本次认购需求已达发行规模的约 7 倍。<strong>这场 IPO 检验的不是 AI 能不能赚钱，而是「先签下十年算力账单、再向公开市场要钱」这个模式能否被接受</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Anthropic</span>          <span class="card-tag">#IPO</span>          <span class="card-tag">#ANT</span>          
+          <a class="card-link" href="https://news.qq.com/rain/a/20261117A02W6T00" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-red">市场重估</span>
+          <h3 class="card-title">全球 AI 资产同步回调：纳指确认技术性回调，费半单日跌 5.28%，A 股光模块指数跌 8.83%</h3>
+        </div>
+        <p class="card-summary">11 月 16 日美股三大指数全线收跌：道指跌 1.41% 报 51608.17 点，标普 500 跌 1.92% 报 7416.59 点，纳指跌 2.49% 报 24509.76 点。纳指已较 10 月 6 日的历史收盘高点回落超 10%，技术上确认进入回调。芯片股是重灾区：费城半导体指数跌 5.28%，30 只成分股全线下跌，英特尔跌 7.02%、美光跌 7.62%、闪迪跌 8.58%、台积电跌 6.34%、AMD 跌 5.58%；光通信板块 Lumentum 跌 8.48%、Ciena 跌 8.19%、迈威尔跌 7.27%。AI 云概念同步回调：IREN 跌近 10%、Nebius 跌 7.6%、CoreWeave 跌 6.1%。中概股金龙指数跌 1%，爱奇艺跌 17.9%，阿里跌 3.98%、百度跌 5.37%。A 股 11 月 16 日同步走弱：沪指跌 0.87% 报 3602.57 点、深成指跌 2.53%、创业板指跌 4.37%、科创 50 跌 5.16%，两市成交 1.48 万亿元、缩量逾 1700 亿，超 4300 只个股下跌；光模块指数跌 8.83%，光芯片、光电路交换机、覆铜板均跌超 7%，人工智能指数跌 4.53%、存储器指数跌超 6%。资金明显转向防御：农业银行涨近 3%、工商银行涨超 2%，煤炭与保险逆市走强。宏观侧的压制也在加码：美联储主席沃什表示已开始推演 AI 加速普及的三种情景——生产率繁荣、增长收益被失业抵消、预期回报落空导致估值下跌与经济放缓；CME 数据显示 12 月加息 25 个基点的概率已达 95.7%。<strong>这一轮下跌的特征是「轮动而非恐慌」——资金没有离开股票，只是从算力叙事里撤出来，去寻找能算清现金流的地方</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#美股</span>          <span class="card-tag">#A股</span>          <span class="card-tag">#费半</span>          
+          <a class="card-link" href="https://www.straitstimes.com/business/companies-markets/us-stocks-wall-street-ends-sharply-lower-on-ai-jitters-ahead-of-nvidia-results-anthropic-ipo" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">融资</span>
+          <h3 class="card-title">SpaceX 拟投逾 740 亿美元建两座 AI 超算园区；防御性安全 AI 公司 Corma 以 10 亿美元估值完成 A 轮</h3>
+        </div>
+        <p class="card-summary">资本的两端同时出现大数字。一端是基础设施：SpaceX 披露拟在得州 Starbase 与亚利桑那州科奇斯县分别投建 AI 超算园区，投资额分别超 240 亿与 500 亿美元、合计逾 740 亿美元，公司称 AI 相关收入已超过总收入的一半——这是把星链与火箭业务积累的现金流，直接转投到算力资产上。另一端是安全：防御性网络安全公司 Corma 宣布完成 1.25 亿美元 A 轮融资，投后估值 10 亿美元，由 NEA 领投，红杉、Khosla、Coatte 继续参与，累计融资达 1.85 亿美元——距其 8 月以 6000 万美元种子轮出隐身状态仅约三个月。Corma 的判断很具体：面向编码与软件推理的模型能力，更直接地映射到攻击侧而非防御侧——漏洞研究与利用开发是针对有界目标的代码推理问题，而防御需要对审计日志、事件、配置与网络流量做持续分析，在长周期里每天做出成千上万个一致决策。其瓶颈不在模型质量而在算力，公司称已将服务器容量扩张 24 倍以消化等候名单。存储侧也在扩产：SK 海力士计划明年与韩国政府合作，在龙仁半导体集群投建约 8746 亿韩元（约 6.54 亿美元）的测试工厂，明年 5 月投产。<strong>钱同时在往两个方向走——更贵的重资产（超算园区）与更细的垂直模型（安全防御）。共同点是都不再赌「通用能力更强」，而是赌「某个环节的非它不可」</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#SpaceX</span>          <span class="card-tag">#Corma</span>          <span class="card-tag">#融资</span>          
+          <a class="card-link" href="https://www.unite.ai/corma-raises-125m-series-a-at-1b-valuation-to-scale-defensive-ai" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-orange">🏛️</div>
+    <span class="section-title">政策与行业生态</span>
+    <span class="section-count">3条</span>
+  </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">出口管制</span>
+          <h3 class="card-title">美国 BIS 新规：海外数据中心「远程租芯」也须许可，逾 1200 万 TPP 算力纳入管制</h3>
+        </div>
+        <p class="card-summary">美国商务部工业与安全局（BIS）11 月 16 日发布临时最终规则，把管制的手从「卖芯片」伸到了「租算力」。规则要求：向海外数据中心出口、再出口或转移先进 AI 芯片及相关设备时，若相关设施可能向受限国家企业提供大量算力（超 1200 万 TPP，约合 750 张 H100/H200），则须先申请许可证；间接供应与芯片交付后改作他用同样纳入，存量服务须在 90 天内补齐许可。适用范围同步扩容：印度尼西亚、马来西亚、新加坡、泰国、巴西被纳入先进芯片出口许可要求，并被列为转运高风险地区；同时撤销了 2025 年 1 月推出的《AI 扩散规则》。这条规则的技术意义在于堵住了一条被广泛使用的路径——不自建机房、不进口芯片，直接从第三国云端调用受管制算力。此前这一步几乎无法被出口管制覆盖，因为交易标的是服务而非货物。值得并置观察的是：同一天美国商务部还宣布全栈 AI 出口计划进入新阶段，首批指定 33 个预制产业联盟，方案覆盖硬件、数据管道与标注、模型与系统、安全与网安、行业应用五层，获批联盟可获得出口许可优先审核、联邦信贷优先对接、政府间推介与专属跨部门协调；按需联盟申请将于 11 月 30 日开放。<strong>限制上游、推广下游——这套「卡点加扩展」的双轨，把竞争从企业对企业推到了「联盟对联盟、制度通道对制度通道」的层面；对中国企业而言，真正的变量不是买不买得到芯片，而是能不能被排除在「可信采购方」名单之外</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#BIS</span>          <span class="card-tag">#出口管制</span>          <span class="card-tag">#算力</span>          
+          <a class="card-link" href="https://tech.ifeng.com/c/8y7NKG4EaSQ" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">产业政策</span>
+          <h3 class="card-title">自然资源部与发改委发布「人工智能+自然资源」实施意见：2028 年建成 5 个中试平台</h3>
+        </div>
+        <p class="card-summary">自然资源部、国家发展改革委近日联合发布《关于「人工智能+自然资源」的实施意见》，推动 AI 在自然资源领域规模化、产业化应用，服务国土空间规划「一张图」智能化升级。目标分两步：到 2028 年，在时空地理信息、国土空间规划与治理、海洋、地质矿产、林业草原等重点方向建成高质量数据集、大模型与智能体，形成可复制可推广的典型场景；到 2030 年，AI 深度融入自然资源管理全链条，集成打造智能化国土空间治理基础平台，关键核心技术与智能装备实现安全可控，数智化治理水平总体达到国际领先。最实的一条安排是统筹布局 5 个领域中试平台，做成集算力供给、模型训练、算法迭代、场景验证与生态构建于一体的共性服务体系：时空地理信息方向孵化时空智能企业与产业集群；国土空间规划方向聚焦全生命周期管理与城市精细化管理；海洋方向构建高质量海洋数据集与安全可信流通网络；地质矿产方向推动 AI 找矿模型与智能勘查装备；林草方向服务国家公园体系与森林草原火情处理。配套措施包括发挥中央财政资金带动作用、探索设立领域内 AI 应用科技支撑项目、引导社会资本参与，同时强调加强全生命周期监管、强化前瞻评估与动态监测预警、保障数据合规流通。<strong>这份文件的看点不是口号，而是「中试平台」——它把 AI 落地中最难的一段（从实验室指标到行业可用）单独拎出来建制化，这正是此前行业大模型最常见的死亡谷</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#自然资源</span>          <span class="card-tag">#中试平台</span>          <span class="card-tag">#人工智能+</span>          
+          <a class="card-link" href="http://ipaper.ce.cn/pad/content/202611/17/content_342028.html" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-teal">监管信号</span>
+          <h3 class="card-title">加州总检察长起诉 OpenAI，纽约启动独立 AI 安全中心：监管从原则倡议转向具体执法</h3>
+        </div>
+        <p class="card-summary">美国州层面的监管动作在同一天密集落地。加州总检察长就 OpenAI 相关事项提起诉讼，具体案由尚待进一步披露，但这是州级执法机构首次把前沿模型公司直接推向被告席。与之呼应的是纽约州：RAISE Act 注册门户已上线，配套 80 人规模的 AI 安全中心投入运作，要求营收超 5 亿美元的 AI 实验室在 2027 年 1 月 1 日前完成注册、重大安全事件 72 小时内上报，最高罚款 300 万美元。英国《金融时报》周日报道，华盛顿与盟友已就保护「易被中国获取」的 AI 技术与供应链达成一致，这为 BIS 新规提供了多边框架。国内侧的治理也在同步细化，方向偏向「边发展边立规」：自然资源部的实施意见在鼓励应用的同时明确全生命周期监管与数据合规流通要求，与此前苏州 AI 条例、上海科学数据管理办法形成呼应——地方立法管场景与要素，部委文件管行业与数据。一个值得注意的对照是：产业界对监管的接受度正在提高。Anthropic 主动缩短漏洞披露窗口、OpenAI 引入外部常驻评估，都是把「被审计」内化为产品流程的一部分。<strong>监管正在从「原则倡议」进入「可诉、可罚、可核验」的阶段。对头部实验室而言，合规成本正在变成一种准入壁垒——小公司付不起，大公司反而受益</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#加州</span>          <span class="card-tag">#纽约RAISE</span>          <span class="card-tag">#AI监管</span>          
+          <a class="card-link" href="http://mp.weixin.qq.com/s?__biz=MzY4MjMyNjIyNQ==&mid=2247489661&idx=1&sn=8d3e913bd612da19b614b5aaa0525fa7" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+</div>
+
+<div class="editor-pick">
+  <div class="editor-pick-title">✍️ 编辑精选 · 深度观点</div>
+  <div class="editor-pick-content"><p>今天有三件事值得放在一起看。</p><p>第一件是定价权的转移。Qwen4-Max 首次作为千问旗舰不开放权重，却把单任务成本砍掉六成、缓存命中价打到 0.5 元；腾讯 Hy4 flash 干脆把「百万上下文」变成 0.5 元的日用品。一个往能力上限走、一个往成本地板走，两家在同一天选择了相反的开源姿态，却指向同一个结论：模型层正在变成标准品，真正的护城河是单位任务的成本与部署体验。</p><p>第二件是安全的时间尺度变了。谷歌第一次在野观测到无人值守的「补丁→漏洞利用」管线，Anthropic 随即把高危漏洞的披露窗口从 90 天压到 30 天。当模型找漏洞的速度快过人类打补丁的节奏，「月度补丁周期」这个沿用二十年的默认值就失效了。</p><p><strong>第三件是资本市场的耐心。纳指已确认技术性回调，费半单日跌 5.28%，所有人都在等今晚的财报与周四的 IPO。这一轮的分歧不在技术有没有进展——进展几乎每周都在发生——而在于投入产出比何时能被公开账本验证。模型越便宜，算力账单越贵，这个剪刀差才是这轮周期真正的悬念。</strong></p></div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p class="footer-text"><span class="footer-brand">三木AI 每日一刻钟</span> · 每天15分钟，读懂AI世界</p>
+  <p class="footer-text">2026年11月17日 星期二</p>
+</div>
+  </div>
+  <script>
+  (function() {
+var availableDates = [];
+var calYear = 2026, calMonth = 10;
+
+fetch('manifest.json?t=' + Date.now())
+  .then(function(r){return r.json();})
+  .then(function(data){
+    availableDates = data.dates || [];
+    renderCalendar();
+  })
+  .catch(function(){
+    availableDates = ['2026-11-17'];
+    renderCalendar();
+  });
+
+window.openCalendar = function() {
+  document.getElementById('calOverlay').classList.add('active');
+  renderCalendar();
+};
+window.closeCalendar = function(e) {
+  if (!e || e.target.id === 'calOverlay') {
+    document.getElementById('calOverlay').classList.remove('active');
+  }
+};
+window.changeMonth = function(delta) {
+  calMonth += delta;
+  if (calMonth > 11) { calMonth = 0; calYear++; }
+  if (calMonth < 0) { calMonth = 11; calYear--; }
+  renderCalendar();
+};
+window.goToDate = function(dateStr) {
+  if (dateStr === '2026-11-17') {
+    window.location.href = 'index.html';
+  } else {
+    window.location.href = 'ai-daily-' + dateStr + '.html';
+  }
+};
+
+function renderCalendar() {
+  var monthNames = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+  document.getElementById('calMonth').textContent = calYear + '年' + monthNames[calMonth];
+  var firstDay = new Date(calYear, calMonth, 1).getDay();
+  var daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+  var prevDays = new Date(calYear, calMonth, 0).getDate();
+  var html = '';
+  for (var i = firstDay - 1; i >= 0; i--) {
+    html += '<button class="calendar-day other-month" disabled>' + (prevDays - i) + '</button>';
+  }
+  for (var d = 1; d <= daysInMonth; d++) {
+    var ds = calYear + '-' + String(calMonth + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+    var cls = 'calendar-day';
+    var isAvail = availableDates.indexOf(ds) !== -1;
+    var isToday = ds === '2026-11-17';
+    if (isAvail) cls += ' available';
+    if (isToday) cls += ' today';
+    if (isAvail) {
+      html += '<button class="' + cls + '" onclick="goToDate(\'' + ds + '\')">' + d + '</button>';
+    } else {
+      html += '<button class="' + cls + '" disabled>' + d + '</button>';
+    }
+  }
+  var totalCells = firstDay + daysInMonth;
+  var nextPadding = (7 - (totalCells % 7)) % 7;
+  for (var j = 1; j <= nextPadding; j++) {
+    html += '<button class="calendar-day other-month" disabled>' + j + '</button>';
+  }
+  document.getElementById('calDays').innerHTML = html;
+}
+  })();
+  </script>
+
+</body>
+</html>
