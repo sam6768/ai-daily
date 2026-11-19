@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>三木AI 每日一刻钟 | 2026-11-19</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {--bg:#f5f7fa;--card-bg:#ffffff;--text-primary:#1a1a2e;--text-secondary:#5a5a7a;--text-muted:#8a8aa0;--accent-blue:#2563eb;--accent-blue-light:#dbeafe;--accent-purple:#7c3aed;--accent-purple-light:#ede9fe;--accent-teal:#0d9488;--accent-teal-light:#ccfbf1;--accent-orange:#ea580c;--accent-orange-light:#ffedd5;--accent-green:#16a34a;--accent-green-light:#dcfce7;--border:#e2e8f0;--border-light:#f1f5f9;--radius:12px;--radius-sm:8px;--shadow:0 1px 3px rgba(0,0,0,0.04),0 4px 12px rgba(0,0,0,0.03);}
+        * {margin:0;padding:0;box-sizing:border-box;}
+        body {font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text-primary);line-height:1.7;}
+        .container {max-width:720px;margin:0 auto;padding:24px 16px 48px;}
+        .header {text-align:center;margin-bottom:28px;}
+        .header-title {font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:1px;}
+        .header-sub {font-size:13px;color:var(--text-muted);margin-top:4px;}
+        .header-date {display:inline-block;margin-top:12px;padding:4px 16px;background:var(--accent-blue-light);color:var(--accent-blue);border-radius:20px;font-size:13px;font-weight:500;}
+        .nav-bar {background:var(--card-bg);border-radius:var(--radius);padding:10px 20px;margin-bottom:24px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);}
+        .nav-brand {display:flex;align-items:center;gap:8px;}
+        .nav-logo {font-size:15px;font-weight:600;color:var(--text-primary);}
+        .nav-sub {font-size:11px;color:var(--text-muted);}
+        .nav-center {display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);}
+        .nav-btn {cursor:pointer;background:none;border:none;padding:4px 8px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+        .nav-btn:hover{color:var(--accent-blue);background:var(--accent-blue-light);}
+        .nav-date-text{font-weight:500;color:var(--text-primary);}
+        .nav-right {display:flex;align-items:center;gap:8px;}
+        .nav-calendar-btn {cursor:pointer;display:flex;align-items:center;gap:4px;padding:5px 12px;border-radius:8px;font-size:13px;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;font-weight:500;transition:.2s;}
+        .nav-calendar-btn:hover{opacity:.9;}
+        .intro {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow);border:1px solid var(--border);}
+        .intro-text {font-size:14px;color:var(--text-secondary);line-height:1.8;}
+        .quick-tips {background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;color:white;box-shadow:var(--shadow);}
+        .quick-tips-title {font-size:15px;font-weight:600;margin-bottom:12px;}
+        .quick-tips-list {list-style:none;}
+        .quick-tips-list li {font-size:13px;line-height:1.9;padding-left:16px;position:relative;opacity:0.95;}
+        .quick-tips-list li::before {content:'';position:absolute;left:0;top:10px;width:6px;height:6px;background:rgba(255,255,255,0.7);border-radius:50%;}
+        .section {margin-bottom:24px;}
+        .section-header {display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-left:4px;}
+        .section-icon {width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;}
+        .section-title {font-size:15px;font-weight:600;color:var(--text-primary);}
+        .section-count {margin-left:auto;font-size:12px;color:var(--text-muted);background:var(--border-light);padding:2px 10px;border-radius:12px;}
+        .card {background:var(--card-bg);border-radius:var(--radius);padding:18px 20px;margin-bottom:12px;box-shadow:var(--shadow);border:1px solid var(--border);}
+        .card-header {display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;}
+        .card-badge {flex-shrink:0;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:500;}
+        .card-title {font-size:14px;font-weight:600;color:var(--text-primary);line-height:1.5;flex:1;}
+        .card-summary {font-size:13px;color:var(--text-secondary);line-height:1.7;margin-bottom:10px;}
+        .card-footer {display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+        .card-tag {font-size:11px;color:var(--text-muted);background:var(--border-light);padding:2px 8px;border-radius:4px;}
+        .card-link {font-size:12px;color:var(--accent-blue);text-decoration:none;margin-left:auto;}
+        .badge-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
+        .badge-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
+        .badge-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
+        .badge-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+        .badge-green {background:var(--accent-green-light);color:var(--accent-green);}
+        .icon-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
+        .icon-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
+        .icon-green {background:var(--accent-green-light);color:var(--accent-green);}
+        .icon-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+        .editor-pick {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);border:1px solid var(--border);border-left:3px solid var(--accent-orange);}
+        .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+        .editor-pick-content {font-size:13px;color:var(--text-secondary);line-height:1.8;}
+        .editor-pick-content p {margin-bottom:8px;}
+        .editor-pick-content strong {color:var(--text-primary);font-weight:600;}
+        .footer {text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
+        .footer-text {font-size:12px;color:var(--text-muted);}
+        .footer-brand {font-weight:600;color:var(--text-secondary);}
+        .calendar-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:999;display:none;align-items:flex-start;justify-content:flex-end;padding-top:110px;padding-right:16px;}
+        .calendar-overlay.active {display:flex;}
+        .calendar-modal {background:var(--card-bg);border-radius:var(--radius);width:92%;max-width:360px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);animation:calIn .25s ease-out;}
+        @keyframes calIn {from{opacity:0;transform:translateY(20px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);}}
+        .calendar-header {display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+        .calendar-title {font-size:15px;font-weight:600;color:var(--text-primary);}
+        .calendar-close {cursor:pointer;background:none;border:none;padding:4px;border-radius:6px;font-size:18px;color:var(--text-muted);transition:.2s;line-height:1;}
+        .calendar-close:hover {background:var(--border-light);color:var(--text-primary);}
+        .calendar-nav {display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px;}
+        .calendar-nav-btn {cursor:pointer;background:none;border:none;padding:4px 10px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+        .calendar-nav-btn:hover{background:var(--accent-blue-light);color:var(--accent-blue);}
+        .calendar-nav-month {font-size:14px;font-weight:600;color:var(--text-primary);min-width:100px;text-align:center;}
+        .calendar-grid {display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;}
+        .calendar-weekday {text-align:center;font-size:11px;color:var(--text-muted);padding:6px 0;font-weight:500;}
+        .calendar-day {aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:13px;cursor:pointer;transition:.15s;border:none;background:none;color:var(--text-primary);position:relative;}
+        .calendar-day:hover:not(:disabled) {background:var(--accent-blue-light);color:var(--accent-blue);}
+        .calendar-day.other-month {color:var(--text-muted);opacity:.5;}
+        .calendar-day.available {font-weight:600;color:var(--accent-blue);background:var(--accent-blue-light);}
+        .calendar-day.available:hover {background:var(--accent-blue);color:#fff;}
+        .calendar-day.today {box-shadow:inset 0 0 0 1.5px var(--accent-blue);}
+        .calendar-day:disabled {cursor:default;color:var(--border);}
+        .calendar-info {text-align:center;font-size:12px;color:var(--text-muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light);}
+        .calendar-info span {display:inline-flex;align-items:center;gap:4px;}
+        .calendar-dot {width:6px;height:6px;border-radius:50%;background:var(--accent-blue);display:inline-block;}
+        @media(max-width:480px){.container{padding:16px 12px 32px;}.header-title{font-size:19px;}.card{padding:14px 16px;}.calendar-overlay{padding-top:100px;justify-content:center;padding-right:0;}.calendar-modal{padding:16px;}}
+  </style>
+</head>
+<body>
+  <div class="container">
+
+<!-- Header -->
+<div class="header">
+  <h1 class="header-title">三木AI 每日一刻钟</h1>
+  <p class="header-sub">每天15分钟，读懂AI世界</p>
+  <span class="header-date">2026年11月19日 星期四</span>
+</div>
+
+<!-- Nav -->
+<div class="nav-bar">
+  <div class="nav-brand">
+    <span class="nav-logo">🤖 三木AI</span>
+    <span class="nav-sub">每日一刻钟</span>
+  </div>
+  <div class="nav-center">
+    <button class="nav-btn" onclick="window.location.href='ai-daily-2026-11-18.html'">‹</button>
+    <span class="nav-date-text">2026-11-19</span>
+    <button class="nav-btn" disabled style="opacity:.3" href="#">›</button>
+  </div>
+  <div class="nav-right">
+    <button class="nav-calendar-btn" onclick="openCalendar()">📅 日历</button>
+  </div>
+</div>
+
+<!-- Calendar Modal -->
+<div class="calendar-overlay" id="calOverlay" onclick="closeCalendar(event)">
+  <div class="calendar-modal" onclick="event.stopPropagation()">
+    <div class="calendar-header">
+      <span class="calendar-title">📅 选择日期</span>
+      <button class="calendar-close" onclick="closeCalendar()">&times;</button>
+    </div>
+    <div class="calendar-nav">
+      <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
+      <span class="calendar-nav-month" id="calMonth">2026年11月</span>
+      <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
+    </div>
+    <div class="calendar-grid">
+      <div class="calendar-weekday">日</div><div class="calendar-weekday">一</div><div class="calendar-weekday">二</div>
+      <div class="calendar-weekday">三</div><div class="calendar-weekday">四</div><div class="calendar-weekday">五</div><div class="calendar-weekday">六</div>
+    </div>
+    <div class="calendar-grid" id="calDays"></div>
+    <div class="calendar-info"><span><i class="calendar-dot"></i> 蓝色日期表示有简报</span></div>
+  </div>
+</div>
+
+<!-- Intro -->
+<div class="intro">
+  <p class="intro-text">周四早晨，资本市场终于为 AI 开出第一张公开答卷：Anthropic 以每股 83 美元——高于发行区间上限——正式登陆纳斯达克，IPO 加私募总募资超过 940 亿美元，刷新历史纪录。产品侧的价格战还在继续：谷歌一个月内发布第四款新模型 Neon，腾讯混元开放 Hy4 flash 权重首日调用量破 50 万亿 token。更值得留意的是两条新曲线：OpenAI 用模型给 AMD 芯片设计提速，AI 开始反哺算力本身；而腾讯财报首次坦言芯片限制拖累下一代模型训练，算力约束从行业共识变成了上市公司的账面现实。<strong>能力、价格、算力与资本，四条线在同一周交汇。</strong></p>
+</div>
+
+<!-- Quick Tips -->
+<div class="quick-tips">
+  <div class="quick-tips-title">🔥 今日要点速览</div>
+  <ul class="quick-tips-list">
+    <li><strong>Anthropic IPO 定价 83 美元高于发行区间，今日登陆纳斯达克（代码 ANT）</strong>：IPO 加 260 亿美元私募配售总募资超 940 亿美元创历史纪录，完全稀释估值最高约 1.4 万亿美元，阿莫代伊等七位联合创始人共同敲钟</li>
+    <li><strong>谷歌发布 Gemini 4 Neon：一个月内第四款新模型，编程智能体指数登顶</strong>：Artificial Analysis 智能指数 61 分居总榜第三，每百万 token 输入 3 美元、输出 15 美元；Genie 4 世界模型首次向 AI Ultra 订阅用户开放</li>
+    <li><strong>OpenAI 披露模型辅助芯片设计成果：五个月为 AMD 旗舰 GPU 取得约一年的优化进度</strong>：PPA 最高提升 14%，部分改动已进入流片；自研推理芯片 Jalapeno 标准单元面积再减 13%，并与 Synopsys 合作推出 GPT-Synopsys</li>
+    <li><strong>腾讯 Q3 财报：AI 办公产品日活破千万、日均 Token 消耗超 100 万亿</strong>：营收 2073 亿元同比增 8%、云收入增 35%，资本开支付款同比增 226%；管理层首次坦言芯片限制将使下一代模型训练耗时更长</li>
+    <li><strong>SuperCLUE 新榜：千问 Qwen4-Max、混元 Hy4、Kimi K3.1 Pro 三家并列国内榜首</strong>：两家新模型编程单项均得 57.69 分、超时率从最高近 70% 降至 0%，Qwen4-Max 单题成本较上代下降约 87%</li>
+  </ul>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-blue">⚡</div>
+    <span class="section-title">技术前沿动态</span>
+    <span class="section-count">3条</span>
+  </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">模型发布</span>
+          <h3 class="card-title">谷歌发布 Gemini 4 Neon：一个月内第四款新模型，编程智能体指数登顶；Genie 4 世界模型同步上线</h3>
+        </div>
+        <p class="card-summary">谷歌周三发布 Gemini 4 Neon，这是其一个月内推出的第四款 Gemini 模型，定位介于 Carbon 与 Hydrogen 之间，主打以更快速度、更低成本完成复杂软件工程、知识工作与科研任务。高强度思考模式下，Neon 在 Artificial Analysis 智能指数得 61 分、总榜第三，并以 58.6 分登顶编程智能体指数，Vals Index 排名第二且处于性能成本帕累托前沿；Google Antigravity 内测显示其幻觉率创下谷歌模型最低水平。上下文窗口约 100 万 token，API 定价每百万输入 3 美元、输出 15 美元，今日起面向 AI Pro 与 Ultra 订阅用户全端开放。同场，最先进世界模型 Genie 4 作为 Project Genie 重大更新首次向 AI Ultra 用户开放，支持自然语言实时改写虚拟世界与随场景变化的原生音效。<strong>一周之内 Carbon、Hydrogen、Neon 三档齐列——谷歌把旗舰竞争正式打成产品线时代，价格档位本身就是产品策略</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Gemini 4 Neon</span>          <span class="card-tag">#谷歌</span>          <span class="card-tag">#世界模型</span>          
+          <a class="card-link" href="https://news.qq.com/rain/a/20261119A03V4W00" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">AI自举</span>
+          <h3 class="card-title">OpenAI 披露模型辅助芯片设计成果：五个月为 AMD 旗舰 GPU 取得约一年的优化进度</h3>
+        </div>
+        <p class="card-summary">OpenAI 总裁布罗克曼公布模型参与芯片设计的量化成果：与 AMD 合作中，OpenAI 模型在不到五个月内为 AMD 旗舰 GPU IP 实现最高 14% 的 PPA（功耗、性能与面积）提升，相当于在工程师多年优化之上再取得约一年的进度，部分改动已进入近期流片的设计。同一方法也用于 OpenAI 首款自研推理芯片 Jalapeno：warp engine 标准单元面积约减 13%、矩阵单元约减 10%，收益已在真实硅片上验证。OpenAI 还与 Synopsys 合作推出 GPT-Synopsys，把模型能力接入 EDA 工具链，推动 AI 辅助芯片设计普及。这是「AI 优化 AI 算力」飞轮的第一份流片级证据：模型不仅在消耗算力，也在压缩下一代算力的研发周期。<strong>当大模型开始缩短芯片的迭代周期，算力供给曲线的斜率本身就被 AI 改写了——这是比任何单颗新卡都更深远的变化</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#OpenAI</span>          <span class="card-tag">#AMD</span>          <span class="card-tag">#芯片设计</span>          
+          <a class="card-link" href="https://www.163.com/dy/article/LC2FLCBD05569XIR.html" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-teal">开源权重</span>
+          <h3 class="card-title">腾讯混元开放 Hy4 flash 权重：首日 Token 调用量破 50 万亿、登顶 OpenRouter 日榜</h3>
+        </div>
+        <p class="card-summary">腾讯混元宣布开放 Hy4 flash 权重，含 FP8 与 Base 两个版本，以 Tencent HyLicense 在 Hugging Face 与 GitHub 发布。模型总参数 224B、仅激活 12B，支持 100 万上下文与原生多模态，定位高效日常生产力场景，上线首日 Token 调用量突破 50 万亿、创混元系列首日新高，并登顶 OpenRouter 日榜。发布当日，沐曦曦云 C 系列 GPU 率先完成 Day 0 全链路适配，模型当天即在国产 GPU 上跑通——国产旗舰模型开放权重与国产 GPU 适配，正在形成「发布即适配」的默认动作。测评侧同步传来好消息：SuperCLUE 新一轮榜单中混元 Hy4 与阿里 Qwen4-Max、Kimi K3.1 Pro 并列国内榜首，混元在超长上下文与精确指令遵循两项均列国内第一。官方预告旗舰 Hy4 后续推出，并将于 11 月 20 日在 Reddit 举办 AMA。<strong>开源运营本身正在成为模型竞争力的一部分——从开放权重到海外社区答疑，国产模型在抢「全球开发者的默认选项」</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#混元Hy4</span>          <span class="card-tag">#开源</span>          <span class="card-tag">#国产GPU</span>          
+          <a class="card-link" href="http://mp.weixin.qq.com/s?__biz=MzY5ODQ4MTYzNA==&mid=2247484597&idx=2&sn=df285ba2b338501e2c8b7ce68a52747e&chksm=f5eb3c28533a9279438726d5798f6db61df13dc98d3fed88f6c5b791f0d4a36e7fd9fb590db1#rd" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-purple">🌏</div>
+    <span class="section-title">国内外 AI 动态</span>
+    <span class="section-count">4条</span>
+  </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">榜单测评</span>
+          <h3 class="card-title">SuperCLUE 新榜：千问 Qwen4-Max、混元 Hy4、Kimi K3.1 Pro 三家并列国内榜首</h3>
+        </div>
+        <p class="card-summary">SuperCLUE 公布新一轮中文通用能力测评：阿里 Qwen4-Max 得 61.61 分，腾讯混元 Hy4 得 61.01 分，与 61.46 分的 Kimi K3.1 Pro 并列国内榜首（相差 1 分以内视为并列）。相较上一版本，Qwen4-Max 与 Hy4 分别提升 18.39 分和 18.05 分，两款模型均在 11 月正式发布。编程能力变化尤为突出：两款模型在智能体编程单项均得 57.69 分、较上代提高 15.38 分，超时率从上代的 69.23% 与 26.92% 一并降到 0%。成本端同样亮眼：Qwen4-Max 单题约 1.90 元、较上代下降约 87%，Hy4 约 2.52 元、较 Preview 下降约 28.5%。分项上，千问幻觉控制列国内分榜第一，混元包揽超长上下文与精确指令遵循两项第一。<strong>三家并列榜首的格局说明国产模型进入贴身肉搏阶段——差距不在综合分，而在各有所长；当超时率归零、单价降九成，「能用」之后竞争焦点自然转向场景适配</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#SuperCLUE</span>          <span class="card-tag">#千问</span>          <span class="card-tag">#混元</span>          
+          <a class="card-link" href="http://mp.weixin.qq.com/s?__biz=Mzg4Nzg0MTIwMA==&mid=2247486205&idx=1&sn=972c0aa6294ddb868606e075196deb99&chksm=cef58ef88b47cdcf38eda8265400c41c24c00d6d7e2bd5835ce906d0a2b06270449650982f6f#rd" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-red">财报披露</span>
+          <h3 class="card-title">腾讯 Q3 营收 2073 亿元：AI 办公日活破千万、日均 Token 消耗超 100 万亿，首次坦言芯片限制拖累模型训练</h3>
+        </div>
+        <p class="card-summary">腾讯控股发布 2026 年第三季度财报：营收 2073.4 亿元、同比增长 8%，云服务收入同比增幅升至 35%，当季资本开支付款 651 亿元、同比增 226%，研发投入 323.6 亿元。AI 业务数据密集披露：AI 办公产品日活超 1000 万，日均 Token 消耗量超 100 万亿，为国内日均消耗量最高的 AI 产品；混元大模型保持平均每两个月一个大版本的节奏。最受关注的是财报沟通中的表述——受芯片限制影响，训练下一代模型将需要更长时间，这是腾讯首次在财报层面直面算力瓶颈话题。混元侧动作不断：Hy4 flash 前一日开放权重后首日调用量破 50 万亿 token，负自由现金流 691 亿元显示投入仍在加码。<strong>算力瓶颈第一次从行业共识变成上市公司财报里的经营约束——「把模型用好」比「把模型做大」更重要，正在从口号变成必选项</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#腾讯财报</span>          <span class="card-tag">#算力瓶颈</span>          <span class="card-tag">#AI办公</span>          
+          <a class="card-link" href="https://www.163.com/dy/article/LC2FLCBD05569XIR.html" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">出口管制</span>
+          <h3 class="card-title">英伟达宣布停售中国 H200 并设董事会级国安委员会；黄仁勋不回归，联署声援超 20 万人</h3>
+        </div>
+        <p class="card-summary">英伟达临时 CEO 克雷斯在财报电话会上宣布，公司将不再在中国销售 H200 芯片，结束此前需经美国境内并缴纳 25% 关税的出口安排，中国区约占其出货量 10%，分析师预测相关收入影响在 44 亿至 62 亿美元之间；公司同时设立董事会级国家安全委员会。治理层面，董事会主席确认黄仁勋不会复任 CEO，临时 CEO 在全员会上呼吁员工向前看并宣布提前至 12 月发放加薪与股权奖励。但口径出现裂缝：Semafor 报道部分董事仍在推动回归，继任人选范围已缩小至 Arm CEO 霍斯与 Marvell CEO 墨菲；Anduril CEO 帕尔默·拉基在 DealBook 峰会公开呼吁恢复黄仁勋职务，联署已超 20 万人，马斯克等加入声援。同期财报会新条款显示，英伟达对 neocloud 厂商的采购兜底收紧至「融资到位且数据中心建成」为前提。<strong>全球最大芯片公司主动收缩最大的增量市场，国产替代时间表同步被改写——而官方口径与董事会内部动作的错位，说明继任谈判的窗口并未真正关闭</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#英伟达</span>          <span class="card-tag">#H200</span>          <span class="card-tag">#出口管制</span>          
+          <a class="card-link" href="https://news.qq.com/rain/a/20261119A041G700" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">产品动态</span>
+          <h3 class="card-title">豆包工作上线三个月日活破 800 万、企业客户 ARR 超 20 亿元，AI 办公赛道竞争白热化</h3>
+        </div>
+        <p class="card-summary">字节跳动旗下豆包工作宣布：上线仅三个月日活跃用户突破 800 万，企业客户年度经常性收入（ARR）突破 20 亿元。产品侧，11 月 16 日独家上线「工作台」功能，首批覆盖金融、医疗、教育、创意设计等 21 个专业场景，预置相应技能与工具，用户也可创建、保存并分享自定义工作台。更关键的是多模型策略：豆包工作已接入 Kimi、GLM、DeepSeek 等第三方模型，并标注不同模型的额度消耗倍率，让用户按任务需求与成本自主选择——把自己做成「AI 模型的路由器」而非绑定某一家。对照腾讯 AI 办公日活破千万、日均 Token 消耗超 100 万亿，AI 办公已成巨头正面交锋的新战场。<strong>当 AI 办公从「什么都能聊」转向「什么事都能干」，决定胜负的不再是模型参数，而是场景深度与单位任务的成本</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#豆包工作</span>          <span class="card-tag">#AI办公</span>          <span class="card-tag">#字节跳动</span>          
+          <a class="card-link" href="http://mp.weixin.qq.com/s?__biz=Mzg4Nzg0MTIwMA==&mid=2247486205&idx=1&sn=972c0aa6294ddb868606e075196deb99&chksm=cef58ef88b47cdcf38eda8265400c41c24c00d6d7e2bd5835ce906d0a2b06270449650982f6f#rd" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-green">📈</div>
+    <span class="section-title">投资与商业</span>
+    <span class="section-count">3条</span>
+  </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">历史IPO</span>
+          <h3 class="card-title">Anthropic IPO 定价 83 美元高于区间，今日登陆纳斯达克：总募资超 940 亿美元创历史纪录</h3>
+        </div>
+        <p class="card-summary">Anthropic 将 IPO 发行价定为每股 83 美元，高于 70 至 78 美元的推介区间上限约 6.4%，发行规模同步扩大至 9.8 亿股（含老股东出售），并于当地时间周四以代码 ANT 登陆纳斯达克全球精选市场，CEO 阿莫代伊与其他六位联合创始人共同敲钟。叠加按发行价进行的 260 亿美元私募配售，总融资规模超过 940 亿美元，超过 SpaceX 今年 6 月 IPO 的 750 亿美元，成为史上最大 IPO；完全稀释估值最高约 1.4 万亿美元，预计吸引约 2.5 亿美元散户净买入、为 SpaceX 上市时纪录的两倍。招股书显示其前九个月营收 332.4 亿美元、同比增长超 1200%，未来 12 个月算力采购与租赁承诺超 700 亿美元。英伟达、谷歌、微软、AMD、台积电等均参与私募。<strong>前沿 AI 实验室的首次 IPO 落地，AI 押注正式从一级市场延伸到二级市场——从今天起，「AI 泡沫之辩」有了每天都会更新的答案：股价</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Anthropic</span>          <span class="card-tag">#IPO</span>          <span class="card-tag">#ANT</span>          
+          <a class="card-link" href="https://www.163.com/dy/article/LC311FPG05198NMR.html" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">市场行情</span>
+          <h3 class="card-title">英伟达财报超预期仍五连跌：市值一夜蒸发约 1085 亿美元；美联储纪要放鹰，标普五连跌</h3>
+        </div>
+        <p class="card-summary">美股周三收盘涨跌不一：道指跌 1.11%、报 50198.17 点，标普 500 跌 0.23%、连续第五个交易日下跌并失守 200 日均线，纳指逆势涨 0.42%。个股层面，英伟达尽管第三财季业绩全面超预期并上调指引，但受领导层更迭及停售中国 H200 影响，高开低走收跌 2.89%、报 150.96 美元，创 2025 年 6 月以来收盘新低，一夜市值蒸发约 1085 亿美元，伯恩斯坦与 Evercore 等多家投行下调评级。芯片股明显分化：AMD 大涨 5.31%、博通涨超 3%，美光跌 1%、英特尔跌近 1%；亚马逊涨 3.82% 成为纳指翻红主力，CoreWeave 跌超 4%。美联储 10 月会议纪要显示几乎所有官员认为可能需要继续加息，12 月加息超 25 个基点进入讨论，风险偏好持续受压。市场普遍认为近期科技股卖压部分源于投资者为认购 Anthropic IPO 腾挪资金。<strong>AI 硬件的需求仍在，但投资者已开始为治理结构、毛利率与政策风险重新定价——财报好到超预期都止不住五连跌，说明市场的挑剔点已经换了</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#美股</span>          <span class="card-tag">#英伟达</span>          <span class="card-tag">#美联储</span>          
+          <a class="card-link" href="https://finance.sina.com.cn/stock/usstock/c/2026-11-19/doc-inizfcqp4448507.shtml" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">词元出海</span>
+          <h3 class="card-title">行云科技签下 20 亿元 AI 词元跨境销售合同：词元成为按调用计费的跨境「大宗商品」</h3>
+        </div>
+        <p class="card-summary">行云科技公告，与新丝路控股集团签署 AI 词元跨境销售服务合同及销售订单，以词元调用为标的提供 AI 词元服务，合同累计结算金额上限 20 亿元，首期采购 2 亿元，总期限 60 个月，服务区域主要包括韩国等地。公司此前在回应算力供应链问题时表示，已借助全球跨境供应链渠道构建服务器多元供应体系，算力业务发展迅速。这是国内算力服务出海第一次以 20 亿元级合同规模写下报价单——词元从技术指标变成可签约、按调用计费的大宗商品。资本侧同步升温：高盛信用策略团队将 2027 年全球 AI 项目融资预测从 3000 亿美元大幅上调至 5450 亿美元，其中 3200 亿投向 GPU 等算力芯片融资、2250 亿投向数据中心建设。<strong>当词元出口开始签大单，AI 算力正在复制「云出海」的路径——卖的不是模型，是可计费、可跨境结算的智能单位</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#词元出海</span>          <span class="card-tag">#行云科技</span>          <span class="card-tag">#AI融资</span>          
+          <a class="card-link" href="http://mp.weixin.qq.com/s?__biz=MzY5ODQ4MTYzNA==&mid=2247484597&idx=2&sn=df285ba2b338501e2c8b7ce68a52747e&chksm=f5eb3c28533a9279438726d5798f6db61df13dc98d3fed88f6c5b791f0d4a36e7fd9fb590db1#rd" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-orange">🏛️</div>
+    <span class="section-title">政策与行业生态</span>
+    <span class="section-count">3条</span>
+  </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-teal">行业盛会</span>
+          <h3 class="card-title">第 11 届中国国际人工智能大会今日南京开幕：490 余家展商、九大展区覆盖 AI 全链路</h3>
+        </div>
+        <p class="card-summary">2026 第 11 届中国国际人工智能大会暨算力算法博览会（CIAI）今日在南京国际博览中心开幕，为期三天，由江苏省人民政府、工信部、中国科协、中国工程院共同主办。本届展览面积超 3 万平方米，汇聚 490 余家展商，举办 30 余场论坛，规划九大展区：算力算法与四算融合、AI 数据与存储、具身智能与机器人、通信信息与 6G、AI 数字人、AI 元宇宙、AI+医疗与脑机接口、新一代智能终端、AI+智能制造。这是 CIAI 首次移师南京，并与上海展形成每年春秋双展模式。展区设置本身即是产业风向标：算力算法独立成区、具身智能单独占位、AI+医疗与脑机接口并列，垂直方向的商业化路径正逐个清晰。<strong>当「AI+某个行业」足以独立撑起一个展区，说明这个垂直赛道的落地已经不需要概念背书——展会密度快速追赶国际水平的背后，是产业生态加速成形</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#CIAI</span>          <span class="card-tag">#南京</span>          <span class="card-tag">#AI展会</span>          
+          <a class="card-link" href="http://mp.weixin.qq.com/s?__biz=Mzg4Nzg0MTIwMA==&mid=2247486205&idx=1&sn=972c0aa6294ddb868606e075196deb99&chksm=cef58ef88b47cdcf38eda8265400c41c24c00d6d7e2bd5835ce906d0a2b06270449650982f6f#rd" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">出口管制</span>
+          <h3 class="card-title">美商务部 BIS 收紧东南亚算力出口许可：堵住「海外租算力」回流路径</h3>
+        </div>
+        <p class="card-summary">美国商务部工业与安全局发布临时最终规则，将新加坡、马来西亚、泰国、印尼、巴西纳入高端处理器出口许可管理，重点针对英伟达关联数据中心项目，意在堵住「把算力建在海外、再把推理结果引回受限地区」的绕道路径。这与英伟达同日的动作形成一体两面：临时 CEO 克雷斯确认已停止向中国供应 H200 芯片，中国区约占其出货量 10%，公司同步设立董事会级国家安全委员会。算力的地缘约束正从「卡实物」延伸到「卡租赁、卡服务」——对出海布局算力与海外租用推理能力的企业，合规审查将成为新的前置成本。国内产业端的应对也在加速：商汤披露多芯片异构协同方案取得突破，已在多卡型、多场景推进国产化替代，SenseCore 日均 Token 服务量提升至 6 万亿。<strong>管制清单每多一行，国产算力与国产模型的协同就从可选项向必选项挪近一步——替代的进度条，是由对面的管制令来推动的</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#BIS</span>          <span class="card-tag">#出口许可</span>          <span class="card-tag">#东南亚</span>          
+          <a class="card-link" href="http://mp.weixin.qq.com/s?__biz=MzU4NTExMzQ0OQ==&mid=2247484259&idx=1&sn=0ce81f547e697b812ce418aed5b72816&chksm=fc2956102756682f937f80842c8b6574d196a48c77ddba6bff32ecdc02b08d0bea878ac883c7#rd" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">应用落地</span>
+          <h3 class="card-title">智元长隆具身智能乐园已部署近 500 台机器人：年底预计达 1000 台，具身智能订单开始可数</h3>
+        </div>
+        <p class="card-summary">在深圳 APEC 财经之夜活动上，智元合伙人王闯表示，人形机器人会说话、会走路只是及格线，「会干活才是真本事」，并披露商用落地进展：在长隆具身智能乐园，智元已部署近 500 台机器人，年底预计达 1000 台。从主题乐园的规模化部署到「干活能力」的评价标准，头部机器人公司正把叙事从发布会搬进交付现场。产业面同步印证：中国人形机器人年出货量已达 1.44 万台、占全球 84.7%，深圳龙岗集聚超 800 家人工智能企业与约 1.27 万家机器人整机及上下游企业，全球首家机器人 6S 店落地。雷军在 APEC 峰会上判断，下一个十年 AI 的核心机会在物理世界，人形机器人与智能汽车等实体场景是主赛道。<strong>订单密度开始可数、可验证——具身智能的估值故事，正在从「参数表」换轴到「交付量」</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#智元</span>          <span class="card-tag">#人形机器人</span>          <span class="card-tag">#具身智能</span>          
+          <a class="card-link" href="http://mp.weixin.qq.com/s?__biz=MzY5ODQ4MTYzNA==&mid=2247484597&idx=2&sn=df285ba2b338501e2c8b7ce68a52747e&chksm=f5eb3c28533a9279438726d5798f6db61df13dc98d3fed88f6c5b791f0d4a36e7fd9fb590db1#rd" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+</div>
+
+<div class="editor-pick">
+  <div class="editor-pick-title">✍️ 编辑精选 · 深度观点</div>
+  <div class="editor-pick-content"><p>今天最值得记住的，是「定价」这个词同时出现在三个地方。</p><p>资本市场上，Anthropic 把发行价定在区间上限之上，史上最大 IPO 落地——公开市场第一次亲手为前沿模型公司标价，此后它的每个季度都要接受散户与卖方分析师的审视，「AI 泡沫之辩」从辩论题变成了股价。产品市场上，谷歌 Neon、微软七款 MAI、混元 Hy4 flash在同一周密集出招，共同指向一件事：同等能力下谁更便宜。供应链上，OpenAI 公布模型给 AMD 芯片设计省出约一年时间——智能的采购成本，开始从两头同时下压。</p><p>而腾讯财报里那句「芯片限制拖累下一代模型训练」提醒我们，降价盛宴的燃料并非无限。<strong>当模型竞争收敛到小数点，真正的分水岭是：谁能用更少的算力、更低的单价，把同等智能交付出去。今天挂牌的 ANT，就是这套逻辑的第一个公开报价</strong>。</p></div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p class="footer-text"><span class="footer-brand">三木AI 每日一刻钟</span> · 每天15分钟，读懂AI世界</p>
+  <p class="footer-text">2026年11月19日 星期四</p>
+</div>
+  </div>
+  <script>
+  (function() {
+var availableDates = [];
+var calYear = 2026, calMonth = 10;
+
+fetch('manifest.json?t=' + Date.now())
+  .then(function(r){return r.json();})
+  .then(function(data){
+    availableDates = data.dates || [];
+    renderCalendar();
+  })
+  .catch(function(){
+    availableDates = ['2026-11-19'];
+    renderCalendar();
+  });
+
+window.openCalendar = function() {
+  document.getElementById('calOverlay').classList.add('active');
+  renderCalendar();
+};
+window.closeCalendar = function(e) {
+  if (!e || e.target.id === 'calOverlay') {
+    document.getElementById('calOverlay').classList.remove('active');
+  }
+};
+window.changeMonth = function(delta) {
+  calMonth += delta;
+  if (calMonth > 11) { calMonth = 0; calYear++; }
+  if (calMonth < 0) { calMonth = 11; calYear--; }
+  renderCalendar();
+};
+window.goToDate = function(dateStr) {
+  if (dateStr === '2026-11-19') {
+    window.location.href = 'index.html';
+  } else {
+    window.location.href = 'ai-daily-' + dateStr + '.html';
+  }
+};
+
+function renderCalendar() {
+  var monthNames = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+  document.getElementById('calMonth').textContent = calYear + '年' + monthNames[calMonth];
+  var firstDay = new Date(calYear, calMonth, 1).getDay();
+  var daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+  var prevDays = new Date(calYear, calMonth, 0).getDate();
+  var html = '';
+  for (var i = firstDay - 1; i >= 0; i--) {
+    html += '<button class="calendar-day other-month" disabled>' + (prevDays - i) + '</button>';
+  }
+  for (var d = 1; d <= daysInMonth; d++) {
+    var ds = calYear + '-' + String(calMonth + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+    var cls = 'calendar-day';
+    var isAvail = availableDates.indexOf(ds) !== -1;
+    var isToday = ds === '2026-11-19';
+    if (isAvail) cls += ' available';
+    if (isToday) cls += ' today';
+    if (isAvail) {
+      html += '<button class="' + cls + '" onclick="goToDate(\'' + ds + '\')">' + d + '</button>';
+    } else {
+      html += '<button class="' + cls + '" disabled>' + d + '</button>';
+    }
+  }
+  var totalCells = firstDay + daysInMonth;
+  var nextPadding = (7 - (totalCells % 7)) % 7;
+  for (var j = 1; j <= nextPadding; j++) {
+    html += '<button class="calendar-day other-month" disabled>' + j + '</button>';
+  }
+  document.getElementById('calDays').innerHTML = html;
+}
+  })();
+  </script>
+
+</body>
+</html>
