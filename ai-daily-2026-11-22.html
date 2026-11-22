@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>三木AI 每日一刻钟 | 2026-11-22</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {--bg:#f5f7fa;--card-bg:#ffffff;--text-primary:#1a1a2e;--text-secondary:#5a5a7a;--text-muted:#8a8aa0;--accent-blue:#2563eb;--accent-blue-light:#dbeafe;--accent-purple:#7c3aed;--accent-purple-light:#ede9fe;--accent-teal:#0d9488;--accent-teal-light:#ccfbf1;--accent-orange:#ea580c;--accent-orange-light:#ffedd5;--accent-green:#16a34a;--accent-green-light:#dcfce7;--border:#e2e8f0;--border-light:#f1f5f9;--radius:12px;--radius-sm:8px;--shadow:0 1px 3px rgba(0,0,0,0.04),0 4px 12px rgba(0,0,0,0.03);}
+        * {margin:0;padding:0;box-sizing:border-box;}
+        body {font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text-primary);line-height:1.7;}
+        .container {max-width:720px;margin:0 auto;padding:24px 16px 48px;}
+        .header {text-align:center;margin-bottom:28px;}
+        .header-title {font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:1px;}
+        .header-sub {font-size:13px;color:var(--text-muted);margin-top:4px;}
+        .header-date {display:inline-block;margin-top:12px;padding:4px 16px;background:var(--accent-blue-light);color:var(--accent-blue);border-radius:20px;font-size:13px;font-weight:500;}
+        .nav-bar {background:var(--card-bg);border-radius:var(--radius);padding:10px 20px;margin-bottom:24px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);}
+        .nav-brand {display:flex;align-items:center;gap:8px;}
+        .nav-logo {font-size:15px;font-weight:600;color:var(--text-primary);}
+        .nav-sub {font-size:11px;color:var(--text-muted);}
+        .nav-center {display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);}
+        .nav-btn {cursor:pointer;background:none;border:none;padding:4px 8px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+        .nav-btn:hover{color:var(--accent-blue);background:var(--accent-blue-light);}
+        .nav-date-text{font-weight:500;color:var(--text-primary);}
+        .nav-right {display:flex;align-items:center;gap:8px;}
+        .nav-calendar-btn {cursor:pointer;display:flex;align-items:center;gap:4px;padding:5px 12px;border-radius:8px;font-size:13px;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);border:none;font-weight:500;transition:.2s;}
+        .nav-calendar-btn:hover{opacity:.9;}
+        .intro {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow);border:1px solid var(--border);}
+        .intro-text {font-size:14px;color:var(--text-secondary);line-height:1.8;}
+        .quick-tips {background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;color:white;box-shadow:var(--shadow);}
+        .quick-tips-title {font-size:15px;font-weight:600;margin-bottom:12px;}
+        .quick-tips-list {list-style:none;}
+        .quick-tips-list li {font-size:13px;line-height:1.9;padding-left:16px;position:relative;opacity:0.95;}
+        .quick-tips-list li::before {content:'';position:absolute;left:0;top:10px;width:6px;height:6px;background:rgba(255,255,255,0.7);border-radius:50%;}
+        .section {margin-bottom:24px;}
+        .section-header {display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-left:4px;}
+        .section-icon {width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;}
+        .section-title {font-size:15px;font-weight:600;color:var(--text-primary);}
+        .section-count {margin-left:auto;font-size:12px;color:var(--text-muted);background:var(--border-light);padding:2px 10px;border-radius:12px;}
+        .card {background:var(--card-bg);border-radius:var(--radius);padding:18px 20px;margin-bottom:12px;box-shadow:var(--shadow);border:1px solid var(--border);}
+        .card-header {display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;}
+        .card-badge {flex-shrink:0;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:500;}
+        .card-title {font-size:14px;font-weight:600;color:var(--text-primary);line-height:1.5;flex:1;}
+        .card-summary {font-size:13px;color:var(--text-secondary);line-height:1.7;margin-bottom:10px;}
+        .card-footer {display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+        .card-tag {font-size:11px;color:var(--text-muted);background:var(--border-light);padding:2px 8px;border-radius:4px;}
+        .card-link {font-size:12px;color:var(--accent-blue);text-decoration:none;margin-left:auto;}
+        .badge-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
+        .badge-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
+        .badge-teal {background:var(--accent-teal-light);color:var(--accent-teal);}
+        .badge-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+        .badge-green {background:var(--accent-green-light);color:var(--accent-green);}
+        .icon-blue {background:var(--accent-blue-light);color:var(--accent-blue);}
+        .icon-purple {background:var(--accent-purple-light);color:var(--accent-purple);}
+        .icon-green {background:var(--accent-green-light);color:var(--accent-green);}
+        .icon-orange {background:var(--accent-orange-light);color:var(--accent-orange);}
+        .editor-pick {background:var(--card-bg);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);border:1px solid var(--border);border-left:3px solid var(--accent-orange);}
+        .editor-pick-title {font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+        .editor-pick-content {font-size:13px;color:var(--text-secondary);line-height:1.8;}
+        .editor-pick-content p {margin-bottom:8px;}
+        .editor-pick-content strong {color:var(--text-primary);font-weight:600;}
+        .footer {text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
+        .footer-text {font-size:12px;color:var(--text-muted);}
+        .footer-brand {font-weight:600;color:var(--text-secondary);}
+        .calendar-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:999;display:none;align-items:flex-start;justify-content:flex-end;padding-top:110px;padding-right:16px;}
+        .calendar-overlay.active {display:flex;}
+        .calendar-modal {background:var(--card-bg);border-radius:var(--radius);width:92%;max-width:360px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);animation:calIn .25s ease-out;}
+        @keyframes calIn {from{opacity:0;transform:translateY(20px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);}}
+        .calendar-header {display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+        .calendar-title {font-size:15px;font-weight:600;color:var(--text-primary);}
+        .calendar-close {cursor:pointer;background:none;border:none;padding:4px;border-radius:6px;font-size:18px;color:var(--text-muted);transition:.2s;line-height:1;}
+        .calendar-close:hover {background:var(--border-light);color:var(--text-primary);}
+        .calendar-nav {display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px;}
+        .calendar-nav-btn {cursor:pointer;background:none;border:none;padding:4px 10px;border-radius:6px;font-size:16px;color:var(--text-secondary);transition:.2s;}
+        .calendar-nav-btn:hover{background:var(--accent-blue-light);color:var(--accent-blue);}
+        .calendar-nav-month {font-size:14px;font-weight:600;color:var(--text-primary);min-width:100px;text-align:center;}
+        .calendar-grid {display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;}
+        .calendar-weekday {text-align:center;font-size:11px;color:var(--text-muted);padding:6px 0;font-weight:500;}
+        .calendar-day {aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:13px;cursor:pointer;transition:.15s;border:none;background:none;color:var(--text-primary);position:relative;}
+        .calendar-day:hover:not(:disabled) {background:var(--accent-blue-light);color:var(--accent-blue);}
+        .calendar-day.other-month {color:var(--text-muted);opacity:.5;}
+        .calendar-day.available {font-weight:600;color:var(--accent-blue);background:var(--accent-blue-light);}
+        .calendar-day.available:hover {background:var(--accent-blue);color:#fff;}
+        .calendar-day.today {box-shadow:inset 0 0 0 1.5px var(--accent-blue);}
+        .calendar-day:disabled {cursor:default;color:var(--border);}
+        .calendar-info {text-align:center;font-size:12px;color:var(--text-muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light);}
+        .calendar-info span {display:inline-flex;align-items:center;gap:4px;}
+        .calendar-dot {width:6px;height:6px;border-radius:50%;background:var(--accent-blue);display:inline-block;}
+        @media(max-width:480px){.container{padding:16px 12px 32px;}.header-title{font-size:19px;}.card{padding:14px 16px;}.calendar-overlay{padding-top:100px;justify-content:center;padding-right:0;}.calendar-modal{padding:16px;}}
+  </style>
+</head>
+<body>
+  <div class="container">
+
+<!-- Header -->
+<div class="header">
+  <h1 class="header-title">三木AI 每日一刻钟</h1>
+  <p class="header-sub">每天15分钟，读懂AI世界</p>
+  <span class="header-date">2026年11月22日 星期日</span>
+</div>
+
+<!-- Nav -->
+<div class="nav-bar">
+  <div class="nav-brand">
+    <span class="nav-logo">🤖 三木AI</span>
+    <span class="nav-sub">每日一刻钟</span>
+  </div>
+  <div class="nav-center">
+    <button class="nav-btn" onclick="window.location.href='ai-daily-2026-11-21.html'">‹</button>
+    <span class="nav-date-text">2026-11-22</span>
+    <button class="nav-btn" disabled style="opacity:.3" href="#">›</button>
+  </div>
+  <div class="nav-right">
+    <button class="nav-calendar-btn" onclick="openCalendar()">📅 日历</button>
+  </div>
+</div>
+
+<!-- Calendar Modal -->
+<div class="calendar-overlay" id="calOverlay" onclick="closeCalendar(event)">
+  <div class="calendar-modal" onclick="event.stopPropagation()">
+    <div class="calendar-header">
+      <span class="calendar-title">📅 选择日期</span>
+      <button class="calendar-close" onclick="closeCalendar()">&times;</button>
+    </div>
+    <div class="calendar-nav">
+      <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
+      <span class="calendar-nav-month" id="calMonth">2026年11月</span>
+      <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
+    </div>
+    <div class="calendar-grid">
+      <div class="calendar-weekday">日</div><div class="calendar-weekday">一</div><div class="calendar-weekday">二</div>
+      <div class="calendar-weekday">三</div><div class="calendar-weekday">四</div><div class="calendar-weekday">五</div><div class="calendar-weekday">六</div>
+    </div>
+    <div class="calendar-grid" id="calDays"></div>
+    <div class="calendar-info"><span><i class="calendar-dot"></i> 蓝色日期表示有简报</span></div>
+  </div>
+</div>
+
+<!-- Intro -->
+<div class="intro">
+  <p class="intro-text">周日早晨，市场与实验室各交出了一份「验证报告」。上周五，AI 交易崩盘进入第二个交易日，《纽约时报》报道 Anthropic 股价跌回 88.91 美元，员工套现约 250 亿美元的安排引发华尔街争议；实验室一侧，Lean 与 Mathlib 社区正式证实那位 Anthropic 数学家与 Claude 合作的黎曼猜想形式化证明「命题与证明均正确」，175,187 个模块全部编译通过。与此同时，OpenRouter 承认用户发往 MiniMax 模型的 prompt 可能已被第三方读取。<strong>当证明靠编译器核验、隐私靠金丝雀检测、估值靠现金流重估——AI 行业正在集体补一堂「可验证性」的课</strong>。</p>
+</div>
+
+<!-- Quick Tips -->
+<div class="quick-tips">
+  <div class="quick-tips-title">🔥 今日要点速览</div>
+  <ul class="quick-tips-list">
+    <li><strong>Lean 与 Mathlib 社区联合声明：黎曼猜想的 Claude 辅助 Lean 证明「命题与证明均正确」</strong>：约 1700 万行代码获数十人复现编译，MIT 数学家 Sutherland 检查全部 175,187 个模块无错误；陶哲轩撰文称证明动用了 Langlands 纲领与算术几何的全部现代进展，理解思想仍需时间</li>
+    <li><strong>OpenRouter 致信客户：发往 MiniMax 模型的 prompt 可能已被第三方读取，撤销 ZDR 标签</strong>：Dragos 研究员 HD Moore 用约 200 万条植入金丝雀秘密的 prompt 揭出 AI 供应链泄露：至少 3 家托管商被入侵、转售商记录客户 prompt、约三分之二标记零数据保留的请求仍被抓取秘密链接</li>
+    <li><strong>《纽约时报》：Anthropic 周五跌约 9% 收 88.91 美元，员工套现约 250 亿美元引发争议</strong>：史上最大 IPO 累计吸金超 1200 亿美元；分析师称其出现在周期后期「可能是市场见顶事件」；同日现货黄金跌 3%、比特币创两年多低点，跨资产流动性收缩，A 股大型银行逆势创新高</li>
+    <li><strong>国家数据局：将健全词元计量计费与质量测评标准</strong>：词元从平台内部指标走向可计量、可定价、可交易的商品，规则供给开始跟上市场规模——国内日均词元调用量已突破 500 万亿</li>
+    <li><strong>AWS 发布分布式 KV 缓存：自托管 LLM 推理成本最高降 40%、首字延迟降 80%</strong>：同一周谷歌在 Interactions API 上线工具按需加载预览，大工具库只按需载入详细 schema——推理成本与上下文效率成为基础设施层的竞争焦点</li>
+  </ul>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-blue">⚡</div>
+    <span class="section-title">技术前沿动态</span>
+    <span class="section-count">3条</span>
+  </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">形式化验证</span>
+          <h3 class="card-title">Lean 与 Mathlib 社区证实黎曼猜想证明正确：1700 万行代码全部编译通过，机器核验首次接管数学同行评审</h3>
+        </div>
+        <p class="card-summary">11 月 21 日，Lean 与 Mathlib 社区发布联合声明：Anthropic 数学家 Levent Alpöge 于 11 月 20 日公布的黎曼猜想 Lean 形式化证明，其命题与证明均被确认正确。这份证明约 1700 万行代码，声明获得 Lean FRO 与 Mathlib Initiative 背书：数十人独立复现了编译并得到相同的证明导出文件；两套独立工具确认所证定理正是 Mathlib 中黎曼猜想的陈述；导出证明通过了 Lean 官方内核以及多个用不同语言独立编写的检查器，其中两个检查器附带形式化证明——相对集合论它们不可能接受错误证明。MIT 数学家 Andrew Sutherland 借助 Claude Code 完成的检查显示，全部 175,187 个模块编译无误，五个核心定理只依赖三条标准公理。陶哲轩在博客中初步分析称，证明似乎动用了 Langlands 纲领与算术几何的全部现代进展，消化其思想需要时间；克雷研究所的千禧年大奖则要求成果在合格刊物发表满两年并获得数学界普遍接受。昨日发布时尚无独立复核，今日即获社区确认，节奏远超惯例。<strong>当证明的体量超过人类阅读能力，「读懂」变成「编译」——信任的锚点从权威转向可复现的验证管线</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#黎曼猜想</span>          <span class="card-tag">#Lean</span>          <span class="card-tag">#形式化验证</span>          
+          <a class="card-link" href="https://news-insight-ai.web.app/en/news/20261122_ai-news-daily" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">推理降本</span>
+          <h3 class="card-title">AWS 发布分布式 KV 缓存：自托管 LLM 推理成本最高降 40%、首字延迟降 80%</h3>
+        </div>
+        <p class="card-summary">AWS 本周推出分布式 KV 缓存能力，面向自托管大模型推理场景：官方称推理成本最高降低 40%，首字延迟（TTFT）最高降低 80%。原理是把多轮对话与多请求间重复的前缀计算结果（KV 缓存）从单实例内存扩展为可跨实例复用的分布式层——智能体长会话、RAG 大前缀与高频重复系统提示这三类负载受益最直接，缓存命中后不再重复预填充。同周还有两笔可以并排看的基础设施更新：谷歌在 Interactions API 上线 Tool Retrieval 预览，智能体平时只保留工具名称与描述、需要时才加载详细 schema，支持 Gemini 3.6 及以上版本（含 Gemini 4）与远程 MCP 服务器，官方未给出实测节省数字；谷歌 Antigravity 则通过缓存优化让同额度内可完成的工作量提升 22%。三条消息同向：模型侧降价接近见底后，<strong>下一轮成本竞争的主战场是缓存与上下文调度——省 Token 的生意正在从应用层下沉到基础设施层</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#AWS</span>          <span class="card-tag">#KV缓存</span>          <span class="card-tag">#推理优化</span>          
+          <a class="card-link" href="https://daily.jiayutool.cn/" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-teal">产品更新</span>
+          <h3 class="card-title">ChatGPT Spaces 全球向 Plus 用户开放：可从连接的应用持续更新的协作空间；Gemini 上线 GIF 生成</h3>
+        </div>
+        <p class="card-summary">OpenAI 11 月 20 日发布说明宣布，ChatGPT Spaces 开始向全球 18 岁以上 Plus 用户（20 美元月费）开放：支持可交互页面与演示文稿，并能从已连接的应用持续同步更新，获得 Space 权限的协作者可以共同编辑；限制同样明确——免费用户无法打开，不支持公开分享链接，协作依赖各方登录与授权。这等于把「活的项目文档」装进了订阅，与 Notion、Coda 类工具的边界进一步模糊。同周多模态侧还有两笔更新：谷歌 Gemini 上线 GIF 生成，由 Gemini Omni 1.2 Flash 驱动，首批八个国家免费可用，谷歌搜索首页同步新增 AI 侧边栏，可从首页继续此前的 AI 模式对话；Ideogram 发布 4.6 版本，新增 Generate 与 Precise Edit 两个 API 端点，生成最多接受 5 张参考图、精准编辑支持用蒙版圈定改动区域，输出最高 4K——面向广告物料的多轮迭代修图场景。<strong>订阅制的竞争正在从「模型好不好」转向「空间里能不能干活」——对话窗口之外的第二块画布成了新的增量</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#ChatGPT Spaces</span>          <span class="card-tag">#Gemini</span>          <span class="card-tag">#Ideogram</span>          
+          <a class="card-link" href="https://www.aiimpacthub.com/ai-news/2026-11-22" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-purple">🌏</div>
+    <span class="section-title">国内外 AI 动态</span>
+    <span class="section-count">4条</span>
+  </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-red">供应链安全</span>
+          <h3 class="card-title">OpenRouter 警告发往 MiniMax 的 prompt 可能已被读取：200 万条金丝雀揭出 AI 推理供应链泄露</h3>
+        </div>
+        <p class="card-summary">安全公司 Dragos 首席研究官 HD Moore 11 月 19 日发布研究：团队在 7 至 11 月间向主流 AI 服务发送约 200 万条植入唯一「金丝雀」秘密的 prompt（包括绑定空账户的可用 AWS 密钥、唯一 URL、DNS 名与私有仓库引用），每个秘密只出现在一条 prompt 里，据此精确定位泄露环节。结论分三类：至少三家托管服务商被入侵、攻击者在入口复制请求（数百个 AWS 密钥被盗用、累计数万次 API 调用，部分在数小时内被使用）；推理市场上有转售商以最低价揽客、打开标准请求日志留存客户 prompt；某中国 AI 实验室的系统抓取了其模型收到的超过一半 prompt 中的秘密 URL，其中约三分之二标记了「零数据保留」（ZDR），通常在请求后两到三天触发，经美国托管商转发的流量同样被抓取。11 月 21 日，OpenRouter 向客户发出标题直白的邮件——「你发往 MiniMax 模型的请求可能已被读取」：7 至 10 月发往 MiniMax 的 prompt 中植入的测试 URL在请求完成 40 至 130 小时后被第三方访问，无论 MiniMax 直接服务还是经 AtlasCloud、Novita、StreamLake 三家托管商转发；OpenRouter 已撤销相关端点的 ZDR 标签，并表示问题出在 MiniMax 与转发方一侧；MiniMax 目前仅通过 StreamLake 转达解释（10 月 22 日前启用了内容审核、现已启用 ZDR），尚未直接向 OpenRouter 作出说明。<strong>隐私标签只约束第一跳——经手你数据的每一环，都需要单独被验证</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#MiniMax</span>          <span class="card-tag">#OpenRouter</span>          <span class="card-tag">#供应链安全</span>          
+          <a class="card-link" href="https://www.egov.mn/en/article/two-million-planted-secrets-reveal-ai-supply-chain-leaking-user-prompts-dragos-researcher-finds" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-blue">行业观点</span>
+          <h3 class="card-title">微软 AI CEO 苏莱曼：模型已深度参与改进自身，递归自我改进是「危险能力」</h3>
+        </div>
+        <p class="card-summary">微软 AI CEO 穆斯塔法·苏莱曼本周公开表示，前沿模型已经深度参与到对自身的改进之中，递归自我改进（recursive self-improvement）是一种应当被严肃对待的「危险能力」。这一表态出现在行业多起自我改进事件集中曝光的背景下：OpenAI 此前发布 GPT-6.2 Astra 时首次确认触及「自我改进 High」阈值，微软自家模型同样在内部工作流中被用于优化训练与评测环节。他把问题的核心放在治理节奏上——能力迭代以周为单位，而评估、授权与审计机制仍以季度为单位，两者之间的落差就是风险所在。值得注意的是，同周 OpenAI 在 Agents API 中支持了 Daybreak 常驻安全智能体架构，说明头部厂商已开始把「监督智能体」做成产品而非流程。<strong>当模型开始改进模型，人类的角色从驾驶者退为审计者——安全预算该花在评估管线上，而不是发布文案上</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#微软</span>          <span class="card-tag">#递归自我改进</span>          <span class="card-tag">#AI安全</span>          
+          <a class="card-link" href="https://daily.jiayutool.cn/" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">产学研</span>
+          <h3 class="card-title">华中科技大学与阿里共建 AI 安全联合研究中心：首批 9 个课题覆盖大模型攻防</h3>
+        </div>
+        <p class="card-summary">华中科技大学与阿里巴巴宣布共建 AI 安全联合研究中心，首批设立 9 个课题，方向覆盖大模型攻防、提示注入防护、智能体行为约束等安全核心问题。这是头部高校与头部厂商在 AI 安全领域少见的成建制合作——不是单点赞助，而是按课题制长期投入，研究成果预期同时服务学术发表与产业落地。把这条放到本周的语境里看分量更清楚：OpenRouter 的 prompt 泄露事件说明推理链路的隐私边界脆弱，Meta Muse 的权限事故说明智能体权限设计粗糙，而国内产学研界选择在这个节点把攻防能力建设前置。对开发者与企业的现实启示是：模型选型之外，评估与红队预算应尽早列入 AI 项目基线成本，而不是等事故发生后再补。<strong>安全从合规附件变成共建课题——攻防能力正在成为基础设施的一部分</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#华中科技大学</span>          <span class="card-tag">#阿里巴巴</span>          <span class="card-tag">#大模型攻防</span>          
+          <a class="card-link" href="https://daily.jiayutool.cn/" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-purple">国产算力</span>
+          <h3 class="card-title">沐曦曦云 C 系列 GPU 率先完成腾讯混元 Hy4 Day 0 适配：国产算力生态从「能跑」转向「首发即适配」</h3>
+        </div>
+        <p class="card-summary">国产 GPU 厂商沐曦宣布，其曦云 C 系列 GPU 已率先完成腾讯混元 Hy4 的 Day 0 适配——即 Hy4 开源权重发布当天即可在沐曦硬件上完成部署推理。这个「Day 0」的含金量在于时序：过去国产芯片适配开源模型通常滞后数周甚至数月，先跑通再优化；现在国产算力厂商把适配窗口压到了与权重发布同步，意味着推理算子库、编译器与驱动链路已经具备对新模型的快速响应能力。这与人民日报本周的报道形成呼应：美团 LongCat-2.5 已验证大规模国产训练可行性，国产开源模型与国产算力的适配度被官方点名为竞争力关键。对采购方的实际意义是：评估国产算力时，「Day 0 适配」应成为与峰值算力、显存带宽并列的硬指标——它决定了新模型红利期能否第一时间吃到。<strong>算力的竞争正在从纸面参数转向生态响应速度——谁先适配，谁就先进入采购清单</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#沐曦</span>          <span class="card-tag">#混元Hy4</span>          <span class="card-tag">#国产GPU</span>          
+          <a class="card-link" href="https://daily.jiayutool.cn/" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-green">📈</div>
+    <span class="section-title">投资与商业</span>
+    <span class="section-count">3条</span>
+  </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-red">资本余波</span>
+          <h3 class="card-title">《纽约时报》：Anthropic 周五跌回 88.91 美元，员工套现 250 亿美元引发华尔街争议</h3>
+        </div>
+        <p class="card-summary">《纽约时报》11 月 22 日报道，Anthropic 创下史上最大规模 IPO 纪录（IPO 及相关融资累计吸引超过 1200 亿美元）后，股价表现开始让投资者感受到 AI 热潮背后的风险：上市首日大涨、估值一度冲上 2 万亿美元，但上周五（11 月 20 日）收跌约 9% 至 88.91 美元，逼近 83 美元发行价。报道同时披露了一项争议安排：上市过程中公司员工套现约 250 亿美元，部分对冲基金在高位接盘。市场层面的背景是上周五美股遭遇一年多来最严重下跌——纳指跌 5.3% 抹去今年全部涨幅、标普 500 较高点回落超 10% 进入技术性调整；而且这次并非股债跷跷板：现货黄金跌 3% 报 3517 美元、伦铜跌 4%、比特币创两年多低点，股、商品、贵金属、加密资产同向下跌，更像一次跨资产的流动性收缩与去杠杆。JonesTrading 首席市场策略师奥罗克认为，史上最大 IPO 出现在 AI 投资周期后期，「从心理层面来说，这可能是市场见顶的一个事件」。避险资金的选择也很直白：A 股工商银行、建设银行、中国银行同日续创历史新高，红利资产被动抱团。<strong>当融资疲劳遇上流动性收缩，AI 公司下一步要回答的不是增长故事，而是谁在为资本开支的折旧买单</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Anthropic</span>          <span class="card-tag">#纽约时报</span>          <span class="card-tag">#流动性</span>          
+          <a class="card-link" href="https://original.ifeng.com/c/8yFgmGaIxbj" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">龙头承压</span>
+          <h3 class="card-title">英伟达七连跌累跌 46%、市值缩水约一个亚马逊：SEC 调查会计问题，黄仁勋据称拟创办新半导体公司</h3>
+        </div>
+        <p class="card-summary">英伟达上周五再跌 14.01% 报 125.53 美元、盘中创 52 周新低，连续第七周收跌——创下 2008 年金融危机以来最长连续周跌纪录；本轮下跌累计跌幅达 46%，市值缩水约 2.6 万亿美元（接近一个亚马逊的总市值），从全球市值第一滑落至第四。三重利空叠加：路透报道美国证券交易委员会正调查英伟达潜在会计问题（涉地理收入披露口径与芯片厂商投资担保客户采购的循环融资安排）；黄仁勋据称将创办新的半导体公司、或筹资 500 亿美元用于创业，核心人物与公司的长期绑定出现不确定性；谷歌被曝将绕过博通直接采购 HBM，市场开始重估算力供应链的议价权分布。估值层面出现罕见倒挂：英伟达当前预期市盈率约 8.4 倍，而 AMD 未来 12 个月预期市盈率约 29 倍——市场已经把「AI 芯片商品化、买方按价格货比三家」计入定价。<strong>当硬件从稀缺品变成大宗商品，估值逻辑就从成长股换成了周期股——跌出来的便宜与涨出来的泡沫，用的是同一把尺子</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#英伟达</span>          <span class="card-tag">#SEC调查</span>          <span class="card-tag">#黄仁勋</span>          
+          <a class="card-link" href="https://caifuhao.eastmoney.com/news/20261122040345484284610" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-green">智能体落地</span>
+          <h3 class="card-title">Stripe 用 69 个真实支付场景测试编码智能体：平均 78.1 分，「全条件通过」骤降至 29.4%</h3>
+        </div>
+        <p class="card-summary">Stripe 于 11 月 19 日公布了一组罕见的真实业务评测：用 69 个支付、订阅与 marketplace 场景测试 14 组「模型+智能体」组合，平均得分 78.1%——但改为要求所有必要条件全部通过后，平均分骤降至 29.4%。差距说明的问题很具体：一个能跑通的结账流程，仍可能漏掉支付失败、订阅变更等边界条件；通用编码基准的高分，换算到真实业务里可能只剩三分之一。14 组组合在接入 Stripe 官方 agent 插件后全部提升，说明领域专属工具与约束对智能体的增益大于换模型。这是支付行业第一次给出这种口径的智能体评测，方法论值得被更多行业复用：在自己的业务场景里跑全量边界条件，再用「全通过率」而非平均分做采购决策。<strong>智能体落地的真实门槛不是能不能跑通，而是错误率被业务放大多少倍——评测口径决定商业判断</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#Stripe</span>          <span class="card-tag">#编码智能体</span>          <span class="card-tag">#真实评测</span>          
+          <a class="card-link" href="https://www.aiimpacthub.com/ai-news/2026-11-22" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-orange">🏛️</div>
+    <span class="section-title">政策与行业生态</span>
+    <span class="section-count">3条</span>
+  </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-teal">词元规则</span>
+          <h3 class="card-title">国家数据局：将健全词元计量计费与质量测评标准</h3>
+        </div>
+        <p class="card-summary">国家数据局表示将健全词元（Token）计量计费与质量测评标准。这条政策接住了本周正在发生的现实：双 11 期间词元首次成为电商独立品类，淘宝词元充值首日成交增长 450%，头部直播间半小时售出约 2 万亿词元；百度上线「词元所」交易平台，日均调用 Token 超 7000 亿；国内日均词元调用量已突破 500 万亿。当词元从平台内部的技术指标变成可计量、可定价、可交易的商品，缺少统一计量口径与质量测评的后果立刻显性化——不同厂商的 Token 定义、缓存计费、超长上下文折算方式并不一致，采购方比价困难，交易平台缺少争议裁决依据。标准供给的意义在于让这个新市场从「直播间抢购」走向可审计的大宗交易。<strong>计量与测评标准是词元市场的「度量衡」——规则到位之日，才是词元真正成为生产资料之时</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#国家数据局</span>          <span class="card-tag">#词元</span>          <span class="card-tag">#计量标准</span>          
+          <a class="card-link" href="https://daily.jiayutool.cn/" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-orange">国际治理</span>
+          <h3 class="card-title">联合国未就自主武器达成约束性规则，但给各国两年窗口提交规则方案；中美据称就军事 AI 人类参与达成共识</h3>
+        </div>
+        <p class="card-summary">联合国自主武器系统（俗称「杀人机器人」）谈判再次未能达成有约束力的国际规则：军事 AI 计划领先的国家抵制限制性条约，人权组织与中小国家则警告没有可执行规则将带来严重人道主义风险。最终达成的折中方案是给各国两年时间提交自主武器规则提案，把监管真空以时间表的形式暂时冻结。另一个值得注意的信号来自双边层面：据美国财政部长表态，中美就军事 AI 应用中「保持人类参与」达成了共识——在大国竞争的语境下，「人做决断」反而成了最容易先对齐的底线。这与国内政策形成镜像：交通运输部本周公布的第二批大模型智能体典型案例中，苏州地铁、济南地铁项目均强调「AI 赋能、人做决断」，排查建议保留证据来源并由专业人员复核。<strong>自主性的军控谈判没有赢家，但「人类在环」正在成为全球唯一共识——技术越自主，责任链越要能落到具体的人</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#联合国</span>          <span class="card-tag">#自主武器</span>          <span class="card-tag">#军事AI</span>          
+          <a class="card-link" href="https://en.zgba.com/daily/2026-11-22" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-badge badge-red">立法动向</span>
+          <h3 class="card-title">美国议员推动联邦层面禁止中国产 AI：从政府系统排除走向立法固化</h3>
+        </div>
+        <p class="card-summary">据外媒汇总，美国国会议员正在寻求推动联邦层面禁止中国开发的 AI 产品，延续此前针对联邦系统的行政排除路径：此前美国已下令联邦系统移除 DeepSeek，美国土安全部对 DeepSeek 下达采购排除令，本次动向意在把个案排除固化为普适立法。若立法落地，影响将不限于政府采购——联邦资金支持的承包商、受监管行业的信息系统都可能被纳入约束范围，中国模型在美国市场的合规成本将系统性抬升。与之相对，中国模型的市场重心已明显转移：OpenRouter 数据显示中国模型周调用量连续 29 周全球第一，国内日均词元调用突破 500 万亿，政策排挤与市场替代同步发生。对出海企业的操作建议是做好市场分层：美国受监管市场与开源生态市场分开评估风险，避免把关键业务的推理链路押在单一司法辖区的单一供应商上。<strong>禁令划定的是政治边界，不是能力边界——市场会自己找合规的路径，但供应商多元化从此是必修课</strong>。</p>
+        <div class="card-footer">
+          <span class="card-tag">#美国</span>          <span class="card-tag">#联邦禁令</span>          <span class="card-tag">#市场分层</span>          
+          <a class="card-link" href="https://pharma.intelligence-synthesis.com/en/ai-news/2026-11-22.html" target="_blank" rel="noopener">阅读原文 →</a>
+        </div>
+      </div>
+</div>
+
+<div class="editor-pick">
+  <div class="editor-pick-title">✍️ 编辑精选 · 深度观点</div>
+  <div class="editor-pick-content"><p>今天的关键词是「验证」。</p><p>黎曼猜想的 Lean 证明没有经过任何人类审稿人，但数十人复现了编译、两套独立 checker 确认定理陈述精确对齐 Mathlib 定义——数学的同行评审第一次部分交给了机器。同一周，200 万条金丝雀 prompt 揭出推理供应链的真相：零数据保留标签只是第一跳的承诺，转发链上的每一环都可能让隐私失效。</p><p>资本市场也在做同一件事。Anthropic 创纪录 IPO 之后，投资者不再为叙事付溢价，开始逐笔核对算力支出与收入曲线。三件事指向同一个拐点：<strong>AI 从「讲故事」进入「对账」阶段，可验证性本身就是新的竞争力</strong>。</p></div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p class="footer-text"><span class="footer-brand">三木AI 每日一刻钟</span> · 每天15分钟，读懂AI世界</p>
+  <p class="footer-text">2026年11月22日 星期日</p>
+</div>
+  </div>
+  <script>
+  (function() {
+var availableDates = [];
+var calYear = 2026, calMonth = 10;
+
+fetch('manifest.json?t=' + Date.now())
+  .then(function(r){return r.json();})
+  .then(function(data){
+    availableDates = data.dates || [];
+    renderCalendar();
+  })
+  .catch(function(){
+    availableDates = ['2026-11-22'];
+    renderCalendar();
+  });
+
+window.openCalendar = function() {
+  document.getElementById('calOverlay').classList.add('active');
+  renderCalendar();
+};
+window.closeCalendar = function(e) {
+  if (!e || e.target.id === 'calOverlay') {
+    document.getElementById('calOverlay').classList.remove('active');
+  }
+};
+window.changeMonth = function(delta) {
+  calMonth += delta;
+  if (calMonth > 11) { calMonth = 0; calYear++; }
+  if (calMonth < 0) { calMonth = 11; calYear--; }
+  renderCalendar();
+};
+window.goToDate = function(dateStr) {
+  if (dateStr === '2026-11-22') {
+    window.location.href = 'index.html';
+  } else {
+    window.location.href = 'ai-daily-' + dateStr + '.html';
+  }
+};
+
+function renderCalendar() {
+  var monthNames = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+  document.getElementById('calMonth').textContent = calYear + '年' + monthNames[calMonth];
+  var firstDay = new Date(calYear, calMonth, 1).getDay();
+  var daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+  var prevDays = new Date(calYear, calMonth, 0).getDate();
+  var html = '';
+  for (var i = firstDay - 1; i >= 0; i--) {
+    html += '<button class="calendar-day other-month" disabled>' + (prevDays - i) + '</button>';
+  }
+  for (var d = 1; d <= daysInMonth; d++) {
+    var ds = calYear + '-' + String(calMonth + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+    var cls = 'calendar-day';
+    var isAvail = availableDates.indexOf(ds) !== -1;
+    var isToday = ds === '2026-11-22';
+    if (isAvail) cls += ' available';
+    if (isToday) cls += ' today';
+    if (isAvail) {
+      html += '<button class="' + cls + '" onclick="goToDate(\'' + ds + '\')">' + d + '</button>';
+    } else {
+      html += '<button class="' + cls + '" disabled>' + d + '</button>';
+    }
+  }
+  var totalCells = firstDay + daysInMonth;
+  var nextPadding = (7 - (totalCells % 7)) % 7;
+  for (var j = 1; j <= nextPadding; j++) {
+    html += '<button class="calendar-day other-month" disabled>' + j + '</button>';
+  }
+  document.getElementById('calDays').innerHTML = html;
+}
+  })();
+  </script>
+
+</body>
+</html>
